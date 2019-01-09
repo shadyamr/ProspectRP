@@ -1,0 +1,13 @@
+/*
+	Shady's Roleplay
+	This file contains MySQL configuration, created by Shady.
+*/
+
+new ourConnection;
+new const SQL_HOSTNAME[] = "localhost";
+new const SQL_USERNAME[] = "User4141135325";
+new const SQL_DATABASE[] = "User4141135325";
+new const SQL_PASSWORD[] = "User4141135325";
+new const SQL_PORT = 3306;
+new bool:SQL_AUTORECONNECT = true;
+new const SQL_GAMEPOOLSIZE = 3;
