@@ -20,6 +20,17 @@
 #include <sscanf2>
 #include <streamer>
 
+enum PLAYER_DATA
+{
+	pSQL,
+	pAdmin
+}
+
+#include "../gamemodes/scripts/server_config.srp"
+#include "../gamemodes/scripts/mysql_config.srp"
+
+new bool:LoggedIn[MAX_PLAYERS], PlayerData[MAX_PLAYERS][PLAYER_DATA];
+
 main()
 {
 	print("\n-------------------------------------------------------");
@@ -29,13 +40,22 @@ main()
 
 public OnGameModeInit()
 {
-	SetGameModeText("Blank Script");
-	AddPlayerClass(0, 1958.3783, 1343.1572, 15.3746, 269.1425, 0, 0, 0, 0, 0, 0);
+    SendRconCommand("hostname "SVR_NAME"");
+    SendRconCommand("rcon_password "SVR_RCON"");
+    SendRconCommand("weburl "SVR_WEBSITE"");
+    SendRconCommand("mapname "SVR_LOCATION"");
+    SendRconCommand("language "SVR_LANGUAGE"");
+    SendRconCommand("password "SVR_PASSWORD"");
+	SetGameModeText(SVR_VERSION);
+
+	sqlConnection = mysql_connect(SQL_HOSTNAME, SQL_USERNAME, SQL_DATABASE, SQL_PASSWORD, SQL_PORT, SQL_AUTORECONNECT, SQL_GAMEPOOLSIZE);
+	mysql_log(LOG_ERROR | LOG_WARNING, LOG_TYPE_HTML);
 	return 1;
 }
 
 public OnGameModeExit()
 {
+	mysql_close(sqlConnection);
 	return 1;
 }
 

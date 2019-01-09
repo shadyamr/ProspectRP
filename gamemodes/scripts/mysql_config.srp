@@ -3,7 +3,7 @@
 	This file contains MySQL configuration, created by Shady.
 */
 
-new ourConnection;
+new sqlConnection;
 new const SQL_HOSTNAME[] = "localhost";
 new const SQL_USERNAME[] = "User4141135325";
 new const SQL_DATABASE[] = "User4141135325";
