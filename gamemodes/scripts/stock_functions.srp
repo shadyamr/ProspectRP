@@ -1,0 +1,109 @@
+/*
+	Shady's Roleplay
+	This file contains stock and other functions, created by Shady.
+*/
+
+GetName(playerid)
+{
+	new name[MAX_PLAYER_NAME];
+	GetPlayerName(playerid, name, sizeof(name));
+	return name;
+}
+
+GetIP(playerid)
+{
+	new ip[20];
+	GetPlayerIp(playerid, ip, sizeof(ip));
+	return ip;
+}
+
+NameRP(playerid)
+{
+	new name[MAX_PLAYER_NAME];
+	GetPlayerName(playerid, name, sizeof(name));
+	for(new i = 0; i < strlen(name); i++)
+	{
+		if(name[i] == '_')
+		{
+			name[i] = ' ';
+		}
+	}
+	return name;
+}
+
+strmatch(const String1[], const String2[])
+{
+    if ((strcmp(String1, String2, true, strlen(String2)) == 0) && (strlen(String2) == strlen(String1)))
+    {
+        return true;
+    }
+    else
+    {
+        return false;
+    }
+}
+
+GetHealthDots(playerid)
+{
+	new dots[64];
+	new Float:HP;
+
+	GetPlayerHealth(playerid, HP);
+
+	if(HP == 100)
+	    dots = "••••••••••";
+	else if(HP >= 90 && HP < 100)
+	    dots = "•••••••••{660000}•";
+    else if(HP >= 80 && HP < 90)
+	    dots = "••••••••{660000}••";
+    else if(HP >= 70 && HP < 80)
+	    dots = "•••••••{660000}•••";
+	else if(HP >= 60 && HP < 70)
+	    dots = "••••••{660000}••••";
+	else if(HP >= 50 && HP < 60)
+	    dots = "•••••{660000}•••••";
+	else if(HP >= 40 && HP < 50)
+	    dots = "••••{660000}••••••";
+	else if(HP >= 30 && HP < 40)
+	    dots = "•••{660000}•••••••";
+	else if(HP >= 20 && HP < 30)
+	    dots = "••{660000}••••••••";
+	else if(HP >= 10 && HP < 20)
+	    dots = "••{660000}••••••••";
+	else if(HP >= 0 && HP < 10)
+	    dots = "{660000}••••••••••";
+
+	return dots;
+}
+GetArmorDots(playerid)
+{
+	new dots[64];
+	new Float:AR;
+
+	GetPlayerArmour(playerid, AR);
+
+	if(AR == 100)
+	    dots = "••••••••••";
+	else if(AR >= 90 && AR < 100)
+	    dots = "•••••••••{666666}•";
+    else if(AR >= 80 && AR < 90)
+	    dots = "••••••••{666666}••";
+    else if(AR >= 70 && AR < 80)
+	    dots = "•••••••{666666}•••";
+	else if(AR >= 60 && AR < 70)
+	    dots = "••••••{666666}••••";
+	else if(AR >= 50 && AR < 60)
+	    dots = "•••••{666666}•••••";
+	else if(AR >= 40 && AR < 50)
+	    dots = "••••{666666}••••••";
+	else if(AR >= 30 && AR < 40)
+	    dots = "•••{666666}•••••••";
+	else if(AR >= 20 && AR < 30)
+	    dots = "••{666666}••••••••";
+	else if(AR >= 10 && AR < 20)
+	    dots = "••{666666}••••••••";
+	else if(AR >= 0 && AR < 10)
+	    dots = "{666666}••••••••••";
+
+	return dots;
+}

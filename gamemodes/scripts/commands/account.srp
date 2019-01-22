@@ -1,0 +1,23 @@
+/*
+	Shady's Roleplay
+	This file contains account commands, created by Shady.
+*/
+
+CMD:buylevel(playerid, params[])
+{
+	if(!LoggedIn[playerid]) return true;
+	new curLevel = PlayerData[playerid][pLevel], curRespect = PlayerData[playerid][pRespect], needed = 0, string[128];
+
+	needed = (curLevel * 5);
+	if(curRespect < needed) return SendErrorMessage(playerid, "You do not have enough respect points in order to level up.");
+	
+	PlayerData[playerid][pLevel] ++;
+	PlayerData[playerid][pLevel] -= needed;
+
+	SaveSQLInt(PlayerData[playerid][pSQLID], "players", "Level", PlayerData[playerid][pLevel]);
+	SaveSQLInt(PlayerData[playerid][pSQLID], "players", "Respect", PlayerData[playerid][pRespect]);
+
+	format(string, sizeof(string), "[Success]:{FFFFFF} You have levelled up to level %d [Respect Points Left: %d]", PlayerData[playerid][pLevel], PlayerData[playerid][pRespect]);
+	SendClientMessage(playerid, COLOR_GREEN, string);
+	return true;
+}

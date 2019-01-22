@@ -3,11 +3,8 @@
 	This file contains MySQL configuration, created by Shady.
 */
 
-new sqlConnection;
-new const SQL_HOSTNAME[] = "localhost";
-new const SQL_USERNAME[] = "User4141135325";
-new const SQL_DATABASE[] = "User4141135325";
-new const SQL_PASSWORD[] = "User4141135325";
-new const SQL_PORT = 3306;
-new bool:SQL_AUTORECONNECT = true;
-new const SQL_GAMEPOOLSIZE = 3;
+new sqlConnection, OneSecondTimer, lastSaveTime = 0;
+#define 	SQL_HOSTNAME	"localhost"
+#define 	SQL_USERNAME 	"shady3r32rf3f"
+#define 	SQL_DATABASE 	"server"
+#define 	SQL_PASSWORD 	"shady3r32rf3f2025"

@@ -1,0 +1,272 @@
+/*
+	Shady's Roleplay
+	This file contains public functions, created by Shady.
+*/
+
+Server:SaveSQLInt(sqlid, table[], row[], value)
+{
+	new query[512];
+	mysql_format(sqlConnection, query, sizeof(query), "UPDATE %e SET %e = %i WHERE id = %i", table, row, value, sqlid);
+	mysql_pquery(sqlConnection, query);
+	return true;
+}
+
+Server:DefaultPlayerValues(playerid)
+{
+	PlayerData[playerid][pSQLID] = 0;
+	PlayerData[playerid][pAdminLevel] = 0;
+	PlayerData[playerid][pMoney] = 0;
+	PlayerData[playerid][pLevel] = 1;
+	PlayerData[playerid][pRespect] = 0;
+	return true;
+}
+
+Server:DoesPlayerExist(playerid)
+{
+	new query[512];
+	mysql_format(sqlConnection, query, sizeof(query), "SELECT id FROM players WHERE Name = '%e' LIMIT 1", GetName(playerid));
+	mysql_pquery(sqlConnection, query, "SQL_DoesPlayerExist", "i", playerid);
+	return true;
+}
+
+Server:SQL_DoesPlayerExist(playerid)
+{
+	if(cache_num_rows(sqlConnection) != 0)
+	{
+		ShowLoginDialog(playerid, "");
+	}
+	else
+	{
+		ShowRegisterDialog(playerid, "");
+	}
+	SetPlayerPos(playerid, -206.8355, 1120.8429, 14.7422);
+	SetPlayerCameraLookAt(playerid, -206.8355, 1120.8429, 19.7422);
+	SetPlayerCameraPos(playerid, -109.4670, 1133.6563, 70.2519);
+	TogglePlayerSpectating(playerid, true);
+
+	// cam pos = -109.4670, 1133.6563, 70.2519
+	// camlookat & playerpos = -206.8355, 1120.8429, 14.7422
+	return true;
+}
+
+Server:TIMER_SetCameraPos(playerid)
+{
+	SetPlayerPos(playerid, -206.8355, 1120.8429, 14.7422);
+	SetPlayerCameraLookAt(playerid, -206.8355, 1120.8429, 19.7422);
+	SetPlayerCameraPos(playerid, -109.4670, 1133.6563, 70.2519);
+	// cam pos = -109.4670, 1133.6563, 70.2519
+	// camlookat & playerpos = -206.8355, 1120.8429, 14.7422
+	return true;
+}
+
+Server:ShowLoginDialog(playerid, error[])
+{
+	if(LoggedIn[playerid]) return true;
+	if(!strmatch(error, ""))
+	{
+		SendClientMessage(playerid, COLOR_RED, error);
+	}
+
+	new title[60];
+    new msgstring[110];
+    format(title, sizeof(title), "{FFFFFF}[{969696}Shady's Roleplay{FFFFFF}] Login");
+    format(msgstring, sizeof(msgstring), "{FFFFFF}That username is registered, please enter your password below.\n\n{969696}Choose a Password:", msgstring);
+	ShowPlayerDialog(playerid, DIALOG_LOGIN, DIALOG_STYLE_PASSWORD, title, msgstring, "Login", "Quit");
+	return true;
+}
+
+Server:ShowRegisterDialog(playerid, error[])
+{
+	if(LoggedIn[playerid]) return true;
+	if(!strmatch(error, ""))
+	{
+		SendClientMessage(playerid, COLOR_RED, error);
+	}
+
+	new title[60];
+    new msgstring[110];
+    format(title, sizeof(title), "{FFFFFF}[{969696}Shady's Roleplay{FFFFFF}] Registration");
+    format(msgstring, sizeof(msgstring), "{FFFFFF}You may register this username by entering your desired password below.\n\n{969696}Choose a Password:", msgstring);
+	ShowPlayerDialog(playerid, DIALOG_REGISTER, DIALOG_STYLE_PASSWORD, title, msgstring, "Register", "Quit");
+	return true;
+}
+
+Server:SQL_OnAccountLogin(playerid)
+{
+	if(cache_num_rows() == 0)
+	{
+		ShowLoginDialog(playerid, "[Error]:{FFFFFF} You have entered incorrect password.");
+		return true;
+	}
+
+	SendSuccessMessage(playerid, "You have successfully logged in to the server!");
+	PlayerData[playerid][pSQLID] = cache_get_field_content_int(0, "id", sqlConnection);
+	LoadPlayerData(playerid);
+	return true;
+}
+
+Server:LoadPlayerData(playerid)
+{
+	new query[512];
+	mysql_format(sqlConnection, query, sizeof(query), "SELECT * FROM players WHERE id = %i LIMIT 1", PlayerData[playerid][pSQLID]);
+	mysql_pquery(sqlConnection, query, "SQL_OnLoadAccount", "i", playerid);
+	return true;
+}
+
+Server:SQL_OnLoadAccount(playerid)
+{
+	LoggedIn[playerid] = true;
+
+	PlayerData[playerid][pAdminLevel] = cache_get_field_content_int(0, "AdminLevel", sqlConnection);
+	PlayerData[playerid][pMoney] = cache_get_field_content_int(0, "Money", sqlConnection);
+	PlayerData[playerid][pLevel] = cache_get_field_content_int(0, "Level", sqlConnection);
+	PlayerData[playerid][pRespect] = cache_get_field_content_int(0, "Respect", sqlConnection);
+
+	PlayerData[playerid][pLastPos][0] = cache_get_field_content_float(0, "LastX", sqlConnection);
+	PlayerData[playerid][pLastPos][1] = cache_get_field_content_float(0, "LastY", sqlConnection);
+	PlayerData[playerid][pLastPos][2] = cache_get_field_content_float(0, "LastZ", sqlConnection);
+	PlayerData[playerid][pLastPos][3] = cache_get_field_content_float(0, "LastRot", sqlConnection);
+
+	PlayerData[playerid][pLastInt] = cache_get_field_content_int(0, "Interior", sqlConnection);
+	PlayerData[playerid][pLastWorld] = cache_get_field_content_int(0, "World", sqlConnection);
+
+	SetPlayerScore(playerid, PlayerData[playerid][pLevel]);
+	ResetPlayerMoney(playerid);
+	GivePlayerMoney(playerid, PlayerData[playerid][pMoney]);
+	TogglePlayerSpectating(playerid, false);
+	SetPlayerSpawn(playerid);
+	SetPlayerColor(playerid, 0xFFFFFFFF);
+	return true;
+}
+
+Server:TIMER_OneSecondTimer()
+{
+	foreach(Player, i)
+	{
+		if(LoggedIn[i])
+		{
+			lastSaveTime++;
+			if(lastSaveTime < 5 )
+			{
+				SavePlayerPosition(i, false);
+			}
+			else
+			{
+				SavePlayerPosition(i, true);
+				lastSaveTime = 0;
+			}
+		}
+	}
+	return true;
+}
+
+Server:SavePlayerPosition(playerid, bool:save)
+{
+	GetPlayerPos(playerid, PlayerData[playerid][pLastPos][0], PlayerData[playerid][pLastPos][1], PlayerData[playerid][pLastPos][2]);
+	GetPlayerFacingAngle(playerid, PlayerData[playerid][pLastPos][3]);
+
+	PlayerData[playerid][pLastInt] = GetPlayerInterior(playerid);
+	PlayerData[playerid][pLastWorld] = GetPlayerVirtualWorld(playerid);
+
+	if(save)
+	{
+		new query[512];
+		mysql_format(sqlConnection, query, sizeof(query), "UPDATE players SET LastX = %f, LastY = %f, LastZ = %f, LastRot = %f, Interior = %i, World = %i WHERE id = %i LIMIT 1",
+		PlayerData[playerid][pLastPos][0], PlayerData[playerid][pLastPos][1], PlayerData[playerid][pLastPos][2], PlayerData[playerid][pLastPos][3],
+		PlayerData[playerid][pLastInt], PlayerData[playerid][pLastWorld], PlayerData[playerid][pSQLID]);
+		mysql_pquery(sqlConnection, query);
+	}
+	return true;
+}
+
+Server:SetPlayerSpawn(playerid)
+{
+	SetSpawnInfo(playerid, 0, DEFAULT_SKIN, PlayerData[playerid][pLastPos][0], PlayerData[playerid][pLastPos][1], PlayerData[playerid][pLastPos][2], PlayerData[playerid][pLastPos][3], 0, 0, 0, 0, 0, 0);
+	SpawnPlayer(playerid);
+	SetPlayerVirtualWorld(playerid, PlayerData[playerid][pLastWorld]);
+	SetPlayerInterior(playerid, PlayerData[playerid][pLastInt]);
+	return true;
+}
+
+Server:SQL_OnAccountRegister(playerid)
+{
+	SendSuccessMessage(playerid, "You have successfully registered to the server.");
+	DefaultPlayerValues(playerid);
+	PlayerData[playerid][pSQLID] = cache_insert_id();
+	LoadPlayerData(playerid);
+	return true;
+}
+
+Server:GetDistanceBetweenPlayers(playerid, id, Float:distance)
+{
+	new Float:x, Float:y, Float:z;
+	GetPlayerPos(playerid, x, y, z);
+	foreach(Player, i)
+	{
+		if(LoggedIn[id] && GetPlayerVirtualWorld(playerid) == GetPlayerVirtualWorld(id) && GetPlayerInterior(playerid) == GetPlayerInterior(id))
+		{
+			if(IsPlayerInRangeOfPoint(id, distance, x, y, z))
+			{
+				return true;
+			}
+		}
+	}
+	return false;
+}
+
+Server:SendLocalMessage(playerid, color, msg[])
+{
+	if(!LoggedIn[playerid]) return true;
+	new Float:x, Float:y, Float:z;
+	GetPlayerPos(playerid, x, y, z);
+	foreach(Player, i)
+	{
+		if(LoggedIn[i])
+		{
+			if(IsPlayerInRangeOfPoint(i, 15.0, x, y, z) && GetPlayerInterior(i) == GetPlayerInterior(playerid) && GetPlayerVirtualWorld(i) == GetPlayerVirtualWorld(playerid))
+			{
+				SendClientMessage(i, color, msg);
+			}
+		}
+	}
+	return true;
+}
+
+Server:SendLocalMessageEx(playerid, color, msg[], Float:distance)
+{
+	if(!LoggedIn[playerid]) return true;
+	new Float:x, Float:y, Float:z;
+	GetPlayerPos(playerid, x, y, z);
+	foreach(Player, i)
+	{
+		if(LoggedIn[i])
+		{
+			if(IsPlayerInRangeOfPoint(i, distance, x, y, z) && GetPlayerInterior(i) == GetPlayerInterior(playerid) && GetPlayerVirtualWorld(i) == GetPlayerVirtualWorld(playerid))
+			{
+				SendClientMessage(i, color, msg);
+			}
+		}
+	}
+	return true;
+}
+
+Server:UpdateNametag()
+{
+	foreach(new i : Player)
+	{
+        if(IsPlayerConnected(i))
+        {
+            new nametag[512], Float:armour;
+            GetPlayerArmour(i, armour);
+			if(armour > 1.0)
+			{
+				format(nametag, sizeof(nametag), "{%06x}%s {FFFFFF}(%i)\n{FFFFFF}%s\n{FF0000}%s", GetPlayerColor(i) >>> 8, NameRP(i), i, GetArmorDots(i), GetHealthDots(i));
+			}
+			else
+			{
+				format(nametag, sizeof(nametag), "{%06x}%s {FFFFFF}(%i)\n{FF0000}%s", GetPlayerColor(i) >>> 8, NameRP(i), i, GetHealthDots(i));
+			}
+			UpdateDynamic3DTextLabelText(cNametag[i], 0xFFFFFFFF, nametag);
+		}
+	}
+}

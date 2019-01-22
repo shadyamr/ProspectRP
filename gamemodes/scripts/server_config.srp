@@ -5,7 +5,8 @@
 
 #define 	SVR_NAME		"Shady's Roleplay - Beta Server (0.3.DL)"
 #define 	SVR_RCON		"ShadyBigBoss"
-#define 	SVR_VERSION 	"S:RP 0.1y" 	/*	z - minor bug fixes || y - small updates/new features || x - big new features */
+#define 	SVR_GMTEXT		"S:RP "SVR_VERSION""
+#define 	SVR_VERSION		"0.1y" 		/*	z - minor bug fixes || y - small updates/new features || x - big new features */
 #define 	SVR_WEBSITE		"shadyamr.github.io"
 #define 	SVR_LOCATION	"-"
 #define 	SVR_LANGUAGE	"English"
