@@ -1,0 +1,117 @@
+/*
+	New York Roleplay
+	This file contains defines, variables, and enums, created by Shady.
+*/
+
+#define Server:%0(%1) forward %0(%1); public %0(%1)
+
+#define SendUsageMessage(%0,%1) \
+	SendClientMessage(%0, COLOR_USAGE, "Usage:{FFFFFF} "%1)
+
+#define SendErrorMessage(%0,%1) \
+	SendClientMessage(%0, COLOR_RED, "[Error]:{FFFFFF} "%1)
+
+#define SendSuccessMessage(%0,%1) \
+	SendClientMessage(%0, COLOR_GREEN, "[Success]:{FFFFFF} "%1)
+
+#define SendServerMessage(%0,%1) \
+	SendClientMessage(%0, COLOR_SERVER, "[Server]:{FFFFFF} "%1)
+
+#define 		COLOR_USAGE 				0x636A76FF
+#define 		COLOR_WHITE					0xFFFFFF00
+#define 		COLOR_RED					0xFF000000
+#define 		COLOR_GREEN					0x267F0000
+#define 		COLOR_SERVER 				0x00BFFFFF
+#define 		COLOR_YELLOW				0xFFFF0000
+#define 		COLOR_ORANGE 				0xFF830000
+#define 		COLOR_EMOTE					0xC2A2DAAA
+#define 		COLOR_SHOUT					0x7F8C8D00
+#define 		COLOR_INTRO					0xE74C3CFF
+
+#define 		DIALOG_UNUSED				0
+#define 		DIALOG_REGISTER				1
+#define 		DIALOG_LOGIN				2
+#define 		DIALOG_CREDITS				3
+#define 		DIALOG_DAMAGE 				4
+#define 		DIALOG_STATS 				5
+
+#define 		NT_DISTANCE 				20.0
+
+#define 		MAX_DAMAGES					(MAX_PLAYERS * 10)
+#define 		MAX_HOUSES					100
+
+#define 		INVALID_WEAPON_ID			-1
+
+#define 		BODY_PART_TORSO 			3 // Formerly: Chest
+#define 		BODY_PART_GROIN 			4
+#define 		BODY_PART_LEFT_ARM 			5
+#define 		BODY_PART_RIGHT_ARM 		6
+#define 		BODY_PART_LEFT_LEG 			7
+#define 		BODY_PART_RIGHT_LEG 		8
+#define 		BODY_PART_HEAD 				9
+
+enum PLAYER_DATA
+{
+	pSQLID,
+	pRegisterDate[16],
+	pAdminLevel,
+	pHelper,
+	pTester,
+	pMoney,
+	pLevel,
+	pRespect,
+	Float:pLastPos[5],
+	pLastInt,
+	pLastWorld,
+	pSkin,
+	Float:pHealth,
+    Float:pArmour
+}
+
+enum DAMAGE_DATA
+{
+	DamagePlayerID,
+	DamageWeapon,
+	DamageBodypart,
+	Float:DamageAmount
+}
+
+enum HOUSE_DATA
+{
+	HouseID,
+	HouseOwnerSQL,
+	HouseName[40],
+	Float:HouseExterior[4],
+	Float:HouseInterior[4],
+	HouseInteriorID,
+	HousePrice,
+	HousePickup,
+	Text3D:HouseLabel
+}
+
+new bool:LoggedIn[MAX_PLAYERS], PlayerData[MAX_PLAYERS][PLAYER_DATA], DamageData[MAX_DAMAGES][DAMAGE_DATA], totalDamages = 0;
+new HouseData[MAX_HOUSES][HOUSE_DATA], TotalHousesCreated = 0;
+// new displayingText[MAX_PLAYERS], hideCenterHUDTimerID[MAX_PLAYERS];
+new Text3D:cNametag[MAX_PLAYERS];
+//new IsEngineOn[MAX_PLAYERS];
+
+// Textdraws:
+new PlayerText:LoginScreen[MAX_PLAYERS][3];
+new Text:TDEditor_TD[9];
+new Text:background_topslide;
+new Text:background_topslide_shadow;
+new Text:background_bottomslide;
+new Text:background_bottomslide_shadow;
+
+new Text:facebook_iconbg_shadow;
+new Text:facebook_txtbg_shadow;
+new Text:facebook_iconbg;
+new Text:facebook_icon;
+new Text:facebook_txt;
+
+new Text:nyrp_iconbg_shadow;
+new Text:nyrp_txtbg_shadow;
+new Text:nyrp_iconbg;
+new Text:nyrp_icon;
+new Text:nyrp_txt;
+//new Text:centerHUDInfo[MAX_PLAYERS];

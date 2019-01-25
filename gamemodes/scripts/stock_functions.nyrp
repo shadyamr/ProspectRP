@@ -1,5 +1,5 @@
 /*
-	Shady's Roleplay
+	New York Roleplay
 	This file contains stock and other functions, created by Shady.
 */
 
@@ -107,3 +107,94 @@ GetArmorDots(playerid)
 
 	return dots;
 }
+
+ShowLoginScreenTextDraw(playerid, bool:showTextdraw = true)
+{
+	if(showTextdraw)
+	{
+		for(new i = 0; i < 3; i++)
+		{
+			PlayerTextDrawShow(playerid, LoginScreen[playerid][i]);
+		}
+	}
+	return true;
+}
+
+HideLoginScreenTextDraw(playerid)
+{
+	for(new i = 0; i < 3; i++)
+		{
+			PlayerTextDrawHide(playerid, LoginScreen[playerid][i]);
+		}
+	return true;
+}
+
+displayWelcomeMessage(playerid)
+{
+	for(new i; i < 9; i++)
+	{
+		TextDrawShowForPlayer(playerid, TDEditor_TD[i]);
+	}
+	return true;
+}
+
+KickEx(playerid)
+{
+	SetTimerEx("KickPlayer", 1000, false, "i", playerid);
+	return true;
+}
+
+IsRPName(name[])
+{
+   new upos=strfind(name, "_");
+   if(isnull(name)) return false;
+   if(strlen(name)-2<upos<2) return false;
+   for(new i = 0; i < 24; i++)
+   {
+      if(!name[i]) break;
+      if(!i && 65 > name[i] > 90) return false;
+      if(name[i] == 95 && i!=upos) return false;
+      if(upos && i-upos == 1)
+      {
+         if(65 > name[i] > 90) return false;
+      }
+      if(65 <= name[i] <= 90)
+      {
+         if(!(!i || i==upos+1 || (i==2 && upos>5) || (i==upos+3 && strlen(name)-upos>5))) return false;
+      }
+      if(97 > name[i] > 122) return false;
+   }
+   if(upos==-1) return false;
+   if(strlen(name)-upos<3) return false;
+   return true;
+}
+
+/*createCenterHUDTextDraw(playerid)
+{
+	centerHUDInfo[playerid] = TextDrawCreate(319.000000, 380.000000, "");
+	TextDrawAlignment(centerHUDInfo[playerid], 2);
+	TextDrawBackgroundColor(centerHUDInfo[playerid], 255);
+	TextDrawFont(centerHUDInfo[playerid], 1);
+	TextDrawLetterSize(centerHUDInfo[playerid], 0.320000, 1.500000);
+	TextDrawColor(centerHUDInfo[playerid], -1);
+	TextDrawSetOutline(centerHUDInfo[playerid], 0);
+	TextDrawSetProportional(centerHUDInfo[playerid], 1);
+	TextDrawSetShadow(centerHUDInfo[playerid], 1);
+}
+
+displayCenterHUDInfo(playerid, string2[], duration)
+{
+	if(displayingText[playerid])
+	{
+		KillTimer(hideCenterHUDTimerID[playerid]);
+	}
+	TextDrawSetString(centerHUDInfo[playerid], string2);
+	TextDrawShowForPlayer(playerid, centerHUDInfo[playerid]);
+	hideCenterHUDTimerID[playerid] = SetTimerEx("Timer_hideCenterHUDInfo", duration *1000, 0, "i", playerid);
+	displayingText[playerid] = 1;
+}
+
+destroyCenterHUDInfo(playerid)
+{
+	TextDrawDestroy(centerHUDInfo[playerid]);
+}*/

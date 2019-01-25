@@ -1,3 +1,26 @@
+/*
+	Shady's Roleplay
+	This file contains custom skins and custom objects, created by Shady.
+*/
+
+// Public Skins
 AddCharModel(305, 20001, "lvpdpc2.dff", "lvpdpc2.txd");
 AddCharModel(305, 20002, "lapdpd2.dff", "lapdpd2.txd");
-AddSimpleModel(-1,19379, -2000, "wallzzz.dff", "wallzzz.txd");
+
+// Faction Skins
+// Donated Skins
+
+// NYC Custom Objects
+AddSimpleModel(0,19379, -2000, "bro_rod_1.dff", "pack_1.txd");
+AddSimpleModel(0,19379, -2001, "bro_rod_2.dff", "pack_1.txd");
+AddSimpleModel(0,19379, -2002, "bro_rod_3.dff", "pack_1.txd");
+AddSimpleModel(0,19379, -2003, "bro_rod_4.dff", "pack_1.txd");
+AddSimpleModel(0,19379, -2004, "bro_rod_5.dff", "pack_1.txd");
+AddSimpleModel(0,19379, -2005, "bro_rod_6.dff", "pack_1.txd");
+AddSimpleModel(0,19379, -2006, "bro_rod_7.dff", "pack_1.txd");
+AddSimpleModel(0,19379, -2007, "bro_rod_8.dff", "pack_1.txd");
+AddSimpleModel(0,19379, -2008, "bro_rod_9.dff", "pack_1.txd");
+AddSimpleModel(0,19379, -2009, "bro_rod_10.dff", "pack_1.txd");
+AddSimpleModel(0,19379, -2010, "alley_rod_1.dff", "alleynycroad.txd");
+AddSimpleModel(0,19379, -2011, "alley_rod_2.dff", "alleynycroad.txd");
+AddSimpleModel(0,19379, -2012, "alley_rod_5.dff", "alleynycroad.txd");

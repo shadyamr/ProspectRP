@@ -1,5 +1,5 @@
 /*
-	Shady's Roleplay
+	New York Roleplay
 	This file contains public functions, created by Shady.
 */
 
@@ -13,11 +13,18 @@ Server:SaveSQLInt(sqlid, table[], row[], value)
 
 Server:DefaultPlayerValues(playerid)
 {
+	LoggedIn[playerid] = false;
 	PlayerData[playerid][pSQLID] = 0;
 	PlayerData[playerid][pAdminLevel] = 0;
+	PlayerData[playerid][pHelper] = 0;
+	PlayerData[playerid][pTester] = 0;
 	PlayerData[playerid][pMoney] = 0;
 	PlayerData[playerid][pLevel] = 1;
 	PlayerData[playerid][pRespect] = 0;
+	PlayerData[playerid][pSkin] = 299;
+	PlayerData[playerid][pHealth] = 100;
+	PlayerData[playerid][pArmour] = 0;
+	ResetDamageData(playerid);
 	return true;
 }
 
@@ -69,8 +76,9 @@ Server:ShowLoginDialog(playerid, error[])
 
 	new title[60];
     new msgstring[110];
-    format(title, sizeof(title), "{FFFFFF}[{969696}Shady's Roleplay{FFFFFF}] Login");
+    format(title, sizeof(title), "{FFFFFF}New York Roleplay - Login");
     format(msgstring, sizeof(msgstring), "{FFFFFF}That username is registered, please enter your password below.\n\n{969696}Choose a Password:", msgstring);
+	ShowLoginScreenTextDraw(playerid);
 	ShowPlayerDialog(playerid, DIALOG_LOGIN, DIALOG_STYLE_PASSWORD, title, msgstring, "Login", "Quit");
 	return true;
 }
@@ -85,8 +93,9 @@ Server:ShowRegisterDialog(playerid, error[])
 
 	new title[60];
     new msgstring[110];
-    format(title, sizeof(title), "{FFFFFF}[{969696}Shady's Roleplay{FFFFFF}] Registration");
+    format(title, sizeof(title), "{FFFFFF}New York Roleplay - Registration");
     format(msgstring, sizeof(msgstring), "{FFFFFF}You may register this username by entering your desired password below.\n\n{969696}Choose a Password:", msgstring);
+	ShowLoginScreenTextDraw(playerid);
 	ShowPlayerDialog(playerid, DIALOG_REGISTER, DIALOG_STYLE_PASSWORD, title, msgstring, "Register", "Quit");
 	return true;
 }
@@ -99,9 +108,13 @@ Server:SQL_OnAccountLogin(playerid)
 		return true;
 	}
 
-	SendSuccessMessage(playerid, "You have successfully logged in to the server!");
 	PlayerData[playerid][pSQLID] = cache_get_field_content_int(0, "id", sqlConnection);
 	LoadPlayerData(playerid);
+	new string[256];
+	SendSuccessMessage(playerid, "You have successfully logged in to the server!");
+	
+	format(string, sizeof(string), "Player Level: %d | Admin Level: %d | Respect Points: %d", PlayerData[playerid][pLevel], PlayerData[playerid][pAdminLevel], PlayerData[playerid][pRespect]);
+	SendClientMessage(playerid, COLOR_SERVER, string);
 	return true;
 }
 
@@ -117,25 +130,33 @@ Server:SQL_OnLoadAccount(playerid)
 {
 	LoggedIn[playerid] = true;
 
+	PlayerData[playerid][pRegisterDate] = cache_get_field_content_int(16, "RegDate", sqlConnection);
 	PlayerData[playerid][pAdminLevel] = cache_get_field_content_int(0, "AdminLevel", sqlConnection);
+	PlayerData[playerid][pHelper] = cache_get_field_content_int(0, "Helper", sqlConnection);
+	PlayerData[playerid][pTester] = cache_get_field_content_int(0, "Tester", sqlConnection);
 	PlayerData[playerid][pMoney] = cache_get_field_content_int(0, "Money", sqlConnection);
 	PlayerData[playerid][pLevel] = cache_get_field_content_int(0, "Level", sqlConnection);
 	PlayerData[playerid][pRespect] = cache_get_field_content_int(0, "Respect", sqlConnection);
-
 	PlayerData[playerid][pLastPos][0] = cache_get_field_content_float(0, "LastX", sqlConnection);
 	PlayerData[playerid][pLastPos][1] = cache_get_field_content_float(0, "LastY", sqlConnection);
 	PlayerData[playerid][pLastPos][2] = cache_get_field_content_float(0, "LastZ", sqlConnection);
 	PlayerData[playerid][pLastPos][3] = cache_get_field_content_float(0, "LastRot", sqlConnection);
-
 	PlayerData[playerid][pLastInt] = cache_get_field_content_int(0, "Interior", sqlConnection);
 	PlayerData[playerid][pLastWorld] = cache_get_field_content_int(0, "World", sqlConnection);
+	PlayerData[playerid][pSkin] = cache_get_field_content_int(0, "Skin", sqlConnection);
+	PlayerData[playerid][pHealth] = cache_get_field_content_float(0, "Health", sqlConnection);
+	PlayerData[playerid][pArmour] = cache_get_field_content_float(0, "Armour", sqlConnection);
 
+	SetPlayerSkin(playerid, PlayerData[playerid][pSkin]);
 	SetPlayerScore(playerid, PlayerData[playerid][pLevel]);
 	ResetPlayerMoney(playerid);
 	GivePlayerMoney(playerid, PlayerData[playerid][pMoney]);
+	SetPlayerHealth(playerid, PlayerData[playerid][pHealth]);
+	SetPlayerArmour(playerid, PlayerData[playerid][pArmour]);
 	TogglePlayerSpectating(playerid, false);
 	SetPlayerSpawn(playerid);
 	SetPlayerColor(playerid, 0xFFFFFFFF);
+	HideLoginScreenTextDraw(playerid);
 	return true;
 }
 
@@ -148,11 +169,11 @@ Server:TIMER_OneSecondTimer()
 			lastSaveTime++;
 			if(lastSaveTime < 5 )
 			{
-				SavePlayerPosition(i, false);
+				SavePlayer(i, false);
 			}
 			else
 			{
-				SavePlayerPosition(i, true);
+				SavePlayer(i, true);
 				lastSaveTime = 0;
 			}
 		}
@@ -160,20 +181,23 @@ Server:TIMER_OneSecondTimer()
 	return true;
 }
 
-Server:SavePlayerPosition(playerid, bool:save)
+Server:SavePlayer(playerid, bool:save)
 {
 	GetPlayerPos(playerid, PlayerData[playerid][pLastPos][0], PlayerData[playerid][pLastPos][1], PlayerData[playerid][pLastPos][2]);
 	GetPlayerFacingAngle(playerid, PlayerData[playerid][pLastPos][3]);
+	GetPlayerHealth(playerid, PlayerData[playerid][pHealth]);
+	GetPlayerArmour(playerid, PlayerData[playerid][pArmour]);
 
 	PlayerData[playerid][pLastInt] = GetPlayerInterior(playerid);
 	PlayerData[playerid][pLastWorld] = GetPlayerVirtualWorld(playerid);
+	PlayerData[playerid][pSkin] = GetPlayerSkin(playerid);
 
 	if(save)
 	{
 		new query[512];
-		mysql_format(sqlConnection, query, sizeof(query), "UPDATE players SET LastX = %f, LastY = %f, LastZ = %f, LastRot = %f, Interior = %i, World = %i WHERE id = %i LIMIT 1",
+		mysql_format(sqlConnection, query, sizeof(query), "UPDATE players SET LastX = %f, LastY = %f, LastZ = %f, LastRot = %f, Interior = %i, World = %i, Skin = %i, Health = %f, Armour = %f WHERE id = %i LIMIT 1",
 		PlayerData[playerid][pLastPos][0], PlayerData[playerid][pLastPos][1], PlayerData[playerid][pLastPos][2], PlayerData[playerid][pLastPos][3],
-		PlayerData[playerid][pLastInt], PlayerData[playerid][pLastWorld], PlayerData[playerid][pSQLID]);
+		PlayerData[playerid][pLastInt], PlayerData[playerid][pLastWorld], PlayerData[playerid][pSkin], PlayerData[playerid][pHealth], PlayerData[playerid][pArmour], PlayerData[playerid][pSQLID]);
 		mysql_pquery(sqlConnection, query);
 	}
 	return true;
@@ -181,7 +205,8 @@ Server:SavePlayerPosition(playerid, bool:save)
 
 Server:SetPlayerSpawn(playerid)
 {
-	SetSpawnInfo(playerid, 0, DEFAULT_SKIN, PlayerData[playerid][pLastPos][0], PlayerData[playerid][pLastPos][1], PlayerData[playerid][pLastPos][2], PlayerData[playerid][pLastPos][3], 0, 0, 0, 0, 0, 0);
+	SetSpawnInfo(playerid, 0, PlayerData[playerid][pSkin], PlayerData[playerid][pLastPos][0], PlayerData[playerid][pLastPos][1], PlayerData[playerid][pLastPos][2], PlayerData[playerid][pLastPos][3], 0, 0, 0, 0, 0, 0);
+	SetPlayerSkin(playerid, PlayerData[playerid][pSkin]);
 	SpawnPlayer(playerid);
 	SetPlayerVirtualWorld(playerid, PlayerData[playerid][pLastWorld]);
 	SetPlayerInterior(playerid, PlayerData[playerid][pLastInt]);
@@ -190,7 +215,13 @@ Server:SetPlayerSpawn(playerid)
 
 Server:SQL_OnAccountRegister(playerid)
 {
-	SendSuccessMessage(playerid, "You have successfully registered to the server.");
+	new string[256];
+	SendSuccessMessage(playerid, "You have successfully logged in to the server!");
+
+	format(string, sizeof(string), "Player Level: %d | Admin Level: %d | Respect Points: %d", PlayerData[playerid][pLevel], PlayerData[playerid][pAdminLevel], PlayerData[playerid][pRespect]);
+	SendClientMessage(playerid, COLOR_SERVER, string);
+	displayWelcomeMessage(playerid);
+	SetTimerEx("removeWelcomeMessage", 15000, false, "i", playerid);
 	DefaultPlayerValues(playerid);
 	PlayerData[playerid][pSQLID] = cache_insert_id();
 	LoadPlayerData(playerid);
@@ -270,3 +301,107 @@ Server:UpdateNametag()
 		}
 	}
 }
+
+GetDamageType(weaponid)
+{
+	new damageType[25] = EOS;
+		
+	switch(weaponid)
+	{
+		case 0 .. 3, 5 .. 7, 10 .. 15:damageType = "Blunt Trauma";
+		case 4, 8, 9:damageType = "Stab Wound";
+		case 22 .. 34:damageType = "Gunshot Wound";
+		case 18, 35, 36, 37, 16, 39, 40:damageType = "Explosive/Burn Wound";
+		default:damageType = "Unknown Wound";
+	}
+
+	return damageType;
+}
+
+Server:ResetDamageData(playerid)
+{
+	for(new i = 0; i < MAX_DAMAGES; i++)
+	{
+		if(DamageData[i][DamagePlayerID] == playerid)
+		{
+			DamageData[i][DamagePlayerID] = INVALID_PLAYER_ID;
+			DamageData[i][DamageWeapon] = INVALID_WEAPON_ID;
+			DamageData[i][DamageBodypart] = 0;
+			DamageData[i][DamageAmount] = 0.0;
+		}
+	}
+	return true;
+}
+
+Server:SaveDamageData(playerid, weaponid, bodypart, Float:amount)
+{
+	totalDamages ++;
+	new i = totalDamages;
+
+	DamageData[i][DamagePlayerID] = playerid;
+	DamageData[i][DamageWeapon] = weaponid;
+	DamageData[i][DamageBodypart] = bodypart;
+	DamageData[i][DamageAmount] = amount;
+	return true;
+}
+
+GetBoneDamaged(bodypart)
+{
+	new bodypartR[20] = EOS;
+	switch(bodypart)
+	{
+		case BODY_PART_TORSO:bodypartR = "Torso";
+		case BODY_PART_GROIN:bodypartR = "Groin";
+		case BODY_PART_LEFT_ARM:bodypartR = "Left Arm";
+		case BODY_PART_RIGHT_ARM:bodypartR = "Right Arm";
+		case BODY_PART_LEFT_LEG:bodypartR = "Left Leg";
+		case BODY_PART_RIGHT_LEG:bodypartR = "Right Leg";
+		case BODY_PART_HEAD:bodypartR = "Head";
+	}
+	return bodypartR;
+}
+
+Server:DisplayDamageData(playerid, forplayerid)
+{
+	new count = 0;
+	for(new i = 0; i < MAX_DAMAGES; i++)
+	{
+		if(DamageData[i][DamagePlayerID] == playerid)
+		{
+			count++;
+		}
+	}
+
+	new longstr[512] = EOS, weaponname[20] = EOS;
+	if(!count) return SendServerMessage(forplayerid, "That player hasn't been injured.");
+	for(new i = 0; i < MAX_DAMAGES; i++)
+	{
+		if(DamageData[i][DamagePlayerID] == playerid)
+		{
+			GetWeaponName(DamageData[i][DamageWeapon], weaponname, sizeof(weaponname));
+			format(longstr, sizeof(longstr), "%s{FFFFFF} (%s - %s) %s\n", longstr, GetDamageType(DamageData[i][DamageWeapon]), GetBoneDamaged(DamageData[i][DamageBodypart]), weaponname);
+		}
+	}
+	ShowPlayerDialog(playerid, DIALOG_DAMAGE, DIALOG_STYLE_LIST, "{FF0000}Damage Information", longstr, "Ok", "");
+	return true;
+}
+
+Server:removeWelcomeMessage(playerid)
+{
+	for(new i; i < 9; i++)
+	{
+		TextDrawHideForPlayer(playerid, TDEditor_TD[i]);
+	}
+	return true;
+}
+
+Server:KickPlayer(playerid)
+{
+	Kick(playerid);
+}
+
+/*Server:hideCenterHUDInfo(playerid)
+{
+	TextDrawHideForPlayer(playerid, centerHUDInfo[playerid]);
+	displayingText[playerid] = 0;
+}*/

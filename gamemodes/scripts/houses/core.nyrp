@@ -1,0 +1,45 @@
+LoadServerHouses()
+{
+	return mysql_pquery(sqlConnection, "SELECT * FROM houses ORDER BY id ASC", "SQL_LoadServerHouses");
+}
+
+Server:SQL_LoadServerHouses()
+{
+	if(cache_num_rows() == 0) return print("[NY:RP] No houses were available to load from the database.");
+	
+	new rows, fields;
+	cache_get_data(rows, fields, sqlConnection);
+	for(new i = 0; i < rows && i < MAX_HOUSES; i++)
+	{
+		HouseData[i+1][HouseID] = cache_get_field_content_int(i, "id", sqlConnection);
+		HouseData[i+1][HouseOwnerSQL] = cache_get_field_content_int(i, "OwnerSQL", sqlConnection);
+		cache_get_field_content(i, "Name", HouseData[i+1][HouseName], sqlConnection, 40);
+		HouseData[i+1][HouseExterior][0] = cache_get_field_content_float(i, "ExtX", sqlConnection);
+		HouseData[i+1][HouseExterior][1] = cache_get_field_content_float(i, "ExtY", sqlConnection);
+		HouseData[i+1][HouseExterior][2] = cache_get_field_content_float(i, "ExtZ", sqlConnection);
+		HouseData[i+1][HouseExterior][3] = cache_get_field_content_float(i, "ExtA", sqlConnection);
+		HouseData[i+1][HouseInterior][0] = cache_get_field_content_float(i, "IntX", sqlConnection);
+		HouseData[i+1][HouseInterior][1] = cache_get_field_content_float(i, "IntY", sqlConnection);
+		HouseData[i+1][HouseInterior][2] = cache_get_field_content_float(i, "IntZ", sqlConnection);
+		HouseData[i+1][HouseInterior][3] = cache_get_field_content_float(i, "IntA", sqlConnection);
+		HouseData[i+1][HouseInteriorID] = cache_get_field_content_int(i, "IntID", sqlConnection);
+		HouseData[i+1][HousePrice] = cache_get_field_content_int(i, "Price", sqlConnection);
+		TotalHousesCreated++;
+	}
+	CreateServerHouseData();
+	printf("[NY:RP] %i houses has been loaded from the database.", TotalHousesCreated);
+	return true;
+}
+
+CreateServerHouseData()
+{
+	for(new i = 0; i < MAX_HOUSES; i++)
+	{
+		if(HouseData[i][HouseID] != 0)
+		{
+			HouseData[i][HousePickup] = CreatePickup(1273, 1, HouseData[i][HouseExterior][0], HouseData[i][HouseExterior][1], HouseData[i][HouseExterior][2], 0);
+			HouseData[i][HouseLabel] = Create3DTextLabel(HouseData[i][HouseName], 0xFFFFFFFF, HouseData[i][HouseExterior][0], HouseData[i][HouseExterior][1], HouseData[i][HouseExterior][2], 10.0, 0, 0); // should be 1 (last digit) on public
+		}
+	}
+	return true;
+}

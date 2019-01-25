@@ -1,6 +1,6 @@
 /*
-	Shady's Roleplay
-	This file contains general commands, created by Shady.
+	New York Roleplay
+	This file contains server commands, created by Shady.
 */
 
 CMD:s(playerid, params[]) return cmd_shout(playerid, params);
@@ -22,8 +22,8 @@ CMD:low(playerid, params[])
 	if(isnull(params)) return SendUsageMessage(playerid, "/l(ow) [low message]");
 
 	new string[128];
-	format(string, sizeof(string), "%s says (low): %s!", NameRP(playerid), params);
-	SendLocalMessageEx(playerid, COLOR_SHOUT, string, 7.6);
+	format(string, sizeof(string), "[Quiet] %s says: %s", NameRP(playerid), params);
+	SendLocalMessageEx(playerid, COLOR_WHITE, string, 7.6);
 	return true;
 }
 
@@ -141,6 +141,20 @@ CMD:ame(playerid, params[])
 	return true;
 }
 
+CMD:injuries(playerid, params[])
+{
+	if(!LoggedIn[playerid]) return true;
+	new id;
+	if(sscanf(params, "u", id)) return SendUsageMessage(playerid, "/injuries [playerid or name]");
+	{
+		if(!IsPlayerConnected(id)) return SendErrorMessage(playerid, "That player isn't connected.");
+		if(!LoggedIn[id]) return SendErrorMessage(playerid, "That player isn't logged in.");
+		if(!GetDistanceBetweenPlayers(playerid, id, 5.0)) return SendErrorMessage(playerid, "You must be close to the player in order to whisper them.");
+		DisplayDamageData(id, playerid);
+	}
+	return true;
+}
+
 CMD:rules(playerid, params[])
 {
 	new vstr[5120];
@@ -180,18 +194,79 @@ CMD:rules(playerid, params[])
 	strins(vstr, "{FFFFFF}Legend: {FF0000}High Offense{FFFFFF} | {FF9900}Medium Offense\n", strlen(vstr));
 	strins(vstr, "{FFFFFF}Please read all the rules at our website. Punishments can also vary on level.\n\n", strlen(vstr));
 	ShowPlayerDialog(playerid, DIALOG_UNUSED, DIALOG_STYLE_MSGBOX, "Server Rules", vstr, "Okay", "");
-	return 1;
+	return true;
 }
 
 CMD:credits(playerid, params[])
 {
 	new string[230];
 	if(!LoggedIn[playerid]) return true;
-	strcat(string, "Shady's Roleplay would like to take the time to mention the following members\n");
+	strcat(string, "New York Roleplay would like to take the time to mention the following members\n");
 	strcat(string, "and behalf of that, giving them some credit for their appreciated contribution\n");
 	strcat(string, "to our wonderful server.\n\n");
 	strcat(string, "{1ABC9C}Shady{FFFFFF} - Owner & Scripter\n");
 	ShowPlayerDialog(playerid, DIALOG_CREDITS, DIALOG_STYLE_MSGBOX, "Server Credits", string, "Close", "");
-	return 1;
+	return true;
 }
 
+CMD:gotopoint(playerid, params[])
+{
+	new	Float:x, Float:y, Float:z, interior;
+	if(sscanf(params, "fffi", x, y, z, interior)) return SendUsageMessage(playerid, "/gotopoint [x] [y] [z] [interior id]");
+	SetPlayerPos(playerid, x, y, z);
+	SetPlayerInterior(playerid, interior);
+	return true;
+}
+
+CMD:buylevel(playerid, params[])
+{
+	if(!LoggedIn[playerid]) return true;
+	new curLevel = PlayerData[playerid][pLevel], curRespect = PlayerData[playerid][pRespect], needed = 0, string[128];
+
+	needed = (curLevel * 5);
+	if(curRespect < needed) return SendErrorMessage(playerid, "You do not have enough respect points in order to level up.");
+	
+	PlayerData[playerid][pLevel] ++;
+	PlayerData[playerid][pRespect] -= needed;
+
+	SaveSQLInt(PlayerData[playerid][pSQLID], "players", "Level", PlayerData[playerid][pLevel]);
+	SaveSQLInt(PlayerData[playerid][pSQLID], "players", "Respect", PlayerData[playerid][pRespect]);
+	SetPlayerScore(playerid, PlayerData[playerid][pLevel]);
+
+	format(string, sizeof(string), "[Success]:{FFFFFF} You have levelled up to level %d [Respect Points Left: %d]", PlayerData[playerid][pLevel], PlayerData[playerid][pRespect]);
+	SendClientMessage(playerid, COLOR_GREEN, string);
+	return true;
+}
+
+CMD:hp(playerid, params[])
+{
+	SetPlayerHealth(playerid, 50);
+	return true;
+}
+
+CMD:armor(playerid, params[])
+{
+	SetPlayerArmour(playerid, 50);
+	return true;
+}
+
+CMD:makeadmin(playerid, params[])
+{
+   	new str[128], playerb, value;
+    if(PlayerData[playerid][pAdminLevel] < 4 && !IsPlayerAdmin(playerid)) return SendErrorMessage( playerid, "You're not authorized to use this command.");
+    if(sscanf(params, "ui", playerb, value)) return SendUsageMessage(playerid, "/makeadmin [playerid/partofname] [level 1-4].");
+	if(value < 0 || value > 4) return SendErrorMessage(playerid, "Invalid administrator level, 0-4.");
+    /*if(value == 0)
+    {
+        PlayerInfo[playerb][pAdmin] = value;
+        format(str, sizeof(str), "%s has kicked %s from the Administration Team.", NameRP(playerid), NameRP(playerb));
+        SendAdminMessage(1, str);
+        SCMex(playerb, COLOR_RED, "You've been kicked from the Administration Team by: %s", NameRP(playerid));
+        return 1;
+	}*/
+	PlayerData[playerb][pAdminLevel] = value;
+	SaveSQLInt(PlayerData[playerb][pSQLID], "players", "AdminLevel", PlayerData[playerb][pAdminLevel]);
+	format(str, sizeof(str), "You've been made a level %i Administrator by: %s", value, NameRP(playerid));
+	SendClientMessage(playerb, COLOR_RED, str);
+    return 1;
+}
