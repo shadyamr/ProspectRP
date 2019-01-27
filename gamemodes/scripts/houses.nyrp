@@ -1,3 +1,5 @@
+static Float:hCreateExt[4], Float:hCreateInt[4], hCreateName[40], hCreatePrice, hCreateIntID;
+
 LoadServerHouses()
 {
 	return mysql_pquery(sqlConnection, "SELECT * FROM houses ORDER BY id ASC", "SQL_LoadServerHouses");
@@ -39,6 +41,115 @@ CreateServerHouseData()
 		{
 			HouseData[i][HousePickup] = CreatePickup(1273, 1, HouseData[i][HouseExterior][0], HouseData[i][HouseExterior][1], HouseData[i][HouseExterior][2], 0);
 			HouseData[i][HouseLabel] = Create3DTextLabel(HouseData[i][HouseName], 0xFFFFFFFF, HouseData[i][HouseExterior][0], HouseData[i][HouseExterior][1], HouseData[i][HouseExterior][2], 10.0, 0, 0); // should be 1 (last digit) on public
+		}
+	}
+	return true;
+}
+
+Server:SaveHouseToDatabase(playerid)
+{
+	new interior = hCreateIntID, price = hCreatePrice, name[40], Float:ext[4], Float:int[4], query[500];
+	format(name, sizeof(name), hCreateName);
+	ext[0] = hCreateExt[0];
+	ext[1] = hCreateExt[1];
+	ext[2] = hCreateExt[2];
+	ext[3] = hCreateExt[3];
+
+	int[0] = hCreateInt[0];
+	int[1] = hCreateInt[1];
+	int[2] = hCreateInt[2];
+	int[3] = hCreateInt[3];
+
+	mysql_format(sqlConnection, query, sizeof(query), "INSERT INTO houses (`OwnerSQL`, `Name`, `ExtX`, `ExtY`, `ExtZ`, `ExtA`, `IntX`, `IntY`, `IntZ`, `IntA`, `IntID`, `Price`) VALUES(0, '%e', %f, %f, %f, %f, %f, %f, %f, %f, %i, %i)", name, ext[0], ext[1], ext[2], ext[3], int[0], int[1], int[2], int[3], interior, price);
+	mysql_pquery(sqlConnection, query, "SQL_SaveHouseToDB", "i", playerid);
+	return true;
+}
+
+Server:SQL_SaveHouseToDB(playerid)
+{
+	TotalHousesCreated++;
+	new interior = hCreateIntID, price = hCreatePrice, name[40], Float:ext[4], Float:int[4], i = TotalHousesCreated, string[200];
+	format(name, sizeof(name), hCreateName);
+	ext[0] = hCreateExt[0];
+	ext[1] = hCreateExt[1];
+	ext[2] = hCreateExt[2];
+	ext[3] = hCreateExt[3];
+
+	int[0] = hCreateInt[0];
+	int[1] = hCreateInt[1];
+	int[2] = hCreateInt[2];
+	int[3] = hCreateInt[3];
+
+	HouseData[i][HouseID] = cache_insert_id();
+	HouseData[i][HouseOwnerSQL] = 0;
+	format(HouseData[i][HouseName], 40, name);
+	HouseData[i][HouseExterior][0] = ext[0];
+	HouseData[i][HouseExterior][1] = ext[1];
+	HouseData[i][HouseExterior][2] = ext[2];
+	HouseData[i][HouseExterior][3] = ext[3];
+	HouseData[i][HouseInterior][0] = int[0];
+	HouseData[i][HouseInterior][1] = int[1];
+	HouseData[i][HouseInterior][2] = int[2];
+	HouseData[i][HouseInterior][3] = int[3];
+	HouseData[i][HouseInteriorID] = interior;
+	HouseData[i][HousePrice] = price;
+
+	printf("[NY:RP] House ID %i created by %s.", cache_insert_id(), GetName(playerid));
+	format(string, sizeof(string), "[Server]:{FFFFFF} House ID [%i] created by %s, price: $%d", i, cache_insert_id(), name, price);
+	SendClientMessage(playerid, COLOR_SERVER, string);
+
+	hCreateIntID = 0;
+	hCreatePrice = 0;
+	hCreateName = "None";
+	for(new j = 0; j < 4; j++)
+	{
+		hCreateInt[j] = 0.0;
+		hCreateExt[j] = 0.0;
+	}
+	return true;
+}
+
+CMD:createhouse(playerid, params[])
+{
+	if(PlayerData[playerid][pAdminLevel] < 2) return SendUnauthorizedMsg(playerid);
+
+	new section[10], extra[40], string[50];
+	if(sscanf(params, "s[10]S('None')[40]", section, extra)) return SendUsageMessage(playerid, "/createhouse [exterior/interior/name/price/complete]");
+	{
+		if(strmatch(section, "exterior"))
+		{
+			GetPlayerPos(playerid, hCreateExt[0], hCreateExt[1], hCreateExt[2]);
+			GetPlayerFacingAngle(playerid, hCreateExt[3]);
+			SendSuccessMessage(playerid, "Exterior position has been set successfully.");
+		}
+		else if(strmatch(section, "interior"))
+		{
+			hCreateIntID = GetPlayerInterior(playerid);
+			GetPlayerPos(playerid, hCreateInt[0], hCreateInt[1], hCreateInt[1]);
+			GetPlayerFacingAngle(playerid, hCreateInt[3]);
+			SendSuccessMessage(playerid, "Interior position has been set successfully.");
+		}
+		else if(strmatch(section, "name"))
+		{
+			if(strmatch(extra, "None")) return SendUsageMessage(playerid, "/createhouse name [name]");
+			if(strlen(extra) > 39 || strlen(extra) < 3) return SendErrorMessage(playerid, "Name length must be between 3 and 39 characters long.");
+			hCreateName = extra;
+			format(string, sizeof(string), "[Success]:{FFFFFF} Name has been set successfully to %s", extra);
+			SendClientMessage(playerid, COLOR_GREEN, string)
+		}
+		else if(strmatch(section, "price"))
+		{
+			if(strmatch(extra, "None")) return SendUsageMessage(playerid, "/createhouse price [price]");
+			if(strval(extra) < 1) return SendErrorMessage(playerid, "Price must be above $1.");
+			hCreatePrice = strval(extra);
+			format(string, sizeof(string), "[Success]:{FFFFFF} Price has been set successfully to $%d", strval(extra));
+			SendClientMessage(playerid, COLOR_GREEN, string);
+		}
+		else if(strmatch(section, "complete"))
+		{
+			if(hCreatePrice == 0) return true;
+			if(strmatch(hCreateName, "None")) return true;
+			SaveHouseToDatabase(playerid);
 		}
 	}
 	return true;

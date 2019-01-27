@@ -77,3 +77,69 @@ v0.3.DL-R1, (C)2005-2018 SA-MP Team
 
 [18:49:21] Setting server password to: "a7a"
 [18:49:21] Number of vehicle models: 0
+
+----------
+Loaded log file: "server_log.txt".
+----------
+
+SA-MP Dedicated Server
+----------------------
+v0.3.DL-R1, (C)2005-2018 SA-MP Team
+
+[21:03:21] 
+[21:03:21] Server Plugins
+[21:03:21] --------------
+[21:03:21]  Loading plugin: crashdetect
+[21:03:21]   CrashDetect plugin 4.19.4
+[21:03:21]   Loaded.
+[21:03:21]  Loading plugin: mysql
+[21:03:22]  >> plugin.mysql: R39-6 successfully loaded.
+[21:03:22]   Loaded.
+[21:03:22]  Loading plugin: sscanf
+[21:03:22] 
+
+[21:03:22]  ===============================
+
+[21:03:22]       sscanf plugin loaded.     
+
+[21:03:22]          Version:  2.8.3        
+
+[21:03:22]   (c) 2018 Alex "Y_Less" Cole  
+
+[21:03:22]  ===============================
+
+[21:03:22]   Loaded.
+[21:03:22]  Loading plugin: streamer
+[21:03:22] 
+
+*** Streamer Plugin v2.9.4 by Incognito loaded ***
+
+[21:03:22]   Loaded.
+[21:03:22]  Loading plugin: nativechecker
+[21:03:22]   Loaded.
+[21:03:22]  Loaded 5 plugins.
+
+[21:03:22] [artwork:crc] lvpdpc2.dff CRC = 0xFBD1EA7C
+[21:03:22] [artwork:crc] lvpdpc2.txd CRC = 0xDC92731E
+[21:03:22] [artwork:crc] lapdpd2.dff CRC = 0xA558D422
+[21:03:22] [artwork:crc] lapdpd2.txd CRC = 0xA442E2DA
+[21:03:22] 
+[21:03:22] Filterscripts
+[21:03:22] ---------------
+[21:03:22]   Loaded 0 filterscripts.
+
+[21:03:22] Setting server password to: "a7a"
+[21:03:22] Number of vehicle models: 0
+[21:03:22] [NY:RP] No houses were available to load from the database.
+[21:04:07] [connection] incoming connection: 192.168.1.10:63006 id: 0
+[21:04:07] [join] Shady_Collins has joined the server (0:192.168.1.10)
+[21:05:56] [NY:RP] House ID 1 created by Shady_Collins.
+[21:06:32] [part] Shady_Collins has left the server (0:1)
+[21:10:28] [connection] incoming connection: 192.168.1.10:54986 id: 0
+[21:10:28] [join] Shady_Collins has joined the server (0:192.168.1.10)
+[21:10:39] RCON (In-Game): Player #0 (Shady_Collins) has logged in.
+[21:10:40] RCON (In-Game): Player [Shady_Collins] sent command: gmx
+[21:10:52] Setting server password to: "a7a"
+[21:10:52] Number of vehicle models: 0
+[21:10:52] [NY:RP] 1 houses has been loaded from the database.
+[21:11:20] [part] Shady_Collins has left the server (0:1)
