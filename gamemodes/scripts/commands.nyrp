@@ -3,6 +3,69 @@
 	This file contains server commands, created by Shady.
 */
 
+// Vehicle Commands:
+CMD:engine(playerid, params[])
+{
+    if(!IsPlayerInAnyVehicle(playerid)) return SendClientMessage(playerid, -1, "You must be in a vehicle to use this command.");
+
+    new vehicleid = GetPlayerVehicleID(playerid), engine, lights, alarm, doors, bonnet, boot, objective;
+    GetVehicleParamsEx(vehicleid, engine, lights, alarm, doors, bonnet, boot, objective);
+    if(engine == VEHICLE_PARAMS_OFF) SetVehicleParamsEx(vehicleid, VEHICLE_PARAMS_ON, lights, alarm, doors, bonnet, boot, objective);
+    else SetVehicleParamsEx(vehicleid, VEHICLE_PARAMS_OFF, lights, alarm, doors, bonnet, boot, objective);
+    return true;
+}
+
+// General Commands:
+CMD:enter(playerid, params[])
+{
+	SendClientMessage(playerid, COLOR_WHITE, "To be adjusted..");
+	return true;
+}
+
+CMD:exit(playerid, params[])
+{
+	SendClientMessage(playerid, COLOR_WHITE, "To be adjusted..");
+	return true;
+}
+
+CMD:commands(playerid, params[]) return cmd_help(playerid, params);
+CMD:cmds(playerid, params[]) return cmd_help(playerid, params);
+CMD:help(playerid, params[])
+{
+	SendClientMessage(playerid, COLOR_WHITE, "To be adjusted..");
+	return true;
+}
+
+CMD:ah(playerid, params[]) return cmd_ahelp(playerid, params);
+CMD:acmds(playerid, params[]) return cmd_ahelp(playerid, params);
+CMD:ahelp(playerid, params[])
+{
+	if(!PlayerData[playerid][pAdminLevel])
+	{
+		SendClientMessage(playerid, COLOR_WHITE, "To be adjusted..");
+	}
+	else SendUnauthorizedMsg(playerid);
+	return true;
+}
+
+CMD:admins(playerid, params[])
+{
+	SendClientMessage(playerid, COLOR_WHITE, "Administrators Online:");
+	foreach(new i : Player)
+	{
+		if(PlayerData[i][pAdminLevel])
+		{
+			SendClientMessageEx(playerid, COLOR_GREY, "%s: %s", AdminRank(i), NameRP(i));
+		}
+		else
+		{
+			return SendClientMessage(playerid, COLOR_GREY, "There are no administrators' online.");
+		}
+	}
+
+	return 1;
+}
+
 CMD:s(playerid, params[]) return cmd_shout(playerid, params);
 CMD:shout(playerid, params[])
 {
@@ -209,15 +272,7 @@ CMD:credits(playerid, params[])
 	return true;
 }
 
-CMD:gotopoint(playerid, params[])
-{
-	new	Float:x, Float:y, Float:z, interior;
-	if(sscanf(params, "fffi", x, y, z, interior)) return SendUsageMessage(playerid, "/gotopoint [x] [y] [z] [interior id]");
-	SetPlayerPos(playerid, x, y, z);
-	SetPlayerInterior(playerid, interior);
-	return true;
-}
-
+// Account Commands:
 CMD:buylevel(playerid, params[])
 {
 	if(!LoggedIn[playerid]) return true;
@@ -238,35 +293,34 @@ CMD:buylevel(playerid, params[])
 	return true;
 }
 
-CMD:hp(playerid, params[])
-{
-	SetPlayerHealth(playerid, 50);
-	return true;
-}
-
-CMD:armor(playerid, params[])
-{
-	SetPlayerArmour(playerid, 50);
-	return true;
-}
-
+// Administrator Commands:
 CMD:makeadmin(playerid, params[])
 {
    	new str[128], playerb, value;
-    if(PlayerData[playerid][pAdminLevel] < 4 && !IsPlayerAdmin(playerid)) return SendErrorMessage( playerid, "You're not authorized to use this command.");
+    if(PlayerData[playerid][pAdminLevel] < 4 && !IsPlayerAdmin(playerid)) return SendUnauthorizedMsg(playerid);
     if(sscanf(params, "ui", playerb, value)) return SendUsageMessage(playerid, "/makeadmin [playerid/partofname] [level 1-4].");
 	if(value < 0 || value > 4) return SendErrorMessage(playerid, "Invalid administrator level, 0-4.");
-    /*if(value == 0)
+    if(value == 0)
     {
-        PlayerInfo[playerb][pAdmin] = value;
-        format(str, sizeof(str), "%s has kicked %s from the Administration Team.", NameRP(playerid), NameRP(playerb));
-        SendAdminMessage(1, str);
-        SCMex(playerb, COLOR_RED, "You've been kicked from the Administration Team by: %s", NameRP(playerid));
+		PlayerData[playerb][pAdminLevel] = value;
+		SaveSQLInt(PlayerData[playerb][pSQLID], "players", "AdminLevel", PlayerData[playerb][pAdminLevel]);
+		format(str, sizeof(str), "[Server]:{FFFFFF} You've been kicked from the Administration Team by %s", value, NameRP(playerid));
+		SendClientMessage(playerb, COLOR_SERVER, str);
         return 1;
-	}*/
+	}
 	PlayerData[playerb][pAdminLevel] = value;
 	SaveSQLInt(PlayerData[playerb][pSQLID], "players", "AdminLevel", PlayerData[playerb][pAdminLevel]);
-	format(str, sizeof(str), "You've been made a level %i Administrator by: %s", value, NameRP(playerid));
-	SendClientMessage(playerb, COLOR_RED, str);
+	format(str, sizeof(str), "[Server]:{FFFFFF} You've been made a level %i Administrator by %s", value, NameRP(playerid));
+	SendClientMessage(playerb, COLOR_SERVER, str);
     return 1;
+}
+
+CMD:gotopoint(playerid, params[])
+{
+	if(!PlayerData[playerid][pAdminLevel]) return SendUnauthorizedMsg(playerid);
+	new	Float:x, Float:y, Float:z, interior;
+	if(sscanf(params, "fffi", x, y, z, interior)) return SendUsageMessage(playerid, "/gotopoint [x] [y] [z] [interior id]");
+	SetPlayerPos(playerid, x, y, z);
+	SetPlayerInterior(playerid, interior);
+	return true;
 }

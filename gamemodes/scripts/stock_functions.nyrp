@@ -198,3 +198,231 @@ destroyCenterHUDInfo(playerid)
 {
 	TextDrawDestroy(centerHUDInfo[playerid]);
 }*/
+
+SendUnauthorizedMsg(playerid)
+{
+	return SendClientMessage(playerid, COLOR_RED, "[Access Denied]:{FFFFFF} You aren't authorized to use this.");
+}
+
+AdminRank(targetid)
+{
+	new adminrank[30];
+	switch(PlayerData[targetid][pAdminLevel])
+	{
+		case 0:
+		{
+			adminrank = "None";
+		}
+		case 1: 
+		{
+			adminrank = "Probationary Administrator";
+		}
+		case 2: 
+		{
+			adminrank = "Administrator";
+		}
+		case 3:
+		{
+			adminrank = "Lead Administrator";
+		}
+		case 4:
+		{
+			adminrank = "Management";
+		}
+	}
+	return adminrank;
+}
+
+stock SendClientMessageEx(playerid, color, const str[], {Float,_}:...)
+{
+	static
+	    args,
+	    start,
+	    end,
+	    string[156]
+	;
+	#emit LOAD.S.pri 8
+	#emit STOR.pri args
+
+	if (args > 12)
+	{
+		#emit ADDR.pri str
+		#emit STOR.pri start
+
+	    for (end = start + (args - 12); end > start; end -= 4)
+		{
+	        #emit LREF.pri end
+	        #emit PUSH.pri
+		}
+		#emit PUSH.S str
+		#emit PUSH.C 156
+		#emit PUSH.C string
+		#emit PUSH.C args
+		#emit SYSREQ.C format
+
+		SendClientMessage(playerid, color, string);
+
+		#emit LCTRL 5
+		#emit SCTRL 4
+		#emit RETN
+	}
+	return SendClientMessage(playerid, color, str);
+} // Credits to Emmet, South Central Roleplay
+
+stock SendClientMessageToAllEx(color, const str[], {Float,_}:...)
+{
+	static
+	    args,
+	    start,
+	    end,
+	    string[144]
+	;
+	#emit LOAD.S.pri 8
+	#emit STOR.pri args
+
+	if (args > 8)
+	{
+		#emit ADDR.pri str
+		#emit STOR.pri start
+
+	    for (end = start + (args - 8); end > start; end -= 4)
+		{
+	        #emit LREF.pri end
+	        #emit PUSH.pri
+		}
+		#emit PUSH.S str
+		#emit PUSH.C 144
+		#emit PUSH.C string
+
+		#emit LOAD.pri args
+		#emit ADD.C 4
+		#emit PUSH.pri
+		#emit SYSREQ.C format
+
+        #emit LCTRL 5
+		#emit SCTRL 4
+
+		foreach (new i : Player) {
+			SendClientMessage(i, color, string);
+		}
+		return 1;
+	}
+	return SendClientMessageToAll(color, str);
+} // Credits to Emmet, South Central Roleplay
+
+stock SendNearbyMessage(playerid, Float:radius, color, const str[], {Float,_}:...)
+{
+	static
+	    args,
+	    start,
+	    end,
+	    string[144]
+	;
+	#emit LOAD.S.pri 8
+	#emit STOR.pri args
+
+	if (args > 16)
+	{
+		#emit ADDR.pri str
+		#emit STOR.pri start
+
+	    for (end = start + (args - 16); end > start; end -= 4)
+		{
+	        #emit LREF.pri end
+	        #emit PUSH.pri
+		}
+		#emit PUSH.S str
+		#emit PUSH.C 144
+		#emit PUSH.C string
+
+		#emit LOAD.S.pri 8
+		#emit CONST.alt 4
+		#emit SUB
+		#emit PUSH.pri
+
+		#emit SYSREQ.C format
+		#emit LCTRL 5
+		#emit SCTRL 4
+
+        foreach (new i : Player)
+		{
+			if (IsPlayerNearPlayer(i, playerid, radius)) {
+  				SendClientMessage(i, color, string);
+			}
+		}
+		return 1;
+	}
+	foreach (new i : Player)
+	{
+		if (IsPlayerNearPlayer(i, playerid, radius)) {
+			SendClientMessage(i, color, str);
+		}
+	}
+	return 1;
+} // Credits to Emmet, South Central Roleplay
+
+stock SendAdminMessage(level, const str[])
+{
+	new newString[128];
+
+	format(newString, sizeof(newString), "AdmWarn: %s", str);
+
+	foreach(new i : Player)
+	{
+		if(PlayerData[i][pAdminLevel] >= level)
+		{
+			SendClientMessage(i, COLOR_RED, newString);
+		}
+	}
+	return 1;
+}
+
+stock SendAdminMessageEx(color, level, const str[], {Float,_}:...)
+{
+	static
+	    args,
+	    start,
+	    end,
+	    string[144]
+	;
+	#emit LOAD.S.pri 8
+	#emit STOR.pri args
+
+	if (args > 8)
+	{
+		#emit ADDR.pri str
+		#emit STOR.pri start
+
+	    for (end = start + (args - 8); end > start; end -= 4)
+		{
+	        #emit LREF.pri end
+	        #emit PUSH.pri
+		}
+		#emit PUSH.S str
+		#emit PUSH.C 144
+		#emit PUSH.C string
+
+		#emit LOAD.S.pri 8
+		#emit ADD.C 4
+		#emit PUSH.pri
+
+		#emit SYSREQ.C format
+		#emit LCTRL 5
+		#emit SCTRL 4
+
+        foreach (new i : Player)
+		{
+			if (PlayerData[i][pAdminLevel] >= level) {
+  				SendClientMessage(i, color, string);
+			}
+		}
+		return 1;
+	}
+	foreach (new i : Player)
+	{
+		if (PlayerData[i][pAdminLevel] >= level) {
+			SendClientMessage(i, color, str);
+		}
+	}
+	return 1;
+}

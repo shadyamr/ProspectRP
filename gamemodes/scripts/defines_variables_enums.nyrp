@@ -27,6 +27,7 @@
 #define 		COLOR_EMOTE					0xC2A2DAAA
 #define 		COLOR_SHOUT					0x7F8C8D00
 #define 		COLOR_INTRO					0xE74C3CFF
+#define 		COLOR_GREY 					0xAFAFAFFF
 
 #define 		DIALOG_UNUSED				0
 #define 		DIALOG_REGISTER				1

@@ -37,9 +37,8 @@
 #include "../gamemodes/scripts/stock_functions.nyrp"
 
 #include "../gamemodes/scripts/textdraws.nyrp"
-#include "../gamemodes/scripts/maps/city.nyrp"
-
-#include "../gamemodes/scripts/houses/core.nyrp"
+#include "../gamemodes/scripts/maps.nyrp"
+#include "../gamemodes/scripts/houses.nyrp"
 
 #include "../gamemodes/scripts/commands.nyrp"
 
@@ -342,8 +341,19 @@ public OnPlayerCommandPerformed(playerid, cmdtext[], success)
 	return true;
 }
 
-public OnPlayerFinishedDownloading(playerid, virtualworld)
+public OnPlayerStateChange(playerid, newstate, oldstate)
 {
-
-	return true;
+    if(oldstate == PLAYER_STATE_ONFOOT && newstate == PLAYER_STATE_DRIVER)
+    {
+        new vehicleid = GetPlayerVehicleID(playerid), engine, lights, alarm, doors, bonnet, boot, objective;
+        GetVehicleParamsEx(vehicleid, engine, lights, alarm, doors, bonnet, boot, objective);
+        if(engine == VEHICLE_PARAMS_OFF) SetVehicleParamsEx(vehicleid, VEHICLE_PARAMS_ON, lights, alarm, doors, bonnet, boot, objective);
+    }
+    else if(oldstate == PLAYER_STATE_DRIVER && newstate == PLAYER_STATE_ONFOOT)
+    {
+        new vehicleid = GetPlayerVehicleID(playerid), engine, lights, alarm, doors, bonnet, boot, objective;
+        GetVehicleParamsEx(vehicleid, engine, lights, alarm, doors, bonnet, boot, objective);
+        if(engine == VEHICLE_PARAMS_ON) SetVehicleParamsEx(vehicleid, VEHICLE_PARAMS_OFF, lights, alarm, doors, bonnet, boot, objective);
+    }
+    return true;
 }
