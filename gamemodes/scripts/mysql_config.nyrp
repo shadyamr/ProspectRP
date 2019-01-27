@@ -5,6 +5,6 @@
 
 new sqlConnection, OneSecondTimer, lastSaveTime = 0;
 #define 	SQL_HOSTNAME	"localhost"
-#define 	SQL_USERNAME 	"shady3r32rf3f"
-#define 	SQL_DATABASE 	"server"
-#define 	SQL_PASSWORD 	"shady3r32rf3f2025"
+#define 	SQL_USERNAME 	"root"
+#define 	SQL_DATABASE 	"nyrp"
+#define 	SQL_PASSWORD 	""

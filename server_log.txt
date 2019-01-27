@@ -1,0 +1,79 @@
+
+----------
+Loaded log file: "server_log.txt".
+----------
+
+SA-MP Dedicated Server
+----------------------
+v0.3.DL-R1, (C)2005-2018 SA-MP Team
+
+[18:49:21] 
+[18:49:21] Server Plugins
+[18:49:21] --------------
+[18:49:21]  Loading plugin: crashdetect
+[18:49:21]   CrashDetect plugin 4.19.4
+[18:49:21]   Loaded.
+[18:49:21]  Loading plugin: mysql
+[18:49:21]  >> plugin.mysql: R39-6 successfully loaded.
+[18:49:21]   Loaded.
+[18:49:21]  Loading plugin: sscanf
+[18:49:21] 
+
+[18:49:21]  ===============================
+
+[18:49:21]       sscanf plugin loaded.     
+
+[18:49:21]          Version:  2.8.3        
+
+[18:49:21]   (c) 2018 Alex "Y_Less" Cole  
+
+[18:49:21]  ===============================
+
+[18:49:21]   Loaded.
+[18:49:21]  Loading plugin: streamer
+[18:49:21] 
+
+*** Streamer Plugin v2.9.4 by Incognito loaded ***
+
+[18:49:21]   Loaded.
+[18:49:21]  Loading plugin: nativechecker
+[18:49:21]   Loaded.
+[18:49:21]  Loaded 5 plugins.
+
+[18:49:21] [artwork:crc] lvpdpc2.dff CRC = 0xFBD1EA7C
+[18:49:21] [artwork:crc] lvpdpc2.txd CRC = 0xDC92731E
+[18:49:21] [artwork:crc] lapdpd2.dff CRC = 0xA558D422
+[18:49:21] [artwork:crc] lapdpd2.txd CRC = 0xA442E2DA
+[18:49:21] [artwork:crc] bro_rod_1.dff CRC = 0x0
+[18:49:21] [artwork:error] Bad file: bro_rod_1.dff
+[18:49:21] [artwork:crc] bro_rod_2.dff CRC = 0x0
+[18:49:21] [artwork:error] Bad file: bro_rod_2.dff
+[18:49:21] [artwork:crc] bro_rod_3.dff CRC = 0x0
+[18:49:21] [artwork:error] Bad file: bro_rod_3.dff
+[18:49:21] [artwork:crc] bro_rod_4.dff CRC = 0x0
+[18:49:21] [artwork:error] Bad file: bro_rod_4.dff
+[18:49:21] [artwork:crc] bro_rod_5.dff CRC = 0x0
+[18:49:21] [artwork:error] Bad file: bro_rod_5.dff
+[18:49:21] [artwork:crc] bro_rod_6.dff CRC = 0x0
+[18:49:21] [artwork:error] Bad file: bro_rod_6.dff
+[18:49:21] [artwork:crc] bro_rod_7.dff CRC = 0x0
+[18:49:21] [artwork:error] Bad file: bro_rod_7.dff
+[18:49:21] [artwork:crc] bro_rod_8.dff CRC = 0x0
+[18:49:21] [artwork:error] Bad file: bro_rod_8.dff
+[18:49:21] [artwork:crc] bro_rod_9.dff CRC = 0x0
+[18:49:21] [artwork:error] Bad file: bro_rod_9.dff
+[18:49:21] [artwork:crc] bro_rod_10.dff CRC = 0x0
+[18:49:21] [artwork:error] Bad file: bro_rod_10.dff
+[18:49:21] [artwork:crc] alley_rod_1.dff CRC = 0x0
+[18:49:21] [artwork:error] Bad file: alley_rod_1.dff
+[18:49:21] [artwork:crc] alley_rod_2.dff CRC = 0x0
+[18:49:21] [artwork:error] Bad file: alley_rod_2.dff
+[18:49:21] [artwork:crc] alley_rod_5.dff CRC = 0x0
+[18:49:21] [artwork:error] Bad file: alley_rod_5.dff
+[18:49:21] 
+[18:49:21] Filterscripts
+[18:49:21] ---------------
+[18:49:21]   Loaded 0 filterscripts.
+
+[18:49:21] Setting server password to: "a7a"
+[18:49:21] Number of vehicle models: 0
