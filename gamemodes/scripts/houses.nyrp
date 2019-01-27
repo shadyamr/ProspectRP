@@ -98,6 +98,9 @@ Server:SQL_SaveHouseToDB(playerid)
 	format(string, sizeof(string), "[Server]:{FFFFFF} House ID [%i] created by %s, price: $%d", i, cache_insert_id(), name, price);
 	SendClientMessage(playerid, COLOR_SERVER, string);
 
+	HouseData[i][HousePickup] = CreatePickup(1273, 1, HouseData[i][HouseExterior][0], HouseData[i][HouseExterior][1], HouseData[i][HouseExterior][2], 0);
+	HouseData[i][HouseLabel] = Create3DTextLabel(HouseData[i][HouseName], 0xFFFFFFFF, HouseData[i][HouseExterior][0], HouseData[i][HouseExterior][1], HouseData[i][HouseExterior][2], 10.0, 0, 0);
+
 	hCreateIntID = 0;
 	hCreatePrice = 0;
 	hCreateName = "None";
@@ -135,7 +138,7 @@ CMD:createhouse(playerid, params[])
 			if(strlen(extra) > 39 || strlen(extra) < 3) return SendErrorMessage(playerid, "Name length must be between 3 and 39 characters long.");
 			hCreateName = extra;
 			format(string, sizeof(string), "[Success]:{FFFFFF} Name has been set successfully to %s", extra);
-			SendClientMessage(playerid, COLOR_GREEN, string)
+			SendClientMessage(playerid, COLOR_GREEN, string);
 		}
 		else if(strmatch(section, "price"))
 		{
@@ -152,5 +155,33 @@ CMD:createhouse(playerid, params[])
 			SaveHouseToDatabase(playerid);
 		}
 	}
+	return true;
+}
+
+CMD:buyhouse(playerid, params[])
+{
+	if(!LoggedIn[playerid]) return true;
+	if(CountPlayerHouses(playerid) != 0) return SendErrorMessage(playerid, "You already own a house.");
+	new houseid = 0;
+	for(new i = 0; i < MAX_HOUSES; i++)
+	{
+		if(HouseData[i][HouseID] != 0)
+		{
+			if(IsPlayerInRangeOfPoint(playerid, 5.0, HouseData[i][HouseExterior][0], HouseData[i][HouseExterior][1], HouseData[i][HouseExterior][2]))
+			{
+				houseid = i;
+			}
+		}
+	}
+	if(houseid == 0) return SendErrorMessage(playerid, "You aren't near to a house that you can buy.");
+	if(HouseData[houseid][HouseOwnerSQL] != 0) return SendErrorMessage(playerid, "That house is already owned by someone else.");
+	if(PlayerData[playerid][pMoney] < HouseData[houseid][HousePrice]) return SendErrorMessage(playerid, "You cannot afford this house.");
+
+	new string[128];
+	format(string, sizeof(string), "[Success]:{FFFFFF} You have successfully purchased '%s' for $%d!", HouseData[houseid][HouseName], HouseData[houseid][HousePrice]);
+	SendClientMessage(playerid, COLOR_GREEN, string);
+	GiveCash(playerid, -HouseData[houseid][HousePrice]);
+	HouseData[houseid][HouseOwnerSQL] = PlayerData[playerid][pSQLID];
+	SaveSQLInt(HouseData[houseid][HouseID], "houses", "OwnerSQL", HouseData[houseid][HouseOwnerSQL]);
 	return true;
 }

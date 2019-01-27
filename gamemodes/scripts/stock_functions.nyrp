@@ -51,30 +51,31 @@ GetHealthDots(playerid)
 	GetPlayerHealth(playerid, HP);
 
 	if(HP == 100)
-	    dots = "";
+	    dots = "••••••••••";
 	else if(HP >= 90 && HP < 100)
-	    dots = "{660000}";
+	    dots = "•••••••••{660000}•";
     else if(HP >= 80 && HP < 90)
-	    dots = "{660000}";
+	    dots = "••••••••{660000}••";
     else if(HP >= 70 && HP < 80)
-	    dots = "{660000}";
+	    dots = "•••••••{660000}•••";
 	else if(HP >= 60 && HP < 70)
-	    dots = "{660000}";
+	    dots = "••••••{660000}••••";
 	else if(HP >= 50 && HP < 60)
-	    dots = "{660000}";
+	    dots = "•••••{660000}•••••";
 	else if(HP >= 40 && HP < 50)
-	    dots = "{660000}";
+	    dots = "••••{660000}••••••";
 	else if(HP >= 30 && HP < 40)
-	    dots = "{660000}";
+	    dots = "•••{660000}•••••••";
 	else if(HP >= 20 && HP < 30)
-	    dots = "{660000}";
+	    dots = "••{660000}••••••••";
 	else if(HP >= 10 && HP < 20)
-	    dots = "{660000}";
+	    dots = "••{660000}••••••••";
 	else if(HP >= 0 && HP < 10)
-	    dots = "{660000}";
+	    dots = "{660000}••••••••••";
 
 	return dots;
 }
+
 GetArmorDots(playerid)
 {
 	new dots[64];
@@ -83,27 +84,27 @@ GetArmorDots(playerid)
 	GetPlayerArmour(playerid, AR);
 
 	if(AR == 100)
-	    dots = "";
+	    dots = "••••••••••";
 	else if(AR >= 90 && AR < 100)
-	    dots = "{666666}";
+	    dots = "•••••••••{666666}•";
     else if(AR >= 80 && AR < 90)
-	    dots = "{666666}";
+	    dots = "••••••••{666666}••";
     else if(AR >= 70 && AR < 80)
-	    dots = "{666666}";
+	    dots = "•••••••{666666}•••";
 	else if(AR >= 60 && AR < 70)
-	    dots = "{666666}";
+	    dots = "••••••{666666}••••";
 	else if(AR >= 50 && AR < 60)
-	    dots = "{666666}";
+	    dots = "•••••{666666}•••••";
 	else if(AR >= 40 && AR < 50)
-	    dots = "{666666}";
+	    dots = "••••{666666}••••••";
 	else if(AR >= 30 && AR < 40)
-	    dots = "{666666}";
+	    dots = "•••{666666}•••••••";
 	else if(AR >= 20 && AR < 30)
-	    dots = "{666666}";
+	    dots = "••{666666}••••••••";
 	else if(AR >= 10 && AR < 20)
-	    dots = "{666666}";
+	    dots = "••{666666}••••••••";
 	else if(AR >= 0 && AR < 10)
-	    dots = "{666666}";
+	    dots = "{666666}••••••••••";
 
 	return dots;
 }
@@ -233,6 +234,35 @@ AdminRank(targetid)
 	return adminrank;
 }
 
+/*ReturnAdminRank(rankid)
+{
+	new string[30];
+	switch(rankid)
+	{
+		case 0:
+		{
+			string = "None";
+		}
+		case 1: 
+		{
+			string = "Probationary Administrator";
+		}
+		case 2: 
+		{
+			string = "Administrator";
+		}
+		case 3:
+		{
+			string = "Lead Administrator";
+		}
+		case 4:
+		{
+			string = "Management";
+		}
+	}
+	return string;
+}*/
+
 stock SendClientMessageEx(playerid, color, const str[], {Float,_}:...)
 {
 	static
@@ -305,7 +335,7 @@ stock SendClientMessageToAllEx(color, const str[], {Float,_}:...)
 		foreach (new i : Player) {
 			SendClientMessage(i, color, string);
 		}
-		return 1;
+		return true;
 	}
 	return SendClientMessageToAll(color, str);
 } // Credits to Emmet, South Central Roleplay
@@ -350,7 +380,7 @@ stock SendNearbyMessage(playerid, Float:radius, color, const str[], {Float,_}:..
   				SendClientMessage(i, color, string);
 			}
 		}
-		return 1;
+		return true;
 	}
 	foreach (new i : Player)
 	{
@@ -358,7 +388,7 @@ stock SendNearbyMessage(playerid, Float:radius, color, const str[], {Float,_}:..
 			SendClientMessage(i, color, str);
 		}
 	}
-	return 1;
+	return true;
 } // Credits to Emmet, South Central Roleplay
 
 stock SendAdminMessage(level, const str[])
@@ -374,7 +404,7 @@ stock SendAdminMessage(level, const str[])
 			SendClientMessage(i, COLOR_RED, newString);
 		}
 	}
-	return 1;
+	return true;
 }
 
 stock SendAdminMessageEx(color, level, const str[], {Float,_}:...)
@@ -416,7 +446,7 @@ stock SendAdminMessageEx(color, level, const str[], {Float,_}:...)
   				SendClientMessage(i, color, string);
 			}
 		}
-		return 1;
+		return true;
 	}
 	foreach (new i : Player)
 	{
@@ -424,5 +454,30 @@ stock SendAdminMessageEx(color, level, const str[], {Float,_}:...)
 			SendClientMessage(i, color, str);
 		}
 	}
-	return 1;
+	return true;
+}
+
+GiveCash(playerid, amount)
+{
+	PlayerData[playerid][pMoney] += amount;
+	ResetPlayerMoney(playerid);
+	GivePlayerMoney(playerid, PlayerData[playerid][pMoney]);
+	SaveSQLInt(PlayerData[playerid][pSQLID], "players", "Money", PlayerData[playerid][pMoney]);
+	return true;
+}
+
+CountPlayerHouses(playerid)
+{
+	new count = 0;
+	for(new i = 0; i < MAX_HOUSES; i++)
+	{
+		if(HouseData[i][HouseID] != 0)
+		{
+			if(HouseData[i][HouseOwnerSQL] == PlayerData[playerid][pSQLID])
+			{
+				count++;
+			}
+		}
+	}
+	return count;
 }
