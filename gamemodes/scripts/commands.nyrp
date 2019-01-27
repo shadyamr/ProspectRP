@@ -63,7 +63,7 @@ CMD:admins(playerid, params[])
 		}
 	}
 
-	return 1;
+	return true;
 }
 
 CMD:s(playerid, params[]) return cmd_shout(playerid, params);
@@ -304,15 +304,39 @@ CMD:makeadmin(playerid, params[])
     {
 		PlayerData[playerb][pAdminLevel] = value;
 		SaveSQLInt(PlayerData[playerb][pSQLID], "players", "AdminLevel", PlayerData[playerb][pAdminLevel]);
-		format(str, sizeof(str), "[Server]:{FFFFFF} You've been kicked from the Administration Team by %s", value, NameRP(playerid));
+		format(str, sizeof(str), "[Server]:{FFFFFF} You've been kicked from the Administration Team by %s", NameRP(playerid));
 		SendClientMessage(playerb, COLOR_SERVER, str);
-        return 1;
+        return true;
 	}
-	PlayerData[playerb][pAdminLevel] = value;
-	SaveSQLInt(PlayerData[playerb][pSQLID], "players", "AdminLevel", PlayerData[playerb][pAdminLevel]);
-	format(str, sizeof(str), "[Server]:{FFFFFF} You've been made a level %i Administrator by %s", value, NameRP(playerid));
-	SendClientMessage(playerb, COLOR_SERVER, str);
-    return 1;
+	if(value == 1)
+	{
+		PlayerData[playerb][pAdminLevel] = value;
+		SaveSQLInt(PlayerData[playerb][pSQLID], "players", "AdminLevel", PlayerData[playerb][pAdminLevel]);
+		format(str, sizeof(str), "[Server]:{FFFFFF} You've been made a Probationary Administrator (level %i) by %s", value, NameRP(playerid));
+		SendClientMessage(playerb, COLOR_SERVER, str);
+	}
+	if(value == 2)
+	{
+		PlayerData[playerb][pAdminLevel] = value;
+		SaveSQLInt(PlayerData[playerb][pSQLID], "players", "AdminLevel", PlayerData[playerb][pAdminLevel]);
+		format(str, sizeof(str), "[Server]:{FFFFFF} You've been made an Administrator (level %i) by %s", value, NameRP(playerid));
+		SendClientMessage(playerb, COLOR_SERVER, str);
+	}
+	if(value == 3)
+	{
+		PlayerData[playerb][pAdminLevel] = value;
+		SaveSQLInt(PlayerData[playerb][pSQLID], "players", "AdminLevel", PlayerData[playerb][pAdminLevel]);
+		format(str, sizeof(str), "[Server]:{FFFFFF} You've been made a Lead Administrator (level %i) by %s", value, NameRP(playerid));
+		SendClientMessage(playerb, COLOR_SERVER, str);
+	}
+	if(value == 4)
+	{
+		PlayerData[playerb][pAdminLevel] = value;
+		SaveSQLInt(PlayerData[playerb][pSQLID], "players", "AdminLevel", PlayerData[playerb][pAdminLevel]);
+		format(str, sizeof(str), "[Server]:{FFFFFF} You've been made a Management (level %i) by %s", value, NameRP(playerid));
+		SendClientMessage(playerb, COLOR_SERVER, str);
+	}
+	return true;
 }
 
 CMD:gotopoint(playerid, params[])
