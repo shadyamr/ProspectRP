@@ -71,23 +71,11 @@ CMD:help(playerid, params[])
 	return true;
 }
 
-CMD:ah(playerid, params[]) return cmd_ahelp(playerid, params);
-CMD:acmds(playerid, params[]) return cmd_ahelp(playerid, params);
-CMD:ahelp(playerid, params[])
-{
-	if(!PlayerData[playerid][pAdminLevel])
-	{
-		SendClientMessage(playerid, COLOR_WHITE, "To be adjusted..");
-	}
-	else SendUnauthorizedMsg(playerid);
-	return true;
-}
-
 CMD:admins(playerid, params[])
 {
 	if(!LoggedIn[playerid]) return true;
 	SendClientMessage(playerid, COLOR_WHITE, "Administrators Online:");
-	foreach(new i : Player)
+	foreach(new i: Player)
 	{
 		if(PlayerData[i][pAdminLevel])
 		{
@@ -309,6 +297,27 @@ CMD:credits(playerid, params[])
 }
 
 // Account Commands:
+CMD:stats(playerid, params[])
+{
+	new playerb;
+	if(PlayerData[playerid][pAdminLevel])
+	{
+		if (sscanf(params, "I(-1)", playerb)) return 1;
+		if(playerb == -1)
+		{
+			return ShowStats(playerid, playerid);
+		}
+		else
+		{
+			if(!IsPlayerConnected(playerb)) return SendErrorMessage(playerid, "The player you specified isn't connected.");
+			if(!LoggedIn[playerid]) return SendErrorMessage(playerid, "The player you specified isn't logged in.");
+			ShowStats(playerb, playerid);
+		}
+	}
+	else return ShowStats(playerid, playerid);
+	return 1;
+}
+
 CMD:buylevel(playerid, params[])
 {
 	if(!LoggedIn[playerid]) return true;
@@ -324,53 +333,198 @@ CMD:buylevel(playerid, params[])
 	SaveSQLInt(PlayerData[playerid][pSQLID], "players", "Respect", PlayerData[playerid][pRespect]);
 	SetPlayerScore(playerid, PlayerData[playerid][pLevel]);
 
-	format(string, sizeof(string), "[Success]:{FFFFFF} You have levelled up to level %d [Respect Points Left: %d]", PlayerData[playerid][pLevel], PlayerData[playerid][pRespect]);
+	format(string, sizeof(string), "[SUCCESS]:{FFFFFF} You have levelled up to level %d [Respect Points Left: %d]", PlayerData[playerid][pLevel], PlayerData[playerid][pRespect]);
 	SendClientMessage(playerid, COLOR_GREEN, string);
 	return true;
 }
 
+CMD:changeage(playerid, params[])
+{
+   	new str[128], value;
+   	if(!LoggedIn[playerid]) return true;
+    if(sscanf(params, "i", value)) return SendUsageMessage(playerid, "/changeage [age]");
+	if(value < 18 || value > 61) return SendErrorMessage(playerid, "Age must be above 18 OR below 61.");
+	PlayerData[playerid][pAge] = value;
+	SaveSQLInt(PlayerData[playerid][pSQLID], "players", "Age", PlayerData[playerid][pAge]);
+	format(str, sizeof(str), "[SUCCESS]:{FFFFFF} You've successfully changed your age to %d.", value);
+	SendClientMessage(playerid, COLOR_GREEN, str);
+	return true;
+}
+
+CMD:changesex(playerid, params[])
+{
+   	new str[128], value;
+   	if(!LoggedIn[playerid]) return true;
+    if(sscanf(params, "i", value)) return SendUsageMessage(playerid, "/changesex [male (1) or female (2)]");
+	if(value < 1 || value > 2) return SendErrorMessage(playerid, "Gender must be either Male [ID 1] OR Female [ID 2].");
+	if(value == 1)
+	{
+		PlayerData[playerid][pSex] = value;
+		SaveSQLInt(PlayerData[playerid][pSQLID], "players", "Gender", PlayerData[playerid][pSex]);
+		format(str, sizeof(str), "[SUCCESS]:{FFFFFF} You've successfully changed your gender to Male.");
+		SendClientMessage(playerid, COLOR_GREEN, str);
+	}
+	if(value == 2)
+	{
+		PlayerData[playerid][pSex] = value;
+		SaveSQLInt(PlayerData[playerid][pSQLID], "players", "Gender", PlayerData[playerid][pSex]);
+		format(str, sizeof(str), "[SUCCESS]:{FFFFFF} You've successfully changed your gender to Female.");
+		SendClientMessage(playerid, COLOR_GREEN, str);
+	}
+	return true;
+}
+
 // Administrator Commands:
+CMD:ah(playerid, params[]) return cmd_ahelp(playerid, params);
+CMD:acmds(playerid, params[]) return cmd_ahelp(playerid, params);
+CMD:ahelp(playerid, params[])
+{
+	if(PlayerData[playerid][pAdminLevel])
+	{
+		SendClientMessage(playerid, COLOR_WHITE, "To be adjusted..");
+	}
+	else SendUnauthorizedMsg(playerid);
+	return true;
+}
+
 CMD:makeadmin(playerid, params[])
 {
    	new str[128], playerb, value;
     if(PlayerData[playerid][pAdminLevel] < 4 && !IsPlayerAdmin(playerid)) return SendUnauthorizedMsg(playerid);
-    if(sscanf(params, "ui", playerb, value)) return SendUsageMessage(playerid, "/makeadmin [playerid/partofname] [level 1-4].");
+    if(sscanf(params, "ui", playerb, value)) return SendUsageMessage(playerid, "/makeadmin [playerid/partofname] [level 1-4]");
 	if(value < 0 || value > 4) return SendErrorMessage(playerid, "Invalid administrator level, 0-4.");
     if(value == 0)
     {
 		PlayerData[playerb][pAdminLevel] = value;
 		SaveSQLInt(PlayerData[playerb][pSQLID], "players", "AdminLevel", PlayerData[playerb][pAdminLevel]);
-		format(str, sizeof(str), "[Server]:{FFFFFF} You've been kicked from the Administration Team by %s", NameRP(playerid));
-		SendClientMessage(playerb, COLOR_SERVER, str);
+		format(str, sizeof(str), "[SERVER]:{FFFFFF} You've been kicked from the Administration Team by %s.", NameRP(playerid));
+		SendClientMessage(playerb, COLOR_LIGHTRED, str);
+		format(str, sizeof(str), "[SERVER]:{FFFFFF} You have kicked %s from the Administration Team.", NameRP(playerb));
+		SendClientMessage(playerid, COLOR_LIGHTRED, str);
         return true;
 	}
 	if(value == 1)
 	{
 		PlayerData[playerb][pAdminLevel] = value;
 		SaveSQLInt(PlayerData[playerb][pSQLID], "players", "AdminLevel", PlayerData[playerb][pAdminLevel]);
-		format(str, sizeof(str), "[Server]:{FFFFFF} You've been made a Probationary Administrator (level %i) by %s", value, NameRP(playerid));
-		SendClientMessage(playerb, COLOR_SERVER, str);
+		format(str, sizeof(str), "[SERVER]:{FFFFFF} You've been made a Probationary Administrator (level %i) by %s.", value, NameRP(playerid));
+		SendClientMessage(playerb, COLOR_LIGHTRED, str);
+		format(str, sizeof(str), "[SERVER]:{FFFFFF} You have set %s's admin level to Probationary Administrator.", NameRP(playerb));
+		SendClientMessage(playerid, COLOR_LIGHTRED, str);
 	}
 	if(value == 2)
 	{
 		PlayerData[playerb][pAdminLevel] = value;
 		SaveSQLInt(PlayerData[playerb][pSQLID], "players", "AdminLevel", PlayerData[playerb][pAdminLevel]);
-		format(str, sizeof(str), "[Server]:{FFFFFF} You've been made an Administrator (level %i) by %s", value, NameRP(playerid));
-		SendClientMessage(playerb, COLOR_SERVER, str);
+		format(str, sizeof(str), "[SERVER]:{FFFFFF} You've been made an Administrator (level %i) by %s.", value, NameRP(playerid));
+		SendClientMessage(playerb, COLOR_LIGHTRED, str);
+		format(str, sizeof(str), "[SERVER]:{FFFFFF} You have set %s's admin level to Administrator.", NameRP(playerb));
+		SendClientMessage(playerid, COLOR_LIGHTRED, str);
 	}
 	if(value == 3)
 	{
 		PlayerData[playerb][pAdminLevel] = value;
 		SaveSQLInt(PlayerData[playerb][pSQLID], "players", "AdminLevel", PlayerData[playerb][pAdminLevel]);
-		format(str, sizeof(str), "[Server]:{FFFFFF} You've been made a Lead Administrator (level %i) by %s", value, NameRP(playerid));
-		SendClientMessage(playerb, COLOR_SERVER, str);
+		format(str, sizeof(str), "[SERVER]:{FFFFFF} You've been made a Lead Administrator (level %i) by %s.", value, NameRP(playerid));
+		SendClientMessage(playerb, COLOR_LIGHTRED, str);
+		format(str, sizeof(str), "[SERVER]:{FFFFFF} You have set %s's admin level to Lead Administrator.", NameRP(playerb));
+		SendClientMessage(playerid, COLOR_LIGHTRED, str);
 	}
 	if(value == 4)
 	{
 		PlayerData[playerb][pAdminLevel] = value;
 		SaveSQLInt(PlayerData[playerb][pSQLID], "players", "AdminLevel", PlayerData[playerb][pAdminLevel]);
-		format(str, sizeof(str), "[Server]:{FFFFFF} You've been made a Management (level %i) by %s", value, NameRP(playerid));
-		SendClientMessage(playerb, COLOR_SERVER, str);
+		format(str, sizeof(str), "[SERVER]:{FFFFFF} You've been made a Management (level %i) by %s.", value, NameRP(playerid));
+		SendClientMessage(playerb, COLOR_LIGHTRED, str);
+		format(str, sizeof(str), "[SERVER]:{FFFFFF} You have set %s's admin level to Management.", NameRP(playerb));
+		SendClientMessage(playerid, COLOR_LIGHTRED, str);
+	}
+	return true;
+}
+
+CMD:makedonator(playerid, params[])
+{
+   	new str[128], playerb, value;
+    if(PlayerData[playerid][pAdminLevel] < 4) return SendUnauthorizedMsg(playerid);
+    if(sscanf(params, "ui", playerb, value)) return SendUsageMessage(playerid, "/makedonator [playerid/partofname] [donator level 1-3]");
+	if(value < 0 || value > 3) return SendErrorMessage(playerid, "Invalid donator level, 0-3.");
+    if(value == 0)
+    {
+		PlayerData[playerb][pDonator] = value;
+		SaveSQLInt(PlayerData[playerb][pSQLID], "players", "Donator", PlayerData[playerb][pDonator]);
+		format(str, sizeof(str), "[SERVER]:{FFFFFF} Your donator status has been revoked by %s", NameRP(playerid));
+		SendClientMessage(playerb, COLOR_LIGHTRED, str);
+		format(str, sizeof(str), "[SERVER]:{FFFFFF} You have revoked %s's donator status.", NameRP(playerb));
+		SendClientMessage(playerid, COLOR_LIGHTRED, str);
+        return true;
+	}
+	if(value == 1)
+	{
+		PlayerData[playerb][pDonator] = value;
+		SaveSQLInt(PlayerData[playerb][pSQLID], "players", "Donator", PlayerData[playerb][pDonator]);
+		format(str, sizeof(str), "[SERVER]:{FFFFFF} You've been made a Ruby Donator (level %i) by %s", value, NameRP(playerid));
+		SendClientMessage(playerb, COLOR_LIGHTRED, str);
+		format(str, sizeof(str), "[SERVER]:{FFFFFF} You have set %s's donator status to Ruby Donator.", NameRP(playerb));
+		SendClientMessage(playerid, COLOR_LIGHTRED, str);
+	}
+	if(value == 2)
+	{
+		PlayerData[playerb][pDonator] = value;
+		SaveSQLInt(PlayerData[playerb][pSQLID], "players", "Donator", PlayerData[playerb][pDonator]);
+		format(str, sizeof(str), "[SERVER]:{FFFFFF} You've been made a Sapphire Donator (level %i) by %s", value, NameRP(playerid));
+		SendClientMessage(playerb, COLOR_LIGHTRED, str);
+		format(str, sizeof(str), "[SERVER]:{FFFFFF} You have set %s's donator status to Sapphire Donator.", NameRP(playerb));
+		SendClientMessage(playerid, COLOR_LIGHTRED, str);
+	}
+	if(value == 3)
+	{
+		PlayerData[playerb][pDonator] = value;
+		SaveSQLInt(PlayerData[playerb][pSQLID], "players", "Donator", PlayerData[playerb][pDonator]);
+		format(str, sizeof(str), "[SERVER]:{FFFFFF} You've been made a Diamond Donator (level %i) by %s", value, NameRP(playerid));
+		SendClientMessage(playerb, COLOR_LIGHTRED, str);
+		format(str, sizeof(str), "[SERVER]:{FFFFFF} You have set %s's donator status to Diamond Donator.", NameRP(playerb));
+		SendClientMessage(playerid, COLOR_LIGHTRED, str);
+	}
+	return true;
+}
+
+CMD:maketester(playerid, params[])
+{
+   	new str[128], playerb, value;
+    if(PlayerData[playerid][pAdminLevel] < 4 && PlayerData[playerid][pTester] < 2) return SendUnauthorizedMsg(playerid);
+    if(sscanf(params, "ui", playerb, value)) return SendUsageMessage(playerid, "/maketester [playerid/partofname] [tester level 1-2].");
+	if(value < 0 || value > 3) return SendErrorMessage(playerid, "Invalid tester level, 0-2.");
+    if(value == 0)
+    {
+		PlayerData[playerb][pTester] = value;
+		SaveSQLInt(PlayerData[playerb][pSQLID], "players", "Tester", PlayerData[playerb][pTester]);
+		format(str, sizeof(str), "[SERVER]:{FFFFFF} Your tester status has been revoked by %s", NameRP(playerid));
+		SendClientMessage(playerb, COLOR_LIGHTRED, str);
+		format(str, sizeof(str), "[SERVER]:{FFFFFF} You have revoked %s's tester status.", NameRP(playerb));
+		SendClientMessage(playerid, COLOR_LIGHTRED, str);
+        return true;
+	}
+	if(value == 1)
+	{
+		PlayerData[playerb][pTester] = value;
+		SaveSQLInt(PlayerData[playerb][pSQLID], "players", "Tester", PlayerData[playerb][pTester]);
+		format(str, sizeof(str), "[SERVER]:{FFFFFF} You've been made a Tester (level %i) by %s", value, NameRP(playerid));
+		SendClientMessage(playerb, COLOR_LIGHTRED, str);
+		format(str, sizeof(str), "[SERVER]:{FFFFFF} You have set %s's tester level to Tester.", NameRP(playerb));
+		SendClientMessage(playerid, COLOR_LIGHTRED, str);
+	}
+	if(value == 2)
+	{
+		if(PlayerData[playerid][pTester] == 2)
+		{
+			SendErrorMessage(playerid, "You are not authorized to set tester's level to 'Lead'.");
+		}
+		PlayerData[playerb][pTester] = value;
+		SaveSQLInt(PlayerData[playerb][pSQLID], "players", "Tester", PlayerData[playerb][pTester]);
+		format(str, sizeof(str), "[SERVER]:{FFFFFF} You've been made a Lead Tester (level %i) by %s", value, NameRP(playerid));
+		SendClientMessage(playerb, COLOR_LIGHTRED, str);
+		format(str, sizeof(str), "[SERVER]:{FFFFFF} You have set %s's tester level to Lead Tester.", NameRP(playerb));
+		SendClientMessage(playerid, COLOR_LIGHTRED, str);
 	}
 	return true;
 }
