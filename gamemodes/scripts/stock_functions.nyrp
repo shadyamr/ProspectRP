@@ -17,6 +17,33 @@ GetIP(playerid)
 	return ip;
 }
 
+GetDate()
+{
+	new sendString[90], MonthStr[40], month, day, year;
+	new hour, minute, second;
+
+	gettime(hour, minute, second);
+	getdate(year, month, day);
+	switch(month)
+	{
+	    case 1:  MonthStr = "January";
+	    case 2:  MonthStr = "February";
+	    case 3:  MonthStr = "March";
+	    case 4:  MonthStr = "April";
+	    case 5:  MonthStr = "May";
+	    case 6:  MonthStr = "June";
+	    case 7:  MonthStr = "July";
+	    case 8:  MonthStr = "August";
+	    case 9:  MonthStr = "September";
+	    case 10: MonthStr = "October";
+	    case 11: MonthStr = "November";
+	    case 12: MonthStr = "December";
+	}
+
+	format(sendString, 90, "%s %d, %d %02d:%02d:%02d", MonthStr, day, year, hour, minute, second);
+	return sendString;
+}
+
 NameRP(playerid)
 {
 	new name[MAX_PLAYER_NAME];
@@ -202,7 +229,7 @@ destroyCenterHUDInfo(playerid)
 
 SendUnauthorizedMsg(playerid)
 {
-	return SendClientMessage(playerid, COLOR_RED, "[Access Denied]:{FFFFFF} You aren't authorized to use this.");
+	return SendErrorMessage(playerid, "You aren't authorized to use this command.");
 }
 
 AdminRank(targetid)
