@@ -95,8 +95,8 @@ Server:SQL_SaveHouseToDB(playerid)
 	HouseData[i][HousePrice] = price;
 
 	printf("[NY:RP] House ID %i created by %s.", cache_insert_id(), GetName(playerid));
-	format(string, sizeof(string), "[Server]:{FFFFFF} House ID [%i] created by %s, price: $%d", i, cache_insert_id(), name, price);
-	SendClientMessage(playerid, COLOR_SERVER, string);
+	format(string, sizeof(string), "[SERVER]:{FFFFFF} House ID [%i] created by %s, price: $%d", i, cache_insert_id(), name, price);
+	SendClientMessage(playerid, COLOR_LIGHTRED, string);
 
 	HouseData[i][HousePickup] = CreatePickup(1273, 1, HouseData[i][HouseExterior][0], HouseData[i][HouseExterior][1], HouseData[i][HouseExterior][2], 0);
 	HouseData[i][HouseLabel] = Create3DTextLabel(HouseData[i][HouseName], 0xFFFFFFFF, HouseData[i][HouseExterior][0], HouseData[i][HouseExterior][1], HouseData[i][HouseExterior][2], 10.0, 0, 0);
@@ -137,7 +137,7 @@ CMD:createhouse(playerid, params[])
 			if(strmatch(extra, "None")) return SendUsageMessage(playerid, "/createhouse name [name]");
 			if(strlen(extra) > 39 || strlen(extra) < 3) return SendErrorMessage(playerid, "Name length must be between 3 and 39 characters long.");
 			hCreateName = extra;
-			format(string, sizeof(string), "[Success]:{FFFFFF} Name has been set successfully to %s", extra);
+			format(string, sizeof(string), "[SUCCESS]:{FFFFFF} Name has been set successfully to %s", extra);
 			SendClientMessage(playerid, COLOR_GREEN, string);
 		}
 		else if(strmatch(section, "price"))
@@ -145,7 +145,7 @@ CMD:createhouse(playerid, params[])
 			if(strmatch(extra, "None")) return SendUsageMessage(playerid, "/createhouse price [price]");
 			if(strval(extra) < 1) return SendErrorMessage(playerid, "Price must be above $1.");
 			hCreatePrice = strval(extra);
-			format(string, sizeof(string), "[Success]:{FFFFFF} Price has been set successfully to $%d", strval(extra));
+			format(string, sizeof(string), "[SUCCESS]:{FFFFFF} Price has been set successfully to $%d", strval(extra));
 			SendClientMessage(playerid, COLOR_GREEN, string);
 		}
 		else if(strmatch(section, "complete"))
@@ -178,7 +178,7 @@ CMD:buyhouse(playerid, params[])
 	if(PlayerData[playerid][pMoney] < HouseData[houseid][HousePrice]) return SendErrorMessage(playerid, "You cannot afford this house.");
 
 	new string[128];
-	format(string, sizeof(string), "[Success]:{FFFFFF} You have successfully purchased '%s' for $%d!", HouseData[houseid][HouseName], HouseData[houseid][HousePrice]);
+	format(string, sizeof(string), "[SUCCESS]:{FFFFFF} You have successfully purchased '%s' for $%d!", HouseData[houseid][HouseName], HouseData[houseid][HousePrice]);
 	SendClientMessage(playerid, COLOR_GREEN, string);
 	GiveCash(playerid, -HouseData[houseid][HousePrice]);
 	HouseData[houseid][HouseOwnerSQL] = PlayerData[playerid][pSQLID];
