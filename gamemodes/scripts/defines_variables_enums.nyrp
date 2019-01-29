@@ -163,6 +163,7 @@
 #define 		DIALOG_CREDITS				3
 #define 		DIALOG_DAMAGE 				4
 #define 		DIALOG_STATS 				5
+#define 		DIALOG_BETA					6
 
 #define 		NT_DISTANCE 				20.0
 

@@ -103,17 +103,28 @@ Server:ShowRegisterDialog(playerid, error[])
 	return true;
 }
 
+Server:ShowBetaDialog(playerid)
+{
+	new string[300];
+	strcat(string, "Welcome to the Public Beta!\n\n");
+	strcat(string, "The server is in public beta, this is NOT the final release. Please report any bugs you find\n");
+	strcat(string, "on the forum. All stats will be reset so do not bother wasting your time bug exploiting.\n\n");
+	strcat(string, "Thank you\n{AFAFAF}- New York Roleplay, Management.");
+	ShowPlayerDialog(playerid, DIALOG_BETA, DIALOG_STYLE_MSGBOX, "New York Roleplay - Public Beta", string, "Okay", "");
+	return true;
+}
+
 Server:SQL_OnAccountLogin(playerid)
 {
 	if(cache_num_rows() == 0)
 	{
-		ShowLoginDialog(playerid, "[Error]:{FFFFFF} You have entered incorrect password.");
+		ShowLoginDialog(playerid, "[ERROR]:{FFFFFF} You have entered an incorrect password.");
 		return true;
 	}
 
 	PlayerData[playerid][pSQLID] = cache_get_field_content_int(0, "id", sqlConnection);
 	LoadPlayerData(playerid);
-	SendSuccessMessage(playerid, "You have successfully logged in to the server!");
+	SendSuccessMessage(playerid, "You have successfully logged in, your account information is now being loaded.");
 	return true;
 }
 
@@ -166,6 +177,7 @@ Server:SQL_OnLoadAccount(playerid)
 	new string[256];
 	format(string, sizeof(string), "Player Level: %d | Admin Level: %d | Respect Points: %d", PlayerData[playerid][pLevel], PlayerData[playerid][pAdminLevel], PlayerData[playerid][pRespect]);
 	SendClientMessage(playerid, COLOR_ALT, string);
+	ShowBetaDialog(playerid);
 	return true;
 }
 
