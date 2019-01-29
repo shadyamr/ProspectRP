@@ -18,6 +18,9 @@ Server:DefaultPlayerValues(playerid)
 	PlayerData[playerid][pAdminLevel] = 0;
 	PlayerData[playerid][pHelper] = 0;
 	PlayerData[playerid][pTester] = 0;
+	PlayerData[playerid][pDonator] = 0;
+	PlayerData[playerid][pAge] = 18;
+	PlayerData[playerid][pSex] = 0;
 	PlayerData[playerid][pMoney] = 0;
 	PlayerData[playerid][pLevel] = 1;
 	PlayerData[playerid][pRespect] = 0;
@@ -110,11 +113,7 @@ Server:SQL_OnAccountLogin(playerid)
 
 	PlayerData[playerid][pSQLID] = cache_get_field_content_int(0, "id", sqlConnection);
 	LoadPlayerData(playerid);
-	new string[256];
 	SendSuccessMessage(playerid, "You have successfully logged in to the server!");
-	
-	format(string, sizeof(string), "Player Level: %d | Admin Level: %d | Respect Points: %d", PlayerData[playerid][pLevel], PlayerData[playerid][pAdminLevel], PlayerData[playerid][pRespect]);
-	SendClientMessage(playerid, COLOR_SERVER, string);
 	return true;
 }
 
@@ -130,10 +129,16 @@ Server:SQL_OnLoadAccount(playerid)
 {
 	LoggedIn[playerid] = true;
 
+	new query[256];
 	PlayerData[playerid][pRegisterDate] = cache_get_field_content_int(16, "RegDate", sqlConnection);
+	cache_get_field_content(0, "RegDate", query);
+	format(PlayerData[playerid][pRegisterDate], 16, query);
 	PlayerData[playerid][pAdminLevel] = cache_get_field_content_int(0, "AdminLevel", sqlConnection);
 	PlayerData[playerid][pHelper] = cache_get_field_content_int(0, "Helper", sqlConnection);
 	PlayerData[playerid][pTester] = cache_get_field_content_int(0, "Tester", sqlConnection);
+	PlayerData[playerid][pDonator] = cache_get_field_content_int(0, "Donator", sqlConnection);
+	PlayerData[playerid][pAge] = cache_get_field_content_int(0, "Age", sqlConnection);
+	PlayerData[playerid][pSex] = cache_get_field_content_int(0, "Gender", sqlConnection);
 	PlayerData[playerid][pMoney] = cache_get_field_content_int(0, "Money", sqlConnection);
 	PlayerData[playerid][pLevel] = cache_get_field_content_int(0, "Level", sqlConnection);
 	PlayerData[playerid][pRespect] = cache_get_field_content_int(0, "Respect", sqlConnection);
@@ -157,6 +162,10 @@ Server:SQL_OnLoadAccount(playerid)
 	SetPlayerSpawn(playerid);
 	SetPlayerColor(playerid, 0xFFFFFFFF);
 	HideLoginScreenTextDraw(playerid);
+
+	new string[256];
+	format(string, sizeof(string), "Player Level: %d | Admin Level: %d | Respect Points: %d", PlayerData[playerid][pLevel], PlayerData[playerid][pAdminLevel], PlayerData[playerid][pRespect]);
+	SendClientMessage(playerid, COLOR_ALT, string);
 	return true;
 }
 
@@ -215,13 +224,9 @@ Server:SetPlayerSpawn(playerid)
 
 Server:SQL_OnAccountRegister(playerid)
 {
-	new string[256];
-	SendSuccessMessage(playerid, "You have successfully logged in to the server!");
-
-	format(string, sizeof(string), "Player Level: %d | Admin Level: %d | Respect Points: %d", PlayerData[playerid][pLevel], PlayerData[playerid][pAdminLevel], PlayerData[playerid][pRespect]);
-	SendClientMessage(playerid, COLOR_SERVER, string);
+	SendSuccessMessage(playerid, "You have successfully registered to the server!");
 	displayWelcomeMessage(playerid);
-	SetTimerEx("removeWelcomeMessage", 15000, false, "i", playerid);
+	SetTimerEx("removeWelcomeMessage", 10000, false, "i", playerid);
 	DefaultPlayerValues(playerid);
 	PlayerData[playerid][pSQLID] = cache_insert_id();
 	LoadPlayerData(playerid);
