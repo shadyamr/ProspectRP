@@ -40,6 +40,7 @@
 #include "../gamemodes/scripts/maps.nyrp"
 #include "../gamemodes/scripts/houses.nyrp"
 
+#include "../gamemodes/scripts/showstats.nyrp"
 #include "../gamemodes/scripts/commands.nyrp"
 
 main(){}
@@ -93,7 +94,7 @@ public OnPlayerConnect(playerid)
 	cNametag[playerid] = CreateDynamic3DTextLabel("Loading nametag...", 0xFFFFFFFF, 0.0, 0.0, 0.1, NT_DISTANCE, .attachedplayer = playerid, .testlos = 1);
 	PlayAudioStreamForPlayer(playerid, "https://prospectrp.eu/prospect-intro.mp3");
 	format(string, sizeof(string), "Welcome to New York Roleplay, %s {FFFFFF}[Version "SVR_VERSION" | www.ny-rp.eu]", NameRP(playerid));
-	SendClientMessage(playerid, COLOR_INTRO, string);
+	SendClientMessage(playerid, COLOR_LIGHTRED, string);
 
 	// RP Name Checker
 	if(!IsRPName(GetName(playerid)))
@@ -260,7 +261,7 @@ public OnDialogResponse(playerid, dialogid, response, listitem, inputtext[])
 			}
 			if(strlen(inputtext) < 3 || strlen(inputtext) > 30)
 			{
-				ShowRegisterDialog(playerid, "[Error]:{FFFFFF} Password length must be above 3 characters AND below 30 characters long.");
+				ShowRegisterDialog(playerid, "[ERROR]:{FFFFFF} Password length must be above 3 characters AND below 30 characters long.");
 				return true;
 			}
 			new query[1000];
@@ -275,7 +276,7 @@ public OnDialogResponse(playerid, dialogid, response, listitem, inputtext[])
 			if(!response) return Kick(playerid);
 			if(strlen(inputtext) < 3 || strlen(inputtext) > 30)
 			{
-				ShowLoginDialog(playerid, "[Error]:{FFFFFF} Password length must be above 3 characters AND below 30 characters long.");
+				ShowLoginDialog(playerid, "[ERROR]:{FFFFFF} Password length must be above 3 characters AND below 30 characters long.");
 				return true;
 			}
 
@@ -311,6 +312,9 @@ public OnPlayerSpawn(playerid)
 
 public OnPlayerDeath(playerid, killerid, reason)
 {
+	// TESTING PURPOSES
+	SetPlayerPos(playerid, -88.9697, 1225.39, 19.7422);
+	SetPlayerFacingAngle(playerid, 178.881);
 	return true;
 }
 
