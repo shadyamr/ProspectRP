@@ -24,7 +24,7 @@
 #define 		COLOR_USAGE 				0x636A76FF
 #define 		COLOR_YELLOW				0xFFFF0000
 #define 		COLOR_EMOTE					0xC2A2DAAA
-#define 		COLOR_SHOUT					0x7F8C8D00
+#define 		COLOR_SHOUT					0xE67E22FF
 
 #define 		COLOR_INDIANRED 			0xCD5C5CFF
 #define 		COLOR_LIGHTCORAL 			0xF08080FF
@@ -164,6 +164,7 @@
 #define 		DIALOG_DAMAGE 				4
 #define 		DIALOG_STATS 				5
 #define 		DIALOG_BETA					6
+#define 		DIALOG_AHELP				7
 
 #define 		NT_DISTANCE 				20.0
 
@@ -218,14 +219,16 @@ enum HOUSE_DATA
 	Float:HouseInterior[4],
 	HouseInteriorID,
 	HousePrice,
+	HouseLocked,
 	HousePickup,
 	Text3D:HouseLabel
 }
 
-new bool:LoggedIn[MAX_PLAYERS], PlayerData[MAX_PLAYERS][PLAYER_DATA], DamageData[MAX_DAMAGES][DAMAGE_DATA], totalDamages = 0;
+new bool:LoggedIn[MAX_PLAYERS], PlayerData[MAX_PLAYERS][PLAYER_DATA], DamageData[MAX_DAMAGES][DAMAGE_DATA], LoginChance[MAX_PLAYERS], totalDamages = 0;
 new HouseData[MAX_HOUSES][HOUSE_DATA], TotalHousesCreated = 0;
-// new displayingText[MAX_PLAYERS], hideCenterHUDTimerID[MAX_PLAYERS];
-new Text3D:cNametag[MAX_PLAYERS];
+new Text3D:cNametag[MAX_PLAYERS], MOTDText[500];
+new Injured[MAX_PLAYERS], AcceptDeath[MAX_PLAYERS], AcceptDeathTimer[MAX_PLAYERS], LoseHealthTimer[MAX_PLAYERS], Hospitalized[MAX_PLAYERS];
+new InjuredSkin, Float:InjuredX, Float:InjuredY, Float:InjuredZ, Float:InjuredA;
 //new IsEngineOn[MAX_PLAYERS];
 
 // Textdraws:
@@ -247,4 +250,3 @@ new Text:nyrp_txtbg_shadow;
 new Text:nyrp_iconbg;
 new Text:nyrp_icon;
 new Text:nyrp_txt;
-//new Text:centerHUDInfo[MAX_PLAYERS];

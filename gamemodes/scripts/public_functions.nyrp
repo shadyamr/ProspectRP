@@ -11,8 +11,25 @@ Server:SaveSQLInt(sqlid, table[], row[], value)
 	return true;
 }
 
+Server:SaveSQLFloat(sqlid, table[], row[], Float:value)
+{
+	new query[512];
+	mysql_format(sqlConnection, query, sizeof(query), "UPDATE %e SET %e = %f WHERE id = %i", table, row, value, sqlid);
+	mysql_pquery(sqlConnection, query);
+	return true;
+}
+
+Server:SaveSQLString(sqlid, table[], row[], value[])
+{
+	new query[512];
+	mysql_format(sqlConnection, query, sizeof(query), "UPDATE %e SET %e = %s WHERE id = %i", table, row, value, sqlid);
+	mysql_pquery(sqlConnection, query);
+	return true;
+}
+
 Server:DefaultPlayerValues(playerid)
 {
+	LoginChance[playerid] = 0;
 	LoggedIn[playerid] = false;
 	PlayerData[playerid][pSQLID] = 0;
 	PlayerData[playerid][pAdminLevel] = 0;
@@ -119,6 +136,12 @@ Server:SQL_OnAccountLogin(playerid)
 	if(cache_num_rows() == 0)
 	{
 		ShowLoginDialog(playerid, "[ERROR]:{FFFFFF} You have entered an incorrect password.");
+		LoginChance[playerid]++;
+		if(LoginChance[playerid] == 3)
+		{
+			SendServerMessage(playerid, "You have been kicked for bad password attempts.");
+			return KickEx(playerid);
+		}
 		return true;
 	}
 
@@ -141,7 +164,6 @@ Server:SQL_OnLoadAccount(playerid)
 	LoggedIn[playerid] = true;
 
 	new query[256];
-	PlayerData[playerid][pRegisterDate] = cache_get_field_content_int(16, "RegDate", sqlConnection);
 	cache_get_field_content(0, "RegDate", query);
 	format(PlayerData[playerid][pRegisterDate], 16, query);
 	PlayerData[playerid][pAdminLevel] = cache_get_field_content_int(0, "AdminLevel", sqlConnection);
@@ -174,9 +196,11 @@ Server:SQL_OnLoadAccount(playerid)
 	SetPlayerColor(playerid, 0xFFFFFFFF);
 	HideLoginScreenTextDraw(playerid);
 
-	new string[256];
-	format(string, sizeof(string), "Player Level: %d | Admin Level: %d | Respect Points: %d", PlayerData[playerid][pLevel], PlayerData[playerid][pAdminLevel], PlayerData[playerid][pRespect]);
+	new string[512];
+	format(string, sizeof(string), "Admin Level: %d | Player Level: %d | Respect Points: %d | Faction: Civilian (n/a)", PlayerData[playerid][pAdminLevel], PlayerData[playerid][pLevel], PlayerData[playerid][pRespect]);
 	SendClientMessage(playerid, COLOR_ALT, string);
+    format(string, sizeof(string), "[Player MOTD]: %s", MOTDText);
+    SendClientMessage(playerid, COLOR_WHITE, string);
 	ShowBetaDialog(playerid);
 	return true;
 }
@@ -236,9 +260,9 @@ Server:SetPlayerSpawn(playerid)
 
 Server:SQL_OnAccountRegister(playerid)
 {
-	SendSuccessMessage(playerid, "You have successfully registered to the server!");
+	SendSuccessMessage(playerid, "You have successfully registered to the server, your account information is now being saved.");
 	displayWelcomeMessage(playerid);
-	SetTimerEx("removeWelcomeMessage", 10000, false, "i", playerid);
+	SetTimerEx("removeWelcomeMessage", 5000, false, "i", playerid);
 	DefaultPlayerValues(playerid);
 	PlayerData[playerid][pSQLID] = cache_insert_id();
 	LoadPlayerData(playerid);
@@ -396,12 +420,18 @@ Server:DisplayDamageData(playerid, forplayerid)
 		if(DamageData[i][DamagePlayerID] == playerid)
 		{
 			GetWeaponName(DamageData[i][DamageWeapon], weaponname, sizeof(weaponname));
-			format(longstr, sizeof(longstr), "%s{FFFFFF} (%s - %s) %s\n", longstr, GetDamageType(DamageData[i][DamageWeapon]), GetBoneDamaged(DamageData[i][DamageBodypart]), weaponname);
+			format(longstr, sizeof(longstr), "Injuries\tBodypart\tWeapon\n%s\t%s\t%s\n", GetDamageType(DamageData[i][DamageWeapon]), GetBoneDamaged(DamageData[i][DamageBodypart]), weaponname);
 		}
 	}
-	ShowPlayerDialog(playerid, DIALOG_DAMAGE, DIALOG_STYLE_LIST, "{FF0000}Damage Information", longstr, "Ok", "");
+	ShowPlayerDialog(playerid, DIALOG_DAMAGE, DIALOG_STYLE_TABLIST_HEADERS, "{FF0000}Damage Information", longstr, "Ok", "");
 	return true;
 }
+
+/*ShowPlayerDialog(playerid, YOUR_DIALOGID, DIALOG_STYLE_TABLIST_HEADERS, "Caption",
+"Header 1\tHeader 2\tHeader 3\n\
+Item 1 Column 1\tItem 1 Column 2\tItem 1 Column 3\n\
+{FF0000}Item 2 Column 1\t{33AA33}Item 2 Column 2\tItem 2 Column 3",
+"Button 1", "Button 2");*/
 
 Server:removeWelcomeMessage(playerid)
 {
@@ -417,8 +447,52 @@ Server:KickPlayer(playerid)
 	Kick(playerid);
 }
 
-/*Server:hideCenterHUDInfo(playerid)
+forward ServerRestart(playerid);
+public ServerRestart(playerid)
 {
-	TextDrawHideForPlayer(playerid, centerHUDInfo[playerid]);
-	displayingText[playerid] = 0;
-}*/
+	SendClientMessageToAll(COLOR_GOLD, "[Announcement]:{FFFFFF} The server is restarting.");
+    SetTimer("restartmsg", 100, false);
+    return 1;
+}
+
+forward restartmsg(playerid);
+public restartmsg(playerid)
+{
+    foreach (new i : Player)
+    Kick(i);
+    SetTimer("GmX", 1000, false);
+    return 1;
+}
+
+forward GmX(playerid);
+public GmX(playerid)
+{
+    foreach (new i : Player)
+    Kick(i);
+    SendRconCommand("gmx");
+    return 1;
+}
+
+Server:CanAcceptDeath(playerid)
+{
+    AcceptDeath[playerid] = 1;
+	SendServerMessage(playerid, "You can now authorized to accept death.");
+}
+
+Server:HospitalTimer(playerid)
+{
+    Hospitalized[playerid] = 0;
+	SendClientMessage(playerid, -1, "You have recovered at the All Saints General Hospital.");
+	SetPlayerPos(playerid, 1178.4012, -1323.2754, 14.1183);
+	SetPlayerFacingAngle(playerid, 270.0);
+	SetCameraBehindPlayer(playerid);
+	SetPlayerHealth(playerid, 100.0);
+	TogglePlayerControllable(playerid, 1);
+}
+
+Server:LoseHealth(playerid)
+{
+    new Float:health;
+	GetPlayerHealth(playerid, health);
+	SetPlayerHealth(playerid, health-5);
+}

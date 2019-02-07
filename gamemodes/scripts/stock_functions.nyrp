@@ -17,6 +17,18 @@ GetIP(playerid)
 	return ip;
 }
 
+GetPGender(playerid)
+{
+	new gender[12];
+	switch(PlayerData[playerid][pSex])
+	{
+		case 1:gender = "his";
+		case 2:gender = "her";
+		default:gender = "their";
+	}
+	return gender;
+}
+
 GetDate()
 {
 	new sendString[90], MonthStr[40], month, day, year;
@@ -129,7 +141,7 @@ GetArmorDots(playerid)
 	else if(AR >= 20 && AR < 30)
 	    dots = "••{666666}••••••••";
 	else if(AR >= 10 && AR < 20)
-	    dots = "••{666666}••••••••";
+	    dots = "•{666666}•••••••••";
 	else if(AR >= 0 && AR < 10)
 	    dots = "{666666}••••••••••";
 
@@ -172,6 +184,11 @@ KickEx(playerid)
 	return true;
 }
 
+RestartEx()
+{
+	SetTimer("ServerRestart", 20000, false);
+}
+
 IsRPName(name[])
 {
    new upos=strfind(name, "_");
@@ -196,36 +213,6 @@ IsRPName(name[])
    if(strlen(name)-upos<3) return false;
    return true;
 }
-
-/*createCenterHUDTextDraw(playerid)
-{
-	centerHUDInfo[playerid] = TextDrawCreate(319.000000, 380.000000, "");
-	TextDrawAlignment(centerHUDInfo[playerid], 2);
-	TextDrawBackgroundColor(centerHUDInfo[playerid], 255);
-	TextDrawFont(centerHUDInfo[playerid], 1);
-	TextDrawLetterSize(centerHUDInfo[playerid], 0.320000, 1.500000);
-	TextDrawColor(centerHUDInfo[playerid], -1);
-	TextDrawSetOutline(centerHUDInfo[playerid], 0);
-	TextDrawSetProportional(centerHUDInfo[playerid], 1);
-	TextDrawSetShadow(centerHUDInfo[playerid], 1);
-}
-
-displayCenterHUDInfo(playerid, string2[], duration)
-{
-	if(displayingText[playerid])
-	{
-		KillTimer(hideCenterHUDTimerID[playerid]);
-	}
-	TextDrawSetString(centerHUDInfo[playerid], string2);
-	TextDrawShowForPlayer(playerid, centerHUDInfo[playerid]);
-	hideCenterHUDTimerID[playerid] = SetTimerEx("Timer_hideCenterHUDInfo", duration *1000, 0, "i", playerid);
-	displayingText[playerid] = 1;
-}
-
-destroyCenterHUDInfo(playerid)
-{
-	TextDrawDestroy(centerHUDInfo[playerid]);
-}*/
 
 SendUnauthorizedMsg(playerid)
 {
@@ -507,4 +494,46 @@ CountPlayerHouses(playerid)
 		}
 	}
 	return count;
+}
+
+GetNearestHouseID(playerid, Float:range = 5.0)
+{
+	new id = -1;
+	for(new i = 0; i < MAX_HOUSES; i++)
+	{
+		if(HouseData[i][HouseID] != 0)
+		{
+			if(IsPlayerInRangeOfPoint(playerid, range, HouseData[i][HouseExterior][0], HouseData[i][HouseExterior][1], HouseData[i][HouseExterior][2]))
+			{
+				id = 1;
+				break;
+			}
+		}
+	}
+	return id;
+}
+
+LoadMOTD()
+{ 
+    if(!fexist("motd.cfg"))
+    {
+        dini_Create("motd.cfg");
+ 
+        format(MOTDText, 256, "Welcome to New York Roleplay! MOTD hasn't been adjusted yet.");
+ 
+        dini_Set("motd.cfg", "SMOTDUpdate", MOTDText);
+    }
+    else
+    {
+        format(MOTDText, 256, "%s", dini_Get("motd.cfg", "SMOTDUpdate"));
+    }
+ 
+    printf("[Player MOTD]: %s", MOTDText);
+    return 1;
+}
+
+UpdateMOTD()
+{
+    dini_Set("motd.cfg", "SMOTDUpdate", MOTDText);
+    return 1;
 }

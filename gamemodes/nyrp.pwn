@@ -24,6 +24,7 @@
 #include <a_mysql>
 #include <compat>
 #include <crashdetect>
+#include <dini>
 #include <foreach>
 #include <izcmd>
 #include <sscanf2>
@@ -39,6 +40,7 @@
 #include "../gamemodes/scripts/textdraws.nyrp"
 #include "../gamemodes/scripts/maps.nyrp"
 #include "../gamemodes/scripts/houses.nyrp"
+#include "../gamemodes/scripts/player_vehicles.nyrp"
 
 #include "../gamemodes/scripts/showstats.nyrp"
 #include "../gamemodes/scripts/commands.nyrp"
@@ -59,12 +61,15 @@ public OnGameModeInit()
 	sqlConnection = mysql_connect(SQL_HOSTNAME, SQL_USERNAME, SQL_DATABASE, SQL_PASSWORD);
 
     LoadServerHouses();
+    LoadMOTD();
 
 	EnableStuntBonusForAll(0);
 	ShowPlayerMarkers(PLAYER_MARKERS_MODE_OFF);
 	ShowNameTags(0);
 	ManualVehicleEngineAndLights();
 	DisableInteriorEnterExits();
+	UsePlayerPedAnims();
+	LimitGlobalChatRadius(15.0);
 
 	new hour, seconds, minute;
 	gettime(hour, seconds, minute);
@@ -90,7 +95,7 @@ public OnPlayerConnect(playerid)
 {
 	new string[256];
 	DefaultPlayerValues(playerid);
-	SetPlayerColor(playerid, 0xAFAFAFFF);
+	SetPlayerColor(playerid, -1);
 	cNametag[playerid] = CreateDynamic3DTextLabel("Loading nametag...", 0xFFFFFFFF, 0.0, 0.0, 0.1, NT_DISTANCE, .attachedplayer = playerid, .testlos = 1);
 	PlayAudioStreamForPlayer(playerid, "https://prospectrp.eu/prospect-intro.mp3");
 	format(string, sizeof(string), "Welcome to New York Roleplay, %s {FFFFFF}[Version "SVR_VERSION" | www.ny-rp.eu]", NameRP(playerid));
@@ -291,7 +296,18 @@ public OnDialogResponse(playerid, dialogid, response, listitem, inputtext[])
 public OnPlayerDisconnect(playerid, reason)
 {
 	DefaultPlayerValues(playerid);
-	if(IsValidDynamic3DTextLabel(cNametag[playerid])) DestroyDynamic3DTextLabel(cNametag[playerid]); 
+	if(IsValidDynamic3DTextLabel(cNametag[playerid])) DestroyDynamic3DTextLabel(cNametag[playerid]);
+
+	new szString[64];
+	new szDisconnectReason[3][] =
+    {
+        "Timeout/Crash",
+        "Quit",
+        "Kick/Ban"
+    };
+
+    format(szString, sizeof szString, "%s left the server (%s).", NameRP(playerid), szDisconnectReason[reason]);
+    SendLocalMessageEx(playerid, COLOR_YELLOW, szString, 20.0);
 	return true;
 }
 
@@ -304,22 +320,84 @@ public OnPlayerTakeDamage(playerid, issuerid, Float:amount, weaponid, bodypart)
 
 public OnPlayerSpawn(playerid)
 {
+	SetPlayerSpecialAction(playerid, SPECIAL_ACTION_NONE);
+	AddPlayerClass(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+	Streamer_Update(playerid);
 	ResetDamageData(playerid);
 	hideLogRegTextdraw(playerid);
 	StopAudioStreamForPlayer(playerid);
+
+	if(Injured[playerid] == 1)
+	{
+		SetPlayerPos(playerid, InjuredX, InjuredY, InjuredZ);
+		SetPlayerFacingAngle(playerid, InjuredA);
+		SetPlayerSkin(playerid, InjuredSkin);
+		SetCameraBehindPlayer(playerid);
+		// to be adjusted
+		SendClientMessage(playerid, COLOR_LIGHTRED, "You are injured.");
+		SendClientMessage(playerid, COLOR_LIGHTRED, "Either wait for assistance or /acceptdeath.");
+		AcceptDeathTimer[playerid] = SetTimer("CanAcceptDeath", 60000, false);
+		LoseHealthTimer[playerid] = SetTimer("LoseHealth", 10000, true);
+		ApplyAnimation(playerid, "CRACK", "crckdeth2", 4.0, 1, 0, 0, 1, 0, 1);
+	}
+
+	if(Hospitalized[playerid] == 1)
+	{
+		SetTimer("HospitalTimer", 10000, false);
+		TogglePlayerControllable(playerid, 0);
+		SetPlayerPos(playerid, 1169.9645, -1323.8893, 15.6929);
+		SetPlayerCameraPos(playerid, 1201.5150, -1323.3530, 24.7329);
+		SetPlayerCameraLookAt(playerid, 1173.2358, -1323.2872, 19.4348);
+
+		new string[100];
+		SendClientMessage(playerid, COLOR_RED, "");
+		SendClientMessage(playerid, COLOR_RED, "San Andreas Medical Service");
+		format(string, sizeof(string), "Patient:{FFFFFF} %s", NameRP(playerid));
+		SendClientMessage(playerid, COLOR_RED, string);
+		format(string, sizeof(string), "Time of Arrival:{FFFFFF} %s", GetDate());
+		SendClientMessage(playerid, COLOR_RED, string);
+		SendClientMessage(playerid, COLOR_RED, "Attended by:{FFFFFF} All Saints General Hospital");
+		SendClientMessage(playerid, COLOR_RED, "Hospital Bill:{FFFFFF} $100");
+		SendClientMessage(playerid, COLOR_RED, "");
+	}
 	return true;
 }
 
 public OnPlayerDeath(playerid, killerid, reason)
 {
-	// TESTING PURPOSES
-	SetPlayerPos(playerid, -88.9697, 1225.39, 19.7422);
-	SetPlayerFacingAngle(playerid, 178.881);
+	if(Injured[playerid] == 0)
+	{
+		Injured[playerid] = 1;
+		GetPlayerPos(playerid, InjuredX, InjuredY, InjuredZ);
+		GetPlayerFacingAngle(playerid, InjuredA);
+		InjuredSkin = GetPlayerSkin(playerid);
+	}
+	else if(Injured[playerid] == 1)
+	{
+		KillTimer(AcceptDeathTimer[playerid]);
+	    KillTimer(LoseHealthTimer[playerid]);
+		AcceptDeath[playerid] = 0;
+		Injured[playerid] = 0;
+		Hospitalized[playerid] = 1;
+	}
 	return true;
 }
 
 public OnPlayerUpdate(playerid)
 {
+	if(Injured[playerid] == 1 && GetPlayerAnimationIndex(playerid) != 386)
+	{
+		ApplyAnimation(playerid, "CRACK", "crckdeth2", 4.0, 1, 0, 0, 1, 0, 1);
+	}
+
+	if(GetPlayerSpecialAction(playerid) == SPECIAL_ACTION_USEJETPACK)
+	{
+		if(PlayerData[playerid][pAdminLevel] == 0)
+		{
+			SendServerMessage(playerid, "You have been kicked from the server for attempting to use a jetpack.");
+			KickEx(playerid);
+		}
+	}
 	return true;
 }
 
@@ -335,14 +413,10 @@ public OnPlayerCommandPerformed(playerid, cmdtext[], success)
 {
 	if(!success)
 	{
-		if(strlen(cmdtext) > 28) // Preventing long bad commands from returning default message;
-			SendErrorMessage(playerid, "Sorry, that command doesn't exist. Use /help if you need assistance.");
-
-		else
-			SendErrorMessage(playerid, "Sorry, the command doesn't exist. Use /help if you need assistance.");
+		SendErrorMessage(playerid, "Sorry, that command does not exist. /help if you're in need of assistance.");
 	}
-	else return true;
-	return true;
+	else return 1;
+	return 1;
 }
 
 public OnPlayerStateChange(playerid, newstate, oldstate)
@@ -360,4 +434,31 @@ public OnPlayerStateChange(playerid, newstate, oldstate)
         if(engine == VEHICLE_PARAMS_ON) SetVehicleParamsEx(vehicleid, VEHICLE_PARAMS_OFF, lights, alarm, doors, bonnet, boot, objective);
     }
     return true;
+}
+
+public OnPlayerRequestClass(playerid, classid)
+{
+	SetPlayerSpawn(playerid);
+	return true;
+}
+
+public OnRconLoginAttempt(ip[], password[], success)
+{
+	new playerip[16];
+	foreach(new i: Player)
+	{
+		if(IsPlayerConnected(i))
+		{
+			GetPlayerIp(i, playerip, 16);
+			if(!strcmp(playerip, ip, true))
+			{
+				if(success) return KickEx(i); 
+				else
+				{
+					printf("FAILED RCON LOGIN BY IP %s USING PASSWORD %s", ip, password);
+				}
+			}
+		}
+	}
+	return 1;
 }

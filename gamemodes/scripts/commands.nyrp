@@ -16,6 +16,37 @@ CMD:engine(playerid, params[])
 }
 
 // General Commands:
+CMD:acceptdeath(playerid, params[])
+{
+	if(!LoggedIn[playerid]) return true;
+	if(Injured[playerid] == 1)
+	{
+		if (AcceptDeath[playerid] == 1)
+		{
+			SetPlayerHealth(playerid, 0.0);
+			KillTimer(LoseHealthTimer[playerid]);
+			SendServerMessage(playerid, "You have accepted death, therefore you'll be transferred to hospital.");
+		}
+		else if (AcceptDeath[playerid] == 0)
+		{
+			SendErrorMessage(playerid, "You must wait atleast one minute before accepting death.");
+		}
+	}
+	else if (Injured[playerid] == 0)
+	{
+		SendErrorMessage(playerid, "You are not injured right now.");
+	}
+	return true; 
+}
+
+CMD:kill(playerid, params[])
+{
+	if(!LoggedIn[playerid]) return true;
+	if(!PlayerData[playerid][pAdminLevel]) return SendUnauthorizedMsg(playerid);
+	SetPlayerHealth(playerid, 0);
+	return true;
+}
+
 CMD:enter(playerid, params[])
 {
 	if(!LoggedIn[playerid]) return true;
@@ -27,10 +58,14 @@ CMD:enter(playerid, params[])
 			{
 				if(IsPlayerInRangeOfPoint(playerid, 5.0, HouseData[i][HouseExterior][0], HouseData[i][HouseExterior][1], HouseData[i][HouseExterior][2]))
 				{
-					SetPlayerPos(playerid, HouseData[i][HouseInterior][0], HouseData[i][HouseInterior][1], HouseData[i][HouseInterior][2]);
-					SetPlayerFacingAngle(playerid, HouseData[i][HouseInterior][3]);
-					SetPlayerInterior(playerid, HouseData[i][HouseInteriorID]);
-					SetPlayerVirtualWorld(playerid, HouseData[i][HouseID]);
+					if(HouseData[i][HouseLocked] == 0)
+					{
+						SetPlayerPos(playerid, HouseData[i][HouseInterior][0], HouseData[i][HouseInterior][1], HouseData[i][HouseInterior][2]);
+						SetPlayerFacingAngle(playerid, HouseData[i][HouseInterior][3]);
+						SetPlayerInterior(playerid, HouseData[i][HouseInteriorID]);
+						SetPlayerVirtualWorld(playerid, HouseData[i][HouseID]);
+					}
+					else return SendErrorMessage(playerid, "This house is locked.");
 				}
 			}
 		}
@@ -145,16 +180,16 @@ CMD:attempt(playerid, params[])
 	
 	new string[128], rand = (0 + random(50));
 	
-	format(string, sizeof(string), "* %s attempts to %s and ", NameRP(playerid), params);
+	format(string, sizeof(string), "* %s has attempted to %s and ", NameRP(playerid), params);
 	switch(rand)
 	{
 		case 0 .. 25:
 		{
-			strins(string, "fails...", strlen(string));
+			strins(string, "failed.", strlen(string));
 		}
 		default:
 		{
-			strins(string, "succeeds...", strlen(string));
+			strins(string, "succeeded.", strlen(string));
 		}
 	}
 
@@ -381,7 +416,9 @@ CMD:ahelp(playerid, params[])
 {
 	if(PlayerData[playerid][pAdminLevel])
 	{
-		SendClientMessage(playerid, COLOR_WHITE, "To be adjusted..");
+	    new dialogstring[256];
+	    format(dialogstring, sizeof(dialogstring), "{195080}Probationary Administrator:{FFFFFF} /revive\n{2F84FD}Administrator:{FFFFFF} /gotopoint\n{DA004E}Lead Administrator:{FFFFFF} /motd\n{E64B3C}Management:{FFFFFF} /makeadmin, /makedonator, /maketester, /gmx");
+	    ShowPlayerDialog(playerid, DIALOG_AHELP, DIALOG_STYLE_MSGBOX, "Admin Help", dialogstring, "Close", "");
 	}
 	else SendUnauthorizedMsg(playerid);
 	return true;
@@ -391,7 +428,7 @@ CMD:makeadmin(playerid, params[])
 {
    	new str[128], playerb, value;
     if(PlayerData[playerid][pAdminLevel] < 4 && !IsPlayerAdmin(playerid)) return SendUnauthorizedMsg(playerid);
-    if(sscanf(params, "ui", playerb, value)) return SendUsageMessage(playerid, "/makeadmin [playerid/partofname] [level 1-4]");
+    if(sscanf(params, "ui", playerb, value)) return SendUsageMessage(playerid, "/makeadmin [playerid/part of name] [level 1-4]");
 	if(value < 0 || value > 4) return SendErrorMessage(playerid, "Invalid administrator level, 0-4.");
     if(value == 0)
     {
@@ -446,7 +483,7 @@ CMD:makedonator(playerid, params[])
 {
    	new str[128], playerb, value;
     if(PlayerData[playerid][pAdminLevel] < 4) return SendUnauthorizedMsg(playerid);
-    if(sscanf(params, "ui", playerb, value)) return SendUsageMessage(playerid, "/makedonator [playerid/partofname] [donator level 1-3]");
+    if(sscanf(params, "ui", playerb, value)) return SendUsageMessage(playerid, "/makedonator [playerid/part of name] [donator level 1-3]");
 	if(value < 0 || value > 3) return SendErrorMessage(playerid, "Invalid donator level, 0-3.");
     if(value == 0)
     {
@@ -492,7 +529,7 @@ CMD:maketester(playerid, params[])
 {
    	new str[128], playerb, value;
     if(PlayerData[playerid][pAdminLevel] < 4 && PlayerData[playerid][pTester] < 2) return SendUnauthorizedMsg(playerid);
-    if(sscanf(params, "ui", playerb, value)) return SendUsageMessage(playerid, "/maketester [playerid/partofname] [tester level 1-2].");
+    if(sscanf(params, "ui", playerb, value)) return SendUsageMessage(playerid, "/maketester [playerid/part of name] [tester level 1-2].");
 	if(value < 0 || value > 3) return SendErrorMessage(playerid, "Invalid tester level, 0-2.");
     if(value == 0)
     {
@@ -528,10 +565,55 @@ CMD:maketester(playerid, params[])
 
 CMD:gotopoint(playerid, params[])
 {
-	if(!PlayerData[playerid][pAdminLevel]) return SendUnauthorizedMsg(playerid);
+	if(PlayerData[playerid][pAdminLevel] < 2) return SendUnauthorizedMsg(playerid);
 	new	Float:x, Float:y, Float:z, interior;
 	if(sscanf(params, "fffi", x, y, z, interior)) return SendUsageMessage(playerid, "/gotopoint [x] [y] [z] [interior id]");
 	SetPlayerPos(playerid, x, y, z);
 	SetPlayerInterior(playerid, interior);
 	return true;
+}
+
+CMD:restart(playerid, params[])
+{
+	if(PlayerData[playerid][pAdminLevel] < 4) return SendUnauthorizedMsg(playerid);
+	SendClientMessageToAll(COLOR_GOLD, "[Announcement]:{FFFFFF} The server will be restarted in 20 seconds.");
+	RestartEx();
+	return true;
+}
+
+CMD:revive(playerid, params[])
+{
+    new targetid;
+	if(!PlayerData[playerid][pAdminLevel]) return SendUnauthorizedMsg(playerid);
+    if(sscanf(params, "u", targetid)) return SendUsageMessage(playerid, "/revive [playerid/part of name]");
+	if(targetid == INVALID_PLAYER_ID) return SendErrorMessage(playerid, "That player is not online.");
+	if(Injured[targetid] == 0) return SendErrorMessage(playerid, "That player is not injured.");
+	
+	new string[100];
+	format(string, sizeof(string), "[SERVER]:{FFFFFF}You have successfully revived %s.", NameRP(targetid));
+    SendClientMessage(playerid, COLOR_LIGHTRED, string);
+	format(string, sizeof(string), "[SERVER]:{FFFFFF}You have been revived by %s %s.", AdminRank(playerid), NameRP(playerid));
+    SendClientMessage(targetid, COLOR_LIGHTRED, string);
+	
+	KillTimer(AcceptDeathTimer[targetid]);
+	KillTimer(LoseHealthTimer[targetid]);
+	AcceptDeath[targetid] = 0;
+	Injured[targetid] = 0;
+	ClearAnimations(targetid);
+	SetPlayerHealth(targetid, 100.0);
+    return 1;
+}
+
+CMD:motd(playerid, params[])
+{
+	if(PlayerData[playerid][pAdminLevel] < 3) return SendUnauthorizedMsg(playerid);
+	if(isnull(params)) return SendUsageMessage(playerid, "/motd [message of the day]");
+
+	new string[267];
+	SendServerMessage(playerid, "You have successfully updated the message of the day.");
+	format(MOTDText, sizeof MOTDText, "%s", params);
+	format(string, sizeof(string), "[Player MOTD]: %s", MOTDText);
+	SendClientMessageToAll(COLOR_WHITE, string);
+	UpdateMOTD();
+	return 1;
 }
