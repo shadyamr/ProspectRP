@@ -1,2 +1,14 @@
-# Roleplay-Script
-Private repository of roleplay script, created from scratch. (GAMEMODE ACCESS)
+<p align="center">
+  <img width="625" height="178" src="https://i.imgur.com/PtBbiay.png">
+</p>
+
+# Gamemode Access
+Private repository of Project Serranilla Roleplay. (GAMEMODE ACCESS)
+
+# Contributors
+- Shady
+  - Founder and Lead Developer
+- Arch
+  - Creator of Serranilla Island version one
+- Freddy
+  - Mapper of Serranilla Island version one
