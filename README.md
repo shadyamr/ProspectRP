@@ -12,3 +12,14 @@ Private repository of Project Serranilla Roleplay. (GAMEMODE ACCESS)
   - Creator of Serranilla Island version one
 - Freddy
   - Mapper of Serranilla Island version one
+
+# Plugins
+- Bcrypt
+- Crashdetect
+- DINI
+- Discord Connector
+- Foreach
+- Improved ZCMD
+- MySQL
+- SSCANF2
+- Streamer
