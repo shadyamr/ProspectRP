@@ -143,3 +143,184 @@ v0.3.DL-R1, (C)2005-2018 SA-MP Team
 [21:10:52] Number of vehicle models: 0
 [21:10:52] [NY:RP] 1 houses has been loaded from the database.
 [21:11:20] [part] Shady_Collins has left the server (0:1)
+
+----------
+Loaded log file: "server_log.txt".
+----------
+
+SA-MP Dedicated Server
+----------------------
+v0.3.DL-R1, (C)2005-2018 SA-MP Team
+
+[18:18:38] 
+[18:18:38] Server Plugins
+[18:18:38] --------------
+[18:18:38]  Loading plugin: crashdetect
+[18:18:38]   CrashDetect plugin 4.19.4
+[18:18:38]   Loaded.
+[18:18:38]  Loading plugin: discord-connector
+[18:18:38]   Failed.
+[18:18:38]  Loading plugin: mysql
+[18:18:39]  >> plugin.mysql: R39-6 successfully loaded.
+[18:18:39]   Loaded.
+[18:18:39]  Loading plugin: sscanf
+[18:18:39] 
+
+[18:18:39]  ===============================
+
+[18:18:39]       sscanf plugin loaded.     
+
+[18:18:39]          Version:  2.8.3        
+
+[18:18:39]   (c) 2018 Alex "Y_Less" Cole  
+
+[18:18:39]  ===============================
+
+[18:18:39]   Loaded.
+[18:18:39]  Loading plugin: streamer
+[18:18:39] 
+
+*** Streamer Plugin v2.9.4 by Incognito loaded ***
+
+[18:18:39]   Loaded.
+[18:18:39]  Loading plugin: nativechecker
+[18:18:39]   Loaded.
+[18:18:39]  Loaded 5 plugins.
+
+[18:18:39] [artwork:crc] lvpdpc2.dff CRC = 0xFBD1EA7C
+[18:18:39] [artwork:crc] lvpdpc2.txd CRC = 0xDC92731E
+[18:18:39] [artwork:crc] lapdpd2.dff CRC = 0xA558D422
+[18:18:39] [artwork:crc] lapdpd2.txd CRC = 0xA442E2DA
+[18:18:39] I couldn't load any gamemode scripts. Please verify your server.cfg
+[18:18:39] It needs a gamemode0 line at the very least.
+
+----------
+Loaded log file: "server_log.txt".
+----------
+
+SA-MP Dedicated Server
+----------------------
+v0.3.DL-R1, (C)2005-2018 SA-MP Team
+
+[18:19:30] 
+[18:19:30] Server Plugins
+[18:19:30] --------------
+[18:19:30]  Loading plugin: crashdetect
+[18:19:30]   CrashDetect plugin 4.19.4
+[18:19:30]   Loaded.
+[18:19:30]  Loading plugin: discord-connector
+[18:19:30]   Failed.
+[18:19:30]  Loading plugin: mysql
+[18:19:30]  >> plugin.mysql: R39-6 successfully loaded.
+[18:19:30]   Loaded.
+[18:19:30]  Loading plugin: sscanf
+[18:19:30] 
+
+[18:19:30]  ===============================
+
+[18:19:30]       sscanf plugin loaded.     
+
+[18:19:30]          Version:  2.8.3        
+
+[18:19:30]   (c) 2018 Alex "Y_Less" Cole  
+
+[18:19:30]  ===============================
+
+[18:19:30]   Loaded.
+[18:19:30]  Loading plugin: streamer
+[18:19:30] 
+
+*** Streamer Plugin v2.9.4 by Incognito loaded ***
+
+[18:19:30]   Loaded.
+[18:19:30]  Loading plugin: nativechecker
+[18:19:30]   Loaded.
+[18:19:30]  Loaded 5 plugins.
+
+[18:19:30] [artwork:crc] lvpdpc2.dff CRC = 0xFBD1EA7C
+[18:19:30] [artwork:crc] lvpdpc2.txd CRC = 0xDC92731E
+[18:19:30] [artwork:crc] lapdpd2.dff CRC = 0xA558D422
+[18:19:30] [artwork:crc] lapdpd2.txd CRC = 0xA442E2DA
+[18:19:31] 
+[18:19:31] Filterscripts
+[18:19:31] ---------------
+[18:19:31]   Loaded 0 filterscripts.
+
+[18:19:31]    Error: Function not registered: 'DCC_FindChannelById'
+[18:19:31]    Error: Function not registered: 'DCC_SendChannelMessage'
+[18:19:31] [debug] Run time error 19: "File or function is not found"
+[18:19:31] [debug]  DCC_FindChannelById
+[18:19:31] [debug]  DCC_SendChannelMessage
+[18:19:31] [debug] Run time error 19: "File or function is not found"
+[18:19:31] [debug]  DCC_FindChannelById
+[18:19:31] [debug]  DCC_SendChannelMessage
+[18:19:31] Script[gamemodes/serranilla.amx]: Run time error 19: "File or function is not found"
+[18:19:31] Number of vehicle models: 0
+[18:19:37] --- Server Shutting Down.
+[18:19:37] [debug] Run time error 19: "File or function is not found"
+[18:19:37] [debug]  DCC_FindChannelById
+[18:19:37] [debug]  DCC_SendChannelMessage
+[18:19:37] plugin.mysql: Unloading plugin...
+
+----------
+Loaded log file: "server_log.txt".
+----------
+
+SA-MP Dedicated Server
+----------------------
+v0.3.DL-R1, (C)2005-2018 SA-MP Team
+
+[18:19:39] 
+[18:19:39] Server Plugins
+[18:19:39] --------------
+[18:19:39]  Loading plugin: crashdetect
+[18:19:39]   CrashDetect plugin 4.19.4
+[18:19:39]   Loaded.
+[18:19:39]  Loading plugin: discord-connector
+[18:19:39]   Failed.
+[18:19:39]  Loading plugin: mysql
+[18:19:39]  >> plugin.mysql: R39-6 successfully loaded.
+[18:19:39]   Loaded.
+[18:19:39]  Loading plugin: sscanf
+[18:19:40] 
+
+[18:19:40]  ===============================
+
+[18:19:40]       sscanf plugin loaded.     
+
+[18:19:40]          Version:  2.8.3        
+
+[18:19:40]   (c) 2018 Alex "Y_Less" Cole  
+
+[18:19:40]  ===============================
+
+[18:19:40]   Loaded.
+[18:19:40]  Loading plugin: streamer
+[18:19:40] 
+
+*** Streamer Plugin v2.9.4 by Incognito loaded ***
+
+[18:19:40]   Loaded.
+[18:19:40]  Loading plugin: nativechecker
+[18:19:40]   Loaded.
+[18:19:40]  Loaded 5 plugins.
+
+[18:19:40] [artwork:crc] lvpdpc2.dff CRC = 0xFBD1EA7C
+[18:19:40] [artwork:crc] lvpdpc2.txd CRC = 0xDC92731E
+[18:19:40] [artwork:crc] lapdpd2.dff CRC = 0xA558D422
+[18:19:40] [artwork:crc] lapdpd2.txd CRC = 0xA442E2DA
+[18:19:40] 
+[18:19:40] Filterscripts
+[18:19:40] ---------------
+[18:19:40]   Loaded 0 filterscripts.
+
+[18:19:40]    Error: Function not registered: 'DCC_FindChannelById'
+[18:19:40]    Error: Function not registered: 'DCC_SendChannelMessage'
+[18:19:40] [debug] Run time error 19: "File or function is not found"
+[18:19:40] [debug]  DCC_FindChannelById
+[18:19:40] [debug]  DCC_SendChannelMessage
+[18:19:40] [debug] Run time error 19: "File or function is not found"
+[18:19:40] [debug]  DCC_FindChannelById
+[18:19:40] [debug]  DCC_SendChannelMessage
+[18:19:40] Script[gamemodes/serranilla.amx]: Run time error 19: "File or function is not found"
+[18:19:40] Number of vehicle models: 0

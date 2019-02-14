@@ -1,0 +1,55 @@
+[04:28:16] [INFO] changed log level from 'warning, error' to 'info, warning, error'
+[04:28:18] [ERROR] Discord terminated websocket connection; reason: Authentication failed. (4004)
+[04:28:18] [INFO] websocket gateway connection terminated, attempting reconnect...
+[04:28:19] [ERROR] Discord terminated websocket connection; reason: Authentication failed. (4004)
+[04:28:19] [INFO] websocket gateway connection terminated, attempting reconnect...
+[04:28:20] [ERROR] Discord terminated websocket connection; reason: Authentication failed. (4004)
+[04:28:20] [INFO] websocket gateway connection terminated, attempting reconnect...
+[04:28:21] [ERROR] Discord terminated websocket connection; reason: Authentication failed. (4004)
+[04:28:21] [INFO] websocket gateway connection terminated, attempting reconnect...
+[04:28:22] [ERROR] Discord terminated websocket connection; reason: Authentication failed. (4004)
+[04:28:22] [INFO] websocket gateway connection terminated, attempting reconnect...
+[04:28:23] [ERROR] Discord terminated websocket connection; reason: Authentication failed. (4004)
+[04:28:23] [INFO] websocket gateway connection terminated, attempting reconnect...
+[04:28:25] [ERROR] Discord terminated websocket connection; reason: Authentication failed. (4004)
+[04:28:25] [INFO] websocket gateway connection terminated, attempting reconnect...
+[04:28:26] [ERROR] Discord terminated websocket connection; reason: Authentication failed. (4004)
+[04:28:26] [INFO] websocket gateway connection terminated, attempting reconnect...
+[04:28:27] [ERROR] Discord terminated websocket connection; reason: Authentication failed. (4004)
+[04:28:27] [INFO] websocket gateway connection terminated, attempting reconnect...
+[04:30:22] [INFO] changed log level from 'warning, error' to 'info, warning, error'
+[04:30:23] [INFO] successfully created user with id '1'
+[04:31:26] [INFO] successfully created channel with id '1'
+[04:31:26] [INFO] successfully created channel with id '2'
+[04:31:26] [INFO] successfully created channel with id '3'
+[04:31:26] [INFO] successfully created channel with id '4'
+[04:31:26] [INFO] successfully created user with id '2'
+[04:31:26] [INFO] successfully created guild with id '1'
+[04:31:26] [INFO] executing PAWN callback 'DCC_OnGuildCreate'...
+[04:31:26] [INFO] PAWN callback successfully executed.
+[04:31:26] [INFO] executing PAWN callback 'DCC_OnGuildRoleCreate'...
+[04:31:26] [INFO] PAWN callback successfully executed.
+[04:31:26] [INFO] executing PAWN callback 'DCC_OnGuildMemberUpdate'...
+[04:31:26] [INFO] PAWN callback successfully executed.
+[04:32:45] [INFO] changed log level from 'warning, error' to 'info, warning, error'
+[04:32:47] [INFO] successfully created user with id '1'
+[04:32:47] [INFO] successfully created channel with id '1'
+[04:32:47] [INFO] successfully created channel with id '2'
+[04:32:47] [INFO] successfully created channel with id '3'
+[04:32:47] [INFO] successfully created channel with id '4'
+[04:32:47] [INFO] successfully created user with id '2'
+[04:32:47] [INFO] successfully created guild with id '1'
+[04:33:57] [INFO] executing PAWN callback 'DCC_OnChannelMessage'...
+[04:33:57] [INFO] PAWN callback successfully executed.
+[07:51:30] [INFO] changed log level from 'warning, error' to 'info, warning, error'
+[07:51:32] [INFO] successfully created user with id '1'
+[07:51:32] [INFO] successfully created channel with id '1'
+[07:51:32] [INFO] successfully created channel with id '2'
+[07:51:32] [INFO] successfully created channel with id '3'
+[07:51:32] [INFO] successfully created channel with id '4'
+[07:51:32] [INFO] successfully created user with id '2'
+[07:51:32] [INFO] successfully created guild with id '1'
+[07:51:40] [ERROR] invalid JSON: expected "guild_id" in "{"id":"543307892007108619","last_message_id":"543307899901050902","recipients":[{"avatar":"82277a63f0ede5d15c16151979a4ee86","discriminator":"7148","id":"180776300292734976","username":"Shady"}],"type":1}"
+[07:51:40] [INFO] successfully created channel with id '5'
+[07:51:40] [INFO] executing PAWN callback 'DCC_OnChannelCreate'...
+[07:51:40] [INFO] PAWN callback successfully executed.

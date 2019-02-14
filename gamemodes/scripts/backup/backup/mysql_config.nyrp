@@ -1,0 +1,10 @@
+/*
+	New York Roleplay
+	This file contains MySQL configuration, created by Shady.
+*/
+
+new sqlConnection, OneSecondTimer, lastSaveTime = 0;
+#define 	SQL_HOSTNAME	"localhost"
+#define 	SQL_USERNAME 	"root"
+#define 	SQL_DATABASE 	"nyrp"
+#define 	SQL_PASSWORD 	""

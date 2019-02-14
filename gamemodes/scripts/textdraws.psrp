@@ -1,0 +1,199 @@
+createLogRegTextdraw()
+{
+	background_topslide = TextDrawCreate(1.000000, 1.000000, "_");
+	TextDrawBackgroundColor(background_topslide, 255);
+	TextDrawFont(background_topslide, 1);
+	TextDrawLetterSize(background_topslide, 0.500000, 4.899999);
+	TextDrawColor(background_topslide, -1);
+	TextDrawSetOutline(background_topslide, 0);
+	TextDrawSetProportional(background_topslide, 1);
+	TextDrawSetShadow(background_topslide, 1);
+	TextDrawUseBox(background_topslide, 1);
+	TextDrawBoxColor(background_topslide, 255);
+	TextDrawTextSize(background_topslide, 639.000000, 0.000000);
+	TextDrawSetSelectable(background_topslide, 0);
+	
+	background_topslide_shadow = TextDrawCreate(1.000000, 48.000000, "_");
+	TextDrawBackgroundColor(background_topslide_shadow, 255);
+	TextDrawFont(background_topslide_shadow, 1);
+	TextDrawLetterSize(background_topslide_shadow, 0.500000, 0.400000);
+	TextDrawColor(background_topslide_shadow, -1);
+	TextDrawSetOutline(background_topslide_shadow, 0);
+	TextDrawSetProportional(background_topslide_shadow, 1);
+	TextDrawSetShadow(background_topslide_shadow, 1);
+	TextDrawUseBox(background_topslide_shadow, 1);
+	TextDrawBoxColor(background_topslide_shadow, 50);
+	TextDrawTextSize(background_topslide_shadow, 639.000000, -1.000000);
+	TextDrawSetSelectable(background_topslide_shadow, 0);
+	
+	background_bottomslide = TextDrawCreate(1.000000, 403.000000, "_");
+	TextDrawBackgroundColor(background_bottomslide, 255);
+	TextDrawFont(background_bottomslide, 1);
+	TextDrawLetterSize(background_bottomslide, 0.500000, 4.899999);
+	TextDrawColor(background_bottomslide, -1);
+	TextDrawSetOutline(background_bottomslide, 0);
+	TextDrawSetProportional(background_bottomslide, 1);
+	TextDrawSetShadow(background_bottomslide, 1);
+	TextDrawUseBox(background_bottomslide, 1);
+	TextDrawBoxColor(background_bottomslide, 255);
+	TextDrawTextSize(background_bottomslide, 639.000000, 0.000000);
+	TextDrawSetSelectable(background_bottomslide, 0);
+	
+	background_bottomslide_shadow = TextDrawCreate(1.000000, 396.000000, "_");
+	TextDrawBackgroundColor(background_bottomslide_shadow, 255);
+	TextDrawFont(background_bottomslide_shadow, 1);
+	TextDrawLetterSize(background_bottomslide_shadow, 0.500000, 0.400000);
+	TextDrawColor(background_bottomslide_shadow, -1);
+	TextDrawSetOutline(background_bottomslide_shadow, 0);
+	TextDrawSetProportional(background_bottomslide_shadow, 1);
+	TextDrawSetShadow(background_bottomslide_shadow, 1);
+	TextDrawUseBox(background_bottomslide_shadow, 1);
+	TextDrawBoxColor(background_bottomslide_shadow, 50);
+	TextDrawTextSize(background_bottomslide_shadow, 639.000000, -1.000000);
+	TextDrawSetSelectable(background_bottomslide_shadow, 0);
+
+	new Float: xoffset = 311.0;
+	new Float: yoffset = 35.0;
+	
+	nyrp_iconbg_shadow = TextDrawCreate(219.000000 + xoffset, 324.000000 + yoffset, "_");
+	TextDrawBackgroundColor(nyrp_iconbg_shadow, 255);
+	TextDrawFont(nyrp_iconbg_shadow, 1);
+	TextDrawLetterSize(nyrp_iconbg_shadow, 0.219999, 1.200000);
+	TextDrawColor(nyrp_iconbg_shadow, -1);
+	TextDrawSetOutline(nyrp_iconbg_shadow, 0);
+	TextDrawSetProportional(nyrp_iconbg_shadow, 1);
+	TextDrawSetShadow(nyrp_iconbg_shadow, 1);
+	TextDrawUseBox(nyrp_iconbg_shadow, 1);
+	TextDrawBoxColor(nyrp_iconbg_shadow, 50);
+	TextDrawTextSize(nyrp_iconbg_shadow, 228.000000 + xoffset, 0.000000);
+	TextDrawSetSelectable(nyrp_iconbg_shadow, 0);
+	
+	nyrp_txtbg_shadow = TextDrawCreate(230.000000 + xoffset, 324.000000 + yoffset, "_");
+	TextDrawBackgroundColor(nyrp_txtbg_shadow, 255);
+	TextDrawFont(nyrp_txtbg_shadow, 1);
+	TextDrawLetterSize(nyrp_txtbg_shadow, 0.219999, 1.200000);
+	TextDrawColor(nyrp_txtbg_shadow, -1);
+	TextDrawSetOutline(nyrp_txtbg_shadow, 0);
+	TextDrawSetProportional(nyrp_txtbg_shadow, 1);
+	TextDrawSetShadow(nyrp_txtbg_shadow, 1);
+	TextDrawUseBox(nyrp_txtbg_shadow, 1);
+	TextDrawBoxColor(nyrp_txtbg_shadow, 50);
+	TextDrawTextSize(nyrp_txtbg_shadow, 321.000000 + xoffset, 0.000000);
+	TextDrawSetSelectable(nyrp_txtbg_shadow, 0);
+	
+	nyrp_iconbg = TextDrawCreate(220.000000 + xoffset, 325.000000 + yoffset, "_");
+	TextDrawBackgroundColor(nyrp_iconbg, 255);
+	TextDrawFont(nyrp_iconbg, 1);
+	TextDrawLetterSize(nyrp_iconbg, 0.219999, 1.000000);
+	TextDrawColor(nyrp_iconbg, 200);
+	TextDrawSetOutline(nyrp_iconbg, 0);
+	TextDrawSetProportional(nyrp_iconbg, 1);
+	TextDrawSetShadow(nyrp_iconbg, 1);
+	TextDrawUseBox(nyrp_iconbg, 1);
+	TextDrawBoxColor(nyrp_iconbg, 1684300950);
+	TextDrawTextSize(nyrp_iconbg, 227.000000 + xoffset, 0.000000);
+	TextDrawSetSelectable(nyrp_iconbg, 0);
+	
+	nyrp_icon = TextDrawCreate(220.000000 + xoffset, 324.000000 + yoffset, "LD_BEAT:upl");
+	TextDrawAlignment(nyrp_icon, 2);
+	TextDrawBackgroundColor(nyrp_icon, 255);
+	TextDrawFont(nyrp_icon, 4);
+	TextDrawLetterSize(nyrp_icon, 0.000000, 0.000000);
+	TextDrawColor(nyrp_icon, -1);
+	TextDrawSetOutline(nyrp_icon, 0);
+	TextDrawSetProportional(nyrp_icon, 1);
+	TextDrawSetShadow(nyrp_icon, 1);
+	TextDrawUseBox(nyrp_icon, 1);
+	TextDrawBoxColor(nyrp_icon, 995727615);
+	TextDrawTextSize(nyrp_icon, 8.000000, 11.000000);
+	TextDrawSetSelectable(nyrp_icon, 0);
+	
+	nyrp_txt = TextDrawCreate(231.000000 + xoffset, 325.000000 + yoffset, "ny-rp.eu");
+	TextDrawBackgroundColor(nyrp_txt, 255);
+	TextDrawFont(nyrp_txt, 1);
+	TextDrawLetterSize(nyrp_txt, 0.209998, 1.000000);
+	TextDrawColor(nyrp_txt, -1);
+	TextDrawSetOutline(nyrp_txt, 0);
+	TextDrawSetProportional(nyrp_txt, 1);
+	TextDrawSetShadow(nyrp_txt, 0);
+	TextDrawUseBox(nyrp_txt, 1);
+	TextDrawBoxColor(nyrp_txt, 1684300950);
+	TextDrawTextSize(nyrp_txt, 320.000000 + xoffset, 4.000000);
+	TextDrawSetSelectable(nyrp_txt, 0);
+}
+
+hideLogRegTextdraw(playerid)
+{
+	TextDrawHideForPlayer(playerid, background_topslide);
+	TextDrawHideForPlayer(playerid, background_topslide_shadow);
+	TextDrawHideForPlayer(playerid, background_bottomslide);
+	TextDrawHideForPlayer(playerid, background_bottomslide_shadow);
+
+	TextDrawHideForPlayer(playerid, facebook_iconbg_shadow);
+	TextDrawHideForPlayer(playerid, facebook_txtbg_shadow);
+	TextDrawHideForPlayer(playerid, facebook_iconbg);
+	TextDrawHideForPlayer(playerid, facebook_icon);
+	TextDrawHideForPlayer(playerid, facebook_txt);
+	
+	TextDrawHideForPlayer(playerid, nyrp_iconbg_shadow);
+	TextDrawHideForPlayer(playerid, nyrp_txtbg_shadow);
+	TextDrawHideForPlayer(playerid, nyrp_iconbg);
+	TextDrawHideForPlayer(playerid, nyrp_icon);
+	TextDrawHideForPlayer(playerid, nyrp_txt);
+}
+
+showLogRegTextdraw(playerid)
+{
+	TextDrawShowForPlayer(playerid, background_topslide);
+	TextDrawShowForPlayer(playerid, background_topslide_shadow);
+	TextDrawShowForPlayer(playerid, background_bottomslide);
+	TextDrawShowForPlayer(playerid, background_bottomslide_shadow);
+
+	TextDrawShowForPlayer(playerid, facebook_iconbg_shadow);
+	TextDrawShowForPlayer(playerid, facebook_txtbg_shadow);
+	TextDrawShowForPlayer(playerid, facebook_iconbg);
+	TextDrawShowForPlayer(playerid, facebook_icon);
+	TextDrawShowForPlayer(playerid, facebook_txt);
+	
+	TextDrawShowForPlayer(playerid, nyrp_iconbg_shadow);
+	TextDrawShowForPlayer(playerid, nyrp_txtbg_shadow);
+	TextDrawShowForPlayer(playerid, nyrp_iconbg);
+	TextDrawShowForPlayer(playerid, nyrp_icon);
+	TextDrawShowForPlayer(playerid, nyrp_txt);
+}
+
+destroyLogRegTextdraw()
+{
+	TextDrawHideForAll(background_topslide);
+	TextDrawHideForAll(background_topslide_shadow);
+	TextDrawHideForAll(background_bottomslide);
+	TextDrawHideForAll(background_bottomslide_shadow);
+	TextDrawDestroy(background_topslide);
+	TextDrawDestroy(background_topslide_shadow);
+	TextDrawDestroy(background_bottomslide);
+	TextDrawDestroy(background_bottomslide_shadow);
+
+	TextDrawHideForAll(facebook_iconbg_shadow);
+	TextDrawHideForAll(facebook_txtbg_shadow);
+	TextDrawHideForAll(facebook_iconbg);
+	TextDrawHideForAll(facebook_icon);
+	TextDrawHideForAll(facebook_txt);
+	
+	TextDrawDestroy(facebook_iconbg_shadow);
+	TextDrawDestroy(facebook_txtbg_shadow);
+	TextDrawDestroy(facebook_iconbg);
+	TextDrawDestroy(facebook_icon);
+	TextDrawDestroy(facebook_txt);
+	
+	TextDrawHideForAll(nyrp_iconbg_shadow);
+	TextDrawHideForAll(nyrp_txtbg_shadow);
+	TextDrawHideForAll(nyrp_iconbg);
+	TextDrawHideForAll(nyrp_icon);
+	TextDrawHideForAll(nyrp_txt);
+	
+	TextDrawDestroy(nyrp_iconbg_shadow);
+	TextDrawDestroy(nyrp_txtbg_shadow);
+	TextDrawDestroy(nyrp_iconbg);
+	TextDrawDestroy(nyrp_icon);
+	TextDrawDestroy(nyrp_txt);
+}
