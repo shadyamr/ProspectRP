@@ -324,3 +324,679 @@ v0.3.DL-R1, (C)2005-2018 SA-MP Team
 [18:19:40] [debug]  DCC_SendChannelMessage
 [18:19:40] Script[gamemodes/serranilla.amx]: Run time error 19: "File or function is not found"
 [18:19:40] Number of vehicle models: 0
+
+----------
+Loaded log file: "server_log.txt".
+----------
+
+SA-MP Dedicated Server
+----------------------
+v0.3.DL-R1, (C)2005-2018 SA-MP Team
+
+[18:27:55] 
+[18:27:55] Server Plugins
+[18:27:55] --------------
+[18:27:55]  Loading plugin: crashdetect
+[18:27:55]   CrashDetect plugin 4.19.4
+[18:27:55]   Loaded.
+[18:27:55]  Loading plugin: discord-connector
+[18:27:55]   Failed.
+[18:27:55]  Loading plugin: mysql
+[18:27:55]  >> plugin.mysql: R39-6 successfully loaded.
+[18:27:55]   Loaded.
+[18:27:55]  Loading plugin: sscanf
+[18:27:55] 
+
+[18:27:55]  ===============================
+
+[18:27:55]       sscanf plugin loaded.     
+
+[18:27:55]          Version:  2.8.3        
+
+[18:27:55]   (c) 2018 Alex "Y_Less" Cole  
+
+[18:27:55]  ===============================
+
+[18:27:55]   Loaded.
+[18:27:55]  Loading plugin: streamer
+[18:27:55] 
+
+*** Streamer Plugin v2.9.4 by Incognito loaded ***
+
+[18:27:55]   Loaded.
+[18:27:55]  Loading plugin: nativechecker
+[18:27:55]   Loaded.
+[18:27:55]  Loaded 5 plugins.
+
+[18:27:55] [artwork:crc] lvpdpc2.dff CRC = 0xFBD1EA7C
+[18:27:55] [artwork:crc] lvpdpc2.txd CRC = 0xDC92731E
+[18:27:55] [artwork:crc] lapdpd2.dff CRC = 0xA558D422
+[18:27:55] [artwork:crc] lapdpd2.txd CRC = 0xA442E2DA
+[18:27:55] 
+[18:27:55] Filterscripts
+[18:27:55] ---------------
+[18:27:55]   Loaded 0 filterscripts.
+
+[18:27:55]    Error: Function not registered: 'DCC_FindChannelById'
+[18:27:55]    Error: Function not registered: 'DCC_SendChannelMessage'
+[18:27:55] [debug] Run time error 19: "File or function is not found"
+[18:27:55] [debug]  DCC_FindChannelById
+[18:27:55] [debug]  DCC_SendChannelMessage
+[18:27:55] [debug] Run time error 19: "File or function is not found"
+[18:27:55] [debug]  DCC_FindChannelById
+[18:27:55] [debug]  DCC_SendChannelMessage
+[18:27:55] Script[gamemodes/serranilla.amx]: Run time error 19: "File or function is not found"
+[18:27:55] Number of vehicle models: 0
+
+----------
+Loaded log file: "server_log.txt".
+----------
+
+SA-MP Dedicated Server
+----------------------
+v0.3.DL-R1, (C)2005-2018 SA-MP Team
+
+[18:28:24] 
+[18:28:24] Server Plugins
+[18:28:24] --------------
+[18:28:24]  Loading plugin: crashdetect
+[18:28:24]   CrashDetect plugin 4.19.4
+[18:28:24]   Loaded.
+[18:28:24]  Loading plugin: discord-connector
+[18:28:24]   Failed.
+[18:28:24]  Loading plugin: mysql
+[18:28:24]  >> plugin.mysql: R39-6 successfully loaded.
+[18:28:24]   Loaded.
+[18:28:24]  Loading plugin: sscanf
+[18:28:24] 
+
+[18:28:24]  ===============================
+
+[18:28:24]       sscanf plugin loaded.     
+
+[18:28:24]          Version:  2.8.3        
+
+[18:28:24]   (c) 2018 Alex "Y_Less" Cole  
+
+[18:28:24]  ===============================
+
+[18:28:24]   Loaded.
+[18:28:24]  Loading plugin: streamer
+[18:28:24] 
+
+*** Streamer Plugin v2.9.4 by Incognito loaded ***
+
+[18:28:24]   Loaded.
+[18:28:24]  Loading plugin: nativechecker
+[18:28:24]   Loaded.
+[18:28:24]  Loaded 5 plugins.
+
+[18:28:24] [artwork:crc] lvpdpc2.dff CRC = 0xFBD1EA7C
+[18:28:24] [artwork:crc] lvpdpc2.txd CRC = 0xDC92731E
+[18:28:24] [artwork:crc] lapdpd2.dff CRC = 0xA558D422
+[18:28:24] [artwork:crc] lapdpd2.txd CRC = 0xA442E2DA
+[18:28:24] 
+[18:28:24] Filterscripts
+[18:28:24] ---------------
+[18:28:24]   Loaded 0 filterscripts.
+
+[18:28:24]    Error: Function not registered: 'DCC_FindChannelById'
+[18:28:24]    Error: Function not registered: 'DCC_SendChannelMessage'
+[18:28:24] [debug] Run time error 19: "File or function is not found"
+[18:28:24] [debug]  DCC_FindChannelById
+[18:28:24] [debug]  DCC_SendChannelMessage
+[18:28:24] [debug] Run time error 19: "File or function is not found"
+[18:28:24] [debug]  DCC_FindChannelById
+[18:28:24] [debug]  DCC_SendChannelMessage
+[18:28:24] Script[gamemodes/serranilla.amx]: Run time error 19: "File or function is not found"
+[18:28:24] Number of vehicle models: 0
+
+----------
+Loaded log file: "server_log.txt".
+----------
+
+SA-MP Dedicated Server
+----------------------
+v0.3.DL-R1, (C)2005-2018 SA-MP Team
+
+[18:30:28] 
+[18:30:28] Server Plugins
+[18:30:28] --------------
+[18:30:28]  Loading plugin: crashdetect
+[18:30:28]   CrashDetect plugin 4.19.4
+[18:30:28]   Loaded.
+[18:30:28]  Loading plugin: mysql
+[18:30:28]  >> plugin.mysql: R39-6 successfully loaded.
+[18:30:28]   Loaded.
+[18:30:28]  Loading plugin: sscanf
+[18:30:28] 
+
+[18:30:28]  ===============================
+
+[18:30:28]       sscanf plugin loaded.     
+
+[18:30:28]          Version:  2.8.3        
+
+[18:30:28]   (c) 2018 Alex "Y_Less" Cole  
+
+[18:30:28]  ===============================
+
+[18:30:28]   Loaded.
+[18:30:28]  Loading plugin: streamer
+[18:30:28] 
+
+*** Streamer Plugin v2.9.4 by Incognito loaded ***
+
+[18:30:28]   Loaded.
+[18:30:28]  Loading plugin: nativechecker
+[18:30:28] [debug] Server crashed due to an unknown error
+[18:30:29] [debug] Native backtrace:
+[18:30:29] [debug] #0 002c100c in ?? () in plugins\nativechecker.DLL
+[18:30:29] [debug] #1 016e1bd8 in ?? ()
+[18:30:29] [debug] Registers:
+[18:30:29] [debug] EAX: 00491fa0 EBX: 00278f70 ECX: 002c0000 EDX: 002c0000
+[18:30:29] [debug] ESI: 016e1ca8 EDI: 76ae33d3 EBP: 00491fa0 ESP: 00278f78
+[18:30:29] [debug] EIP: 016e1bd8 EFLAGS: 00010246
+[18:30:29] [debug] Stack:
+[18:30:29] [debug] ESP+00000000: 69747563 5320676e 65767265 6f432072
+[18:30:29] [debug] ESP+00000020: 63720a31 705f6e6f 77737361 2064726f
+[18:30:29] [debug] ESP+00000040: 00469970 6f700a30 37207472 0a373737
+[18:30:29] [debug] ESP+00000060: 6f6d656d 20306564 72726573 6c696e61
+[18:30:29] [debug] ESP+00000080: 65646873 74636574 73796d20 73206c71
+[18:30:29] [debug] ESP+000000a0: 76697461 65686365 72656b63 6e6e610a
+[18:30:29] [debug] ESP+000000c0: 20676e69 65770a30 6c727562 77777720
+[18:30:29] [debug] ESP+000000e0: 61725f74 38206574 6e690a30 5f726163
+[18:30:29] [debug] ESP+00000100: 20657461 730a3034 61657274 69645f6d
+[18:30:29] [debug] ESP+00000120: 5f6d6165 65746172 30303120 616d0a30
+[18:30:29] [debug] ESP+00000140: 616d726f 255b2074 4d253a48 5d53253a
+[18:30:29] [debug] ESP+00000160: 73750a68 74726165 6b726f77 730a3120
+[18:30:29] [debug] ESP+00000180: 63736964 5f64726f 5f746f62 656b6f74
+[18:30:29] [debug] ESP+000001a0: 7a4e3563 7a4d3355 442e3045 4c37357a
+[18:30:29] [debug] ESP+000001c0: 52384e34 4b2d634b 48513870 57367141
+[18:30:29] [debug] ESP+000001e0: 00414851 00000000 00000000 00000000
+[18:30:29] [debug] ESP+00000200: 00000000 00000000 00000000 00000000
+[18:30:29] [debug] ESP+00000220: 00000000 00000000 00000000 00000000
+[18:30:29] [debug] ESP+00000240: 00000000 00000000 00000000 00000000
+[18:30:29] [debug] ESP+00000260: 00000000 00000000 00000000 00000000
+[18:30:29] [debug] ESP+00000280: 00000000 00000000 00000000 00000000
+[18:30:29] [debug] ESP+000002a0: 00000000 00000000 00000000 00000000
+[18:30:29] [debug] ESP+000002c0: 00000000 00000000 00000000 00000000
+[18:30:29] [debug] ESP+000002e0: 00000000 00000000 00000000 00000000
+[18:30:29] [debug] ESP+00000300: 00000000 00000000 00000000 00000000
+[18:30:29] [debug] ESP+00000320: 00000000 00000000 00000000 00000000
+[18:30:29] [debug] ESP+00000340: 00000000 00000000 00000000 00000000
+[18:30:29] [debug] ESP+00000360: 00000000 00000000 00000000 00000000
+[18:30:29] [debug] ESP+00000380: 004698e0 00469930 00469900 00469910
+[18:30:29] [debug] ESP+000003a0: 00000000 00000000 00000000 00000000
+[18:30:29] [debug] ESP+000003c0: 00000000 00000000 00000000 00000000
+[18:30:29] [debug] ESP+000003e0: 00000000 00000000 00000000 00000000
+[18:30:29] [debug] Loaded modules:
+[18:30:29] [debug] 00400000 - 0051f000 samp-server.exe
+[18:30:29] [debug] 77c30000 - 77d6c000 ntdll.dll
+[18:30:29] [debug] 76a90000 - 76b64000 kernel32.dll
+[18:30:29] [debug] 75ec0000 - 75f0a000 KERNELBASE.dll
+[18:30:29] [debug] 76d30000 - 7797a000 SHELL32.dll
+[18:30:29] [debug] 77980000 - 77a2c000 msvcrt.dll
+[18:30:29] [debug] 76340000 - 76397000 SHLWAPI.dll
+[18:30:29] [debug] 77d80000 - 77dce000 GDI32.dll
+[18:30:29] [debug] 768f0000 - 769b9000 USER32.dll
+[18:30:29] [debug] 77d70000 - 77d7a000 LPK.dll
+[18:30:29] [debug] 76660000 - 766fd000 USP10.dll
+[18:30:29] [debug] 72540000 - 72547000 WSOCK32.dll
+[18:30:29] [debug] 76590000 - 765c5000 WS2_32.dll
+[18:30:29] [debug] 76080000 - 76121000 RPCRT4.dll
+[18:30:29] [debug] 76330000 - 76336000 NSI.dll
+[18:30:29] [debug] 739f0000 - 73a22000 WINMM.dll
+[18:30:29] [debug] 77de0000 - 77dff000 IMM32.DLL
+[18:30:29] [debug] 769c0000 - 76a8c000 MSCTF.dll
+[18:30:29] [debug] 76c90000 - 76d30000 ADVAPI32.dll
+[18:30:29] [debug] 76b70000 - 76b89000 sechost.dll
+[18:30:29] [debug] 0f030000 - 0f081000 crashdetect.DLL
+[18:30:29] [debug] 704a0000 - 70509000 MSVCP100.dll
+[18:30:29] [debug] 703e0000 - 7049f000 MSVCR100.dll
+[18:30:29] [debug] 0f3a0000 - 0f3e4000 mysql.DLL
+[18:30:29] [debug] 0f920000 - 0fe2d000 libmysql.dll
+[18:30:29] [debug] 75c70000 - 75c78000 Secur32.dll
+[18:30:29] [debug] 75d50000 - 75d6b000 SSPICLI.DLL
+[18:30:29] [debug] 017d0000 - 0183f000 MSVCP140.dll
+[18:30:29] [debug] 0f620000 - 0f635000 VCRUNTIME140.dll
+[18:30:29] [debug] 69c00000 - 69c04000 api-ms-win-crt-runtime-l1-1-0.dll
+[18:30:29] [debug] 01aa0000 - 01b7c000 ucrtbase.DLL
+[18:30:29] [debug] 0f810000 - 0f813000 api-ms-win-core-timezone-l1-1-0.dll
+[18:30:29] [debug] 0f780000 - 0f783000 api-ms-win-core-file-l2-1-0.dll
+[18:30:29] [debug] 0f670000 - 0f673000 api-ms-win-core-localization-l1-2-0.dll
+[18:30:29] [debug] 6d420000 - 6d423000 api-ms-win-core-synch-l1-2-0.dll
+[18:30:29] [debug] 0f1e0000 - 0f1e3000 api-ms-win-core-processthreads-l1-1-1.dll
+[18:30:29] [debug] 0f100000 - 0f103000 api-ms-win-core-file-l1-2-0.dll
+[18:30:29] [debug] 0f710000 - 0f714000 api-ms-win-crt-string-l1-1-0.dll
+[18:30:29] [debug] 0f4e0000 - 0f4e3000 api-ms-win-crt-heap-l1-1-0.dll
+[18:30:29] [debug] 0ff20000 - 0ff24000 api-ms-win-crt-stdio-l1-1-0.dll
+[18:30:29] [debug] 0f680000 - 0f684000 api-ms-win-crt-convert-l1-1-0.dll
+[18:30:29] [debug] 00220000 - 00223000 api-ms-win-crt-locale-l1-1-0.dll
+[18:30:29] [debug] 00230000 - 00235000 api-ms-win-crt-math-l1-1-0.dll
+[18:30:29] [debug] 00240000 - 00243000 api-ms-win-crt-filesystem-l1-1-0.dll
+[18:30:29] [debug] 00250000 - 00253000 api-ms-win-crt-time-l1-1-0.dll
+[18:30:29] [debug] 0f140000 - 0f143000 api-ms-win-crt-environment-l1-1-0.dll
+[18:30:29] [debug] 00260000 - 00263000 api-ms-win-crt-utility-l1-1-0.dll
+[18:30:29] [debug] 727c0000 - 727d0000 NLAapi.dll
+[18:30:29] [debug] 5c170000 - 5c180000 napinsp.dll
+[18:30:29] [debug] 5c150000 - 5c162000 pnrpnsp.dll
+[18:30:29] [debug] 5bda0000 - 5bdad000 wshbth.dll
+[18:30:29] [debug] 6ce90000 - 6ceb7000 WLIDNSP.DLL
+[18:30:29] [debug] 76130000 - 76135000 PSAPI.DLL
+[18:30:29] [debug] 71180000 - 711a1000 mdnsNSP.dll
+[18:30:29] [debug] 74fc0000 - 74fdc000 Iphlpapi.DLL
+[18:30:29] [debug] 74c10000 - 74c17000 WINNSI.DLL
+[18:30:29] [debug] 757c0000 - 757fc000 mswsock.dll
+[18:30:29] [debug] 75680000 - 756c4000 DNSAPI.dll
+[18:30:29] [debug] 5c3b0000 - 5c3b8000 winrnr.dll
+[18:30:29] [debug] 63c60000 - 63c66000 rasadhlp.dll
+[18:30:29] [debug] 10000000 - 1000e000 sscanf.DLL
+[18:30:29] [debug] 015d0000 - 01637000 streamer.DLL
+[18:30:29] [debug] 002c0000 - 002c5000 nativechecker.DLL
+
+----------
+Loaded log file: "server_log.txt".
+----------
+
+SA-MP Dedicated Server
+----------------------
+v0.3.DL-R1, (C)2005-2018 SA-MP Team
+
+[18:30:30] 
+[18:30:30] Server Plugins
+[18:30:30] --------------
+[18:30:30]  Loading plugin: crashdetect
+[18:30:30]   CrashDetect plugin 4.19.4
+[18:30:30]   Loaded.
+[18:30:30]  Loading plugin: mysql
+[18:30:30]  >> plugin.mysql: R39-6 successfully loaded.
+[18:30:30]   Loaded.
+[18:30:30]  Loading plugin: sscanf
+[18:30:30] 
+
+[18:30:30]  ===============================
+
+[18:30:30]       sscanf plugin loaded.     
+
+[18:30:30]          Version:  2.8.3        
+
+[18:30:30]   (c) 2018 Alex "Y_Less" Cole  
+
+[18:30:30]  ===============================
+
+[18:30:30]   Loaded.
+[18:30:30]  Loading plugin: streamer
+[18:30:30] 
+
+*** Streamer Plugin v2.9.4 by Incognito loaded ***
+
+[18:30:30]   Loaded.
+[18:30:30]  Loading plugin: nativechecker
+[18:30:30]   Loaded.
+[18:30:30]  Loaded 5 plugins.
+
+[18:30:30] [artwork:crc] lvpdpc2.dff CRC = 0xFBD1EA7C
+[18:30:30] [artwork:crc] lvpdpc2.txd CRC = 0xDC92731E
+[18:30:30] [artwork:crc] lapdpd2.dff CRC = 0xA558D422
+[18:30:30] [artwork:crc] lapdpd2.txd CRC = 0xA442E2DA
+[18:30:31] 
+[18:30:31] Filterscripts
+[18:30:31] ---------------
+[18:30:31]   Loaded 0 filterscripts.
+
+[18:30:31]    Error: Function not registered: 'DCC_FindChannelById'
+[18:30:31]    Error: Function not registered: 'DCC_SendChannelMessage'
+[18:30:31] [debug] Run time error 19: "File or function is not found"
+[18:30:31] [debug]  DCC_FindChannelById
+[18:30:31] [debug]  DCC_SendChannelMessage
+[18:30:31] [debug] Run time error 19: "File or function is not found"
+[18:30:31] [debug]  DCC_FindChannelById
+[18:30:31] [debug]  DCC_SendChannelMessage
+[18:30:31] Script[gamemodes/serranilla.amx]: Run time error 19: "File or function is not found"
+[18:30:31] Number of vehicle models: 0
+
+----------
+Loaded log file: "server_log.txt".
+----------
+
+SA-MP Dedicated Server
+----------------------
+v0.3.DL-R1, (C)2005-2018 SA-MP Team
+
+[18:32:14] 
+[18:32:14] Server Plugins
+[18:32:14] --------------
+[18:32:14]  Loading plugin: crashdetect
+[18:32:14]   CrashDetect plugin 4.19.4
+[18:32:14]   Loaded.
+[18:32:14]  Loading plugin: mysql
+[18:32:14]  >> plugin.mysql: R39-6 successfully loaded.
+[18:32:14]   Loaded.
+[18:32:14]  Loading plugin: sscanf
+[18:32:14] 
+
+[18:32:14]  ===============================
+
+[18:32:14]       sscanf plugin loaded.     
+
+[18:32:14]          Version:  2.8.3        
+
+[18:32:14]   (c) 2018 Alex "Y_Less" Cole  
+
+[18:32:14]  ===============================
+
+[18:32:14]   Loaded.
+[18:32:14]  Loading plugin: streamer
+[18:32:14] 
+
+*** Streamer Plugin v2.9.4 by Incognito loaded ***
+
+[18:32:14]   Loaded.
+[18:32:14]  Loading plugin: nativechecker
+[18:32:14]   Loaded.
+[18:32:14]  Loaded 5 plugins.
+
+[18:32:14] [artwork:crc] lvpdpc2.dff CRC = 0xFBD1EA7C
+[18:32:14] [artwork:crc] lvpdpc2.txd CRC = 0xDC92731E
+[18:32:14] [artwork:crc] lapdpd2.dff CRC = 0xA558D422
+[18:32:14] [artwork:crc] lapdpd2.txd CRC = 0xA442E2DA
+[18:32:14] 
+[18:32:14] Filterscripts
+[18:32:14] ---------------
+[18:32:14]   Loaded 0 filterscripts.
+
+[18:32:14] Setting server password to: "a7a"
+[18:32:14] [Player MOTD]: Welcome to New York Roleplay! MOTD hasn't been adjusted yet.
+[18:32:14] Number of vehicle models: 0
+[18:32:14] [NY:RP] No houses were available to load from the database.
+[18:34:37] [connection] incoming connection: 192.168.1.7:62029 id: 0
+[18:34:37] [join] Raymond_Rockwell has joined the server (0:192.168.1.7)
+[18:34:58] [part] Raymond_Rockwell has left the server (0:1)
+
+----------
+Loaded log file: "server_log.txt".
+----------
+
+SA-MP Dedicated Server
+----------------------
+v0.3.DL-R1, (C)2005-2018 SA-MP Team
+
+[18:38:07] 
+[18:38:07] Server Plugins
+[18:38:07] --------------
+[18:38:07]  Loading plugin: crashdetect
+[18:38:07]   CrashDetect plugin 4.19.4
+[18:38:07]   Loaded.
+[18:38:07]  Loading plugin: discord-connector
+[18:38:07]   Failed.
+[18:38:07]  Loading plugin: mysql
+[18:38:07]  >> plugin.mysql: R39-6 successfully loaded.
+[18:38:07]   Loaded.
+[18:38:07]  Loading plugin: sscanf
+[18:38:07] 
+
+[18:38:07]  ===============================
+
+[18:38:07]       sscanf plugin loaded.     
+
+[18:38:07]          Version:  2.8.3        
+
+[18:38:07]   (c) 2018 Alex "Y_Less" Cole  
+
+[18:38:07]  ===============================
+
+[18:38:07]   Loaded.
+[18:38:07]  Loading plugin: streamer
+[18:38:07] 
+
+*** Streamer Plugin v2.9.4 by Incognito loaded ***
+
+[18:38:07]   Loaded.
+[18:38:07]  Loading plugin: nativechecker
+[18:38:07]   Loaded.
+[18:38:07]  Loaded 5 plugins.
+
+[18:38:07] [artwork:crc] lvpdpc2.dff CRC = 0xFBD1EA7C
+[18:38:07] [artwork:crc] lvpdpc2.txd CRC = 0xDC92731E
+[18:38:07] [artwork:crc] lapdpd2.dff CRC = 0xA558D422
+[18:38:07] [artwork:crc] lapdpd2.txd CRC = 0xA442E2DA
+[18:38:07] 
+[18:38:07] Filterscripts
+[18:38:07] ---------------
+[18:38:07]   Loaded 0 filterscripts.
+
+[18:38:07]    Error: Function not registered: 'DCC_FindChannelById'
+[18:38:07]    Error: Function not registered: 'DCC_SendChannelMessage'
+[18:38:07] [debug] Run time error 19: "File or function is not found"
+[18:38:07] [debug]  DCC_FindChannelById
+[18:38:07] [debug]  DCC_SendChannelMessage
+[18:38:07] [debug] Run time error 19: "File or function is not found"
+[18:38:07] [debug]  DCC_FindChannelById
+[18:38:07] [debug]  DCC_SendChannelMessage
+[18:38:07] Script[gamemodes/serranilla.amx]: Run time error 19: "File or function is not found"
+[18:38:07] Number of vehicle models: 0
+Console input: gmx
+[18:39:56]    Error: Function not registered: 'DCC_FindChannelById'
+[18:39:56]    Error: Function not registered: 'DCC_SendChannelMessage'
+[18:39:56] [debug] Run time error 19: "File or function is not found"
+[18:39:56] [debug]  DCC_FindChannelById
+[18:39:56] [debug]  DCC_SendChannelMessage
+[18:39:56] [debug] Run time error 19: "File or function is not found"
+[18:39:56] [debug]  DCC_FindChannelById
+[18:39:56] [debug]  DCC_SendChannelMessage
+[18:39:56] Script[gamemodes/serranilla.amx]: Run time error 19: "File or function is not found"
+[18:39:56] Number of vehicle models: 0
+
+----------
+Loaded log file: "server_log.txt".
+----------
+
+SA-MP Dedicated Server
+----------------------
+v0.3.DL-R1, (C)2005-2018 SA-MP Team
+
+[18:40:02] 
+[18:40:02] Server Plugins
+[18:40:02] --------------
+[18:40:02]  Loading plugin: crashdetect
+[18:40:02]   CrashDetect plugin 4.19.4
+[18:40:02]   Loaded.
+[18:40:02]  Loading plugin: discord-connector
+[18:40:04]  >> plugin.dc-connector: 0.2.4 successfully loaded.
+[18:40:04]   Loaded.
+[18:40:04]  Loading plugin: mysql
+[18:40:04]  >> plugin.mysql: R39-6 successfully loaded.
+[18:40:04]   Loaded.
+[18:40:04]  Loading plugin: sscanf
+[18:40:04] 
+
+[18:40:04]  ===============================
+
+[18:40:04]       sscanf plugin loaded.     
+
+[18:40:04]          Version:  2.8.3        
+
+[18:40:04]   (c) 2018 Alex "Y_Less" Cole  
+
+[18:40:04]  ===============================
+
+[18:40:04]   Loaded.
+[18:40:04]  Loading plugin: streamer
+[18:40:04] 
+
+*** Streamer Plugin v2.9.4 by Incognito loaded ***
+
+[18:40:04]   Loaded.
+[18:40:04]  Loading plugin: nativechecker
+[18:40:04]   Loaded.
+[18:40:04]  Loaded 6 plugins.
+
+[18:40:04] [artwork:crc] lvpdpc2.dff CRC = 0xFBD1EA7C
+[18:40:04] [artwork:crc] lvpdpc2.txd CRC = 0xDC92731E
+[18:40:04] [artwork:crc] lapdpd2.dff CRC = 0xA558D422
+[18:40:04] [artwork:crc] lapdpd2.txd CRC = 0xA442E2DA
+[18:40:04] 
+[18:40:04] Filterscripts
+[18:40:04] ---------------
+[18:40:04]   Loaded 0 filterscripts.
+
+[18:40:04] Setting server password to: "a7a"
+[18:40:04] [PS:RP] MOTD: Welcome to New York Roleplay! MOTD hasn't been adjusted yet.
+[18:40:04] Number of vehicle models: 0
+[18:40:04] [PS:RP] No houses were available to load from the database.
+Console input: gmx
+[19:37:41] Setting server password to: "a7a"
+[19:37:41] [PS:RP] MOTD: Welcome to New York Roleplay! MOTD hasn't been adjusted yet.
+[19:37:41] Number of vehicle models: 0
+[19:37:41] [PS:RP] No houses were available to load from the database.
+[19:37:49] [connection] incoming connection: 192.168.1.7:61701 id: 0
+[19:37:49] [join] Raymond_Rockwell has joined the server (0:192.168.1.7)
+Console input: loadfs veh
+[19:50:23]   Filterscript 'veh.amx' load failed.
+Console input: loadfs veh
+[19:50:57]   Filterscript 'veh.amx' loaded.
+[20:05:28] [part] Raymond_Rockwell has left the server (0:1)
+Console input: exit
+[20:05:36] --- Server Shutting Down.
+[20:05:36] plugin.dc-connector: Unloading plugin...
+[20:05:37] plugin.dc-connector: Plugin unloaded.
+[20:05:37] plugin.mysql: Unloading plugin...
+[20:05:37] plugin.mysql: Plugin unloaded.
+[20:05:37] 
+
+[20:05:37]  ===============================
+
+[20:05:37]      sscanf plugin unloaded.    
+
+[20:05:37]  ===============================
+
+[20:05:37] 
+
+*** Streamer Plugin v2.9.4 by Incognito unloaded ***
+
+
+----------
+Loaded log file: "server_log.txt".
+----------
+
+SA-MP Dedicated Server
+----------------------
+v0.3.DL-R1, (C)2005-2018 SA-MP Team
+
+[14:22:12] 
+[14:22:12] Server Plugins
+[14:22:12] --------------
+[14:22:12]  Loading plugin: crashdetect
+[14:22:13]   CrashDetect plugin 4.19.4
+[14:22:13]   Loaded.
+[14:22:13]  Loading plugin: discord-connector
+[14:22:15]  >> plugin.dc-connector: 0.2.4 successfully loaded.
+[14:22:15]   Loaded.
+[14:22:15]  Loading plugin: mysql
+[14:22:15]  >> plugin.mysql: R39-6 successfully loaded.
+[14:22:15]   Loaded.
+[14:22:15]  Loading plugin: TDE
+[14:22:18]   Failed.
+[14:22:18]  Loading plugin: sscanf
+[14:22:18] 
+
+[14:22:18]  ===============================
+
+[14:22:18]       sscanf plugin loaded.     
+
+[14:22:18]          Version:  2.8.3        
+
+[14:22:18]   (c) 2018 Alex "Y_Less" Cole  
+
+[14:22:18]  ===============================
+
+[14:22:18]   Loaded.
+[14:22:18]  Loading plugin: streamer
+[14:22:18] 
+
+*** Streamer Plugin v2.9.4 by Incognito loaded ***
+
+[14:22:18]   Loaded.
+[14:22:18]  Loading plugin: nativechecker
+[14:22:18]   Loaded.
+[14:22:18]  Loaded 6 plugins.
+
+[14:22:18] [artwork:crc] lvpdpc2.dff CRC = 0xFBD1EA7C
+[14:22:18] [artwork:crc] lvpdpc2.txd CRC = 0xDC92731E
+[14:22:18] [artwork:crc] lapdpd2.dff CRC = 0xA558D422
+[14:22:18] [artwork:crc] lapdpd2.txd CRC = 0xA442E2DA
+[14:22:18] 
+[14:22:18] Filterscripts
+[14:22:18] ---------------
+[14:22:18]   Loaded 0 filterscripts.
+
+[14:22:18] Setting server password to: "a7a"
+[14:22:18] [PS:RP] MOTD: Welcome to New York Roleplay! MOTD hasn't been adjusted yet.
+[14:22:18] Number of vehicle models: 0
+[14:22:19] [PS:RP] No houses were available to load from the database.
+
+----------
+Loaded log file: "server_log.txt".
+----------
+
+SA-MP Dedicated Server
+----------------------
+v0.3.DL-R1, (C)2005-2018 SA-MP Team
+
+[14:22:39] 
+[14:22:39] Server Plugins
+[14:22:39] --------------
+[14:22:39]  Loading plugin: crashdetect
+[14:22:39]   CrashDetect plugin 4.19.4
+[14:22:39]   Loaded.
+[14:22:39]  Loading plugin: discord-connector
+[14:22:40]  >> plugin.dc-connector: 0.2.4 successfully loaded.
+[14:22:40]   Loaded.
+[14:22:40]  Loading plugin: mysql
+[14:22:40]  >> plugin.mysql: R39-6 successfully loaded.
+[14:22:40]   Loaded.
+[14:22:40]  Loading plugin: TDE
+[14:22:40] 
+TDEditor Plugin loaded, thank you for using.
+
+[14:22:40]   Loaded.
+[14:22:40]  Loading plugin: sscanf
+[14:22:40] 
+
+[14:22:40]  ===============================
+
+[14:22:40]       sscanf plugin loaded.     
+
+[14:22:40]          Version:  2.8.3        
+
+[14:22:40]   (c) 2018 Alex "Y_Less" Cole  
+
+[14:22:40]  ===============================
+
+[14:22:40]   Loaded.
+[14:22:40]  Loading plugin: streamer
+[14:22:40] 
+
+*** Streamer Plugin v2.9.4 by Incognito loaded ***
+
+[14:22:40]   Loaded.
+[14:22:40]  Loading plugin: nativechecker
+[14:22:40]   Loaded.
+[14:22:40]  Loaded 7 plugins.
+
+[14:22:40] [artwork:crc] lvpdpc2.dff CRC = 0xFBD1EA7C
+[14:22:40] [artwork:crc] lvpdpc2.txd CRC = 0xDC92731E
+[14:22:40] [artwork:crc] lapdpd2.dff CRC = 0xA558D422
+[14:22:40] [artwork:crc] lapdpd2.txd CRC = 0xA442E2DA
+[14:22:40] 
+[14:22:40] Filterscripts
+[14:22:40] ---------------
+[14:22:40]   Loaded 0 filterscripts.
+
+[14:22:40] Setting server password to: "a7a"
+[14:22:40] [PS:RP] MOTD: Welcome to New York Roleplay! MOTD hasn't been adjusted yet.
+[14:22:40] Number of vehicle models: 0
+[14:22:40] [PS:RP] No houses were available to load from the database.
+[14:23:16] [connection] incoming connection: 192.168.1.3:63440 id: 0
+[14:23:16] [join] Raymond_Rockwell has joined the server (0:192.168.1.3)

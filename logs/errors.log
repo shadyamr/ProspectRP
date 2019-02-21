@@ -1,1 +1,0 @@
-[07:51:40] [plugins/discord-connector] invalid JSON: expected "guild_id" in "{"id":"543307892007108619","last_message_id":"543307899901050902","recipients":[{"avatar":"82277a63f0ede5d15c16151979a4ee86","discriminator":"7148","id":"180776300292734976","username":"Shady"}],"type":1}"

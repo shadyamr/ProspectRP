@@ -1,8 +1,0 @@
-/*
-	Shady's Roleplay
-	This file contains custom skins and custom objects, created by Shady.
-*/
-
-// Public Skins
-AddCharModel(305, 20001, "lvpdpc2.dff", "lvpdpc2.txd");
-AddCharModel(305, 20002, "lapdpd2.dff", "lapdpd2.txd");

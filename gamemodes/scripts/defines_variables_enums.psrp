@@ -199,7 +199,8 @@ enum PLAYER_DATA
 	pLastWorld,
 	pSkin,
 	Float:pHealth,
-    Float:pArmour
+    Float:pArmour,
+	pHitman
 }
 
 enum DAMAGE_DATA

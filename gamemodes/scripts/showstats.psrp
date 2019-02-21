@@ -1,3 +1,8 @@
+/*
+	Project Serranilla Roleplay
+	This file contains show statistics dialog, created by Shady.
+*/
+
 Server:ShowStats(playerid, playerb)
 {
 	new string[1000], sex[20],admin[5], tester[5], helper[5], donator[5], interior = GetPlayerInterior(playerid), vworld = GetPlayerVirtualWorld(playerid), Float:x, Float:y, Float:z, Float:hp, Float:armor;

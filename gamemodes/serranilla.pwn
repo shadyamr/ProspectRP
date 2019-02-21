@@ -82,6 +82,29 @@ public OnGameModeInit()
 
 	Load_Island();
 	createLogRegTextdraw();
+
+	if(!fexist("hma.cfg"))
+	{
+		new File:NewFile = fopen("hma.cfg", io_write);
+		fwrite(NewFile, "1415.727905\r\n");
+		fwrite(NewFile, "-1299.371093\r\n");
+		fwrite(NewFile, "15.054657\r\n");
+		fwrite(NewFile, "0\r\n");
+		fwrite(NewFile, "New Agency!\r");
+		fclose(NewFile);
+	}
+	HMAFile = fopen("hma.cfg", io_readwrite);
+
+	new szTemp[128];
+	for(new i = 0; i < 3; i++)
+	{
+		fread(HMAFile, szTemp, sizeof szTemp);
+		fHMASafe_Loc[i] = floatstr(szTemp);
+	}
+	fread(HMAFile, szTemp, sizeof szTemp);
+	iHMASafe_Val = strval(szTemp);
+	fread(HMAFile, HMAMOTD, sizeof HMAMOTD);
+	iFileLoaded = 1;
 	return true;
 }
 
@@ -89,6 +112,7 @@ public OnGameModeExit()
 {
 	KillTimer(OneSecondTimer);
 	destroyLogRegTextdraw();
+	fclose(HMAFile);
 	mysql_close(sqlConnection);
 	return true;
 }

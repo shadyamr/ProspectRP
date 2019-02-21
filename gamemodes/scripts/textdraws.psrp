@@ -1,3 +1,8 @@
+/*
+	Project Serranilla Roleplay
+	This file contains textdraws, created by Shady.
+*/
+
 createLogRegTextdraw()
 {
 	background_topslide = TextDrawCreate(1.000000, 1.000000, "_");

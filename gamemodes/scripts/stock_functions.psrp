@@ -242,6 +242,10 @@ AdminRank(targetid)
 		}
 		case 4:
 		{
+			adminrank = "Head Administrator";
+		}
+		case 5:
+		{
 			adminrank = "Management";
 		}
 	}
@@ -528,7 +532,7 @@ LoadMOTD()
         format(MOTDText, 256, "%s", dini_Get("motd.cfg", "SMOTDUpdate"));
     }
  
-    printf("[Player MOTD]: %s", MOTDText);
+    printf("[PS:RP] MOTD: %s", MOTDText);
     return 1;
 }
 

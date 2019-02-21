@@ -1,3 +1,8 @@
+/*
+	Project Serranilla Roleplay
+	This file contains house system, created by Shady.
+*/
+
 static Float:hCreateExt[4], Float:hCreateInt[4], hCreateName[40], hCreatePrice, hCreateIntID;
 
 LoadServerHouses()
@@ -7,7 +12,7 @@ LoadServerHouses()
 
 Server:SQL_LoadServerHouses()
 {
-	if(cache_num_rows() == 0) return print("[NY:RP] No houses were available to load from the database.");
+	if(cache_num_rows() == 0) return print("[PS:RP] No houses were available to load from the database.");
 	
 	new rows, fields;
 	cache_get_data(rows, fields, sqlConnection);
@@ -30,7 +35,7 @@ Server:SQL_LoadServerHouses()
 		TotalHousesCreated++;
 	}
 	CreateServerHouseData();
-	printf("[NY:RP] %i houses has been loaded from the database.", TotalHousesCreated);
+	printf("[PS:RP] %i houses has been loaded from the database.", TotalHousesCreated);
 	return true;
 }
 
@@ -97,7 +102,7 @@ Server:SQL_SaveHouseToDB(playerid)
 	HouseData[i][HouseLocked] = 0;
 
 	new hstring[500];
-	printf("[NY:RP] House ID %i created by %s.", cache_insert_id(), GetName(playerid));
+	printf("[PS:RP] House ID %i created by %s.", cache_insert_id(), GetName(playerid));
 	format(hstring, sizeof(hstring), "[SERVER]:{FFFFFF} House ID %i (SQL ID: %i) created: name (%s) - price ($%d)", i, cache_insert_id(), name, price);
 	SendClientMessage(playerid, COLOR_LIGHTRED, hstring);
 
