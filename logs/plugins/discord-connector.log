@@ -222,3 +222,125 @@
 [14:24:28] [INFO] PAWN callback successfully executed.
 [14:24:48] [INFO] executing PAWN callback 'DCC_OnGuildMemberUpdate'...
 [14:24:48] [INFO] PAWN callback successfully executed.
+[15:39:33] [INFO] changed log level from 'warning, error' to 'info, warning, error'
+[15:39:34] [INFO] successfully created user with id '1'
+[15:39:35] [INFO] successfully created channel with id '1'
+[15:39:35] [INFO] successfully created channel with id '2'
+[15:39:35] [INFO] successfully created channel with id '3'
+[15:39:35] [INFO] successfully created channel with id '4'
+[15:39:35] [INFO] successfully created channel with id '5'
+[15:39:35] [INFO] successfully created channel with id '6'
+[15:39:35] [INFO] successfully created channel with id '7'
+[15:39:35] [INFO] successfully created channel with id '8'
+[15:39:35] [INFO] successfully created channel with id '9'
+[15:39:35] [INFO] successfully created channel with id '10'
+[15:39:35] [INFO] successfully created channel with id '11'
+[15:39:35] [INFO] successfully created channel with id '12'
+[15:39:35] [INFO] successfully created channel with id '13'
+[15:39:35] [INFO] successfully created channel with id '14'
+[15:39:35] [INFO] successfully created channel with id '15'
+[15:39:35] [INFO] successfully created user with id '2'
+[15:39:35] [INFO] successfully created user with id '3'
+[15:39:35] [INFO] successfully created user with id '4'
+[15:39:35] [INFO] successfully created user with id '5'
+[15:39:35] [INFO] successfully created user with id '6'
+[15:39:35] [INFO] successfully created user with id '7'
+[15:39:35] [INFO] successfully created guild with id '1'
+[15:40:43] [INFO] executing PAWN callback 'DCC_OnGuildMemberUpdate'...
+[15:40:43] [INFO] PAWN callback successfully executed.
+[15:40:52] [INFO] executing PAWN callback 'DCC_OnGuildMemberUpdate'...
+[15:40:52] [INFO] PAWN callback successfully executed.
+[15:40:55] [INFO] executing PAWN callback 'DCC_OnGuildMemberUpdate'...
+[15:40:55] [INFO] PAWN callback successfully executed.
+[15:41:06] [INFO] executing PAWN callback 'DCC_OnChannelMessage'...
+[15:41:06] [INFO] PAWN callback successfully executed.
+[15:41:08] [INFO] executing PAWN callback 'DCC_OnGuildMemberUpdate'...
+[15:41:08] [INFO] PAWN callback successfully executed.
+[15:49:16] [INFO] executing PAWN callback 'DCC_OnGuildMemberUpdate'...
+[15:49:16] [INFO] PAWN callback successfully executed.
+[04:09:53] [INFO] changed log level from 'warning, error' to 'info, warning, error'
+[04:09:57] [INFO] successfully created user with id '1'
+[04:09:57] [INFO] successfully created channel with id '1'
+[04:09:57] [INFO] successfully created channel with id '2'
+[04:09:57] [INFO] successfully created channel with id '3'
+[04:09:57] [INFO] successfully created channel with id '4'
+[04:09:57] [INFO] successfully created channel with id '5'
+[04:09:57] [INFO] successfully created channel with id '6'
+[04:09:57] [INFO] successfully created channel with id '7'
+[04:09:57] [INFO] successfully created channel with id '8'
+[04:09:57] [INFO] successfully created channel with id '9'
+[04:09:57] [INFO] successfully created channel with id '10'
+[04:09:57] [INFO] successfully created channel with id '11'
+[04:09:57] [INFO] successfully created channel with id '12'
+[04:09:57] [INFO] successfully created channel with id '13'
+[04:09:57] [INFO] successfully created channel with id '14'
+[04:09:57] [INFO] successfully created channel with id '15'
+[04:09:57] [INFO] successfully created user with id '2'
+[04:09:57] [INFO] successfully created user with id '3'
+[04:09:57] [INFO] successfully created user with id '4'
+[04:09:57] [INFO] successfully created user with id '5'
+[04:09:57] [INFO] successfully created user with id '6'
+[04:09:57] [INFO] successfully created user with id '7'
+[04:09:57] [INFO] successfully created guild with id '1'
+[04:09:57] [WARNING] Unknown gateway event 'PRESENCES_REPLACE'
+[04:09:59] [INFO] executing PAWN callback 'DCC_OnChannelMessage'...
+[04:09:59] [INFO] PAWN callback successfully executed.
+[04:10:54] [INFO] executing PAWN callback 'DCC_OnGuildMemberUpdate'...
+[04:10:54] [INFO] PAWN callback successfully executed.
+[04:11:04] [INFO] executing PAWN callback 'DCC_OnGuildMemberUpdate'...
+[04:11:04] [INFO] PAWN callback successfully executed.
+[04:11:08] [INFO] executing PAWN callback 'DCC_OnChannelMessage'...
+[04:11:08] [INFO] PAWN callback successfully executed.
+[04:11:16] [INFO] executing PAWN callback 'DCC_OnGuildMemberUpdate'...
+[04:11:16] [INFO] PAWN callback successfully executed.
+[04:11:17] [INFO] executing PAWN callback 'DCC_OnChannelMessage'...
+[04:11:17] [INFO] PAWN callback successfully executed.
+[04:11:17] [INFO] executing PAWN callback 'DCC_OnGuildMemberUpdate'...
+[04:11:17] [INFO] PAWN callback successfully executed.
+[04:11:19] [INFO] executing PAWN callback 'DCC_OnGuildMemberUpdate'...
+[04:11:19] [INFO] PAWN callback successfully executed.
+[04:12:00] [INFO] changed log level from 'warning, error' to 'info, warning, error'
+[04:12:01] [INFO] successfully created user with id '1'
+[04:12:01] [INFO] successfully created channel with id '1'
+[04:12:01] [INFO] successfully created channel with id '2'
+[04:12:01] [INFO] successfully created channel with id '3'
+[04:12:01] [INFO] successfully created channel with id '4'
+[04:12:01] [INFO] successfully created channel with id '5'
+[04:12:01] [INFO] successfully created channel with id '6'
+[04:12:01] [INFO] successfully created channel with id '7'
+[04:12:01] [INFO] successfully created channel with id '8'
+[04:12:01] [INFO] successfully created channel with id '9'
+[04:12:01] [INFO] successfully created channel with id '10'
+[04:12:01] [INFO] successfully created channel with id '11'
+[04:12:01] [INFO] successfully created channel with id '12'
+[04:12:01] [INFO] successfully created channel with id '13'
+[04:12:01] [INFO] successfully created channel with id '14'
+[04:12:01] [INFO] successfully created channel with id '15'
+[04:12:01] [INFO] successfully created user with id '2'
+[04:12:01] [INFO] successfully created user with id '3'
+[04:12:01] [INFO] successfully created user with id '4'
+[04:12:01] [INFO] successfully created user with id '5'
+[04:12:01] [INFO] successfully created user with id '6'
+[04:12:01] [INFO] successfully created user with id '7'
+[04:12:01] [INFO] successfully created guild with id '1'
+[04:12:02] [INFO] executing PAWN callback 'DCC_OnChannelMessage'...
+[04:12:02] [INFO] PAWN callback successfully executed.
+[04:12:19] [INFO] executing PAWN callback 'DCC_OnChannelMessage'...
+[04:12:19] [INFO] PAWN callback successfully executed.
+[04:12:19] [INFO] executing PAWN callback 'DCC_OnGuildMemberUpdate'...
+[04:12:19] [INFO] PAWN callback successfully executed.
+[04:12:24] [INFO] executing PAWN callback 'DCC_OnGuildMemberUpdate'...
+[04:12:24] [INFO] PAWN callback successfully executed.
+[04:13:10] [INFO] executing PAWN callback 'DCC_OnChannelMessage'...
+[04:13:10] [INFO] PAWN callback successfully executed.
+[04:13:11] [INFO] executing PAWN callback 'DCC_OnGuildMemberUpdate'...
+[04:13:11] [INFO] PAWN callback successfully executed.
+[04:13:14] [INFO] executing PAWN callback 'DCC_OnGuildMemberUpdate'...
+[04:13:14] [INFO] PAWN callback successfully executed.
+[04:13:22] [INFO] executing PAWN callback 'DCC_OnGuildMemberUpdate'...
+[04:13:22] [INFO] PAWN callback successfully executed.
+[04:13:32] [INFO] executing PAWN callback 'DCC_OnGuildMemberUpdate'...
+[04:13:32] [INFO] PAWN callback successfully executed.
+[04:14:32] [INFO] executing PAWN callback 'DCC_OnGuildMemberUpdate'...
+[04:14:32] [INFO] PAWN callback successfully executed.
+[04:14:40] [WARNING] Error while shutting down SSL on HTTP connection: stream truncated (1)

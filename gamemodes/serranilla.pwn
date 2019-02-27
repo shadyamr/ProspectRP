@@ -35,7 +35,7 @@
 #include "../gamemodes/scripts/mysql_config.psrp"
 
 #include "../gamemodes/scripts/defines_variables_enums.psrp"
-new DCC_Channel:logchannel;
+#include "../gamemodes/scripts/discord.psrp"
 #include "../gamemodes/scripts/public_functions.psrp"
 #include "../gamemodes/scripts/stock_functions.psrp"
 
@@ -83,7 +83,9 @@ public OnGameModeInit()
 	Load_Island();
 	createLogRegTextdraw();
 
-	if(!fexist("hma.cfg"))
+	DiscordInit();
+
+	/*if(!fexist("hma.cfg"))
 	{
 		new File:NewFile = fopen("hma.cfg", io_write);
 		fwrite(NewFile, "1415.727905\r\n");
@@ -104,7 +106,7 @@ public OnGameModeInit()
 	fread(HMAFile, szTemp, sizeof szTemp);
 	iHMASafe_Val = strval(szTemp);
 	fread(HMAFile, HMAMOTD, sizeof HMAMOTD);
-	iFileLoaded = 1;
+	iFileLoaded = 1;*/
 	return true;
 }
 
@@ -112,14 +114,15 @@ public OnGameModeExit()
 {
 	KillTimer(OneSecondTimer);
 	destroyLogRegTextdraw();
-	fclose(HMAFile);
+	//fclose(HMAFile);
 	mysql_close(sqlConnection);
+	DiscordExit();
 	return true;
 }
 
 public OnPlayerConnect(playerid)
 {
-	new string[256], str[100], Hour, Minute, Second;
+	new string[512];
 	DefaultPlayerValues(playerid);
 	SetPlayerColor(playerid, -1);
 	cNametag[playerid] = CreateDynamic3DTextLabel("Loading nametag...", 0xFFFFFFFF, 0.0, 0.0, 0.1, NT_DISTANCE, .attachedplayer = playerid, .testlos = 1);
@@ -130,11 +133,6 @@ public OnPlayerConnect(playerid)
 	DoesPlayerExist(playerid);
 	SetTimerEx("TIMER_SetCameraPos", 1000, false, "i", playerid);
 
-	gettime(Hour, Minute, Second);
-	if(_:logchannel == 0) logchannel = DCC_FindChannelById("545641478064701440");
-	format(str, sizeof(str), "[%02d:%02d:%02d - connection] %s has joined the server (IP: %s)", Hour, Minute, Second, NameRP(playerid), GetIP(playerid));
-	DCC_SendChannelMessage(logchannel, str);
-
 	// RP Name Checker
 	if(!IsRPName(GetName(playerid)))
 	{
@@ -143,6 +141,11 @@ public OnPlayerConnect(playerid)
 		KickEx(playerid);
 		return true;
 	}
+
+    gettime(DHour, DMinute, DSecond);
+	if(_:logchannel == 0) logchannel = DCC_FindChannelById("545641478064701440");
+	format(string, sizeof(string), "PSRP Local: %s has joined the server (IP: %s | Time: %02d:%02d:%02d)", NameRP(playerid), GetIP(playerid), DHour, DMinute, DSecond);
+	DCC_SendChannelMessage(logchannel, string);
 
 	//Login Screen textdraw
 	showLogRegTextdraw(playerid);
@@ -329,7 +332,7 @@ public OnPlayerDisconnect(playerid, reason)
 	DefaultPlayerValues(playerid);
 	if(IsValidDynamic3DTextLabel(cNametag[playerid])) DestroyDynamic3DTextLabel(cNametag[playerid]);
 
-	new szString[64];
+	new szString[64], str[256];
 	new szDisconnectReason[3][] =
     {
         "Timeout/Crash",
@@ -339,6 +342,11 @@ public OnPlayerDisconnect(playerid, reason)
 
     format(szString, sizeof szString, "%s left the server (%s).", NameRP(playerid), szDisconnectReason[reason]);
     SendLocalMessageEx(playerid, COLOR_YELLOW, szString, 20.0);
+	
+    gettime(DHour, DMinute, DSecond);
+	if(_:logchannel == 0) logchannel = DCC_FindChannelById("545641478064701440");
+	format(str, sizeof(str), "PSRP Local: %s has left the server (Reason: %s | Time: %02d:%02d:%02d)", NameRP(playerid), szDisconnectReason[reason], GetIP(playerid), DHour, DMinute, DSecond);
+	DCC_SendChannelMessage(logchannel, str);
 	return true;
 }
 
