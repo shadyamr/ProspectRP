@@ -330,16 +330,8 @@ Server:UpdateNametag()
 	{
         if(IsPlayerConnected(i))
         {
-            new nametag[512], Float:armour;
-            GetPlayerArmour(i, armour);
-			if(armour > 1.0)
-			{
-				format(nametag, sizeof(nametag), "{%06x}%s {FFFFFF}(%i)\n{FFFFFF}%s\n{FF0000}%s", GetPlayerColor(i) >>> 8, NameRP(i), i, GetArmorDots(i), GetHealthDots(i));
-			}
-			else
-			{
-				format(nametag, sizeof(nametag), "{%06x}%s {FFFFFF}(%i)\n{FF0000}%s", GetPlayerColor(i) >>> 8, NameRP(i), i, GetHealthDots(i));
-			}
+            new nametag[512];
+			format(nametag, sizeof(nametag), "{%06x}%s {FFFFFF}(%i)", GetPlayerColor(i) >>> 8, NameRP(i), i);
 			UpdateDynamic3DTextLabelText(cNametag[i], 0xFFFFFFFF, nametag);
 		}
 	}
@@ -449,16 +441,14 @@ Server:KickPlayer(playerid)
 	Kick(playerid);
 }
 
-forward ServerRestart(playerid);
-public ServerRestart(playerid)
+Server:ServerRestart(playerid)
 {
 	SendClientMessageToAll(COLOR_GOLD, "[Announcement]:{FFFFFF} The server is restarting.");
     SetTimer("restartmsg", 100, false);
     return 1;
 }
 
-forward restartmsg(playerid);
-public restartmsg(playerid)
+Server:restartmsg(playerid)
 {
     foreach (new i : Player)
     Kick(i);
@@ -466,9 +456,9 @@ public restartmsg(playerid)
     return 1;
 }
 
-forward GmX(playerid);
-public GmX(playerid)
+Server:GmX(playerid)
 {
+	DiscordRestart();
     foreach (new i : Player)
     Kick(i);
     SendRconCommand("gmx");
