@@ -1198,3 +1198,770 @@ Console input: exit
 
 *** Streamer Plugin v2.9.4 by Incognito unloaded ***
 
+
+----------
+Loaded log file: "server_log.txt".
+----------
+
+SA-MP Dedicated Server
+----------------------
+v0.3.DL-R1, (C)2005-2018 SA-MP Team
+
+[04:45:44] 
+[04:45:44] Server Plugins
+[04:45:44] --------------
+[04:45:44]  Loading plugin: crashdetect
+[04:45:44]   CrashDetect plugin 4.19.4
+[04:45:44]   Loaded.
+[04:45:44]  Loading plugin: discord-connector
+[04:45:46]  >> plugin.dc-connector: 0.2.4 successfully loaded.
+[04:45:46]   Loaded.
+[04:45:46]  Loading plugin: mysql
+[04:45:47]  >> plugin.mysql: R39-6 successfully loaded.
+[04:45:47]   Loaded.
+[04:45:47]  Loading plugin: sampvoice
+[04:45:47]   Failed.
+[04:45:47]  Loading plugin: sscanf
+[04:45:47] 
+
+[04:45:47]  ===============================
+
+[04:45:47]       sscanf plugin loaded.     
+
+[04:45:47]          Version:  2.8.3        
+
+[04:45:47]   (c) 2018 Alex "Y_Less" Cole  
+
+[04:45:47]  ===============================
+
+[04:45:47]   Loaded.
+[04:45:47]  Loading plugin: streamer
+[04:45:47] 
+
+*** Streamer Plugin v2.9.4 by Incognito loaded ***
+
+[04:45:47]   Loaded.
+[04:45:47]  Loading plugin: nativechecker
+[04:45:47]   Loaded.
+[04:45:47]  Loaded 6 plugins.
+
+[04:45:47] [artwork:crc] lvpdpc2.dff CRC = 0xFBD1EA7C
+[04:45:47] [artwork:crc] lvpdpc2.txd CRC = 0xDC92731E
+[04:45:47] [artwork:crc] lapdpd2.dff CRC = 0xA558D422
+[04:45:47] [artwork:crc] lapdpd2.txd CRC = 0xA442E2DA
+[04:45:47] [artwork:crc] object.dff CRC = 0xDCFCC14C
+[04:45:47] [artwork:crc] server_logo.txd CRC = 0x9D1E9A79
+[04:45:47] 
+[04:45:47] Filterscripts
+[04:45:47] ---------------
+[04:45:47]   Loaded 0 filterscripts.
+
+[04:45:47] Setting server password to: "a7a"
+[04:45:47] [PS:RP] MOTD: Welcome to New York Roleplay! MOTD hasn't been adjusted yet.
+[04:45:47] Number of vehicle models: 0
+[04:45:47] [PS:RP] No houses were available to load from the database.
+Console input: exit
+[05:29:50] --- Server Shutting Down.
+[05:29:50] plugin.dc-connector: Unloading plugin...
+[05:29:51] plugin.dc-connector: Plugin unloaded.
+[05:29:51] plugin.mysql: Unloading plugin...
+[05:29:51] plugin.mysql: Plugin unloaded.
+[05:29:51] 
+
+[05:29:51]  ===============================
+
+[05:29:51]      sscanf plugin unloaded.    
+
+[05:29:51]  ===============================
+
+[05:29:51] 
+
+*** Streamer Plugin v2.9.4 by Incognito unloaded ***
+
+
+----------
+Loaded log file: "server_log.txt".
+----------
+
+SA-MP Dedicated Server
+----------------------
+v0.3.DL-R1, (C)2005-2018 SA-MP Team
+
+[14:51:14] 
+[14:51:14] Server Plugins
+[14:51:14] --------------
+[14:51:14]  Loading plugin: crashdetect
+[14:51:15]   CrashDetect plugin 4.19.4
+[14:51:15]   Loaded.
+[14:51:15]  Loading plugin: discord-connector
+[14:51:17]  >> plugin.dc-connector: 0.2.4 successfully loaded.
+[14:51:17]   Loaded.
+[14:51:17]  Loading plugin: mysql
+[14:51:18]  >> plugin.mysql: R39-6 successfully loaded.
+[14:51:18]   Loaded.
+[14:51:18]  Loading plugin: sampvoice
+[14:51:18]   Failed.
+[14:51:18]  Loading plugin: sscanf
+[14:51:18] 
+
+[14:51:18]  ===============================
+
+[14:51:18]       sscanf plugin loaded.     
+
+[14:51:18]          Version:  2.8.3        
+
+[14:51:18]   (c) 2018 Alex "Y_Less" Cole  
+
+[14:51:18]  ===============================
+
+[14:51:18]   Loaded.
+[14:51:18]  Loading plugin: streamer
+[14:51:18] 
+
+*** Streamer Plugin v2.9.4 by Incognito loaded ***
+
+[14:51:18]   Loaded.
+[14:51:18]  Loading plugin: nativechecker
+[14:51:18]   Loaded.
+[14:51:18]  Loaded 6 plugins.
+
+[14:51:18] [artwork:crc] lvpdpc2.dff CRC = 0xFBD1EA7C
+[14:51:18] [artwork:crc] lvpdpc2.txd CRC = 0xDC92731E
+[14:51:18] [artwork:crc] lapdpd2.dff CRC = 0xA558D422
+[14:51:18] [artwork:crc] lapdpd2.txd CRC = 0xA442E2DA
+[14:51:18] [artwork:crc] object.dff CRC = 0xDCFCC14C
+[14:51:18] [artwork:crc] server_logo.txd CRC = 0x9D1E9A79
+[14:51:18] 
+[14:51:18] Filterscripts
+[14:51:18] ---------------
+[14:51:18]   Loaded 0 filterscripts.
+
+[14:51:19] Setting server password to: "a7a"
+[14:51:19] [PS:RP] MOTD: Welcome to New York Roleplay! MOTD hasn't been adjusted yet.
+[14:51:19] Number of vehicle models: 0
+[14:51:20] [PS:RP] No houses were available to load from the database.
+[14:52:17] [connection] incoming connection: 192.168.1.6:56411 id: 0
+[14:52:17] [join] Raymond_Rockwell has joined the server (0:192.168.1.6)
+Console input: loadfs veh
+[14:53:17]   Filterscript 'veh.amx' loaded.
+[14:56:40] [part] Raymond_Rockwell has left the server (0:1)
+Console input: exit
+[14:58:07] --- Server Shutting Down.
+[14:58:07] plugin.dc-connector: Unloading plugin...
+[14:58:07] plugin.dc-connector: Plugin unloaded.
+[14:58:07] plugin.mysql: Unloading plugin...
+[14:58:07] plugin.mysql: Plugin unloaded.
+[14:58:07] 
+
+[14:58:07]  ===============================
+
+[14:58:07]      sscanf plugin unloaded.    
+
+[14:58:07]  ===============================
+
+[14:58:07] 
+
+*** Streamer Plugin v2.9.4 by Incognito unloaded ***
+
+
+----------
+Loaded log file: "server_log.txt".
+----------
+
+SA-MP Dedicated Server
+----------------------
+v0.3.DL-R1, (C)2005-2018 SA-MP Team
+
+[14:59:22] 
+[14:59:22] Server Plugins
+[14:59:22] --------------
+[14:59:22]  Loading plugin: crashdetect
+[14:59:22]   CrashDetect plugin 4.19.4
+[14:59:22]   Loaded.
+[14:59:22]  Loading plugin: discord-connector
+[14:59:23]  >> plugin.dc-connector: 0.2.4 successfully loaded.
+[14:59:23]   Loaded.
+[14:59:23]  Loading plugin: mysql
+[14:59:23]  >> plugin.mysql: R39-6 successfully loaded.
+[14:59:23]   Loaded.
+[14:59:23]  Loading plugin: sampvoice
+[14:59:23]   Failed.
+[14:59:23]  Loading plugin: sscanf
+[14:59:23] 
+
+[14:59:23]  ===============================
+
+[14:59:23]       sscanf plugin loaded.     
+
+[14:59:23]          Version:  2.8.3        
+
+[14:59:23]   (c) 2018 Alex "Y_Less" Cole  
+
+[14:59:23]  ===============================
+
+[14:59:23]   Loaded.
+[14:59:23]  Loading plugin: streamer
+[14:59:23] 
+
+*** Streamer Plugin v2.9.4 by Incognito loaded ***
+
+[14:59:23]   Loaded.
+[14:59:23]  Loading plugin: nativechecker
+[14:59:23]   Loaded.
+[14:59:23]  Loaded 6 plugins.
+
+[14:59:23] [artwork:crc] lvpdpc2.dff CRC = 0xFBD1EA7C
+[14:59:23] [artwork:crc] lvpdpc2.txd CRC = 0xDC92731E
+[14:59:23] [artwork:crc] lapdpd2.dff CRC = 0xA558D422
+[14:59:23] [artwork:crc] lapdpd2.txd CRC = 0xA442E2DA
+[14:59:23] [artwork:crc] object.dff CRC = 0xDCFCC14C
+[14:59:23] [artwork:crc] server_logo.txd CRC = 0x9D1E9A79
+[14:59:23] 
+[14:59:23] Filterscripts
+[14:59:23] ---------------
+[14:59:23]   Loaded 0 filterscripts.
+
+[14:59:23] Setting server password to: "a7a"
+[14:59:23] [PS:RP] MOTD: Welcome to New York Roleplay! MOTD hasn't been adjusted yet.
+[14:59:23] Number of vehicle models: 0
+[14:59:23] [PS:RP] No houses were available to load from the database.
+[14:59:37] [connection] incoming connection: 192.168.1.6:61747 id: 0
+[14:59:37] [join] Raymond_Rockwell has joined the server (0:192.168.1.6)
+[14:59:48] [part] Raymond_Rockwell has left the server (0:2)
+[15:00:20] [connection] incoming connection: 192.168.1.6:62651 id: 0
+[15:00:20] [join] Raymond_Rockwell has joined the server (0:192.168.1.6)
+[15:01:54] [part] Raymond_Rockwell has left the server (0:2)
+[15:02:08] Setting server password to: "a7a"
+[15:02:08] [PS:RP] MOTD: Welcome to New York Roleplay! MOTD hasn't been adjusted yet.
+[15:02:08] Number of vehicle models: 0
+[15:02:08] [PS:RP] No houses were available to load from the database.
+[15:02:25] [connection] incoming connection: 192.168.1.6:59327 id: 0
+[15:02:25] [join] Raymond_Rockwell has joined the server (0:192.168.1.6)
+[15:04:27] [part] Raymond_Rockwell has left the server (0:2)
+[15:04:40] Setting server password to: "a7a"
+[15:04:40] [PS:RP] MOTD: Welcome to New York Roleplay! MOTD hasn't been adjusted yet.
+[15:04:40] Number of vehicle models: 0
+[15:04:40] [PS:RP] No houses were available to load from the database.
+[15:04:48] [connection] incoming connection: 192.168.1.6:53395 id: 0
+[15:04:48] [join] Raymond_Rockwell has joined the server (0:192.168.1.6)
+[15:06:47] [part] Raymond_Rockwell has left the server (0:1)
+Console input: exit
+[15:06:49] --- Server Shutting Down.
+[15:06:49] plugin.dc-connector: Unloading plugin...
+[15:06:50] plugin.dc-connector: Plugin unloaded.
+[15:06:50] plugin.mysql: Unloading plugin...
+[15:06:50] plugin.mysql: Plugin unloaded.
+[15:06:50] 
+
+[15:06:50]  ===============================
+
+[15:06:50]      sscanf plugin unloaded.    
+
+[15:06:50]  ===============================
+
+[15:06:50] 
+
+*** Streamer Plugin v2.9.4 by Incognito unloaded ***
+
+
+----------
+Loaded log file: "server_log.txt".
+----------
+
+SA-MP Dedicated Server
+----------------------
+v0.3.DL-R1, (C)2005-2018 SA-MP Team
+
+[15:18:05] 
+[15:18:05] Server Plugins
+[15:18:05] --------------
+[15:18:05]  Loading plugin: crashdetect
+[15:18:05]   CrashDetect plugin 4.19.4
+[15:18:05]   Loaded.
+[15:18:05]  Loading plugin: discord-connector
+[15:18:06]  >> plugin.dc-connector: 0.2.4 successfully loaded.
+[15:18:06]   Loaded.
+[15:18:06]  Loading plugin: mysql
+[15:18:06]  >> plugin.mysql: R39-6 successfully loaded.
+[15:18:06]   Loaded.
+[15:18:06]  Loading plugin: sampvoice
+[15:18:06]   Failed.
+[15:18:06]  Loading plugin: sscanf
+[15:18:06] 
+
+[15:18:06]  ===============================
+
+[15:18:06]       sscanf plugin loaded.     
+
+[15:18:06]          Version:  2.8.3        
+
+[15:18:06]   (c) 2018 Alex "Y_Less" Cole  
+
+[15:18:06]  ===============================
+
+[15:18:06]   Loaded.
+[15:18:06]  Loading plugin: streamer
+[15:18:06] 
+
+*** Streamer Plugin v2.9.4 by Incognito loaded ***
+
+[15:18:06]   Loaded.
+[15:18:06]  Loading plugin: nativechecker
+[15:18:06]   Loaded.
+[15:18:06]  Loaded 6 plugins.
+
+[15:18:06] [artwork:crc] lvpdpc2.dff CRC = 0xFBD1EA7C
+[15:18:06] [artwork:crc] lvpdpc2.txd CRC = 0xDC92731E
+[15:18:06] [artwork:crc] lapdpd2.dff CRC = 0xA558D422
+[15:18:06] [artwork:crc] lapdpd2.txd CRC = 0xA442E2DA
+[15:18:06] [artwork:crc] object.dff CRC = 0xDCFCC14C
+[15:18:06] [artwork:crc] server_logo.txd CRC = 0x9D1E9A79
+[15:18:06] 
+[15:18:06] Filterscripts
+[15:18:06] ---------------
+[15:18:06]   Loaded 0 filterscripts.
+
+[15:18:06] Setting server password to: "a7a"
+[15:18:06] [PS:RP] MOTD: Welcome to Project Serranilla Roleplay!
+[15:18:06] Number of vehicle models: 0
+[15:18:06] [PS:RP] No houses were available to load from the database.
+[15:18:09] --- Server Shutting Down.
+
+----------
+Loaded log file: "server_log.txt".
+----------
+
+SA-MP Dedicated Server
+----------------------
+v0.3.DL-R1, (C)2005-2018 SA-MP Team
+
+[15:18:25] 
+[15:18:25] Server Plugins
+[15:18:25] --------------
+[15:18:25]  Loading plugin: crashdetect
+[15:18:25]   CrashDetect plugin 4.19.4
+[15:18:25]   Loaded.
+[15:18:25]  Loading plugin: discord-connector
+[15:18:26]  >> plugin.dc-connector: 0.2.4 successfully loaded.
+[15:18:26]   Loaded.
+[15:18:26]  Loading plugin: mysql
+[15:18:26]  >> plugin.mysql: R39-6 successfully loaded.
+[15:18:26]   Loaded.
+[15:18:26]  Loading plugin: sampvoice
+[15:18:26]   Failed.
+[15:18:26]  Loading plugin: sscanf
+[15:18:26] 
+
+[15:18:26]  ===============================
+
+[15:18:26]       sscanf plugin loaded.     
+
+[15:18:26]          Version:  2.8.3        
+
+[15:18:26]   (c) 2018 Alex "Y_Less" Cole  
+
+[15:18:26]  ===============================
+
+[15:18:26]   Loaded.
+[15:18:26]  Loading plugin: streamer
+[15:18:26] 
+
+*** Streamer Plugin v2.9.4 by Incognito loaded ***
+
+[15:18:26]   Loaded.
+[15:18:26]  Loading plugin: nativechecker
+[15:18:26]   Loaded.
+[15:18:26]  Loaded 6 plugins.
+
+[15:18:26] [artwork:crc] lvpdpc2.dff CRC = 0xFBD1EA7C
+[15:18:26] [artwork:crc] lvpdpc2.txd CRC = 0xDC92731E
+[15:18:26] [artwork:crc] lapdpd2.dff CRC = 0xA558D422
+[15:18:26] [artwork:crc] lapdpd2.txd CRC = 0xA442E2DA
+[15:18:26] [artwork:crc] object.dff CRC = 0xDCFCC14C
+[15:18:26] [artwork:crc] server_logo.txd CRC = 0x9D1E9A79
+[15:18:26] 
+[15:18:26] Filterscripts
+[15:18:26] ---------------
+[15:18:26]   Loaded 0 filterscripts.
+
+[15:18:26] Setting server password to: "a7a"
+[15:18:26] [PS:RP] MOTD: Welcome to Project Serranilla Roleplay!
+[15:18:26] Number of vehicle models: 0
+[15:18:26] [PS:RP] No houses were available to load from the database.
+[15:18:36] [connection] incoming connection: 192.168.1.6:52762 id: 0
+[15:18:36] [join] Raymond_Rockwell has joined the server (0:192.168.1.6)
+Console input: gmx
+[15:28:26] Setting server password to: "a7a"
+[15:28:26] [PS:RP] MOTD: Welcome to Project Serranilla Roleplay!
+[15:28:26] Number of vehicle models: 0
+[15:28:26] [PS:RP] No houses were available to load from the database.
+Console input: gmx
+[16:07:52] Setting server password to: "a7a"
+[16:07:52] [PS:RP] MOTD: Welcome to Project Serranilla Roleplay!
+[16:07:52] Number of vehicle models: 0
+[16:07:52] [PS:RP] No houses were available to load from the database.
+[16:10:01] [part] Raymond_Rockwell has left the server (0:1)
+Console input: exit
+[16:20:17] --- Server Shutting Down.
+[16:20:17] plugin.dc-connector: Unloading plugin...
+[16:20:18] plugin.dc-connector: Plugin unloaded.
+[16:20:18] plugin.mysql: Unloading plugin...
+[16:20:18] plugin.mysql: Plugin unloaded.
+[16:20:18] 
+
+[16:20:18]  ===============================
+
+[16:20:18]      sscanf plugin unloaded.    
+
+[16:20:18]  ===============================
+
+[16:20:18] 
+
+*** Streamer Plugin v2.9.4 by Incognito unloaded ***
+
+
+----------
+Loaded log file: "server_log.txt".
+----------
+
+SA-MP Dedicated Server
+----------------------
+v0.3.DL-R1, (C)2005-2018 SA-MP Team
+
+[16:34:50] 
+[16:34:50] Server Plugins
+[16:34:50] --------------
+[16:34:50]  Loading plugin: crashdetect
+[16:34:50]   CrashDetect plugin 4.19.4
+[16:34:50]   Loaded.
+[16:34:50]  Loading plugin: discord-connector
+
+----------
+Loaded log file: "server_log.txt".
+----------
+
+SA-MP Dedicated Server
+----------------------
+v0.3.DL-R1, (C)2005-2018 SA-MP Team
+
+[16:34:50] 
+[16:34:50] Server Plugins
+[16:34:50] --------------
+[16:34:50]  Loading plugin: crashdetect
+[16:34:50]   CrashDetect plugin 4.19.4
+[16:34:50]   Loaded.
+[16:34:50]  Loading plugin: discord-connector
+
+----------
+Loaded log file: "server_log.txt".
+----------
+
+SA-MP Dedicated Server
+----------------------
+v0.3.DL-R1, (C)2005-2018 SA-MP Team
+
+[16:34:57] 
+[16:34:57] Server Plugins
+[16:34:57] --------------
+[16:34:57]  Loading plugin: crashdetect
+[16:34:57]   CrashDetect plugin 4.19.4
+[16:34:57]   Loaded.
+[16:34:57]  Loading plugin: discord-connector
+[16:34:59]  >> plugin.dc-connector: 0.2.4 successfully loaded.
+[16:34:59]   Loaded.
+[16:34:59]  Loading plugin: mysql
+[16:34:59]  >> plugin.mysql: R39-6 successfully loaded.
+[16:34:59]   Loaded.
+[16:34:59]  Loading plugin: sampvoice
+[16:34:59]   Failed.
+[16:34:59]  Loading plugin: sscanf
+[16:34:59] 
+
+[16:34:59]  ===============================
+
+[16:34:59]       sscanf plugin loaded.     
+
+[16:34:59]          Version:  2.8.3        
+
+[16:34:59]   (c) 2018 Alex "Y_Less" Cole  
+
+[16:34:59]  ===============================
+
+[16:34:59]   Loaded.
+[16:34:59]  Loading plugin: streamer
+[16:34:59] 
+
+*** Streamer Plugin v2.9.4 by Incognito loaded ***
+
+[16:34:59]   Loaded.
+[16:34:59]  Loading plugin: nativechecker
+[16:34:59]   Loaded.
+[16:34:59]  Loaded 6 plugins.
+
+[16:34:59] [artwork:crc] lvpdpc2.dff CRC = 0xFBD1EA7C
+[16:34:59] [artwork:crc] lvpdpc2.txd CRC = 0xDC92731E
+[16:34:59] [artwork:crc] lapdpd2.dff CRC = 0xA558D422
+[16:34:59] [artwork:crc] lapdpd2.txd CRC = 0xA442E2DA
+[16:34:59] [artwork:crc] object.dff CRC = 0xDCFCC14C
+[16:34:59] [artwork:crc] server_logo.txd CRC = 0x9D1E9A79
+[16:34:59] 
+[16:34:59] Filterscripts
+[16:34:59] ---------------
+[16:34:59]   Loaded 0 filterscripts.
+
+[16:34:59] Setting server password to: "a7a"
+[16:34:59] [PS:RP] MOTD: Welcome to Project Serranilla Roleplay!
+[16:34:59] Number of vehicle models: 0
+[16:34:59] [PS:RP] No houses were available to load from the database.
+[16:35:22] [connection] incoming connection: 192.168.1.6:62707 id: 0
+[16:35:22] [join] Raymond_Rockwell has joined the server (0:192.168.1.6)
+[16:37:10] [PS:RP] House ID 1 created by Raymond_Rockwell.
+[16:38:44] [part] Raymond_Rockwell has left the server (0:1)
+Console input: gmx
+[16:42:25] Setting server password to: "a7a"
+[16:42:25] [PS:RP] MOTD: Welcome to Project Serranilla Roleplay!
+[16:42:25] Number of vehicle models: 0
+[16:42:25] [PS:RP] 1 houses has been loaded from the database.
+[16:42:32] [connection] incoming connection: 192.168.1.6:49759 id: 0
+[16:42:32] [join] Raymond_Rockwell has joined the server (0:192.168.1.6)
+Console input: gmx
+[16:44:08] Setting server password to: "a7a"
+[16:44:08] [PS:RP] MOTD: Welcome to Project Serranilla Roleplay!
+[16:44:08] Number of vehicle models: 0
+[16:44:08] [PS:RP] 1 houses has been loaded from the database.
+[16:44:39] [part] Raymond_Rockwell has left the server (0:1)
+
+----------
+Loaded log file: "server_log.txt".
+----------
+
+SA-MP Dedicated Server
+----------------------
+v0.3.DL-R1, (C)2005-2018 SA-MP Team
+
+[14:31:21] 
+[14:31:21] Server Plugins
+[14:31:21] --------------
+[14:31:21]  Loading plugin: crashdetect
+[14:31:21]   CrashDetect plugin 4.19.4
+[14:31:21]   Loaded.
+[14:31:21]  Loading plugin: discord-connector
+[14:31:24]  >> plugin.dc-connector: 0.2.4 successfully loaded.
+[14:31:24]   Loaded.
+[14:31:24]  Loading plugin: mysql
+[14:31:25]  >> plugin.mysql: R39-6 successfully loaded.
+[14:31:25]   Loaded.
+[14:31:25]  Loading plugin: sampvoice
+[14:31:25]   Failed.
+[14:31:25]  Loading plugin: sscanf
+[14:31:25] 
+
+[14:31:25]  ===============================
+
+[14:31:25]       sscanf plugin loaded.     
+
+[14:31:25]          Version:  2.8.3        
+
+[14:31:25]   (c) 2018 Alex "Y_Less" Cole  
+
+[14:31:25]  ===============================
+
+[14:31:25]   Loaded.
+[14:31:25]  Loading plugin: streamer
+[14:31:25] 
+
+*** Streamer Plugin v2.9.4 by Incognito loaded ***
+
+[14:31:25]   Loaded.
+[14:31:25]  Loading plugin: nativechecker
+[14:31:25]   Loaded.
+[14:31:25]  Loaded 6 plugins.
+
+[14:31:25] [artwork:crc] lvpdpc2.dff CRC = 0xFBD1EA7C
+[14:31:25] [artwork:crc] lvpdpc2.txd CRC = 0xDC92731E
+[14:31:25] [artwork:crc] lapdpd2.dff CRC = 0xA558D422
+[14:31:25] [artwork:crc] lapdpd2.txd CRC = 0xA442E2DA
+[14:31:25] [artwork:crc] object.dff CRC = 0xDCFCC14C
+[14:31:25] [artwork:crc] server_logo.txd CRC = 0x9D1E9A79
+[14:31:25] 
+[14:31:25] Filterscripts
+[14:31:25] ---------------
+[14:31:25]   Loaded 0 filterscripts.
+
+[14:31:26] Setting server password to: "a7a"
+[14:31:26] [PS:RP] MOTD: Welcome to Project Serranilla Roleplay!
+[14:31:26] Number of vehicle models: 0
+[14:31:26] [PS:RP] 1 houses has been loaded from the database.
+[14:32:25] [connection] incoming connection: 192.168.1.6:64125 id: 0
+[14:32:25] [join] Raymond_Rockwell has joined the server (0:192.168.1.6)
+Console input: gmx
+[14:43:24] Setting server password to: "a7a"
+[14:43:24] [PS:RP] MOTD: Welcome to Project Serranilla Roleplay!
+[14:43:24] Number of vehicle models: 0
+[14:43:24] [PS:RP] 1 houses has been loaded from the database.
+Console input: gmx
+[15:10:58] Setting server password to: "a7a"
+[15:10:58] PSRP Local: MOTD - Welcome to Project Serranilla Roleplay!
+[15:10:58] Number of vehicle models: 0
+[15:10:58] PSRP Local: 1 houses has been loaded from the database.
+Console input: kick
+Console input: kick 0
+[15:12:09] Raymond_Rockwell <#0 - 192.168.1.6> has been kicked.
+[15:12:09] [part] Raymond_Rockwell has left the server (0:2)
+[15:12:09] [debug] Run time error 4: "Array index out of bounds"
+[15:12:09] [debug] AMX backtrace:
+[15:12:09] [debug] #0 0000e8fc in ?? (47, 66, 97, 110, 0, 571204, 12888, 8, 4, 0, ... <16 more arguments>) at ../gamemodes/scripts/public_functions.psrp:367
+[15:12:09] [debug] #1 00000063 in public Iter_OnPlayerDisconnect () at E:\Shady\Scripting\Gamemode\pawno\include\float.inc:124
+[15:12:09] [debug] #2 native CallLocalFunction () in samp-server.exe
+[15:12:09] [debug] #3 0000e96c in ?? (47, 66, 97, 110, 0, 571204, 12888, 8, 4, 0, ... <16 more arguments>) at ../gamemodes/scripts/public_functions.psrp:369
+[15:12:09] [debug] #4 00000063 in public OnPlayerDisconnect () at E:\Shady\Scripting\Gamemode\pawno\include\float.inc:124
+[15:12:09] [debug] #5 0000e910 in ?? (47, 66, 97, 110, 0, 571204, 12888, 8, 4, 0, ... <16 more arguments>) at ../gamemodes/scripts/public_functions.psrp:367
+[15:12:09] [debug] #6 00000063 in public Iter_OnPlayerDisconnect () at E:\Shady\Scripting\Gamemode\pawno\include\float.inc:124
+[15:12:09] [debug] #7 native CallLocalFunction () in samp-server.exe
+[15:12:09] [debug] #8 000020a0 in public OnPlayerDisconnect (playerid=571244, reason=8352) at E:\Shady\Scripting\Gamemode\pawno\include\foreach.inc:833
+[15:12:09] [debug] Run time error 6: "Invalid instruction"
+[15:12:09] [debug]  Unknown opcode 0x270000 at address 0x00000046
+[15:12:09] [debug] AMX backtrace:
+[15:12:09] [debug] #0 00000000 in public OnPlayerDisconnect ()
+[15:12:09] [part] Raymond_Rockwell has left the server (0:1)
+[15:14:23] [connection] incoming connection: 192.168.1.6:60726 id: 0
+[15:14:23] [join] Shady_Dev has joined the server (0:192.168.1.6)
+Console input: gmx
+[15:16:59] Setting server password to: "a7a"
+[15:16:59] PSRP Local: MOTD - Welcome to Project Serranilla Roleplay!
+[15:16:59] Number of vehicle models: 0
+[15:16:59] PSRP Local: 1 houses has been loaded from the database.
+Console input: gmx
+[15:18:55] Setting server password to: "a7a"
+[15:18:55] PSRP Local: MOTD - Welcome to Project Serranilla Roleplay!
+[15:18:55] Number of vehicle models: 0
+[15:18:55] PSRP Local: 1 houses has been loaded from the database.
+Console input: gmx
+[15:36:19] Setting server password to: "a7a"
+[15:36:19] PSRP Local: MOTD - Welcome to Project Serranilla Roleplay!
+[15:36:19] Number of vehicle models: 0
+[15:36:19] PSRP Local: 1 houses has been loaded from the database.
+Console input: gmx
+[15:37:21] Setting server password to: "a7a"
+[15:37:21] PSRP Local: MOTD - Welcome to Project Serranilla Roleplay!
+[15:37:21] Number of vehicle models: 0
+[15:37:21] PSRP Local: 1 houses has been loaded from the database.
+[15:38:06] [part] Shady_Dev has left the server (0:1)
+Console input: gmx
+[16:04:52] [connection] incoming connection: 192.168.1.6:50903 id: 0
+[16:04:52] [join] Shady_Dev has joined the server (0:192.168.1.6)
+[16:04:52] Setting server password to: "a7a"
+[16:04:52] PSRP Local: MOTD - Welcome to Project Serranilla Roleplay!
+[16:04:52] Number of vehicle models: 0
+[16:04:52] PSRP Local: 1 houses has been loaded from the database.
+[16:07:31] [part] Shady_Dev has left the server (0:1)
+[16:08:35] [connection] incoming connection: 192.168.1.6:55314 id: 0
+[16:08:36] [join] Shady_Dev has joined the server (0:192.168.1.6)
+[16:08:54] [part] Shady_Dev has left the server (0:1)
+Console input: gmx
+[16:11:43] [connection] incoming connection: 192.168.1.6:54739 id: 0
+[16:11:43] Setting server password to: "a7a"
+[16:11:43] PSRP Local: MOTD - Welcome to Project Serranilla Roleplay!
+[16:11:43] Number of vehicle models: 0
+[16:11:43] [join] Shady_Dev has joined the server (0:192.168.1.6)
+[16:11:43] PSRP Local: 1 houses has been loaded from the database.
+[16:11:55] [part] Shady_Dev has left the server (0:1)
+Console input: gmx
+[16:13:15] Setting server password to: "a7a"
+[16:13:15] PSRP Local: MOTD - Welcome to Project Serranilla Roleplay!
+[16:13:15] Number of vehicle models: 0
+[16:13:15] PSRP Local: 1 houses has been loaded from the database.
+[16:13:25] [connection] incoming connection: 192.168.1.6:56024 id: 0
+[16:13:25] [join] Shady_Dev has joined the server (0:192.168.1.6)
+[16:13:31] [part] Shady_Dev has left the server (0:1)
+Console input: gmx
+[16:14:06] Setting server password to: "a7a"
+[16:14:06] PSRP Local: MOTD - Welcome to Project Serranilla Roleplay!
+[16:14:06] Number of vehicle models: 0
+[16:14:06] PSRP Local: 1 houses has been loaded from the database.
+[16:14:06] [connection] incoming connection: 192.168.1.6:61342 id: 0
+[16:14:06] [join] Shady_Dev has joined the server (0:192.168.1.6)
+[16:14:40] [part] Shady_Dev has left the server (0:1)
+Console input: exit
+[16:15:05] --- Server Shutting Down.
+[16:15:05] plugin.dc-connector: Unloading plugin...
+[16:15:05] plugin.dc-connector: Plugin unloaded.
+[16:15:05] plugin.mysql: Unloading plugin...
+[16:15:06] plugin.mysql: Plugin unloaded.
+[16:15:06] 
+
+[16:15:06]  ===============================
+
+[16:15:06]      sscanf plugin unloaded.    
+
+[16:15:06]  ===============================
+
+[16:15:06] 
+
+*** Streamer Plugin v2.9.4 by Incognito unloaded ***
+
+
+----------
+Loaded log file: "server_log.txt".
+----------
+
+SA-MP Dedicated Server
+----------------------
+v0.3.DL-R1, (C)2005-2018 SA-MP Team
+
+[16:15:25] 
+[16:15:25] Server Plugins
+[16:15:25] --------------
+[16:15:25]  Loading plugin: crashdetect
+[16:15:26]   CrashDetect plugin 4.19.4
+[16:15:26]   Loaded.
+[16:15:26]  Loading plugin: discord-connector
+[16:15:27]  >> plugin.dc-connector: 0.2.4 successfully loaded.
+[16:15:27]   Loaded.
+[16:15:27]  Loading plugin: mysql
+[16:15:27]  >> plugin.mysql: R39-6 successfully loaded.
+[16:15:27]   Loaded.
+[16:15:27]  Loading plugin: sampvoice
+[16:15:27]   Failed.
+[16:15:27]  Loading plugin: sscanf
+[16:15:27] 
+
+[16:15:27]  ===============================
+
+[16:15:27]       sscanf plugin loaded.     
+
+[16:15:27]          Version:  2.8.3        
+
+[16:15:27]   (c) 2018 Alex "Y_Less" Cole  
+
+[16:15:27]  ===============================
+
+[16:15:27]   Loaded.
+[16:15:27]  Loading plugin: streamer
+[16:15:27] 
+
+*** Streamer Plugin v2.9.4 by Incognito loaded ***
+
+[16:15:27]   Loaded.
+[16:15:27]  Loading plugin: nativechecker
+[16:15:27]   Loaded.
+[16:15:27]  Loaded 6 plugins.
+
+[16:15:27] [artwork:crc] lvpdpc2.dff CRC = 0xFBD1EA7C
+[16:15:27] [artwork:crc] lvpdpc2.txd CRC = 0xDC92731E
+[16:15:27] [artwork:crc] lapdpd2.dff CRC = 0xA558D422
+[16:15:28] [artwork:crc] lapdpd2.txd CRC = 0xA442E2DA
+[16:15:28] [artwork:crc] object.dff CRC = 0xDCFCC14C
+[16:15:28] [artwork:crc] server_logo.txd CRC = 0x9D1E9A79
+[16:15:28] 
+[16:15:28] Filterscripts
+[16:15:28] ---------------
+[16:15:28]   Loaded 0 filterscripts.
+
+[16:15:28] Setting server password to: "a7a"
+[16:15:28] PSRP Local: MOTD - Welcome to Project Serranilla Roleplay!
+[16:15:28] Number of vehicle models: 0
+[16:15:28] PSRP Local: 1 houses has been loaded from the database.
+[16:15:37] [connection] incoming connection: 192.168.1.6:53768 id: 0
+[16:15:37] [join] Shady_Dev has joined the server (0:192.168.1.6)
+[16:15:48] [part] Shady_Dev has left the server (0:1)
