@@ -106,7 +106,7 @@ CMD:help(playerid, params[])
 	return true;
 }
 
-CMD:admins(playerid, params[])
+/*CMD:admins(playerid, params[])
 {
 	if(!LoggedIn[playerid]) return true;
 	SendClientMessage(playerid, COLOR_WHITE, "Administrators Online:");
@@ -123,6 +123,28 @@ CMD:admins(playerid, params[])
 	}
 
 	return true;
+}*/
+
+CMD:admins(playerid,params[])
+{
+    if(!LoggedIn[playerid]) return true;
+	new string[256];
+	for(new i = 0; i < MAX_PLAYERS; i++)
+    {
+        if(IsPlayerConnected(i))
+        {
+            if(PlayerData[i][pAdminLevel] > 1)
+            {
+                format(string, sizeof(string), "%s{FFFFFF} - AdminName (%s)", SAdminRank(i), NameRP(i));
+            }
+        }
+		else
+		{
+			format(string, sizeof(string), "There are no staff members online at the moment.");
+		}
+	}
+    ShowPlayerDialog(playerid, 21323123, DIALOG_STYLE_LIST, "Staff Team", string, "Close", "");
+    return true;
 }
 
 CMD:s(playerid, params[]) return cmd_shout(playerid, params);
@@ -203,8 +225,27 @@ CMD:b(playerid, params[])
 	if(isnull(params)) return SendUsageMessage(playerid, "/b [local OOC message]");
 
 	new string[128];
-	format(string, sizeof(string), "(( %s says: %s ))", NameRP(playerid), params);
-	SendLocalMessage(playerid, COLOR_WHITE, string);
+	format(string, sizeof(string), "[OOC-L] (( %s [%d]:{FFFFFF} %s {AFAFAF}))", NameRP(playerid), playerid, params);
+	SendLocalMessage(playerid, COLOR_GREY, string);
+	return true;
+}
+
+CMD:o(playerid, params[]) return cmd_ooc(playerid, params);
+CMD:ooc(playerid, params[])
+{
+	new string[128];
+	if(!LoggedIn[playerid]) return true;
+	if(isnull(params)) return SendUsageMessage(playerid, "/ooc [general OOC message]");
+
+	if(!GeneralOOC[playerid])
+	{
+		SendErrorMessage(playerid, "This chat is disabled.");
+	}
+	else
+	{
+		format(string, sizeof(string), "[OOC-G] (( %s [%d]: %s ))", NameRP(playerid), playerid, params);
+		SendClientMessageToAll(COLOR_GREY, string);
+	}
 	return true;
 }
 
@@ -331,13 +372,26 @@ CMD:credits(playerid, params[])
 	return true;
 }
 
+CMD:id(playerid,params[])
+{
+    new id, string[128];
+    if(sscanf(params, "u", id)) return SendUsageMessage(playerid, "/id [playerid or name]");
+    {
+        if(!IsPlayerConnected(id)) return SendErrorMessage(playerid, "That player isn't connected.");
+		if(!LoggedIn[id]) return SendErrorMessage(playerid, "That player isn't logged in.");
+        format(string, sizeof(string), "(ID: %d) %s | Level: %d", id, NameRP(playerid), PlayerData[id][pLevel]);
+        SendClientMessage(playerid, COLOR_WHITE, string);
+    }
+    return true;
+}
+
 // Account Commands:
 CMD:stats(playerid, params[])
 {
 	new playerb;
 	if(PlayerData[playerid][pAdminLevel])
 	{
-		if (sscanf(params, "I(-1)", playerb)) return 1;
+		if (sscanf(params, "I(-1)", playerb)) return true;
 		if(playerb == -1)
 		{
 			return ShowStats(playerid, playerid);
@@ -350,7 +404,7 @@ CMD:stats(playerid, params[])
 		}
 	}
 	else return ShowStats(playerid, playerid);
-	return 1;
+	return true;
 }
 
 CMD:buylevel(playerid, params[])
@@ -388,27 +442,29 @@ CMD:changeage(playerid, params[])
 
 CMD:changesex(playerid, params[])
 {
-   	new str[128], value;
-   	if(!LoggedIn[playerid]) return true;
-    if(sscanf(params, "i", value)) return SendUsageMessage(playerid, "/changesex [male (1) or female (2)]");
-	if(value < 1 || value > 2) return SendErrorMessage(playerid, "Gender must be either Male [ID 1] OR Female [ID 2].");
-	if(value == 1)
+	new str[128], option[10];
+    if(!LoggedIn[playerid]) return true;
+	if(sscanf(params, "s[10]", option)) return SendUsageMessage(playerid, "/changesex [male or female]");
+    if(isnull(params)) return SendErrorMessage(playerid, "Gender must be either Male OR Female.");
+	if(!strcmp(option, "male", true))
 	{
-		PlayerData[playerid][pSex] = value;
+		if(PlayerData[playerid][pSex] == 1) return SendErrorMessage(playerid, "Your gender is already set to Male.");
+        PlayerData[playerid][pSex] = 1;
 		SaveSQLInt(PlayerData[playerid][pSQLID], "players", "Gender", PlayerData[playerid][pSex]);
 		format(str, sizeof(str), "[SUCCESS]:{FFFFFF} You've successfully changed your gender to Male.");
 		SendClientMessage(playerid, COLOR_GREEN, str);
 	}
-	if(value == 2)
+	if(!strcmp(option, "female", true))
 	{
-		PlayerData[playerid][pSex] = value;
+		if(PlayerData[playerid][pSex] == 2) return SendErrorMessage(playerid, "Your gender is already set to Female.");
+        PlayerData[playerid][pSex] = 2;
 		SaveSQLInt(PlayerData[playerid][pSQLID], "players", "Gender", PlayerData[playerid][pSex]);
 		format(str, sizeof(str), "[SUCCESS]:{FFFFFF} You've successfully changed your gender to Female.");
 		SendClientMessage(playerid, COLOR_GREEN, str);
 	}
+	else return SendUsageMessage(playerid, "/changesex [male or female]");
 	return true;
 }
-
 // Administrator Commands:
 CMD:ah(playerid, params[]) return cmd_ahelp(playerid, params);
 CMD:acmds(playerid, params[]) return cmd_ahelp(playerid, params);
@@ -563,6 +619,36 @@ CMD:maketester(playerid, params[])
 	return true;
 }
 
+CMD:makehitman(playerid, params[])
+{
+   	new str[128], playerb;
+    if(PlayerData[playerid][pAdminLevel] < 3) return SendUnauthorizedMsg(playerid);
+    if(sscanf(params, "u", playerb)) return SendUsageMessage(playerid, "/makehitman [playerid/part of name]");
+	if(IsAHitman(playerb)) return SendErrorMessage(playerid, "That player is already in the Hitman Agency. To revoke it, use /removehitman.");
+	
+    PlayerData[playerb][pHitman] = 1;
+	format(str, sizeof(str), "[SERVER]:{FFFFFF} You have been hired into the Hitman Agency by %s. Use /hmahelp to see your new commands.", NameRP(playerid));
+	SendClientMessage(playerb, COLOR_LIGHTRED, str);
+	format(str, sizeof(str), "[SERVER]:{FFFFFF} You have successfully gave Hitman status to %s.", NameRP(playerb));
+	SendClientMessage(playerid, COLOR_LIGHTRED, str);
+	return true;
+}
+
+CMD:removehitman(playerid, params[])
+{
+   	new str[128], playerb;
+    if(PlayerData[playerid][pAdminLevel] < 3) return SendUnauthorizedMsg(playerid);
+    if(sscanf(params, "u", playerb)) return SendUsageMessage(playerid, "/removehitman [playerid/part of name]");
+	if(!IsAHitman(playerb)) return SendErrorMessage(playerid, "That player is not in the Hitman Agency");
+	
+    PlayerData[playerb][pHitman] = 0;
+	format(str, sizeof(str), "[SERVER]:{FFFFFF} You have been terminated from the Hitman Agency by %s.", NameRP(playerid));
+	SendClientMessage(playerb, COLOR_LIGHTRED, str);
+	format(str, sizeof(str), "[SERVER]:{FFFFFF} You have successfully removed Hitman status from %s.", NameRP(playerb));
+	SendClientMessage(playerid, COLOR_LIGHTRED, str);
+	return true;
+}
+
 CMD:gotopoint(playerid, params[])
 {
 	if(PlayerData[playerid][pAdminLevel] < 2) return SendUnauthorizedMsg(playerid);
@@ -590,10 +676,10 @@ CMD:revive(playerid, params[])
 	if(Injured[targetid] == 0) return SendErrorMessage(playerid, "That player is not injured.");
 	
 	new string[100];
-	format(string, sizeof(string), "[SERVER]:{FFFFFF}You have successfully revived %s.", NameRP(targetid));
-    SendClientMessage(playerid, COLOR_LIGHTRED, string);
-	format(string, sizeof(string), "[SERVER]:{FFFFFF}You have been revived by %s %s.", AdminRank(playerid), NameRP(playerid));
-    SendClientMessage(targetid, COLOR_LIGHTRED, string);
+	format(string, sizeof(string), "(ADMIN INFO) {FFFFFF}You have successfully revived %s.", NameRP(targetid));
+    SendClientMessage(playerid, COLOR_ADMINFO, string);
+	format(string, sizeof(string), "(ADMIN INFO) {FFFFFF}You have been revived by %s %s.", AdminRank(playerid), NameRP(playerid));
+    SendClientMessage(targetid, COLOR_ADMINFO, string);
 	
 	KillTimer(AcceptDeathTimer[targetid]);
 	KillTimer(LoseHealthTimer[targetid]);
@@ -601,7 +687,7 @@ CMD:revive(playerid, params[])
 	Injured[targetid] = 0;
 	ClearAnimations(targetid);
 	SetPlayerHealth(targetid, 100.0);
-    return 1;
+    return true;
 }
 
 CMD:motd(playerid, params[])
@@ -615,5 +701,24 @@ CMD:motd(playerid, params[])
 	format(string, sizeof(string), "[Player MOTD]: %s", MOTDText);
 	SendClientMessageToAll(COLOR_WHITE, string);
 	UpdateMOTD();
-	return 1;
+	return true;
+}
+
+CMD:togooc(playerid, params[])
+{
+	new string[256];
+	if(PlayerData[playerid][pAdminLevel] < 3) return SendUnauthorizedMsg(playerid);
+	if(!GeneralOOC[playerid])
+    {
+		format(string, sizeof(string), "(ADMIN INFO){FFFFFF} %s %s has toggled the General OOC Chat on.", AdminRank(playerid), NameRP(playerid));
+        SendClientMessageToAll(COLOR_ADMINFO, string);
+        GeneralOOC[playerid] = true;
+    }
+    else
+	{
+		format(string, sizeof(string), "(ADMIN INFO){FFFFFF} %s %s has toggled the General OOC Chat off.", AdminRank(playerid), NameRP(playerid));
+        SendClientMessageToAll(COLOR_ADMINFO, string);
+    	GeneralOOC[playerid] = false;
+	}
+	return true;
 }
