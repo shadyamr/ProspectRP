@@ -142,9 +142,8 @@ public OnPlayerConnect(playerid)
 		return true;
 	}
 
-    gettime(DHour, DMinute, DSecond);
 	if(_:logchannel == 0) logchannel = DCC_FindChannelById("545641478064701440");
-	format(string, sizeof(string), "PSRP Local: %s has joined the server (IP: %s | Time: %02d:%02d:%02d)", NameRP(playerid), GetIP(playerid), DHour, DMinute, DSecond);
+	format(string, sizeof(string), "PSRP Local: %s has joined the server (IP: %s || %s)", NameRP(playerid), GetIP(playerid), GetDate());
 	DCC_SendChannelMessage(logchannel, string);
 
 	//Login Screen textdraw
@@ -329,6 +328,7 @@ public OnDialogResponse(playerid, dialogid, response, listitem, inputtext[])
 
 public OnPlayerDisconnect(playerid, reason)
 {
+	SavePlayerToDB(playerid);
 	DefaultPlayerValues(playerid);
 	if(IsValidDynamic3DTextLabel(cNametag[playerid])) DestroyDynamic3DTextLabel(cNametag[playerid]);
 
@@ -340,12 +340,11 @@ public OnPlayerDisconnect(playerid, reason)
         "Kick/Ban"
     };
 
-    format(szString, sizeof szString, "%s left the server (%s).", NameRP(playerid), szDisconnectReason[reason]);
-    SendLocalMessageEx(playerid, COLOR_YELLOW, szString, 20.0);
+    format(szString, sizeof szString, "PSRP Local: %s left the server. ({FFFFFF}%s{AFAFAF})", NameRP(playerid), szDisconnectReason[reason]);
+    SendLocalMessageEx(playerid, COLOR_GREY, szString, 20.0);
 	
-    gettime(DHour, DMinute, DSecond);
 	if(_:logchannel == 0) logchannel = DCC_FindChannelById("545641478064701440");
-	format(str, sizeof(str), "PSRP Local: %s has left the server (Reason: %s | Time: %02d:%02d:%02d)", NameRP(playerid), szDisconnectReason[reason], GetIP(playerid), DHour, DMinute, DSecond);
+	format(str, sizeof(str), "PSRP Local: %s has left the server (Reason: %s || %s)", NameRP(playerid), szDisconnectReason[reason], GetIP(playerid), GetDate());
 	DCC_SendChannelMessage(logchannel, str);
 	return true;
 }
@@ -452,10 +451,13 @@ public OnPlayerCommandPerformed(playerid, cmdtext[], success)
 {
 	if(!success)
 	{
-		SendErrorMessage(playerid, "Sorry, that command does not exist. /help if you're in need of assistance.");
+		//SendErrorMessage(playerid, "Sorry, that command does not exist. /help if you're in need of assistance.");
+		new cmdstring[256];
+		format(cmdstring, sizeof(cmdstring),"[COMMAND FAILURE]{FFFFFF} The command '{993333}%s{FFFFFF}' does not exist, if you believe this is a bug then please use /bugreport.", cmdtext);
+        SendClientMessage(playerid, COLOR_CMDERROR, cmdstring);
 	}
-	else return 1;
-	return 1;
+	else return true;
+	return true;
 }
 
 public OnPlayerStateChange(playerid, newstate, oldstate)
@@ -499,5 +501,5 @@ public OnRconLoginAttempt(ip[], password[], success)
 			}
 		}
 	}
-	return 1;
+	return true;
 }
