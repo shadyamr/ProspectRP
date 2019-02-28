@@ -34,7 +34,7 @@ Server:ShowStats(playerid, playerb)
 	SendClientMessageEx(playerb, COLOR_STATS2, string);
 	format(string, sizeof(string), "[Status]:{FFFFFF} Administrator: %s | Helper: %s | Tester: %s | Donator: %s", admin, helper, tester, donator);
 	SendClientMessageEx(playerb, COLOR_STATS2, string);
-	format(string, sizeof(string), "[Other]:{FFFFFF} Skin: %d | Health: %0.1f | Armour: %0.1f", GetPlayerSkin(playerid), GetPlayerHealth(playerid, hp), GetPlayerArmour(playerid, armor));
+	format(string, sizeof(string), "[Other]:{FFFFFF} Skin: %d | Health: %0.2f | Armour: %0.2f", GetPlayerSkin(playerid), GetPlayerHealth(playerid, hp), GetPlayerArmour(playerid, armor));
 	SendClientMessageEx(playerb, COLOR_STATS2, string);
 	return 1;
 }
