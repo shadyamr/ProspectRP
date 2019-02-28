@@ -31,6 +31,7 @@ Server:DefaultPlayerValues(playerid)
 {
 	LoginChance[playerid] = 0;
 	LoggedIn[playerid] = false;
+	GeneralOOC[playerid] = false;
 	PlayerData[playerid][pSQLID] = 0;
 	PlayerData[playerid][pAdminLevel] = 0;
 	PlayerData[playerid][pHelper] = 0;
@@ -38,6 +39,7 @@ Server:DefaultPlayerValues(playerid)
 	PlayerData[playerid][pDonator] = 0;
 	PlayerData[playerid][pAge] = 18;
 	PlayerData[playerid][pSex] = 0;
+	PlayerData[playerid][pEthnicity] = 0;
 	PlayerData[playerid][pMoney] = 0;
 	PlayerData[playerid][pLevel] = 1;
 	PlayerData[playerid][pRespect] = 0;
@@ -148,7 +150,11 @@ Server:SQL_OnAccountLogin(playerid)
 
 	PlayerData[playerid][pSQLID] = cache_get_field_content_int(0, "id", sqlConnection);
 	LoadPlayerData(playerid);
-	SendSuccessMessage(playerid, "You have successfully logged in, your account information is now being loaded.");
+
+	new string[256];
+	format(string, sizeof(string), "[LOGIN]:{FFFFFF} You have successfully logged in as {008000}%s{FFFFFF}, your account information is now being loaded.", NameRP(playerid));
+	SendClientMessage(playerid, COLOR_GREEN, string);
+	SendClientMessage(playerid, COLOR_GREEN, "[LOGIN]:{FFFFFF} Last login was {AFAFAF}0 days and 0 hours ago {FFFFFF}({AFAFAF}/logins{FFFFFF}).");
 	return true;
 }
 
@@ -173,6 +179,7 @@ Server:SQL_OnLoadAccount(playerid)
 	PlayerData[playerid][pDonator] = cache_get_field_content_int(0, "Donator", sqlConnection);
 	PlayerData[playerid][pAge] = cache_get_field_content_int(0, "Age", sqlConnection);
 	PlayerData[playerid][pSex] = cache_get_field_content_int(0, "Gender", sqlConnection);
+	PlayerData[playerid][pEthnicity] = cache_get_field_content_int(0, "Ethnicity", sqlConnection);
 	PlayerData[playerid][pMoney] = cache_get_field_content_int(0, "Money", sqlConnection);
 	PlayerData[playerid][pLevel] = cache_get_field_content_int(0, "Level", sqlConnection);
 	PlayerData[playerid][pRespect] = cache_get_field_content_int(0, "Respect", sqlConnection);
@@ -250,6 +257,17 @@ Server:SavePlayer(playerid, bool:save)
 	return true;
 }
 
+Server:SavePlayerToDB(playerid)
+{
+	new query[512];
+	mysql_format(sqlConnection, query, sizeof(query), "UPDATE players SET AdminLevel = %i, Helper = %i, Tester = %i, Donator = %i, Age = %i, Gender = %i, Ethnicity = %i, Money = %i, Level = %i, Respect = %i, Hitman = %i WHERE id = %i LIMIT 1",
+	PlayerData[playerid][pAdminLevel], PlayerData[playerid][pHelper], PlayerData[playerid][pTester], PlayerData[playerid][pDonator],
+	PlayerData[playerid][pAge], PlayerData[playerid][pSex], PlayerData[playerid][pEthnicity], PlayerData[playerid][pMoney],
+	PlayerData[playerid][pLevel], PlayerData[playerid][pRespect], PlayerData[playerid][pHitman], PlayerData[playerid][pSQLID]);
+	mysql_pquery(sqlConnection, query);
+	return true;
+}
+
 Server:SetPlayerSpawn(playerid)
 {
 	SetSpawnInfo(playerid, 0, PlayerData[playerid][pSkin], PlayerData[playerid][pLastPos][0], PlayerData[playerid][pLastPos][1], PlayerData[playerid][pLastPos][2], PlayerData[playerid][pLastPos][3], 0, 0, 0, 0, 0, 0);
@@ -262,7 +280,9 @@ Server:SetPlayerSpawn(playerid)
 
 Server:SQL_OnAccountRegister(playerid)
 {
-	SendSuccessMessage(playerid, "You have successfully registered to the server, your account information is now being saved.");
+	new string[256];
+	format(string, sizeof(string), "[REGISTER]:{FFFFFF} You have successfully registered to the server as %s, your account information is now being saved.", NameRP(playerid));
+	SendClientMessage(playerid, COLOR_GREEN, string);
 	displayWelcomeMessage(playerid);
 	SetTimerEx("removeWelcomeMessage", 5000, false, "i", playerid);
 	DefaultPlayerValues(playerid);

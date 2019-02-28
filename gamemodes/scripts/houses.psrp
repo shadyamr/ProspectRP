@@ -35,7 +35,10 @@ Server:SQL_LoadServerHouses()
 		TotalHousesCreated++;
 	}
 	CreateServerHouseData();
-	printf("[PS:RP] %i houses has been loaded from the database.", TotalHousesCreated);
+	if(_:logchannel == 0) logchannel = DCC_FindChannelById("545641478064701440");
+    format(dstr, sizeof(dstr), "PSRP Local: %i houses has been loaded from the database. (%s)", TotalHousesCreated, GetDate());
+	DCC_SendChannelMessage(logchannel, dstr);
+	printf("PSRP Local: %i houses has been loaded from the database.", TotalHousesCreated);
 	return true;
 }
 
@@ -102,7 +105,10 @@ Server:SQL_SaveHouseToDB(playerid)
 	HouseData[i][HouseLocked] = 0;
 
 	new hstring[500];
-	printf("[PS:RP] House ID %i created by %s.", cache_insert_id(), GetName(playerid));
+	printf("PSRP Local: House ID %i created by %s.", cache_insert_id(), GetName(playerid));
+	if(_:logchannel == 0) logchannel = DCC_FindChannelById("545641478064701440");
+    format(dstr, sizeof(dstr), "PSRP Local: House ID %i created by %s. (%s)", cache_insert_id(), GetName(playerid), GetDate());
+	DCC_SendChannelMessage(logchannel, dstr);
 	format(hstring, sizeof(hstring), "[SERVER]:{FFFFFF} House ID %i (SQL ID: %i) created: name (%s) - price ($%d)", i, cache_insert_id(), name, price);
 	SendClientMessage(playerid, COLOR_LIGHTRED, hstring);
 

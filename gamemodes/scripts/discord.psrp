@@ -3,31 +3,28 @@
 	This file contains Discord Bot system, created by Shady.
 */
 
-new DCC_Channel:logchannel, DHour, DMinute, DSecond, dstr[512];
+new DCC_Channel:logchannel, dstr[512];
 
 Server:DiscordInit()
 {
-    gettime(DHour, DMinute, DSecond);
 	if(_:logchannel == 0) logchannel = DCC_FindChannelById("545641478064701440");
-    format(dstr, sizeof(dstr), "PSRP Local: Server has been started. (Time: %02d:%02d:%02d)", DHour, DMinute, DSecond);
+    format(dstr, sizeof(dstr), "PSRP Local: Server has been started. (%s)", GetDate());
 	DCC_SendChannelMessage(logchannel, dstr);
     return true;
 }
 
 Server:DiscordExit()
 {
-    gettime(DHour, DMinute, DSecond);
 	if(_:logchannel == 0) logchannel = DCC_FindChannelById("545641478064701440");
-    format(dstr, sizeof(dstr), "PSRP Local: Server has been shutted down. (Time: %02d:%02d:%02d)", DHour, DMinute, DSecond);
+    format(dstr, sizeof(dstr), "PSRP Local: Server has been shutted down. (%s)", GetDate());
 	DCC_SendChannelMessage(logchannel, dstr);
     return true;
 }
 
 Server:DiscordRestart()
 {
-    gettime(DHour, DMinute, DSecond);
 	if(_:logchannel == 0) logchannel = DCC_FindChannelById("545641478064701440");
-    format(dstr, sizeof(dstr), "PSRP Local: Server has been restarted. (Time: %02d:%02d:%02d)", DHour, DMinute, DSecond);
+    format(dstr, sizeof(dstr), "PSRP Local: Server has been restarted. (%s)", GetDate());
 	DCC_SendChannelMessage(logchannel, dstr);
     return true;
 }
