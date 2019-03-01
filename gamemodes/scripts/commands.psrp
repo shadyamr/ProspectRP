@@ -244,7 +244,7 @@ CMD:ooc(playerid, params[])
 	else
 	{
 		format(string, sizeof(string), "[OOC-G] (( %s [%d]: %s ))", NameRP(playerid), playerid, params);
-		SendClientMessageToAll(COLOR_GREY, string);
+		SendClientMessageToAll(COLOR_SANDYBROWN, string);
 	}
 	return true;
 }
@@ -261,7 +261,7 @@ CMD:pm(playerid, params[])
 		if(!LoggedIn[id]) return SendErrorMessage(playerid, "That player isn't logged in.");
 
 		format(string, sizeof(string), "** (( PM from %s (id: %d): %s )) **", NameRP(playerid), playerid, msg);
-		SendClientMessage(id, COLOR_ORANGE, string);
+		SendClientMessage(id, COLOR_YELLOW, string);
 
 		format(string, sizeof(string), "** (( PM to %s (id: %d): %s )) **", NameRP(id), id, msg);
 		SendClientMessage(playerid, COLOR_ORANGE, string);
@@ -427,6 +427,14 @@ CMD:buylevel(playerid, params[])
 	return true;
 }
 
+CMD:changepass(playerid, params[]) return cmd_changepassword(playerid, params);
+CMD:changepassword(playerid, params[])
+{
+	if(!LoggedIn[playerid]) return true;
+	ShowChangePassDialog(playerid);
+    return true;
+}
+
 CMD:changeage(playerid, params[])
 {
    	new str[128], value;
@@ -473,7 +481,7 @@ CMD:ahelp(playerid, params[])
 	if(PlayerData[playerid][pAdminLevel])
 	{
 	    new dialogstring[256];
-	    format(dialogstring, sizeof(dialogstring), "{195080}Probationary Administrator:{FFFFFF} /revive\n{2F84FD}Administrator:{FFFFFF} /gotopoint\n{DA004E}Lead Administrator:{FFFFFF} /motd\nManagement:{FFFFFF} /makeadmin, /makedonator, /maketester, /restart");
+	    format(dialogstring, sizeof(dialogstring), "{195080}Probationary Administrator:{FFFFFF} /revive\n{2F84FD}Administrator:{FFFFFF} /gotopoint\n{DA004E}Lead Administrator:{FFFFFF} /motd, /makehitman, /removehitman\nManagement:{FFFFFF} /makeadmin, /makedonator, /maketester, /restart, /ochangepass");
 	    ShowPlayerDialog(playerid, DIALOG_AHELP, DIALOG_STYLE_MSGBOX, "Admin Help", dialogstring, "Close", "");
 	}
 	else SendUnauthorizedMsg(playerid);
@@ -720,5 +728,20 @@ CMD:togooc(playerid, params[])
         SendClientMessageToAll(COLOR_ADMINFO, string);
     	GeneralOOC[playerid] = false;
 	}
+	return true;
+}
+
+CMD:ochangepass(playerid, params[])
+{
+    new playersname[MAX_PLAYER_NAME], query[128], NewPassword[65];
+    if(PlayerData[playerid][pAdminLevel] < 4) return SendUnauthorizedMsg(playerid);
+	if(sscanf(params, "s[24]s[65]", playersname, NewPassword))
+	{
+		SendUsageMessage(playerid, "/ochangepass [full name (case sensitive)] [password]");
+		SendServerMessage(playerid, "Make sure to check that the player is not online.");
+	}
+
+	mysql_format(sqlConnection, query, sizeof(query), "SELECT `AdminLevel` FROM `players` WHERE `Name` = '%e' LIMIT 1", playersname);
+	mysql_pquery(sqlConnection, query, "OnOfflineChangePass", "iss", playerid, playersname, NewPassword);
 	return true;
 }
