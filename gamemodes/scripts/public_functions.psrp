@@ -179,7 +179,7 @@ Server:OnPasswordOfflineChanged(admin, target[])
 	SendAdminMessage(1, str);
 
 	if(_:logchannel == 0) logchannel = DCC_FindChannelById("545641478064701440");
-    format(dstr, sizeof(dstr), "PSRP Local: %s %s has changed %s's password. (%s)", AdminRank(admin), NameRP(admin), admin, target, GetDate());
+    format(dstr, sizeof(dstr), "PSRP Local: %s %s has changed %s's password. (%s)", AdminRank(admin), NameRP(admin), target, GetDate());
 	DCC_SendChannelMessage(logchannel, dstr);
     return true;
 }

@@ -102,7 +102,14 @@ CMD:commands(playerid, params[]) return cmd_help(playerid, params);
 CMD:cmds(playerid, params[]) return cmd_help(playerid, params);
 CMD:help(playerid, params[])
 {
-	SendClientMessage(playerid, COLOR_WHITE, "To be adjusted..");
+    new string[512];
+    if(!LoggedIn[playerid]) return true;
+    format(string, sizeof(string), "/fps, /stats, /skintest, /helpers, /admins, /stopanim, /enter, /exit");
+	SendClientMessage(playerid, COLOR_GREY, string);
+    format(string, sizeof(string), "/id, /examine, /blindfold, /ame, /report, /reportbug, /serverstats, /l(ow)");
+	SendClientMessage(playerid, COLOR_GREY, string);
+    format(string, sizeof(string), "/s(hout), /w(hisper), /o(oc), /attempt, /b, /me, /do, /injuries, /credits, /pm");
+	SendClientMessage(playerid, COLOR_GREY, string);
 	return true;
 }
 
@@ -260,11 +267,11 @@ CMD:pm(playerid, params[])
 		if(!IsPlayerConnected(id)) return SendErrorMessage(playerid, "That player isn't connected.");
 		if(!LoggedIn[id]) return SendErrorMessage(playerid, "That player isn't logged in.");
 
-		format(string, sizeof(string), "** (( PM from %s (id: %d): %s )) **", NameRP(playerid), playerid, msg);
+		format(string, sizeof(string), "(( PM from %s [%d]: %s ))", NameRP(playerid), playerid, msg);
 		SendClientMessage(id, COLOR_YELLOW, string);
 
-		format(string, sizeof(string), "** (( PM to %s (id: %d): %s )) **", NameRP(id), id, msg);
-		SendClientMessage(playerid, COLOR_ORANGE, string);
+		format(string, sizeof(string), "(( PM sent to %s [%d]: %s ))", NameRP(id), id, msg);
+		SendClientMessage(playerid, COLOR_LIGHTYYELLOW, string);
 	}
 	return true;
 }
@@ -330,17 +337,35 @@ CMD:credits(playerid, params[])
 	return true;
 }
 
-CMD:id(playerid,params[])
+CMD:id(playerid, params[])
 {
     new id, string[128];
+	if(!LoggedIn[playerid]) return true;
     if(sscanf(params, "u", id)) return SendUsageMessage(playerid, "/id [playerid or name]");
-    {
-        if(!IsPlayerConnected(id)) return SendErrorMessage(playerid, "That player isn't connected.");
+   	{
+		if(!IsPlayerConnected(id)) return SendErrorMessage(playerid, "That player isn't connected.");
 		if(!LoggedIn[id]) return SendErrorMessage(playerid, "That player isn't logged in.");
-        format(string, sizeof(string), "(ID: %d) %s | Level: %d", id, NameRP(playerid), PlayerData[id][pLevel]);
-        SendClientMessage(playerid, COLOR_WHITE, string);
-    }
+		
+		format(string, sizeof(string), "(ID: %d) %s | Level: %d", id, NameRP(playerid), PlayerData[id][pLevel]);
+		SendClientMessage(playerid, COLOR_WHITE, string);
+	}
     return true;
+}
+
+CMD:examine(playerid, params[])
+{
+	new playerb, string[128];
+	if(!LoggedIn[playerid]) return true;
+	if(sscanf(params, "u", playerb)) return SendUsageMessage(playerid, "/examine [playerid or name]");
+	{
+		if(!IsPlayerConnected(playerb)) return SendErrorMessage(playerid, "That player isn't connected.");
+		if(!LoggedIn[playerb]) return SendErrorMessage(playerid, "That player isn't logged in.");
+		if(!GetDistanceBetweenPlayers(playerid, playerb, 3.5)) return SendErrorMessage(playerid, "You must be close to the player in order to examine them.");
+
+		format(string, sizeof(string), "[EXAMINE]{FFFFFF} %s would appear to be a %s %s who is %d years old.", NameRP(playerb), GetEthnicity(playerb), GetGender(playerb), PlayerData[playerb][pAge]);
+		SendClientMessage(playerid, COLOR_MEDIUMSEAGREEN, string);
+	}
+	return true;
 }
 
 // Account Commands:
@@ -431,6 +456,7 @@ CMD:changesex(playerid, params[])
 	else return SendUsageMessage(playerid, "/changesex [male or female]");
 	return true;
 }
+
 // Administrator Commands:
 CMD:ah(playerid, params[]) return cmd_ahelp(playerid, params);
 CMD:acmds(playerid, params[]) return cmd_ahelp(playerid, params);

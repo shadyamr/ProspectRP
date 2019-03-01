@@ -32,21 +32,21 @@
 #include <sscanf2>
 #include <streamer>
 
-#include "scripts/server_config.psrp"
-#include "scripts/mysql_config.psrp"
+#include "../gamemodes/scripts/server_config.psrp"
+#include "../gamemodes/scripts/mysql_config.psrp"
 
-#include "scripts/defines_variables_enums.psrp"
-#include "scripts/discord.psrp"
-#include "scripts/public_functions.psrp"
-#include "scripts/stock_functions.psrp"
+#include "../gamemodes/scripts/defines_variables_enums.psrp"
+#include "../gamemodes/scripts/discord.psrp"
+#include "../gamemodes/scripts/public_functions.psrp"
+#include "../gamemodes/scripts/stock_functions.psrp"
 
-#include "scripts/textdraws.psrp"
-#include "scripts/island.psrp"
-#include "scripts/houses.psrp"
-#include "scripts/player_vehicles.psrp"
+#include "../gamemodes/scripts/textdraws.psrp"
+#include "../gamemodes/scripts/island.psrp"
+#include "../gamemodes/scripts/houses.psrp"
+#include "../gamemodes/scripts/player_vehicles.psrp"
 
-#include "scripts/showstats.psrp"
-#include "scripts/commands.psrp"
+#include "../gamemodes/scripts/showstats.psrp"
+#include "../gamemodes/scripts/commands.psrp"
 
 main(){}
 

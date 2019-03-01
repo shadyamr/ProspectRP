@@ -153,7 +153,7 @@ SendUnauthorizedMsg(playerid)
 	return SendErrorMessage(playerid, "You aren't authorized to use this command.");
 }
 
-Ethnicity(targetid)
+GetEthnicity(targetid)
 {
 	new ethnicity[30];
 	switch(PlayerData[targetid][pEthnicity])
@@ -176,6 +176,27 @@ Ethnicity(targetid)
 		}
 	}
 	return ethnicity;
+}
+
+GetGender(targetid)
+{
+	new gender[30];
+	switch(PlayerData[targetid][pSex])
+	{
+		case 0:
+		{
+			gender = "Unknown";
+		}
+		case 1: 
+		{
+			gender = "Male";
+		}
+		case 2: 
+		{
+			gender = "Female";
+		}
+	}
+	return gender;
 }
 
 SAdminRank(targetid)
