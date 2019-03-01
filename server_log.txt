@@ -2451,3 +2451,26 @@ Console input: gmx
 [03:19:04] Password checked for 0: Match
 [03:19:21]  Shady Dev (0) has changed Ray_Dev their password.
 [03:37:53] [part] Shady_Dev has left the server (0:1)
+[03:49:03] [connection] incoming connection: 192.168.1.6:55971 id: 0
+[03:49:03] [join] Shady_Dev has joined the server (0:192.168.1.6)
+[03:49:07] Password checked for 0: Match
+[04:05:30] [part] Shady_Dev has left the server (0:1)
+Console input: exit
+[04:08:08] --- Server Shutting Down.
+[04:08:08] plugin.bcrypt: Plugin unloaded.
+[04:08:09] plugin.dc-connector: Unloading plugin...
+[04:08:09] plugin.dc-connector: Plugin unloaded.
+[04:08:09] plugin.mysql: Unloading plugin...
+[04:08:09] plugin.mysql: Plugin unloaded.
+[04:08:09] 
+
+[04:08:09]  ===============================
+
+[04:08:09]      sscanf plugin unloaded.    
+
+[04:08:09]  ===============================
+
+[04:08:09] 
+
+*** Streamer Plugin v2.9.4 by Incognito unloaded ***
+
