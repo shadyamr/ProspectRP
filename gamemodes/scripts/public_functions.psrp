@@ -55,7 +55,7 @@ Server:DoesPlayerExist(playerid)
 {
 	new query[512];
 	mysql_format(sqlConnection, query, sizeof(query), "SELECT id FROM players WHERE Name = '%e' LIMIT 1", GetName(playerid));
-	mysql_pquery(sqlConnection, query, "SQL_DoesPlayerExist", "i", playerid);
+	mysql_tquery(sqlConnection, query, "SQL_DoesPlayerExist", "i", playerid);
 	return true;
 }
 
@@ -69,10 +69,17 @@ Server:SQL_DoesPlayerExist(playerid)
 	{
 		ShowRegisterDialog(playerid, "");
 	}
+
 	SetPlayerPos(playerid, -206.8355, 1120.8429, 14.7422);
 	SetPlayerCameraLookAt(playerid, -206.8355, 1120.8429, 19.7422);
 	SetPlayerCameraPos(playerid, -109.4670, 1133.6563, 70.2519);
 	TogglePlayerSpectating(playerid, true);
+
+	new string[512];
+	for(new i = 0; i < 50; i++) SendClientMessageToAll(COLOR_WHITE, " ");
+	format(string, sizeof(string), "Welcome to Project Serranilla Roleplay, %s {FFFFFF}[Version "SVR_VERSION" | www.ny-rp.eu]", NameRP(playerid));
+	SendClientMessage(playerid, COLOR_LIGHTRED, string);
+	PlayAudioStreamForPlayer(playerid, "https://prospectrp.eu/prospect-intro.mp3");
 
 	// cam pos = -109.4670, 1133.6563, 70.2519
 	// camlookat & playerpos = -206.8355, 1120.8429, 14.7422
@@ -87,6 +94,94 @@ Server:TIMER_SetCameraPos(playerid)
 	// cam pos = -109.4670, 1133.6563, 70.2519
 	// camlookat & playerpos = -206.8355, 1120.8429, 14.7422
 	return true;
+}
+
+Server:OnPasswordHashed(playerid)
+{
+    new hash[BCRYPT_HASH_LENGTH], query[1000], year, month, day;
+
+    bcrypt_get_hash(hash);
+    getdate(year, month, day);
+    format(PlayerData[playerid][pRegisterDate], 16, "%02d/%02d/%d", day, month, year);
+	
+	mysql_format(sqlConnection, query, sizeof(query), "INSERT INTO players (Name, Password, RegIP, RegDate) VALUES ('%e', '%e', '%e', '%e')", GetName(playerid), hash, GetIP(playerid), PlayerData[playerid][pRegisterDate]);
+	mysql_tquery(sqlConnection, query, "SQL_OnAccountRegister", "i", playerid);
+    
+	printf("Password hashed for player %d: %s", playerid, hash);
+	return true;
+}
+
+Server:OnPasswordChecked(playerid)
+{
+    new bool:match = bcrypt_is_equal();
+    if(match)
+    {
+		new query[512];
+		mysql_format(sqlConnection, query, sizeof(query), "SELECT id FROM players WHERE Name = '%e' LIMIT 1", GetName(playerid));
+		mysql_tquery(sqlConnection, query, "SQL_OnAccountLogin", "i", playerid);
+    }
+    else
+    {
+        ShowLoginDialog(playerid, "[ERROR]:{FFFFFF} You have entered an incorrect password.");
+		LoginChance[playerid]++;
+		if(LoginChance[playerid] == 3)
+		{
+			SendServerMessage(playerid, "You have been kicked for bad password attempts.");
+			return KickEx(playerid);
+		}
+    }
+
+	printf("Password checked for %d: %s", playerid, (match) ? ("Match") : ("No match"));
+    return true;
+}
+
+Server:OnPasswordChanged(playerid)
+{
+    new hash[BCRYPT_HASH_LENGTH], query[300];
+
+    bcrypt_get_hash(hash);
+    
+    mysql_format(sqlConnection, query, sizeof(query), "UPDATE `players` SET `Password` = '%e' WHERE `Name` = '%e'", hash, GetName(playerid));
+    mysql_query(sqlConnection, query);
+    
+    SendServerMessage(playerid, "You have successfully changed your password.");
+    
+	if(_:logchannel == 0) logchannel = DCC_FindChannelById("545641478064701440");
+    format(dstr, sizeof(dstr), "PSRP Local: %s has changed his password. (%s)", GetName(playerid), GetDate());
+	DCC_SendChannelMessage(logchannel, dstr);
+    return true;
+}
+
+Server:OnOfflineChangePass(playerid, playername[], newpassword[])
+{
+	if(cache_num_rows() != 1) return SendErrorMessage(playerid, "That account does not exist in the database.");
+
+	new adminlevel = cache_get_field_content_int(0, "AdminLevel");
+
+	if(adminlevel > PlayerData[playerid][pAdminLevel]) return SendErrorMessage(playerid, "That player's account is a higher level admin than you.");
+
+    bcrypt_hash(newpassword, BCRYPT_COST, "OnPasswordOfflineChanged", "ds", playerid, playername);
+	return true;
+}
+
+Server:OnPasswordOfflineChanged(admin, target[])
+{
+    new hash[BCRYPT_HASH_LENGTH], query[500], str[128];
+
+    bcrypt_get_hash(hash);
+
+    printf("%s (%d) has changed %s's password.", NameRP(admin), admin, target);
+
+    mysql_format(sqlConnection, query, sizeof(query), "UPDATE `players` SET `Password` = '%e' WHERE `Name` = '%e' LIMIT 1", hash, target);
+    mysql_pquery(sqlConnection, query);
+
+    format(str, sizeof(str), "%s %s (ID: %i) has changed %s's password.", AdminRank(admin), NameRP(admin), admin, target);
+	SendAdminMessage(1, str);
+
+	if(_:logchannel == 0) logchannel = DCC_FindChannelById("545641478064701440");
+    format(dstr, sizeof(dstr), "PSRP Local: %s %s has changed %s's password. (%s)", AdminRank(admin), NameRP(admin), admin, target, GetDate());
+	DCC_SendChannelMessage(logchannel, dstr);
+    return true;
 }
 
 Server:ShowLoginDialog(playerid, error[])
@@ -134,26 +229,25 @@ Server:ShowBetaDialog(playerid)
 	return true;
 }
 
+Server:ShowChangePassDialog(playerid)
+{
+	new string[128];
+	format(string, sizeof(string), "{FFFFFF}Password Change\nInput the new password you want to have for your account.");
+    ShowPlayerDialog(playerid, DIALOG_PASSWORDCHANGE, DIALOG_STYLE_PASSWORD, "Change your password", string, "Change", "Close");
+	return true;
+}
+
 Server:SQL_OnAccountLogin(playerid)
 {
-	if(cache_num_rows() == 0)
-	{
-		ShowLoginDialog(playerid, "[ERROR]:{FFFFFF} You have entered an incorrect password.");
-		LoginChance[playerid]++;
-		if(LoginChance[playerid] == 3)
-		{
-			SendServerMessage(playerid, "You have been kicked for bad password attempts.");
-			return KickEx(playerid);
-		}
-		return true;
-	}
-
 	PlayerData[playerid][pSQLID] = cache_get_field_content_int(0, "id", sqlConnection);
 	LoadPlayerData(playerid);
 
 	new string[256];
+	for(new i = 0; i < 50; i++) SendClientMessageToAll(COLOR_WHITE, " ");
+	
 	format(string, sizeof(string), "[LOGIN]:{FFFFFF} You have successfully logged in as {008000}%s{FFFFFF}, your account information is now being loaded.", NameRP(playerid));
 	SendClientMessage(playerid, COLOR_GREEN, string);
+	
 	SendClientMessage(playerid, COLOR_GREEN, "[LOGIN]:{FFFFFF} Last login was {AFAFAF}0 days and 0 hours ago {FFFFFF}({AFAFAF}/logins{FFFFFF}).");
 	return true;
 }
@@ -281,6 +375,7 @@ Server:SetPlayerSpawn(playerid)
 Server:SQL_OnAccountRegister(playerid)
 {
 	new string[256];
+	for(new i = 0; i < 50; i++) SendClientMessageToAll(COLOR_WHITE, " ");
 	format(string, sizeof(string), "[REGISTER]:{FFFFFF} You have successfully registered to the server as %s, your account information is now being saved.", NameRP(playerid));
 	SendClientMessage(playerid, COLOR_GREEN, string);
 	displayWelcomeMessage(playerid);
@@ -465,7 +560,7 @@ Server:ServerRestart(playerid)
 {
 	SendClientMessageToAll(COLOR_GOLD, "[Announcement]:{FFFFFF} The server is restarting.");
     SetTimer("restartmsg", 100, false);
-    return 1;
+    return true;
 }
 
 Server:restartmsg(playerid)
@@ -473,7 +568,7 @@ Server:restartmsg(playerid)
     foreach (new i : Player)
     Kick(i);
     SetTimer("GmX", 1000, false);
-    return 1;
+    return true;
 }
 
 Server:GmX(playerid)
@@ -482,7 +577,7 @@ Server:GmX(playerid)
     foreach (new i : Player)
     Kick(i);
     SendRconCommand("gmx");
-    return 1;
+    return true;
 }
 
 Server:CanAcceptDeath(playerid)
