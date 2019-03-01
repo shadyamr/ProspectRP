@@ -22,6 +22,7 @@
 
 #include <a_samp>
 #include <a_mysql>
+#include <bcrypt>
 #include <compat>
 #include <crashdetect>
 #include <dini>
@@ -31,21 +32,21 @@
 #include <sscanf2>
 #include <streamer>
 
-#include "../gamemodes/scripts/server_config.psrp"
-#include "../gamemodes/scripts/mysql_config.psrp"
+#include "scripts/server_config.psrp"
+#include "scripts/mysql_config.psrp"
 
-#include "../gamemodes/scripts/defines_variables_enums.psrp"
-#include "../gamemodes/scripts/discord.psrp"
-#include "../gamemodes/scripts/public_functions.psrp"
-#include "../gamemodes/scripts/stock_functions.psrp"
+#include "scripts/defines_variables_enums.psrp"
+#include "scripts/discord.psrp"
+#include "scripts/public_functions.psrp"
+#include "scripts/stock_functions.psrp"
 
-#include "../gamemodes/scripts/textdraws.psrp"
-#include "../gamemodes/scripts/island.psrp"
-#include "../gamemodes/scripts/houses.psrp"
-#include "../gamemodes/scripts/player_vehicles.psrp"
+#include "scripts/textdraws.psrp"
+#include "scripts/island.psrp"
+#include "scripts/houses.psrp"
+#include "scripts/player_vehicles.psrp"
 
-#include "../gamemodes/scripts/showstats.psrp"
-#include "../gamemodes/scripts/commands.psrp"
+#include "scripts/showstats.psrp"
+#include "scripts/commands.psrp"
 
 main(){}
 
@@ -126,9 +127,6 @@ public OnPlayerConnect(playerid)
 	DefaultPlayerValues(playerid);
 	SetPlayerColor(playerid, -1);
 	cNametag[playerid] = CreateDynamic3DTextLabel("Loading nametag...", 0xFFFFFFFF, 0.0, 0.0, 0.1, NT_DISTANCE, .attachedplayer = playerid, .testlos = 1);
-	PlayAudioStreamForPlayer(playerid, "https://prospectrp.eu/prospect-intro.mp3");
-	format(string, sizeof(string), "Welcome to Project Serranilla Roleplay, %s {FFFFFF}[Version "SVR_VERSION" | www.ny-rp.eu]", NameRP(playerid));
-	SendClientMessage(playerid, COLOR_LIGHTRED, string);
 
 	DoesPlayerExist(playerid);
 	SetTimerEx("TIMER_SetCameraPos", 1000, false, "i", playerid);
@@ -302,25 +300,38 @@ public OnDialogResponse(playerid, dialogid, response, listitem, inputtext[])
 				ShowRegisterDialog(playerid, "[ERROR]:{FFFFFF} Password length must be above 3 characters AND below 30 characters long.");
 				return true;
 			}
-			new query[1000];
-			new year, month, day;
-    		getdate(year, month, day);
-    		format(PlayerData[playerid][pRegisterDate], 16, "%02d/%02d/%d", day, month, year);
-			mysql_format(sqlConnection, query, sizeof(query), "INSERT INTO players (Name, Password, RegIP, RegDate) VALUES ('%e', sha1('%e'), '%e', '%e')", GetName(playerid), inputtext, GetIP(playerid), PlayerData[playerid][pRegisterDate]);
-			mysql_pquery(sqlConnection, query, "SQL_OnAccountRegister", "i", playerid);
+        	bcrypt_hash(inputtext, BCRYPT_COST, "OnPasswordHashed", "d", playerid);
 		}
 		case DIALOG_LOGIN:
 		{
-			if(!response) return Kick(playerid);
+			if(!response)
+			{
+				Kick(playerid);
+			}
+			else
+			{
+				new query[300], Password[BCRYPT_HASH_LENGTH];
+				mysql_format(sqlConnection, query, sizeof(query), "SELECT `Password` FROM `players` WHERE `Name` = '%e'", GetName(playerid));
+				mysql_query(sqlConnection, query);
+				cache_get_field_content(0, "Password", Password, sqlConnection, BCRYPT_HASH_LENGTH);
+				bcrypt_check(inputtext, Password, "OnPasswordChecked", "d", playerid);
+			}
 			if(strlen(inputtext) < 3 || strlen(inputtext) > 30)
 			{
 				ShowLoginDialog(playerid, "[ERROR]:{FFFFFF} Password length must be above 3 characters AND below 30 characters long.");
 				return true;
 			}
-
-			new query[1000];
-			mysql_format(sqlConnection, query, sizeof(query), "SELECT id FROM players WHERE Name = '%e' AND Password = sha1('%e') LIMIT 1", GetName(playerid), inputtext);
-			mysql_pquery(sqlConnection, query, "SQL_OnAccountLogin", "i", playerid);
+		}
+		case DIALOG_PASSWORDCHANGE:
+		{
+			if(response)
+			{
+        		bcrypt_hash(inputtext, BCRYPT_COST, "OnPasswordChanged", "i", playerid);
+    		}
+			else
+			{
+				SendServerMessage(playerid, "You have chosen not to change your password.");
+			}
 		}
 	}
 	return false;

@@ -1965,3 +1965,489 @@ v0.3.DL-R1, (C)2005-2018 SA-MP Team
 [16:15:37] [connection] incoming connection: 192.168.1.6:53768 id: 0
 [16:15:37] [join] Shady_Dev has joined the server (0:192.168.1.6)
 [16:15:48] [part] Shady_Dev has left the server (0:1)
+Console input: exit
+[16:30:59] --- Server Shutting Down.
+[16:30:59] plugin.dc-connector: Unloading plugin...
+[16:31:01] plugin.dc-connector: Plugin unloaded.
+[16:31:01] plugin.mysql: Unloading plugin...
+[16:31:01] plugin.mysql: Plugin unloaded.
+[16:31:01] 
+
+[16:31:01]  ===============================
+
+[16:31:01]      sscanf plugin unloaded.    
+
+[16:31:01]  ===============================
+
+[16:31:01] 
+
+*** Streamer Plugin v2.9.4 by Incognito unloaded ***
+
+
+----------
+Loaded log file: "server_log.txt".
+----------
+
+SA-MP Dedicated Server
+----------------------
+v0.3.DL-R1, (C)2005-2018 SA-MP Team
+
+[16:44:37] 
+[16:44:37] Server Plugins
+[16:44:37] --------------
+[16:44:37]  Loading plugin: crashdetect
+[16:44:37]   CrashDetect plugin 4.19.4
+[16:44:37]   Loaded.
+[16:44:37]  Loading plugin: discord-connector
+[16:44:39]  >> plugin.dc-connector: 0.2.4 successfully loaded.
+[16:44:39]   Loaded.
+[16:44:39]  Loading plugin: mysql
+[16:44:39]  >> plugin.mysql: R39-6 successfully loaded.
+[16:44:39]   Loaded.
+[16:44:39]  Loading plugin: sampvoice
+[16:44:39]   Failed.
+[16:44:39]  Loading plugin: sscanf
+[16:44:39] 
+
+[16:44:39]  ===============================
+
+[16:44:39]       sscanf plugin loaded.     
+
+[16:44:39]          Version:  2.8.3        
+
+[16:44:39]   (c) 2018 Alex "Y_Less" Cole  
+
+[16:44:39]  ===============================
+
+[16:44:39]   Loaded.
+[16:44:39]  Loading plugin: streamer
+[16:44:39] 
+
+*** Streamer Plugin v2.9.4 by Incognito loaded ***
+
+[16:44:39]   Loaded.
+[16:44:39]  Loading plugin: nativechecker
+[16:44:39]   Loaded.
+[16:44:39]  Loaded 6 plugins.
+
+[16:44:39] [artwork:crc] lvpdpc2.dff CRC = 0xFBD1EA7C
+[16:44:39] [artwork:crc] lvpdpc2.txd CRC = 0xDC92731E
+[16:44:39] [artwork:crc] lapdpd2.dff CRC = 0xA558D422
+[16:44:39] [artwork:crc] lapdpd2.txd CRC = 0xA442E2DA
+[16:44:39] [artwork:crc] object.dff CRC = 0xDCFCC14C
+[16:44:39] [artwork:crc] server_logo.txd CRC = 0x9D1E9A79
+[16:44:39] 
+[16:44:39] Filterscripts
+[16:44:39] ---------------
+[16:44:39]   Loaded 0 filterscripts.
+
+[16:44:39] Setting server password to: "a7a"
+[16:44:39] PSRP Local: MOTD - Welcome to Project Serranilla Roleplay!
+[16:44:39] Number of vehicle models: 0
+[16:44:39] PSRP Local: 1 houses has been loaded from the database.
+[16:44:55] [connection] incoming connection: 192.168.1.6:61792 id: 0
+[16:44:55] [join] Shady_Dev has joined the server (0:192.168.1.6)
+[16:47:32] [part] Shady_Dev has left the server (0:2)
+[16:47:44] [connection] incoming connection: 192.168.1.6:61909 id: 0
+[16:47:45] [join] Shady_Dev has joined the server (0:192.168.1.6)
+[16:47:46] Setting server password to: "a7a"
+[16:47:46] PSRP Local: MOTD - Welcome to Project Serranilla Roleplay!
+[16:47:46] Number of vehicle models: 0
+[16:47:46] PSRP Local: 1 houses has been loaded from the database.
+[01:19:14] [part] Shady_Dev has left the server (0:1)
+
+----------
+Loaded log file: "server_log.txt".
+----------
+
+SA-MP Dedicated Server
+----------------------
+v0.3.DL-R1, (C)2005-2018 SA-MP Team
+
+[01:55:22] 
+[01:55:22] Server Plugins
+[01:55:22] --------------
+[01:55:22]  Loading plugin: bcrypt-samp
+[01:55:23]   plugin.bcrypt v2.2.3 was loaded.
+[01:55:23]   plugin.bcrypt: 2 cores detected, 1 threads will be used.
+[01:55:23]   Loaded.
+[01:55:23]  Loading plugin: crashdetect
+[01:55:23]   CrashDetect plugin 4.19.4
+[01:55:23]   Loaded.
+[01:55:23]  Loading plugin: discord-connector
+[01:55:25]  >> plugin.dc-connector: 0.2.4 successfully loaded.
+[01:55:25]   Loaded.
+[01:55:25]  Loading plugin: mysql
+[01:55:25]  >> plugin.mysql: R39-6 successfully loaded.
+[01:55:25]   Loaded.
+[01:55:25]  Loading plugin: sampvoice
+[01:55:25]   Failed.
+[01:55:25]  Loading plugin: sscanf
+[01:55:25] 
+
+[01:55:25]  ===============================
+
+[01:55:25]       sscanf plugin loaded.     
+
+[01:55:25]          Version:  2.8.3        
+
+[01:55:25]   (c) 2018 Alex "Y_Less" Cole  
+
+[01:55:25]  ===============================
+
+[01:55:25]   Loaded.
+[01:55:25]  Loading plugin: streamer
+[01:55:25] 
+
+*** Streamer Plugin v2.9.4 by Incognito loaded ***
+
+[01:55:25]   Loaded.
+[01:55:25]  Loading plugin: nativechecker
+[01:55:25]   Loaded.
+[01:55:25]  Loaded 7 plugins.
+
+[01:55:25] [artwork:crc] lvpdpc2.dff CRC = 0xFBD1EA7C
+[01:55:25] [artwork:crc] lvpdpc2.txd CRC = 0xDC92731E
+[01:55:25] [artwork:crc] lapdpd2.dff CRC = 0xA558D422
+[01:55:25] [artwork:crc] lapdpd2.txd CRC = 0xA442E2DA
+[01:55:25] [artwork:crc] object.dff CRC = 0xDCFCC14C
+[01:55:25] [artwork:crc] server_logo.txd CRC = 0x9D1E9A79
+[01:55:25] 
+[01:55:25] Filterscripts
+[01:55:25] ---------------
+[01:55:25]   Loaded 0 filterscripts.
+
+[01:55:25] Setting server password to: "a7a"
+[01:55:26] PSRP Local: MOTD - Welcome to Project Serranilla Roleplay!
+[01:55:26] Number of vehicle models: 0
+[01:55:26] plugin.bcrypt: The plugin is up-to-date.
+[01:55:26] PSRP Local: 1 houses has been loaded from the database.
+[01:56:08] [connection] incoming connection: 192.168.1.6:62619 id: 0
+[01:56:08] [join] Shady_Dev has joined the server (0:192.168.1.6)
+[01:57:12] [part] Shady_Dev has left the server (0:1)
+[01:57:34] [connection] incoming connection: 192.168.1.6:53577 id: 0
+[01:57:35] [join] Shady_Dev has joined the server (0:192.168.1.6)
+[01:58:19] [part] Shady_Dev has left the server (0:1)
+[02:02:38] [connection] incoming connection: 192.168.1.6:49340 id: 0
+[02:02:38] [join] Shady_Dev has joined the server (0:192.168.1.6)
+[02:02:47] [part] Shady_Dev has left the server (0:2)
+Console input: gmx
+[02:11:47] Setting server password to: "a7a"
+[02:11:47] PSRP Local: MOTD - Welcome to Project Serranilla Roleplay!
+[02:11:47] Number of vehicle models: 0
+[02:11:47] PSRP Local: 1 houses has been loaded from the database.
+[02:11:47] plugin.bcrypt: The plugin is up-to-date.
+
+----------
+Loaded log file: "server_log.txt".
+----------
+
+SA-MP Dedicated Server
+----------------------
+v0.3.DL-R1, (C)2005-2018 SA-MP Team
+
+[02:12:28] 
+[02:12:28] Server Plugins
+[02:12:28] --------------
+[02:12:28]  Loading plugin: bcrypt-samp
+[02:12:28]   plugin.bcrypt v2.2.3 was loaded.
+[02:12:28]   plugin.bcrypt: 2 cores detected, 1 threads will be used.
+[02:12:28]   Loaded.
+[02:12:28]  Loading plugin: crashdetect
+[02:12:28]   CrashDetect plugin 4.19.4
+[02:12:28]   Loaded.
+[02:12:28]  Loading plugin: discord-connector
+[02:12:29]  >> plugin.dc-connector: 0.2.4 successfully loaded.
+[02:12:29]   Loaded.
+[02:12:29]  Loading plugin: mysql
+[02:12:29]  >> plugin.mysql: R39-6 successfully loaded.
+[02:12:29]   Loaded.
+[02:12:29]  Loading plugin: sampvoice
+[02:12:29]   Failed.
+[02:12:29]  Loading plugin: sscanf
+[02:12:29] 
+
+[02:12:29]  ===============================
+
+[02:12:29]       sscanf plugin loaded.     
+
+[02:12:29]          Version:  2.8.3        
+
+[02:12:29]   (c) 2018 Alex "Y_Less" Cole  
+
+[02:12:29]  ===============================
+
+[02:12:29]   Loaded.
+[02:12:29]  Loading plugin: streamer
+[02:12:29] 
+
+*** Streamer Plugin v2.9.4 by Incognito loaded ***
+
+[02:12:29]   Loaded.
+[02:12:29]  Loading plugin: nativechecker
+[02:12:29]   Loaded.
+[02:12:29]  Loaded 7 plugins.
+
+[02:12:29] [artwork:crc] lvpdpc2.dff CRC = 0xFBD1EA7C
+[02:12:29] [artwork:crc] lvpdpc2.txd CRC = 0xDC92731E
+[02:12:29] [artwork:crc] lapdpd2.dff CRC = 0xA558D422
+[02:12:29] [artwork:crc] lapdpd2.txd CRC = 0xA442E2DA
+[02:12:29] [artwork:crc] object.dff CRC = 0xDCFCC14C
+[02:12:29] [artwork:crc] server_logo.txd CRC = 0x9D1E9A79
+[02:12:29] 
+[02:12:29] Filterscripts
+[02:12:29] ---------------
+[02:12:29]   Loaded 0 filterscripts.
+
+[02:12:29] Setting server password to: "a7a"
+[02:12:29] PSRP Local: MOTD - Welcome to Project Serranilla Roleplay!
+[02:12:29] Number of vehicle models: 0
+[02:12:29] PSRP Local: 1 houses has been loaded from the database.
+[02:12:29] plugin.bcrypt: The plugin is up-to-date.
+[02:13:06] [connection] incoming connection: 192.168.1.6:57651 id: 0
+[02:13:06] [join] Shady_Dev has joined the server (0:192.168.1.6)
+[02:13:18] Password hashed for player 0: $2y$12$KzjXbS7FKSXGcTDIZF/DTOgueJCILAw7FW7PLeRpK8/mD7TGhryG.
+[02:14:44] [part] Shady_Dev has left the server (0:1)
+
+----------
+Loaded log file: "server_log.txt".
+----------
+
+SA-MP Dedicated Server
+----------------------
+v0.3.DL-R1, (C)2005-2018 SA-MP Team
+
+[02:15:06] 
+[02:15:06] Server Plugins
+[02:15:06] --------------
+[02:15:06]  Loading plugin: bcrypt-samp
+[02:15:06]   plugin.bcrypt v2.2.3 was loaded.
+[02:15:06]   plugin.bcrypt: 2 cores detected, 1 threads will be used.
+[02:15:06]   Loaded.
+[02:15:06]  Loading plugin: crashdetect
+[02:15:06]   CrashDetect plugin 4.19.4
+[02:15:06]   Loaded.
+[02:15:06]  Loading plugin: discord-connector
+[02:15:07]  >> plugin.dc-connector: 0.2.4 successfully loaded.
+[02:15:07]   Loaded.
+[02:15:07]  Loading plugin: mysql
+[02:15:07]  >> plugin.mysql: R39-6 successfully loaded.
+[02:15:07]   Loaded.
+[02:15:07]  Loading plugin: sampvoice
+[02:15:07]   Failed.
+[02:15:07]  Loading plugin: sscanf
+[02:15:07] 
+
+[02:15:07]  ===============================
+
+[02:15:07]       sscanf plugin loaded.     
+
+[02:15:07]          Version:  2.8.3        
+
+[02:15:07]   (c) 2018 Alex "Y_Less" Cole  
+
+[02:15:07]  ===============================
+
+[02:15:07]   Loaded.
+[02:15:07]  Loading plugin: streamer
+[02:15:07] 
+
+*** Streamer Plugin v2.9.4 by Incognito loaded ***
+
+[02:15:07]   Loaded.
+[02:15:07]  Loading plugin: nativechecker
+[02:15:07]   Loaded.
+[02:15:07]  Loaded 7 plugins.
+
+[02:15:07] [artwork:crc] lvpdpc2.dff CRC = 0xFBD1EA7C
+[02:15:07] [artwork:crc] lvpdpc2.txd CRC = 0xDC92731E
+[02:15:07] [artwork:crc] lapdpd2.dff CRC = 0xA558D422
+[02:15:07] [artwork:crc] lapdpd2.txd CRC = 0xA442E2DA
+[02:15:07] [artwork:crc] object.dff CRC = 0xDCFCC14C
+[02:15:07] [artwork:crc] server_logo.txd CRC = 0x9D1E9A79
+[02:15:07] 
+[02:15:07] Filterscripts
+[02:15:07] ---------------
+[02:15:07]   Loaded 0 filterscripts.
+
+[02:15:07] Setting server password to: "a7a"
+[02:15:07] PSRP Local: MOTD - Welcome to Project Serranilla Roleplay!
+[02:15:07] Number of vehicle models: 0
+[02:15:07] PSRP Local: 1 houses has been loaded from the database.
+[02:15:07] plugin.bcrypt: The plugin is up-to-date.
+[02:15:22] [connection] incoming connection: 192.168.1.6:59041 id: 0
+[02:15:22] [join] Shady_Dev has joined the server (0:192.168.1.6)
+[02:15:27] Password checked for 77: 
+[02:15:51] [part] Shady_Dev has left the server (0:1)
+[02:16:02] [connection] incoming connection: 192.168.1.6:51461 id: 0
+[02:16:02] [join] Shady_Dev has joined the server (0:192.168.1.6)
+[02:16:04] Password checked for 78: 
+[02:16:07] Password checked for 78: 
+[02:16:10] [part] Shady_Dev has left the server (0:2)
+Console input: gmx
+[02:38:57] [connection] incoming connection: 192.168.1.6:65510 id: 0
+[02:38:57] [join] Shady_Dev has joined the server (0:192.168.1.6)
+[02:39:03] Password checked for 77: 
+
+----------
+Loaded log file: "server_log.txt".
+----------
+
+SA-MP Dedicated Server
+----------------------
+v0.3.DL-R1, (C)2005-2018 SA-MP Team
+
+[02:39:52] 
+[02:39:52] Server Plugins
+[02:39:52] --------------
+[02:39:52]  Loading plugin: bcrypt-samp
+[02:39:52]   plugin.bcrypt v2.2.3 was loaded.
+[02:39:52]   plugin.bcrypt: 2 cores detected, 1 threads will be used.
+[02:39:52]   Loaded.
+[02:39:52]  Loading plugin: crashdetect
+[02:39:52]   CrashDetect plugin 4.19.4
+[02:39:52]   Loaded.
+[02:39:52]  Loading plugin: discord-connector
+[02:39:53]  >> plugin.dc-connector: 0.2.4 successfully loaded.
+[02:39:53]   Loaded.
+[02:39:53]  Loading plugin: mysql
+[02:39:53]  >> plugin.mysql: R39-6 successfully loaded.
+[02:39:53]   Loaded.
+[02:39:53]  Loading plugin: sampvoice
+[02:39:53]   Failed.
+[02:39:53]  Loading plugin: sscanf
+[02:39:53] 
+
+[02:39:53]  ===============================
+
+[02:39:53]       sscanf plugin loaded.     
+
+[02:39:53]          Version:  2.8.3        
+
+[02:39:53]   (c) 2018 Alex "Y_Less" Cole  
+
+[02:39:53]  ===============================
+
+[02:39:53]   Loaded.
+[02:39:53]  Loading plugin: streamer
+[02:39:53] 
+
+*** Streamer Plugin v2.9.4 by Incognito loaded ***
+
+[02:39:53]   Loaded.
+[02:39:53]  Loading plugin: nativechecker
+[02:39:53]   Loaded.
+[02:39:53]  Loaded 7 plugins.
+
+[02:39:53] [artwork:crc] lvpdpc2.dff CRC = 0xFBD1EA7C
+[02:39:53] [artwork:crc] lvpdpc2.txd CRC = 0xDC92731E
+[02:39:53] [artwork:crc] lapdpd2.dff CRC = 0xA558D422
+[02:39:53] [artwork:crc] lapdpd2.txd CRC = 0xA442E2DA
+[02:39:53] [artwork:crc] object.dff CRC = 0xDCFCC14C
+[02:39:53] [artwork:crc] server_logo.txd CRC = 0x9D1E9A79
+[02:39:53] I couldn't load any gamemode scripts. Please verify your server.cfg
+[02:39:53] It needs a gamemode0 line at the very least.
+
+----------
+Loaded log file: "server_log.txt".
+----------
+
+SA-MP Dedicated Server
+----------------------
+v0.3.DL-R1, (C)2005-2018 SA-MP Team
+
+[02:40:32] 
+[02:40:32] Server Plugins
+[02:40:32] --------------
+[02:40:32]  Loading plugin: bcrypt-samp
+[02:40:32]   plugin.bcrypt v2.2.3 was loaded.
+[02:40:32]   plugin.bcrypt: 2 cores detected, 1 threads will be used.
+[02:40:32]   Loaded.
+[02:40:32]  Loading plugin: crashdetect
+[02:40:32]   CrashDetect plugin 4.19.4
+[02:40:32]   Loaded.
+[02:40:32]  Loading plugin: discord-connector
+[02:40:33]  >> plugin.dc-connector: 0.2.4 successfully loaded.
+[02:40:33]   Loaded.
+[02:40:33]  Loading plugin: mysql
+[02:40:33]  >> plugin.mysql: R39-6 successfully loaded.
+[02:40:33]   Loaded.
+[02:40:33]  Loading plugin: sampvoice
+[02:40:33]   Failed.
+[02:40:33]  Loading plugin: sscanf
+[02:40:33] 
+
+[02:40:33]  ===============================
+
+[02:40:33]       sscanf plugin loaded.     
+
+[02:40:33]          Version:  2.8.3        
+
+[02:40:33]   (c) 2018 Alex "Y_Less" Cole  
+
+[02:40:33]  ===============================
+
+[02:40:33]   Loaded.
+[02:40:33]  Loading plugin: streamer
+[02:40:33] 
+
+*** Streamer Plugin v2.9.4 by Incognito loaded ***
+
+[02:40:33]   Loaded.
+[02:40:33]  Loading plugin: nativechecker
+[02:40:33]   Loaded.
+[02:40:33]  Loaded 7 plugins.
+
+[02:40:33] [artwork:crc] lvpdpc2.dff CRC = 0xFBD1EA7C
+[02:40:33] [artwork:crc] lvpdpc2.txd CRC = 0xDC92731E
+[02:40:33] [artwork:crc] lapdpd2.dff CRC = 0xA558D422
+[02:40:33] [artwork:crc] lapdpd2.txd CRC = 0xA442E2DA
+[02:40:33] [artwork:crc] object.dff CRC = 0xDCFCC14C
+[02:40:33] [artwork:crc] server_logo.txd CRC = 0x9D1E9A79
+[02:40:33] 
+[02:40:33] Filterscripts
+[02:40:33] ---------------
+[02:40:33]   Loaded 0 filterscripts.
+
+[02:40:33] Setting server password to: "a7a"
+[02:40:33] PSRP Local: MOTD - Welcome to Project Serranilla Roleplay!
+[02:40:33] Number of vehicle models: 0
+[02:40:33] PSRP Local: 1 houses has been loaded from the database.
+[02:40:33] plugin.bcrypt: The plugin is up-to-date.
+[02:40:46] [connection] incoming connection: 192.168.1.6:50336 id: 0
+[02:40:46] [join] Shady_Dev has joined the server (0:192.168.1.6)
+[02:40:50] Password checked for 0: Match
+[02:42:10] [part] Shady_Dev has left the server (0:1)
+[02:42:21] [connection] incoming connection: 192.168.1.6:62645 id: 0
+[02:42:21] [join] Shady_Dev has joined the server (0:192.168.1.6)
+[02:42:24] Password checked for 0: No match
+[02:42:27] Password checked for 0: No match
+[02:42:30] Password checked for 0: Match
+[02:44:02] [part] Shady_Dev has left the server (0:1)
+Console input: gmx
+[03:14:42] Setting server password to: "a7a"
+[03:14:42] PSRP Local: MOTD - Welcome to Project Serranilla Roleplay!
+[03:14:42] Number of vehicle models: 0
+[03:14:42] PSRP Local: 1 houses has been loaded from the database.
+[03:14:42] plugin.bcrypt: The plugin is up-to-date.
+[03:14:55] [connection] incoming connection: 192.168.1.6:50901 id: 0
+[03:14:55] [join] Shady_Dev has joined the server (0:192.168.1.6)
+[03:14:59] Password checked for 0: No match
+[03:15:03] Password checked for 0: Match
+[03:15:34] [part] Shady_Dev has left the server (0:1)
+[03:15:54] [connection] incoming connection: 192.168.1.6:61587 id: 0
+[03:15:54] [join] Ray_Dev has joined the server (0:192.168.1.6)
+[03:16:01] Password hashed for player 0: $2y$12$YELwWyn0LTKzPxDQbibVM.G1TJkts2feMluAf8w9CJnV5LAi3aNfm
+[03:16:07] [part] Ray_Dev has left the server (0:1)
+[03:16:28] [connection] incoming connection: 192.168.1.6:63068 id: 0
+[03:16:28] [join] Shady_Dev has joined the server (0:192.168.1.6)
+[03:16:31] Password checked for 0: Match
+Console input: gmx
+[03:19:01] Setting server password to: "a7a"
+[03:19:01] PSRP Local: MOTD - Welcome to Project Serranilla Roleplay!
+[03:19:01] Number of vehicle models: 0
+[03:19:01] PSRP Local: 1 houses has been loaded from the database.
+[03:19:01] plugin.bcrypt: The plugin is up-to-date.
+[03:19:04] Password checked for 0: Match
+[03:19:21]  Shady Dev (0) has changed Ray_Dev their password.
+[03:37:53] [part] Shady_Dev has left the server (0:1)
