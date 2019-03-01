@@ -2474,3 +2474,76 @@ Console input: exit
 
 *** Streamer Plugin v2.9.4 by Incognito unloaded ***
 
+
+----------
+Loaded log file: "server_log.txt".
+----------
+
+SA-MP Dedicated Server
+----------------------
+v0.3.DL-R1, (C)2005-2018 SA-MP Team
+
+[04:59:46] 
+[04:59:46] Server Plugins
+[04:59:46] --------------
+[04:59:46]  Loading plugin: bcrypt-samp
+[04:59:46]   plugin.bcrypt v2.2.3 was loaded.
+[04:59:46]   plugin.bcrypt: 2 cores detected, 1 threads will be used.
+[04:59:46]   Loaded.
+[04:59:46]  Loading plugin: crashdetect
+[04:59:46]   CrashDetect plugin 4.19.4
+[04:59:46]   Loaded.
+[04:59:46]  Loading plugin: discord-connector
+[04:59:49]  >> plugin.dc-connector: 0.2.4 successfully loaded.
+[04:59:49]   Loaded.
+[04:59:49]  Loading plugin: mysql
+[04:59:49]  >> plugin.mysql: R39-6 successfully loaded.
+[04:59:49]   Loaded.
+[04:59:49]  Loading plugin: sampvoice
+[04:59:49]   Failed.
+[04:59:49]  Loading plugin: sscanf
+[04:59:49] 
+
+[04:59:49]  ===============================
+
+[04:59:49]       sscanf plugin loaded.     
+
+[04:59:49]          Version:  2.8.3        
+
+[04:59:49]   (c) 2018 Alex "Y_Less" Cole  
+
+[04:59:49]  ===============================
+
+[04:59:49]   Loaded.
+[04:59:49]  Loading plugin: streamer
+[04:59:49] 
+
+*** Streamer Plugin v2.9.4 by Incognito loaded ***
+
+[04:59:49]   Loaded.
+[04:59:49]  Loading plugin: nativechecker
+[04:59:49]   Loaded.
+[04:59:49]  Loaded 7 plugins.
+
+[04:59:49] [artwork:crc] lvpdpc2.dff CRC = 0xFBD1EA7C
+[04:59:49] [artwork:crc] lvpdpc2.txd CRC = 0xDC92731E
+[04:59:49] [artwork:crc] lapdpd2.dff CRC = 0xA558D422
+[04:59:49] [artwork:crc] lapdpd2.txd CRC = 0xA442E2DA
+[04:59:49] [artwork:crc] object.dff CRC = 0xDCFCC14C
+[04:59:49] [artwork:crc] server_logo.txd CRC = 0x9D1E9A79
+[04:59:49] 
+[04:59:49] Filterscripts
+[04:59:49] ---------------
+[04:59:49]   Loaded 0 filterscripts.
+
+[04:59:50] Setting server password to: "a7a"
+[04:59:50] PSRP Local: MOTD - Welcome to Project Serranilla Roleplay!
+[04:59:50] Number of vehicle models: 0
+[04:59:50] plugin.bcrypt: The plugin is up-to-date.
+[04:59:50] PSRP Local: 1 houses has been loaded from the database.
+[05:00:02] [connection] incoming connection: 192.168.1.6:60428 id: 0
+[05:00:02] [join] Shady_Dev has joined the server (0:192.168.1.6)
+[05:00:07] Password checked for 0: Match
+[05:04:39] Shady Dev (0) has changed Ray_Dev's password.
+[05:18:20] [part] Shady_Dev has left the server (0:1)
+[05:18:25] --- Server Shutting Down.
