@@ -167,6 +167,7 @@
 #define 		DIALOG_STATS 				5
 #define 		DIALOG_BETA					6
 #define 		DIALOG_AHELP				7
+#define 		DIALOG_PASSWORDCHANGE 		8
 
 #define 		NT_DISTANCE 				20.0
 

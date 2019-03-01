@@ -11,3 +11,4 @@
 #define 	SVR_LOCATION	"-"
 #define 	SVR_LANGUAGE	"English"
 #define 	SVR_PASSWORD	"a7a" 		// USED DURING BETA PHASE OR MAINTENANCE.
+#define 	BCRYPT_COST 	12
