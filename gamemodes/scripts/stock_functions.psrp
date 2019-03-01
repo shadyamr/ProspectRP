@@ -114,7 +114,7 @@ displayWelcomeMessage(playerid)
 
 KickEx(playerid)
 {
-	SetTimerEx("KickPlayer", 1000, false, "i", playerid);
+	SetTimerEx("KickPlayer", 500, false, "i", playerid);
 	return true;
 }
 
@@ -271,7 +271,7 @@ AdminRank(targetid)
 	return string;
 }*/
 
-stock SendClientMessageEx(playerid, color, const str[], {Float,_}:...)
+SendClientMessageEx(playerid, color, const str[], {Float,_}:...)
 {
 	static
 	    args,
@@ -307,7 +307,7 @@ stock SendClientMessageEx(playerid, color, const str[], {Float,_}:...)
 	return SendClientMessage(playerid, color, str);
 } // Credits to Emmet, South Central Roleplay
 
-stock SendClientMessageToAllEx(color, const str[], {Float,_}:...)
+/*SendClientMessageToAllEx(color, const str[], {Float,_}:...)
 {
 	static
 	    args,
@@ -348,7 +348,7 @@ stock SendClientMessageToAllEx(color, const str[], {Float,_}:...)
 	return SendClientMessageToAll(color, str);
 } // Credits to Emmet, South Central Roleplay
 
-stock SendNearbyMessage(playerid, Float:radius, color, const str[], {Float,_}:...)
+SendNearbyMessage(playerid, Float:radius, color, const str[], {Float,_}:...)
 {
 	static
 	    args,
@@ -397,25 +397,24 @@ stock SendNearbyMessage(playerid, Float:radius, color, const str[], {Float,_}:..
 		}
 	}
 	return true;
-} // Credits to Emmet, South Central Roleplay
+} // Credits to Emmet, South Central Roleplay*/
 
-stock SendAdminMessage(level, const str[])
+SendAdminMessage(level, const str[])
 {
 	new newString[128];
-
-	format(newString, sizeof(newString), "AdmWarn: %s", str);
+	format(newString, sizeof(newString), "(ADMIN INFO){FFFFFF} %s", str);
 
 	foreach(new i : Player)
 	{
 		if(PlayerData[i][pAdminLevel] >= level)
 		{
-			SendClientMessage(i, COLOR_RED, newString);
+			SendClientMessage(i, COLOR_ADMINFO, newString);
 		}
 	}
 	return true;
 }
 
-stock SendAdminMessageEx(color, level, const str[], {Float,_}:...)
+/*SendAdminMessageEx(color, level, const str[], {Float,_}:...)
 {
 	static
 	    args,
@@ -463,7 +462,7 @@ stock SendAdminMessageEx(color, level, const str[], {Float,_}:...)
 		}
 	}
 	return true;
-}
+}*/
 
 GiveCash(playerid, amount)
 {
