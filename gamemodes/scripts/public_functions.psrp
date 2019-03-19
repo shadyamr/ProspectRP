@@ -32,6 +32,10 @@ Server:DefaultPlayerValues(playerid)
 	LoginChance[playerid] = 0;
 	LoggedIn[playerid] = false;
 	GeneralOOC[playerid] = false;
+	Hospitalized[playerid] = 0;
+	AcceptDeath[playerid] = 0;
+	Injured[playerid] = 0;
+
 	PlayerData[playerid][pSQLID] = 0;
 	PlayerData[playerid][pAdminLevel] = 0;
 	PlayerData[playerid][pHelper] = 0;
@@ -43,6 +47,7 @@ Server:DefaultPlayerValues(playerid)
 	PlayerData[playerid][pMoney] = 0;
 	PlayerData[playerid][pLevel] = 1;
 	PlayerData[playerid][pRespect] = 0;
+	PlayerData[playerid][pTimePlayed] = 0;
 	PlayerData[playerid][pSkin] = 299;
 	PlayerData[playerid][pHealth] = 100;
 	PlayerData[playerid][pArmour] = 0;
@@ -277,6 +282,7 @@ Server:SQL_OnLoadAccount(playerid)
 	PlayerData[playerid][pMoney] = cache_get_field_content_int(0, "Money", sqlConnection);
 	PlayerData[playerid][pLevel] = cache_get_field_content_int(0, "Level", sqlConnection);
 	PlayerData[playerid][pRespect] = cache_get_field_content_int(0, "Respect", sqlConnection);
+	PlayerData[playerid][pTimePlayed] = cache_get_field_content_int(0, "PlayedTime", sqlConnection);
 	PlayerData[playerid][pLastPos][0] = cache_get_field_content_float(0, "LastX", sqlConnection);
 	PlayerData[playerid][pLastPos][1] = cache_get_field_content_float(0, "LastY", sqlConnection);
 	PlayerData[playerid][pLastPos][2] = cache_get_field_content_float(0, "LastZ", sqlConnection);
@@ -354,11 +360,34 @@ Server:SavePlayer(playerid, bool:save)
 Server:SavePlayerToDB(playerid)
 {
 	new query[512];
-	mysql_format(sqlConnection, query, sizeof(query), "UPDATE players SET AdminLevel = %i, Helper = %i, Tester = %i, Donator = %i, Age = %i, Gender = %i, Ethnicity = %i, Money = %i, Level = %i, Respect = %i, Hitman = %i WHERE id = %i LIMIT 1",
-	PlayerData[playerid][pAdminLevel], PlayerData[playerid][pHelper], PlayerData[playerid][pTester], PlayerData[playerid][pDonator],
-	PlayerData[playerid][pAge], PlayerData[playerid][pSex], PlayerData[playerid][pEthnicity], PlayerData[playerid][pMoney],
-	PlayerData[playerid][pLevel], PlayerData[playerid][pRespect], PlayerData[playerid][pHitman], PlayerData[playerid][pSQLID]);
-	mysql_pquery(sqlConnection, query);
+	mysql_format(sqlConnection, query, sizeof(query), "UPDATE players SET AdminLevel = %i, Helper = %i, Tester = %i, Donator = %i WHERE id = %i LIMIT 1",
+	    PlayerData[playerid][pAdminLevel],
+        PlayerData[playerid][pHelper],
+        PlayerData[playerid][pTester],
+        PlayerData[playerid][pDonator],
+        PlayerData[playerid][pSQLID]);
+	mysql_tquery(sqlConnection, query);
+
+    mysql_format(sqlConnection, query, sizeof(query), "UPDATE players SET Age = %i, Gender = %i, Ethnicity = %i, Money = %i, Level = %i, Respect = %i, Hitman = %i WHERE id = %i LIMIT 1",
+        PlayerData[playerid][pAge],
+        PlayerData[playerid][pSex], 
+        PlayerData[playerid][pEthnicity],
+        PlayerData[playerid][pSQLID]);
+	mysql_tquery(sqlConnection, query);
+
+    mysql_format(sqlConnection, query, sizeof(query), "UPDATE players SET Money = %i, Level = %i, Respect = %i, PlayedTime = %i, Hitman = %i WHERE id = %i LIMIT 1",
+        PlayerData[playerid][pMoney],
+        PlayerData[playerid][pLevel],
+        PlayerData[playerid][pRespect],
+        PlayerData[playerid][pTimePlayed],
+        PlayerData[playerid][pHitman],
+        PlayerData[playerid][pSQLID]);
+	mysql_tquery(sqlConnection, query);
+
+	/*mysql_format(sqlConnection, query, sizeof(query), "UPDATE players SET AdminName = %s WHERE id = %i LIMIT 1",
+		PlayerData[playerid][pAdminName]
+		PlayerData[playerid[pSQLID]]);
+	mysql_tquery(sqlConnection, query);*/
 	return true;
 }
 

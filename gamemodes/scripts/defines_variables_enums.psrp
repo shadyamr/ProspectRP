@@ -200,6 +200,7 @@ enum PLAYER_DATA
 	pMoney,
 	pLevel,
 	pRespect,
+	pTimePlayed,
 	Float:pLastPos[5],
 	pLastInt,
 	pLastWorld,

@@ -69,7 +69,6 @@ public OnGameModeInit()
 	EnableStuntBonusForAll(0);
 	ShowPlayerMarkers(PLAYER_MARKERS_MODE_OFF);
 	ShowNameTags(0);
-	ManualVehicleEngineAndLights();
 	DisableInteriorEnterExits();
 	UsePlayerPedAnims();
 	LimitGlobalChatRadius(15.0);
@@ -475,16 +474,10 @@ public OnPlayerStateChange(playerid, newstate, oldstate)
 {
     if(oldstate == PLAYER_STATE_ONFOOT && newstate == PLAYER_STATE_DRIVER)
     {
-        new vehicleid = GetPlayerVehicleID(playerid), engine, lights, alarm, doors, bonnet, boot, objective;
-        GetVehicleParamsEx(vehicleid, engine, lights, alarm, doors, bonnet, boot, objective);
-        if(engine == VEHICLE_PARAMS_OFF) SetVehicleParamsEx(vehicleid, VEHICLE_PARAMS_ON, lights, alarm, doors, bonnet, boot, objective);
-    }
-    else if(oldstate == PLAYER_STATE_DRIVER && newstate == PLAYER_STATE_ONFOOT)
-    {
-        new vehicleid = GetPlayerVehicleID(playerid), engine, lights, alarm, doors, bonnet, boot, objective;
-        GetVehicleParamsEx(vehicleid, engine, lights, alarm, doors, bonnet, boot, objective);
-        if(engine == VEHICLE_PARAMS_ON) SetVehicleParamsEx(vehicleid, VEHICLE_PARAMS_OFF, lights, alarm, doors, bonnet, boot, objective);
-    }
+		new vstr[120];
+       	format(vstr, sizeof(vstr), "Use {FFFFFF}/engine or press Left CTRL {AFAFAF}and {FFFFFF}/lights {AFAFAF}to toggle engine and lights.");
+		SendClientMessage(playerid, COLOR_GREY, vstr);
+	}
     return true;
 }
 

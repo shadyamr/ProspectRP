@@ -26,7 +26,7 @@ Server:ShowStats(playerid, playerb)
 
 	format(string, sizeof(string), "Account Statistics: %s [As of %s]", NameRP(playerid), GetDate());
 	SendClientMessageEx(playerb, COLOR_STATS, string);
-	format(string, sizeof(string), "[Account]:{FFFFFF} SQL ID: %d | Level: %d | Respect Points: %d | Registration Date: %s", PlayerData[playerid][pSQLID], PlayerData[playerid][pLevel], PlayerData[playerid][pRespect], PlayerData[playerid][pRegisterDate]);
+	format(string, sizeof(string), "[Account]:{FFFFFF} SQL ID: %d | Level: %d | Respect Points: %d/%d | Registration Date: %s", PlayerData[playerid][pSQLID], PlayerData[playerid][pLevel], PlayerData[playerid][pRespect], ((PlayerData[playerid][pLevel] * 5)), PlayerData[playerid][pRegisterDate]);
 	SendClientMessageEx(playerb, COLOR_STATS2, string);
 	format(string, sizeof(string), "[Character]:{FFFFFF} Gender: %s | Age: %d | Cash: $%d | Bank: $0 | Job: Unemployed", sex, PlayerData[playerid][pAge], PlayerData[playerid][pMoney]);
 	SendClientMessageEx(playerb, COLOR_STATS2, string);
@@ -36,5 +36,5 @@ Server:ShowStats(playerid, playerb)
 	SendClientMessageEx(playerb, COLOR_STATS2, string);
 	format(string, sizeof(string), "[Other]:{FFFFFF} Skin: %d | Health: %0.2f | Armour: %0.2f", GetPlayerSkin(playerid), GetPlayerHealth(playerid, hp), GetPlayerArmour(playerid, armor));
 	SendClientMessageEx(playerb, COLOR_STATS2, string);
-	return 1;
+	return true;
 }
