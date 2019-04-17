@@ -1,0 +1,73 @@
+/*
+ * Prospect Roleplay (c) 2018-2019
+ * Developed by Shady
+ * Purpose: Server Anticheat
+ */
+
+#include <YSI\y_hooks>
+
+hook OnScriptInit()
+{
+    /*new ip[16];
+    GetServerVarAsString("bind", ip, sizeof (ip));
+    if(!ip[0] || strcmp(ip, "192.168.0.127"))
+    {
+        for (;;)
+        {
+            printf("You are using an illegal copy of the script. Therefore, you'll not be able to run it!");
+        }
+    }*/
+    AntiDeAMX();
+    return true;
+}
+
+hook OnPlayerUpdate(playerid)
+{
+	if(GetPlayerSpecialAction(playerid) == SPECIAL_ACTION_USEJETPACK)
+	{
+		if(PlayerData[playerid][pAdminLevel] == 0)
+		{
+			new string[128];
+			format(string, sizeof(string), "%s has been kicked from the server for Jetpack Hack.", NameRP(playerid));
+			SendAdminMessage(1, string);
+			
+			SendServerMessage(playerid, "You have been kicked from the server for attempting to use a jetpack.");
+			KickEx(playerid);
+		}
+	}
+    return true;
+}
+
+hook OnRconLoginAttempt(ip[], password[], success)
+{
+	new playerip[16];
+	foreach(new i : Player)
+	{
+		if(IsPlayerConnected(i))
+		{
+			GetPlayerIp(i, playerip, 16);
+			if(!strcmp(playerip, ip, true))
+			{
+				if(success) return KickEx(i); 
+				else
+				{
+					printf("FAILED RCON LOGIN BY IP %s USING PASSWORD %s", ip, password);
+				}
+			}
+		}
+	}
+	return true;
+}
+
+AntiDeAMX()
+{
+    new a[][] =
+    {
+        "Unarmed (Fist)",
+        "Brass K"
+    };
+    #pragma unused a
+}
+
+#include "assets\anticheat\anti_ads.prospect"
+#include "assets\anticheat\anti_bot.prospect"

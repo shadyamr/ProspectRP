@@ -1,0 +1,51 @@
+/*
+ * Prospect Roleplay (c) 2018-2019
+ * Developed by Shady
+ * Purpose: Anti-Advertising
+ */
+
+ #include <libRegEx>
+ #include <YSI\y_hooks>
+
+hook OnPlayerText(playerid, text[])
+{
+        if(IsAdvertisement(text))
+        {
+                new string[128];
+                
+                format(string, sizeof(string), "[ERROR]:{FFFFFF} Your message is considered as a server advertising, please review it.");
+                SendClientMessage(playerid, COLOR_RED, string);
+                
+                format(string, sizeof(string), "%s has attempted to server advertise. (IP: %s)", NameRP(playerid), text);
+			    SendAdminMessage(1, string);
+                return false;
+        }
+        return true;
+}
+
+Server:bool:IsAdvertisement(text[])
+{
+        new message[128], build, expression[] = "(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.+){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)", start, end;
+        strcpy(message, text, sizeof(message));
+ 
+        for(new i = 0, j = strlen(message); i < j; i ++)
+        {
+            switch(message[i])
+            {
+                case '0'..'9': continue;
+                case '.': continue;
+                default:
+                {
+                    strdel(message, i, i + 1);
+                    strins(message, ".", i);
+                }
+            }
+        }
+ 
+        build = regex_exbuild(expression);
+        regex_exmatch(message, build);
+        regex_exsearch(message, build, start, end);
+ 
+        if(start >= 0) return true;
+        return false;
+}
