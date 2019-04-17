@@ -1,10 +1,12 @@
 /*
-*	   _____                           _ _ _       
-*	  / ____|                         (_) | |      
-*	 | (___   ___ _ __ _ __ __ _ _ __  _| | | __ _ 
-*	  \___ \ / _ \ '__| '__/ _` | '_ \| | | |/ _` |
-*	  ____) |  __/ |  | | | (_| | | | | | | | (_| |
-*	 |_____/ \___|_|  |_|  \__,_|_| |_|_|_|_|\__,_|         
+*	  _____                               _   
+*	 |  __ \                             | |  
+*	 | |__) | __ ___  ___ _ __   ___  ___| |_ 
+*	 |  ___/ '__/ _ \/ __| '_ \ / _ \/ __| __|
+*	 | |   | | | (_) \__ \ |_) |  __/ (__| |_ 
+*	 |_|   |_|  \___/|___/ .__/ \___|\___|\__|
+*	                     | |
+*	                     |_|
 *
 *	Prospect Roleplay by Shady Amr (ItzShady)
 *	https://forum.sa-mp.com/member.php?u=240484
@@ -42,28 +44,22 @@
 #include "assets/discord.prospect"
 #include "assets/functions.prospect"
 
-#include "assets/ui/textdraws.prospect"
-#include "assets/ui/showstats.prospect"
+#include "assets/anticheat/anticheat.prospect"
+
+#include "assets/commands/account_cmds.prospect"
+#include "assets/commands/general_cmds.prospect"
+#include "assets/commands/staff_cmds.prospect"
 
 #include "assets/properties/houses.prospect"
 #include "assets/properties/player_vehicles.prospect"
 
-#include "assets/commands/general_cmds.prospect"
-#include "assets/commands/account_cmds.prospect"
-#include "assets/commands/admin_cmds.prospect"
+#include "assets/ui/textdraws.prospect"
+#include "assets/ui/showstats.prospect"
 
 main(){}
 
 public OnGameModeInit()
 {
-	SendRconCommand("hostname "SVR_NAME"");
-    SendRconCommand("rcon_password "SVR_RCON"");
-    SendRconCommand("weburl "SVR_WEBSITE"");
-    SendRconCommand("mapname "SVR_LOCATION"");
-    SendRconCommand("language "SVR_LANGUAGE"");
-    SendRconCommand("password "SVR_PASSWORD"");
-	SetGameModeText(SVR_GMTEXT);
-
 	mysql_log(LOG_ERROR | LOG_WARNING, LOG_TYPE_HTML);
 	sqlConnection = mysql_connect(SQL_HOSTNAME, SQL_USERNAME, SQL_DATABASE, SQL_PASSWORD);
 
@@ -85,31 +81,6 @@ public OnGameModeInit()
 	SetTimer("UpdateNametag", 500, true);
 
 	createLogRegTextdraw();
-
-	DiscordInit();
-
-	/*if(!fexist("hma.cfg"))
-	{
-		new File:NewFile = fopen("hma.cfg", io_write);
-		fwrite(NewFile, "1415.727905\r\n");
-		fwrite(NewFile, "-1299.371093\r\n");
-		fwrite(NewFile, "15.054657\r\n");
-		fwrite(NewFile, "0\r\n");
-		fwrite(NewFile, "New Agency!\r");
-		fclose(NewFile);
-	}
-	HMAFile = fopen("hma.cfg", io_readwrite);
-
-	new szTemp[128];
-	for(new i = 0; i < 3; i++)
-	{
-		fread(HMAFile, szTemp, sizeof szTemp);
-		fHMASafe_Loc[i] = floatstr(szTemp);
-	}
-	fread(HMAFile, szTemp, sizeof szTemp);
-	iHMASafe_Val = strval(szTemp);
-	fread(HMAFile, HMAMOTD, sizeof HMAMOTD);
-	iFileLoaded = 1;*/
 	return true;
 }
 
@@ -117,9 +88,7 @@ public OnGameModeExit()
 {
 	KillTimer(OneSecondTimer);
 	destroyLogRegTextdraw();
-	//fclose(HMAFile);
 	mysql_close(sqlConnection);
-	DiscordExit();
 	return true;
 }
 
@@ -440,15 +409,6 @@ public OnPlayerUpdate(playerid)
 	{
 		ApplyAnimation(playerid, "CRACK", "crckdeth2", 4.0, 1, 0, 0, 1, 0, 1);
 	}
-
-	if(GetPlayerSpecialAction(playerid) == SPECIAL_ACTION_USEJETPACK)
-	{
-		if(PlayerData[playerid][pAdminLevel] == 0)
-		{
-			SendServerMessage(playerid, "You have been kicked from the server for attempting to use a jetpack.");
-			KickEx(playerid);
-		}
-	}
 	return true;
 }
 
@@ -487,26 +447,5 @@ public OnPlayerStateChange(playerid, newstate, oldstate)
 public OnPlayerRequestClass(playerid, classid)
 {
 	SetPlayerSpawn(playerid);
-	return true;
-}
-
-public OnRconLoginAttempt(ip[], password[], success)
-{
-	new playerip[16];
-	foreach(new i: Player)
-	{
-		if(IsPlayerConnected(i))
-		{
-			GetPlayerIp(i, playerip, 16);
-			if(!strcmp(playerip, ip, true))
-			{
-				if(success) return KickEx(i); 
-				else
-				{
-					printf("FAILED RCON LOGIN BY IP %s USING PASSWORD %s", ip, password);
-				}
-			}
-		}
-	}
 	return true;
 }
