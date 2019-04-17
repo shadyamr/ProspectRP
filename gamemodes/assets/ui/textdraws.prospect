@@ -1,7 +1,8 @@
 /*
-	Prospect Roleplay
-	This file contains textdraws, created by Shady.
-*/
+ * Prospect Roleplay (c) 2018-2019
+ * Developed by Shady
+ * Purpose: Textdraws
+ */
 
 createLogRegTextdraw()
 {

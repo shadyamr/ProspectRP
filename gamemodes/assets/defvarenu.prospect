@@ -1,7 +1,8 @@
 /*
-	Prospect Roleplay
-	This file contains defines, variables, and enums, created by Shady.
-*/
+ * Prospect Roleplay (c) 2018-2019
+ * Developed by Shady
+ * Purpose: Defines, variables, and enums
+ */
 
 #define Server:%0(%1) forward %0(%1); public %0(%1)
 
@@ -237,7 +238,7 @@ new HouseData[MAX_HOUSES][HOUSE_DATA], TotalHousesCreated = 0;
 new Text3D:cNametag[MAX_PLAYERS], MOTDText[500];
 new Injured[MAX_PLAYERS], AcceptDeath[MAX_PLAYERS], AcceptDeathTimer[MAX_PLAYERS], LoseHealthTimer[MAX_PLAYERS], Hospitalized[MAX_PLAYERS];
 new InjuredSkin, Float:InjuredX, Float:InjuredY, Float:InjuredZ, Float:InjuredA;
-new bool:GeneralOOC[MAX_PLAYERS];
+new bool:GeneralOOC[MAX_PLAYERS], UserIP[MAX_PLAYERS];
 //new IsEngineOn[MAX_PLAYERS];
 
 // Textdraws:

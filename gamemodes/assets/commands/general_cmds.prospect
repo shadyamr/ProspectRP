@@ -1,9 +1,9 @@
 /*
-	Project Serranilla Roleplay
-	This file contains server commands, created by Shady.
-*/
+ * Prospect Roleplay (c) 2018-2019
+ * Developed by Shady
+ * Purpose: General Commands
+ */
 
-// General Commands:
 CMD:acceptdeath(playerid, params[])
 {
 	if(!LoggedIn[playerid]) return true;

@@ -1,7 +1,8 @@
 /*
-	Project Serranilla Roleplay
-	This file contains show statistics dialog, created by Shady.
-*/
+ * Prospect Roleplay (c) 2018-2019
+ * Developed by Shady
+ * Purpose: Show Stats
+ */
 
 Server:ShowStats(playerid, playerb)
 {

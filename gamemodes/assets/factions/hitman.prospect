@@ -1,7 +1,8 @@
 /*
-	Project Serranilla Roleplay
-	This file contains Hitman system, created by Shady.
-*/
+ * Prospect Roleplay (c) 2018-2019
+ * Developed by Shady
+ * Purpose: Hitman Agency
+ */
 
 #define     COLOR_HMARADIO	    0x008BE8FF
 #define     COLOR_HMAOOC        0x00FFFFFF

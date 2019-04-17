@@ -1,27 +1,55 @@
 /*
-	Project Serranilla Roleplay
-	This file contains Discord Bot system, created by Shady.
-*/
+ * Prospect Roleplay (c) 2018-2019
+ * Developed by Shady
+ * Purpose: Discord Interrogation
+ */
+
+#include <YSI\y_hooks>
 
 new DCC_Channel:logchannel, dstr[512];
 
-Server:DiscordInit()
+hook OnScriptInit()
 {
 	if(_:logchannel == 0) logchannel = DCC_FindChannelById("545641478064701440");
     format(dstr, sizeof(dstr), "Prospect Local: Server has been started. (%s)", GetDate());
 	DCC_SendChannelMessage(logchannel, dstr);
-    return true;
+	return true;
 }
 
-Server:DiscordExit()
+hook OnGameModeExit()
 {
-	if(_:logchannel == 0) logchannel = DCC_FindChannelById("545641478064701440");
+    if(_:logchannel == 0) logchannel = DCC_FindChannelById("545641478064701440");
     format(dstr, sizeof(dstr), "Prospect Local: Server has been shutted down. (%s)", GetDate());
 	DCC_SendChannelMessage(logchannel, dstr);
     return true;
 }
 
-Server:DiscordRestart()
+hook OnPlayerConnect(playerid)
+{
+    if(_:logchannel == 0) logchannel = DCC_FindChannelById("545641478064701440");
+
+    GetPlayerIp(playerid, UserIP[playerid], 16);
+	
+    format(dstr, sizeof(dstr), "Prospect Local: %s has joined the server (IP: %s || %s)", GetName(playerid), UserIP[playerid], GetDate());
+	DCC_SendChannelMessage(logchannel, dstr);
+    return true;
+}
+
+hook OnPlayerDisconnect(playerid, reason)
+{
+    new szDisconnectReason[3][] =
+    {
+        "Timeout/Crash",
+        "Quit",
+        "Kick/Ban"
+    };
+
+    if(_:logchannel == 0) logchannel = DCC_FindChannelById("545641478064701440");
+	format(dstr, sizeof(dstr), "Prospect Local: %s has left the server (Reason: %s || IP: %s)", GetName(playerid), szDisconnectReason[reason], UserIP[playerid]);
+	DCC_SendChannelMessage(logchannel, dstr);
+}
+
+Server:OnDiscordRestart()
 {
 	if(_:logchannel == 0) logchannel = DCC_FindChannelById("545641478064701440");
     format(dstr, sizeof(dstr), "Prospect Local: Server has been restarted. (%s)", GetDate());

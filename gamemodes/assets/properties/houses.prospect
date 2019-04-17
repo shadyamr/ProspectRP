@@ -1,7 +1,8 @@
 /*
-	Project Serranilla Roleplay
-	This file contains house system, created by Shady.
-*/
+ * Prospect Roleplay (c) 2018-2019
+ * Developed by Shady
+ * Purpose: House System (Properties)
+ */
 
 static Float:hCreateExt[4], Float:hCreateInt[4], hCreateName[40], hCreatePrice, hCreateIntID;
 

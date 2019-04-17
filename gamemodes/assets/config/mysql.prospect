@@ -1,7 +1,8 @@
 /*
-	Project Serranilla Roleplay
-	This file contains MySQL configuration, created by Shady.
-*/
+ * Prospect Roleplay (c) 2018-2019
+ * Developed by Shady
+ * Purpose: MySQL Configuration
+ */
 
 new sqlConnection, OneSecondTimer, lastSaveTime = 0;
 #define 	SQL_HOSTNAME	"localhost"

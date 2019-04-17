@@ -1,7 +1,8 @@
 /*
-	Prospect Roleplay
-	This file contains public & stock functions, created by Shady.
-*/
+ * Prospect Roleplay (c) 2018-2019
+ * Developed by Shady
+ * Purpose: Public & stock functions
+ */
 
 #include <YSI\y_hooks>
 
@@ -38,6 +39,7 @@ Server:DefaultPlayerValues(playerid)
 	Hospitalized[playerid] = 0;
 	AcceptDeath[playerid] = 0;
 	Injured[playerid] = 0;
+	UserIP[playerid] = 0;
 
 	PlayerData[playerid][pSQLID] = 0;
 	PlayerData[playerid][pAdminLevel] = 0;
@@ -605,7 +607,7 @@ Server:restartmsg(playerid)
 
 Server:GmX(playerid)
 {
-	DiscordRestart();
+	OnDiscordRestart();
     foreach(new i : Player)
     Kick(i);
     SendRconCommand("gmx");
