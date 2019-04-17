@@ -1830,3 +1830,175 @@
 [02:46:02] [INFO] PAWN callback successfully executed.
 [02:46:04] [INFO] executing PAWN callback 'DCC_OnGuildMemberUpdate'...
 [02:46:04] [INFO] PAWN callback successfully executed.
+[17:16:43] [INFO] changed log level from 'warning, error' to 'info, warning, error'
+[17:16:47] [INFO] successfully created user with id '1'
+[17:16:47] [INFO] successfully created channel with id '1'
+[17:16:47] [INFO] successfully created channel with id '2'
+[17:16:47] [INFO] successfully created channel with id '3'
+[17:16:47] [INFO] successfully created channel with id '4'
+[17:16:47] [INFO] successfully created channel with id '5'
+[17:16:47] [INFO] successfully created channel with id '6'
+[17:16:47] [INFO] successfully created channel with id '7'
+[17:16:47] [INFO] successfully created channel with id '8'
+[17:16:47] [INFO] successfully created channel with id '9'
+[17:16:47] [INFO] successfully created channel with id '10'
+[17:16:47] [INFO] successfully created channel with id '11'
+[17:16:47] [INFO] successfully created channel with id '12'
+[17:16:47] [INFO] successfully created channel with id '13'
+[17:16:47] [INFO] successfully created channel with id '14'
+[17:16:47] [INFO] successfully created channel with id '15'
+[17:16:47] [INFO] successfully created user with id '2'
+[17:16:47] [INFO] successfully created user with id '3'
+[17:16:47] [INFO] successfully created user with id '4'
+[17:16:47] [INFO] successfully created user with id '5'
+[17:16:47] [INFO] successfully created user with id '6'
+[17:16:47] [INFO] successfully created guild with id '1'
+[17:16:49] [INFO] executing PAWN callback 'DCC_OnChannelMessage'...
+[17:16:49] [INFO] PAWN callback successfully executed.
+[17:16:49] [INFO] executing PAWN callback 'DCC_OnChannelMessage'...
+[17:16:49] [INFO] PAWN callback successfully executed.
+[17:18:31] [INFO] executing PAWN callback 'DCC_OnChannelMessage'...
+[17:18:31] [INFO] PAWN callback successfully executed.
+[17:19:24] [INFO] executing PAWN callback 'DCC_OnChannelMessage'...
+[17:19:24] [INFO] PAWN callback successfully executed.
+[17:20:47] [INFO] executing PAWN callback 'DCC_OnGuildMemberUpdate'...
+[17:20:47] [INFO] PAWN callback successfully executed.
+[17:21:20] [WARNING] Error while shutting down SSL on HTTP connection: stream truncated (1)
+[20:44:20] [INFO] changed log level from 'warning, error' to 'info, warning, error'
+[20:44:22] [INFO] successfully created user with id '1'
+[20:44:22] [INFO] successfully created channel with id '1'
+[20:44:22] [INFO] successfully created channel with id '2'
+[20:44:22] [INFO] successfully created channel with id '3'
+[20:44:22] [INFO] successfully created channel with id '4'
+[20:44:22] [INFO] successfully created channel with id '5'
+[20:44:22] [INFO] successfully created channel with id '6'
+[20:44:22] [INFO] successfully created channel with id '7'
+[20:44:22] [INFO] successfully created channel with id '8'
+[20:44:22] [INFO] successfully created channel with id '9'
+[20:44:22] [INFO] successfully created channel with id '10'
+[20:44:22] [INFO] successfully created channel with id '11'
+[20:44:22] [INFO] successfully created channel with id '12'
+[20:44:22] [INFO] successfully created channel with id '13'
+[20:44:22] [INFO] successfully created channel with id '14'
+[20:44:22] [INFO] successfully created channel with id '15'
+[20:44:22] [INFO] successfully created user with id '2'
+[20:44:22] [INFO] successfully created user with id '3'
+[20:44:22] [INFO] successfully created user with id '4'
+[20:44:22] [INFO] successfully created user with id '5'
+[20:44:22] [INFO] successfully created guild with id '1'
+[20:44:34] [INFO] changed log level from 'warning, error' to 'info, warning, error'
+[20:44:35] [INFO] successfully created user with id '1'
+[20:44:35] [INFO] successfully created channel with id '1'
+[20:44:35] [INFO] successfully created channel with id '2'
+[20:44:35] [INFO] successfully created channel with id '3'
+[20:44:35] [INFO] successfully created channel with id '4'
+[20:44:35] [INFO] successfully created channel with id '5'
+[20:44:35] [INFO] successfully created channel with id '6'
+[20:44:35] [INFO] successfully created channel with id '7'
+[20:44:35] [INFO] successfully created channel with id '8'
+[20:44:35] [INFO] successfully created channel with id '9'
+[20:44:35] [INFO] successfully created channel with id '10'
+[20:44:35] [INFO] successfully created channel with id '11'
+[20:44:35] [INFO] successfully created channel with id '12'
+[20:44:35] [INFO] successfully created channel with id '13'
+[20:44:35] [INFO] successfully created channel with id '14'
+[20:44:35] [INFO] successfully created channel with id '15'
+[20:44:35] [INFO] successfully created user with id '2'
+[20:44:35] [INFO] successfully created user with id '3'
+[20:44:35] [INFO] successfully created user with id '4'
+[20:44:35] [INFO] successfully created user with id '5'
+[20:44:35] [INFO] successfully created guild with id '1'
+[20:44:38] [INFO] executing PAWN callback 'DCC_OnChannelMessage'...
+[20:44:38] [INFO] PAWN callback successfully executed.
+[20:44:54] [INFO] executing PAWN callback 'DCC_OnGuildMemberUpdate'...
+[20:44:54] [INFO] PAWN callback successfully executed.
+[20:44:55] [ERROR] invalid UTF-8 string: [json.exception.type_error.316] invalid UTF-8 byte at index 53: 0xFF
+[20:45:02] [INFO] executing PAWN callback 'DCC_OnGuildMemberUpdate'...
+[20:45:02] [INFO] PAWN callback successfully executed.
+[20:45:39] [INFO] executing PAWN callback 'DCC_OnGuildMemberUpdate'...
+[20:45:39] [INFO] PAWN callback successfully executed.
+[20:45:39] [ERROR] Error while retrieving HTTP POST response from '/api/v6/channels/545641478064701440/messages': stream truncated
+[20:45:39] [INFO] trying reconnect #1...
+[20:45:39] [WARNING] Error while shutting down SSL on HTTP connection: stream truncated (1)
+[20:45:40] [INFO] reconnect succeeded, resending request
+[20:45:40] [INFO] executing PAWN callback 'DCC_OnChannelMessage'...
+[20:45:40] [INFO] PAWN callback successfully executed.
+[20:45:40] [ERROR] Error while retrieving HTTP POST response from '/api/v6/channels/545641478064701440/messages': bad version
+[20:45:40] [INFO] trying reconnect #1...
+[20:45:40] [INFO] reconnect succeeded, resending request
+[20:45:40] [ERROR] Error while retrieving HTTP POST response from '/api/v6/channels/545641478064701440/messages': bad version
+[20:45:40] [INFO] trying reconnect #1...
+[20:45:40] [INFO] executing PAWN callback 'DCC_OnChannelMessage'...
+[20:45:40] [INFO] PAWN callback successfully executed.
+[20:45:41] [INFO] reconnect succeeded, resending request
+[20:45:41] [ERROR] Error while retrieving HTTP POST response from '/api/v6/channels/545641478064701440/messages': bad version
+[20:45:41] [WARNING] Failed to send request, discarding
+[20:45:41] [INFO] executing PAWN callback 'DCC_OnChannelMessage'...
+[20:45:41] [INFO] PAWN callback successfully executed.
+[20:45:41] [INFO] executing PAWN callback 'DCC_OnChannelMessage'...
+[20:45:41] [INFO] PAWN callback successfully executed.
+[20:46:09] [INFO] executing PAWN callback 'DCC_OnGuildMemberUpdate'...
+[20:46:09] [INFO] PAWN callback successfully executed.
+[20:46:19] [INFO] executing PAWN callback 'DCC_OnGuildMemberUpdate'...
+[20:46:19] [INFO] PAWN callback successfully executed.
+[20:46:29] [INFO] executing PAWN callback 'DCC_OnGuildMemberUpdate'...
+[20:46:29] [INFO] PAWN callback successfully executed.
+[20:46:49] [INFO] executing PAWN callback 'DCC_OnGuildMemberUpdate'...
+[20:46:49] [INFO] PAWN callback successfully executed.
+[20:46:59] [INFO] executing PAWN callback 'DCC_OnGuildMemberUpdate'...
+[20:46:59] [INFO] PAWN callback successfully executed.
+[20:47:19] [INFO] executing PAWN callback 'DCC_OnGuildMemberUpdate'...
+[20:47:19] [INFO] PAWN callback successfully executed.
+[20:47:39] [INFO] executing PAWN callback 'DCC_OnGuildMemberUpdate'...
+[20:47:39] [INFO] PAWN callback successfully executed.
+[20:47:49] [INFO] executing PAWN callback 'DCC_OnGuildMemberUpdate'...
+[20:47:49] [INFO] PAWN callback successfully executed.
+[20:48:39] [INFO] executing PAWN callback 'DCC_OnGuildMemberUpdate'...
+[20:48:39] [INFO] PAWN callback successfully executed.
+[20:49:19] [INFO] executing PAWN callback 'DCC_OnGuildMemberUpdate'...
+[20:49:19] [INFO] PAWN callback successfully executed.
+[20:49:29] [INFO] executing PAWN callback 'DCC_OnGuildMemberUpdate'...
+[20:49:29] [INFO] PAWN callback successfully executed.
+[20:49:39] [INFO] executing PAWN callback 'DCC_OnGuildMemberUpdate'...
+[20:49:39] [INFO] PAWN callback successfully executed.
+[20:49:49] [INFO] executing PAWN callback 'DCC_OnGuildMemberUpdate'...
+[20:49:49] [INFO] PAWN callback successfully executed.
+[20:49:55] [ERROR] invalid UTF-8 string: [json.exception.type_error.316] invalid UTF-8 byte at index 62: 0xFF
+[20:49:56] [INFO] executing PAWN callback 'DCC_OnGuildMemberUpdate'...
+[20:49:56] [INFO] PAWN callback successfully executed.
+[20:50:12] [INFO] executing PAWN callback 'DCC_OnChannelMessage'...
+[20:50:12] [INFO] PAWN callback successfully executed.
+[20:50:13] [INFO] executing PAWN callback 'DCC_OnChannelMessage'...
+[20:50:13] [INFO] PAWN callback successfully executed.
+[20:50:14] [ERROR] invalid UTF-8 string: [json.exception.type_error.316] invalid UTF-8 byte at index 57: 0xFF
+[20:50:14] [INFO] executing PAWN callback 'DCC_OnGuildMemberUpdate'...
+[20:50:14] [INFO] PAWN callback successfully executed.
+[20:50:20] [INFO] executing PAWN callback 'DCC_OnGuildMemberUpdate'...
+[20:50:20] [INFO] PAWN callback successfully executed.
+[20:50:49] [ERROR] invalid UTF-8 string: [json.exception.type_error.316] invalid UTF-8 byte at index 66: 0xFF
+[20:50:49] [INFO] executing PAWN callback 'DCC_OnGuildMemberUpdate'...
+[20:50:49] [INFO] PAWN callback successfully executed.
+[20:50:54] [INFO] executing PAWN callback 'DCC_OnGuildMemberUpdate'...
+[20:50:54] [INFO] PAWN callback successfully executed.
+[20:50:59] [INFO] executing PAWN callback 'DCC_OnGuildMemberUpdate'...
+[20:50:59] [INFO] PAWN callback successfully executed.
+[20:51:09] [INFO] executing PAWN callback 'DCC_OnGuildMemberUpdate'...
+[20:51:09] [INFO] PAWN callback successfully executed.
+[20:51:59] [INFO] executing PAWN callback 'DCC_OnGuildMemberUpdate'...
+[20:51:59] [INFO] PAWN callback successfully executed.
+[20:52:09] [INFO] executing PAWN callback 'DCC_OnGuildMemberUpdate'...
+[20:52:09] [INFO] PAWN callback successfully executed.
+[20:52:14] [INFO] executing PAWN callback 'DCC_OnGuildMemberUpdate'...
+[20:52:14] [INFO] PAWN callback successfully executed.
+[20:52:19] [INFO] executing PAWN callback 'DCC_OnGuildMemberUpdate'...
+[20:52:19] [INFO] PAWN callback successfully executed.
+[20:52:29] [INFO] executing PAWN callback 'DCC_OnGuildMemberUpdate'...
+[20:52:29] [INFO] PAWN callback successfully executed.
+[20:52:49] [INFO] executing PAWN callback 'DCC_OnGuildMemberUpdate'...
+[20:52:49] [INFO] PAWN callback successfully executed.
+[20:52:59] [INFO] executing PAWN callback 'DCC_OnGuildMemberUpdate'...
+[20:52:59] [INFO] PAWN callback successfully executed.
+[20:53:09] [INFO] executing PAWN callback 'DCC_OnGuildMemberUpdate'...
+[20:53:09] [INFO] PAWN callback successfully executed.
+[20:53:19] [INFO] executing PAWN callback 'DCC_OnGuildMemberUpdate'...
+[20:53:19] [INFO] PAWN callback successfully executed.

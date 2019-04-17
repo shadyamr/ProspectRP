@@ -1,0 +1,316 @@
+/*
+	Project Serranilla Roleplay
+	This file contains house system, created by Shady.
+*/
+
+static Float:hCreateExt[4], Float:hCreateInt[4], hCreateName[40], hCreatePrice, hCreateIntID;
+
+LoadServerHouses()
+{
+	return mysql_pquery(sqlConnection, "SELECT * FROM houses ORDER BY id ASC", "SQL_LoadServerHouses");
+}
+
+Server:SQL_LoadServerHouses()
+{
+	if(cache_num_rows() == 0) return print("[PS:RP] No houses were available to load from the database.");
+	
+	new rows, fields;
+	cache_get_data(rows, fields, sqlConnection);
+	for(new i = 0; i < rows && i < MAX_HOUSES; i++)
+	{
+		HouseData[i+1][HouseID] = cache_get_field_content_int(i, "id", sqlConnection);
+		HouseData[i+1][HouseOwnerSQL] = cache_get_field_content_int(i, "OwnerSQL", sqlConnection);
+		cache_get_field_content(i, "Name", HouseData[i+1][HouseName], sqlConnection, 40);
+		HouseData[i+1][HouseExterior][0] = cache_get_field_content_float(i, "ExtX", sqlConnection);
+		HouseData[i+1][HouseExterior][1] = cache_get_field_content_float(i, "ExtY", sqlConnection);
+		HouseData[i+1][HouseExterior][2] = cache_get_field_content_float(i, "ExtZ", sqlConnection);
+		HouseData[i+1][HouseExterior][3] = cache_get_field_content_float(i, "ExtA", sqlConnection);
+		HouseData[i+1][HouseInterior][0] = cache_get_field_content_float(i, "IntX", sqlConnection);
+		HouseData[i+1][HouseInterior][1] = cache_get_field_content_float(i, "IntY", sqlConnection);
+		HouseData[i+1][HouseInterior][2] = cache_get_field_content_float(i, "IntZ", sqlConnection);
+		HouseData[i+1][HouseInterior][3] = cache_get_field_content_float(i, "IntA", sqlConnection);
+		HouseData[i+1][HouseInteriorID] = cache_get_field_content_int(i, "IntID", sqlConnection);
+		HouseData[i+1][HousePrice] = cache_get_field_content_int(i, "Price", sqlConnection);
+		HouseData[i+1][HouseLocked] = cache_get_field_content_int(i, "Locked", sqlConnection);
+		TotalHousesCreated++;
+	}
+	CreateServerHouseData();
+	if(_:logchannel == 0) logchannel = DCC_FindChannelById("545641478064701440");
+    format(dstr, sizeof(dstr), "PSRP Local: %i houses has been loaded from the database. (%s)", TotalHousesCreated, GetDate());
+	DCC_SendChannelMessage(logchannel, dstr);
+	printf("PSRP Local: %i houses has been loaded from the database.", TotalHousesCreated);
+	return true;
+}
+
+CreateServerHouseData()
+{
+	for(new i = 0; i < MAX_HOUSES; i++)
+	{
+		if(HouseData[i][HouseID] != 0)
+		{
+			HouseData[i][HousePickup] = CreatePickup(1273, 1, HouseData[i][HouseExterior][0], HouseData[i][HouseExterior][1], HouseData[i][HouseExterior][2], 0);
+			HouseData[i][HouseLabel] = Create3DTextLabel(HouseData[i][HouseName], 0xFFFFFFFF, HouseData[i][HouseExterior][0], HouseData[i][HouseExterior][1], HouseData[i][HouseExterior][2], 10.0, 0, 0); // should be 1 (last digit) on public
+		}
+	}
+	return true;
+}
+
+Server:SaveHouseToDatabase(playerid)
+{
+	new interior = hCreateIntID, price = hCreatePrice, name[40], Float:ext[4], Float:int[4], query[500];
+	format(name, sizeof(name), hCreateName);
+	ext[0] = hCreateExt[0];
+	ext[1] = hCreateExt[1];
+	ext[2] = hCreateExt[2];
+	ext[3] = hCreateExt[3];
+
+	int[0] = hCreateInt[0];
+	int[1] = hCreateInt[1];
+	int[2] = hCreateInt[2];
+	int[3] = hCreateInt[3];
+
+	mysql_format(sqlConnection, query, sizeof(query), "INSERT INTO houses (`OwnerSQL`, `Name`, `ExtX`, `ExtY`, `ExtZ`, `ExtA`, `IntX`, `IntY`, `IntZ`, `IntA`, `IntID`, `Price`) VALUES(0, '%e', %f, %f, %f, %f, %f, %f, %f, %f, %i, %i)", name, ext[0], ext[1], ext[2], ext[3], int[0], int[1], int[2], int[3], interior, price);
+	mysql_pquery(sqlConnection, query, "SQL_SaveHouseToDB", "i", playerid);
+	return true;
+}
+
+Server:SQL_SaveHouseToDB(playerid)
+{
+	TotalHousesCreated++;
+	new interior = hCreateIntID, price = hCreatePrice, name[40], Float:ext[4], Float:int[4], i = TotalHousesCreated;
+	format(name, sizeof(name), hCreateName);
+	ext[0] = hCreateExt[0];
+	ext[1] = hCreateExt[1];
+	ext[2] = hCreateExt[2];
+	ext[3] = hCreateExt[3];
+
+	int[0] = hCreateInt[0];
+	int[1] = hCreateInt[1];
+	int[2] = hCreateInt[2];
+	int[3] = hCreateInt[3];
+
+	HouseData[i][HouseID] = cache_insert_id();
+	HouseData[i][HouseOwnerSQL] = 0;
+	format(HouseData[i][HouseName], 40, name);
+	HouseData[i][HouseExterior][0] = ext[0];
+	HouseData[i][HouseExterior][1] = ext[1];
+	HouseData[i][HouseExterior][2] = ext[2];
+	HouseData[i][HouseExterior][3] = ext[3];
+	HouseData[i][HouseInterior][0] = int[0];
+	HouseData[i][HouseInterior][1] = int[1];
+	HouseData[i][HouseInterior][2] = int[2];
+	HouseData[i][HouseInterior][3] = int[3];
+	HouseData[i][HouseInteriorID] = interior;
+	HouseData[i][HousePrice] = price;
+	HouseData[i][HouseLocked] = 0;
+
+	new hstring[500];
+	printf("PSRP Local: House ID %i created by %s.", cache_insert_id(), GetName(playerid));
+	if(_:logchannel == 0) logchannel = DCC_FindChannelById("545641478064701440");
+    format(dstr, sizeof(dstr), "PSRP Local: House ID %i created by %s. (%s)", cache_insert_id(), GetName(playerid), GetDate());
+	DCC_SendChannelMessage(logchannel, dstr);
+	format(hstring, sizeof(hstring), "[SERVER]:{FFFFFF} House ID %i (SQL ID: %i) created: name (%s) - price ($%d)", i, cache_insert_id(), name, price);
+	SendClientMessage(playerid, COLOR_LIGHTRED, hstring);
+
+	HouseData[i][HousePickup] = CreatePickup(1273, 1, HouseData[i][HouseExterior][0], HouseData[i][HouseExterior][1], HouseData[i][HouseExterior][2], 0);
+	HouseData[i][HouseLabel] = Create3DTextLabel(HouseData[i][HouseName], 0xFFFFFFFF, HouseData[i][HouseExterior][0], HouseData[i][HouseExterior][1], HouseData[i][HouseExterior][2], 10.0, 0, 0);
+
+	hCreateIntID = 0;
+	hCreatePrice = 0;
+	hCreateName = "None";
+	for(new j = 0; j < 4; j++)
+	{
+		hCreateInt[j] = 0.0;
+		hCreateExt[j] = 0.0;
+	}
+	return true;
+}
+
+DeleteHouse(houseid)
+{
+    DestroyDynamic3DTextLabel(HouseData[houseid][HouseLabel]);
+	HouseData[houseid][HouseLabel] = Text3D:INVALID_3DTEXT_ID;
+	HouseData[houseid][HouseID] = 0;
+	HouseData[houseid][HouseOwnerSQL] = -1;
+	HouseData[houseid][HouseExterior][0] = 0;
+	HouseData[houseid][HouseExterior][1] = 0;
+	HouseData[houseid][HouseExterior][2] = 0;
+	HouseData[houseid][HouseExterior][3] = 0;
+	HouseData[houseid][HouseInterior][0] = 0;
+	HouseData[houseid][HouseInterior][1] = 0;
+	HouseData[houseid][HouseInterior][2] = 0;
+	HouseData[houseid][HouseInterior][3] = 0;
+	HouseData[houseid][HouseInteriorID] = 0;
+	HouseData[houseid][HousePrice] = 0;
+	HouseData[houseid][HouseLocked] = 0;
+	strdel(HouseData[houseid][HouseName], 0, strlen(HouseData[houseid][HouseName]));
+	strins(HouseData[houseid][HouseName], "House", 0);
+	if(HouseData[houseid][HousePickup])
+	{
+		DestroyDynamicPickup(HouseData[houseid][HousePickup]);
+	}
+	return true;
+}
+
+CMD:createhouse(playerid, params[])
+{
+	if(PlayerData[playerid][pAdminLevel] < 2) return SendUnauthorizedMsg(playerid);
+
+	new section[10], extra[40], string[100];
+	if(sscanf(params, "s[10]S('None')[40]", section, extra)) return SendUsageMessage(playerid, "/createhouse [exterior/interior/name/price/complete]");
+	{
+		if(strmatch(section, "exterior"))
+		{
+			GetPlayerPos(playerid, hCreateExt[0], hCreateExt[1], hCreateExt[2]);
+			GetPlayerFacingAngle(playerid, hCreateExt[3]);
+			SendSuccessMessage(playerid, "Exterior position has been set successfully.");
+		}
+		else if(strmatch(section, "interior"))
+		{
+			hCreateIntID = GetPlayerInterior(playerid);
+			GetPlayerPos(playerid, hCreateInt[0], hCreateInt[1], hCreateInt[2]);
+			GetPlayerFacingAngle(playerid, hCreateInt[3]);
+			SendSuccessMessage(playerid, "Interior position has been set successfully.");
+		}
+		else if(strmatch(section, "name"))
+		{
+			if(strmatch(extra, "None")) return SendUsageMessage(playerid, "/createhouse name [name]");
+			if(strlen(extra) > 39 || strlen(extra) < 3) return SendErrorMessage(playerid, "Name length must be between 3 and 39 characters long.");
+			hCreateName = extra;
+			format(string, sizeof(string), "[SUCCESS]:{FFFFFF} Name has been set successfully to %s", extra);
+			SendClientMessage(playerid, COLOR_GREEN, string);
+		}
+		else if(strmatch(section, "price"))
+		{
+			if(strmatch(extra, "None")) return SendUsageMessage(playerid, "/createhouse price [price]");
+			if(strval(extra) < 1) return SendErrorMessage(playerid, "Price must be above $1.");
+			hCreatePrice = strval(extra);
+			format(string, sizeof(string), "[SUCCESS]:{FFFFFF} Price has been set successfully to $%d", strval(extra));
+			SendClientMessage(playerid, COLOR_GREEN, string);
+		}
+		else if(strmatch(section, "complete"))
+		{
+			if(hCreatePrice == 0) return true;
+			if(strmatch(hCreateName, "None")) return true;
+			SetPlayerPos(playerid, hCreateExt[0], hCreateExt[1], hCreateExt[2]);
+			SetPlayerFacingAngle(playerid, hCreateExt[3]);
+			SetPlayerVirtualWorld(playerid, 0);
+			SetPlayerInterior(playerid, 0);
+			SaveHouseToDatabase(playerid);
+		}
+	}
+	return true;
+}
+
+CMD:deletehouse(playerid, params[])
+{
+	if(PlayerData[playerid][pAdminLevel] >= 2)
+	{
+		new str[128], delQuery[128], houseid;
+		if(sscanf(params, "ds[128]", houseid, str))
+		{
+			SendUsageMessage(playerid, "/deletehouse [houseid] [confirm]");
+			return true;
+		}
+		if(strcmp(str, "confirm", true) == 0)
+		{
+			mysql_format(sqlConnection, delQuery, sizeof(delQuery), "DELETE FROM houses WHERE id = %d", houseid);
+			mysql_tquery(sqlConnection, delQuery);
+			format(str, sizeof(str), "[SERVER]:{FFFFFF} You've successfully deleted House ID: %i.", houseid);
+			SendClientMessage(playerid, COLOR_LIGHTRED, str);
+			DeleteHouse(houseid);
+		}
+		else
+		{
+			SendUsageMessage(playerid, "/deletehouse [houseid] [confirm]");
+			format(str, sizeof(str), "[SERVER]:{FFFFFF} Are you sure you want to delete House ID: %d?", houseid);
+			SendClientMessage(playerid, COLOR_LIGHTRED, str);
+			return true;
+		}
+	}
+	else return SendUnauthorizedMsg(playerid);
+	return true;
+}
+
+/*CMD:deletehouse(playerid, params[])
+{
+   	new str[128], delQuery[128], value;
+	if(PlayerData[playerid][pAdminLevel] < 2) return SendUnauthorizedMsg(playerid);
+    if(sscanf(params, "i", value)) return SendUsageMessage(playerid, "/deletehouse [house ID]");
+	if(value < 0) return SendErrorMessage(playerid, "House ID must be greater than one.");
+	mysql_format(sqlConnection, delQuery, sizeof(delQuery), "DELETE FROM houses WHERE id = %i", value);
+	mysql_tquery(sqlConnection, delQuery);
+	format(str, sizeof(str), "[SERVER]:{FFFFFF} You've successfully deleted House ID: %i.", value);
+	SendClientMessage(playerid, COLOR_GREEN, str);
+	return true;
+}*/
+
+CMD:buyhouse(playerid, params[])
+{
+	if(!LoggedIn[playerid]) return true;
+	if(CountPlayerHouses(playerid) != 0) return SendErrorMessage(playerid, "You already own a house.");
+	new houseid = 0;
+	for(new i = 0; i < MAX_HOUSES; i++)
+	{
+		if(HouseData[i][HouseID] != 0)
+		{
+			if(IsPlayerInRangeOfPoint(playerid, 5.0, HouseData[i][HouseExterior][0], HouseData[i][HouseExterior][1], HouseData[i][HouseExterior][2]))
+			{
+				houseid = i;
+			}
+		}
+	}
+	if(houseid == 0) return SendErrorMessage(playerid, "You aren't near to a house that you can buy.");
+	if(HouseData[houseid][HouseOwnerSQL] != 0) return SendErrorMessage(playerid, "That house is already owned by someone else.");
+	if(PlayerData[playerid][pMoney] < HouseData[houseid][HousePrice]) return SendErrorMessage(playerid, "You cannot afford this house.");
+
+	new string[128];
+	format(string, sizeof(string), "[SUCCESS]:{FFFFFF} You have successfully purchased '%s' for $%d!", HouseData[houseid][HouseName], HouseData[houseid][HousePrice]);
+	SendClientMessage(playerid, COLOR_GREEN, string);
+	GiveCash(playerid, -HouseData[houseid][HousePrice]);
+	HouseData[houseid][HouseOwnerSQL] = PlayerData[playerid][pSQLID];
+	SaveSQLInt(HouseData[houseid][HouseID], "houses", "OwnerSQL", HouseData[houseid][HouseOwnerSQL]);
+	return true;
+}
+
+CMD:lockhouse(playerid, params[])
+{
+	if(!LoggedIn[playerid]) return true;
+	if(CountPlayerHouses(playerid) == 0) return SendErrorMessage(playerid, "You do not own any houses.");
+	if(GetNearestHouseID(playerid) == 0) return SendErrorMessage(playerid, "You're not near to any houses.");
+
+	new string[256], roleplay[60], id = GetNearestHouseID(playerid);
+
+	if(HouseData[id][HouseOwnerSQL] != PlayerData[playerid][pSQLID]) return SendErrorMessage(playerid, "You do not own this house.");
+	if(HouseData[id][HouseLocked] == 1) return SendErrorMessage(playerid, "This house is already locked.");
+
+	HouseData[id][HouseLocked] = 1;
+	SaveSQLInt(HouseData[id][HouseID], "houses", "Locked", 1);
+
+	format(string, sizeof(string), "You have {8B0000}locked{FFFFFF} your house (%s).", HouseData[id][HouseName]);
+	SendClientMessage(playerid, COLOR_WHITE, string);
+	format(roleplay, sizeof(roleplay), "locks the door of %s house.", GetPGender(playerid));
+	cmd_me(playerid, roleplay);
+	return true;
+}
+
+CMD:unlockhouse(playerid, params[])
+{
+	if(!LoggedIn[playerid]) return true;
+	if(CountPlayerHouses(playerid) == 0) return SendErrorMessage(playerid, "You do not own any houses.");
+	if(GetNearestHouseID(playerid) == 0) return SendErrorMessage(playerid, "You're not near to any houses.");
+
+	new string[256], roleplay[60], id = GetNearestHouseID(playerid);
+
+	if(HouseData[id][HouseOwnerSQL] != PlayerData[playerid][pSQLID]) return SendErrorMessage(playerid, "You do not own this house.");
+	if(HouseData[id][HouseLocked] == 0) return SendErrorMessage(playerid, "This house is already unlocked.");
+
+	HouseData[id][HouseLocked] = 0;
+	SaveSQLInt(HouseData[id][HouseID], "houses", "Locked", 0);
+
+	format(string, sizeof(string), "You have {4BB74C}unlocked{FFFFFF} your house (%s).", HouseData[id][HouseName]);
+	SendClientMessage(playerid, COLOR_WHITE, string);
+	format(roleplay, sizeof(roleplay), "unlocks the door of %s house.", GetPGender(playerid));
+	cmd_me(playerid, roleplay);
+	return true;
+}

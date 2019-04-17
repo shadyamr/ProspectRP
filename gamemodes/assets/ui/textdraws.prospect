@@ -1,0 +1,180 @@
+/*
+	Prospect Roleplay
+	This file contains textdraws, created by Shady.
+*/
+
+createLogRegTextdraw()
+{
+	background_topslide = TextDrawCreate(1.000000, 1.000000, "_");
+	TextDrawBackgroundColor(background_topslide, 255);
+	TextDrawFont(background_topslide, 1);
+	TextDrawLetterSize(background_topslide, 0.500000, 4.899999);
+	TextDrawColor(background_topslide, -1);
+	TextDrawSetOutline(background_topslide, 0);
+	TextDrawSetProportional(background_topslide, 1);
+	TextDrawSetShadow(background_topslide, 1);
+	TextDrawUseBox(background_topslide, 1);
+	TextDrawBoxColor(background_topslide, 255);
+	TextDrawTextSize(background_topslide, 639.000000, 0.000000);
+	TextDrawSetSelectable(background_topslide, 0);
+	
+	background_topslide_shadow = TextDrawCreate(1.000000, 48.000000, "_");
+	TextDrawBackgroundColor(background_topslide_shadow, 255);
+	TextDrawFont(background_topslide_shadow, 1);
+	TextDrawLetterSize(background_topslide_shadow, 0.500000, 0.400000);
+	TextDrawColor(background_topslide_shadow, -1);
+	TextDrawSetOutline(background_topslide_shadow, 0);
+	TextDrawSetProportional(background_topslide_shadow, 1);
+	TextDrawSetShadow(background_topslide_shadow, 1);
+	TextDrawUseBox(background_topslide_shadow, 1);
+	TextDrawBoxColor(background_topslide_shadow, 50);
+	TextDrawTextSize(background_topslide_shadow, 639.000000, -1.000000);
+	TextDrawSetSelectable(background_topslide_shadow, 0);
+	
+	background_bottomslide = TextDrawCreate(1.000000, 403.000000, "_");
+	TextDrawBackgroundColor(background_bottomslide, 255);
+	TextDrawFont(background_bottomslide, 1);
+	TextDrawLetterSize(background_bottomslide, 0.500000, 4.899999);
+	TextDrawColor(background_bottomslide, -1);
+	TextDrawSetOutline(background_bottomslide, 0);
+	TextDrawSetProportional(background_bottomslide, 1);
+	TextDrawSetShadow(background_bottomslide, 1);
+	TextDrawUseBox(background_bottomslide, 1);
+	TextDrawBoxColor(background_bottomslide, 255);
+	TextDrawTextSize(background_bottomslide, 639.000000, 0.000000);
+	TextDrawSetSelectable(background_bottomslide, 0);
+	
+	background_bottomslide_shadow = TextDrawCreate(1.000000, 396.000000, "_");
+	TextDrawBackgroundColor(background_bottomslide_shadow, 255);
+	TextDrawFont(background_bottomslide_shadow, 1);
+	TextDrawLetterSize(background_bottomslide_shadow, 0.500000, 0.400000);
+	TextDrawColor(background_bottomslide_shadow, -1);
+	TextDrawSetOutline(background_bottomslide_shadow, 0);
+	TextDrawSetProportional(background_bottomslide_shadow, 1);
+	TextDrawSetShadow(background_bottomslide_shadow, 1);
+	TextDrawUseBox(background_bottomslide_shadow, 1);
+	TextDrawBoxColor(background_bottomslide_shadow, 50);
+	TextDrawTextSize(background_bottomslide_shadow, 639.000000, -1.000000);
+	TextDrawSetSelectable(background_bottomslide_shadow, 0);
+
+	new Float: xoffset = 311.0;
+	new Float: yoffset = 35.0;
+	
+	prospect_iconbg_shadow = TextDrawCreate(219.000000 + xoffset, 324.000000 + yoffset, "_");
+	TextDrawBackgroundColor(prospect_iconbg_shadow, 255);
+	TextDrawFont(prospect_iconbg_shadow, 1);
+	TextDrawLetterSize(prospect_iconbg_shadow, 0.219999, 1.200000);
+	TextDrawColor(prospect_iconbg_shadow, -1);
+	TextDrawSetOutline(prospect_iconbg_shadow, 0);
+	TextDrawSetProportional(prospect_iconbg_shadow, 1);
+	TextDrawSetShadow(prospect_iconbg_shadow, 1);
+	TextDrawUseBox(prospect_iconbg_shadow, 1);
+	TextDrawBoxColor(prospect_iconbg_shadow, 50);
+	TextDrawTextSize(prospect_iconbg_shadow, 228.000000 + xoffset, 0.000000);
+	TextDrawSetSelectable(prospect_iconbg_shadow, 0);
+	
+	prospect_txtbg_shadow = TextDrawCreate(230.000000 + xoffset, 324.000000 + yoffset, "_");
+	TextDrawBackgroundColor(prospect_txtbg_shadow, 255);
+	TextDrawFont(prospect_txtbg_shadow, 1);
+	TextDrawLetterSize(prospect_txtbg_shadow, 0.219999, 1.200000);
+	TextDrawColor(prospect_txtbg_shadow, -1);
+	TextDrawSetOutline(prospect_txtbg_shadow, 0);
+	TextDrawSetProportional(prospect_txtbg_shadow, 1);
+	TextDrawSetShadow(prospect_txtbg_shadow, 1);
+	TextDrawUseBox(prospect_txtbg_shadow, 1);
+	TextDrawBoxColor(prospect_txtbg_shadow, 50);
+	TextDrawTextSize(prospect_txtbg_shadow, 321.000000 + xoffset, 0.000000);
+	TextDrawSetSelectable(prospect_txtbg_shadow, 0);
+	
+	prospect_iconbg = TextDrawCreate(220.000000 + xoffset, 325.000000 + yoffset, "_");
+	TextDrawBackgroundColor(prospect_iconbg, 255);
+	TextDrawFont(prospect_iconbg, 1);
+	TextDrawLetterSize(prospect_iconbg, 0.219999, 1.000000);
+	TextDrawColor(prospect_iconbg, 200);
+	TextDrawSetOutline(prospect_iconbg, 0);
+	TextDrawSetProportional(prospect_iconbg, 1);
+	TextDrawSetShadow(prospect_iconbg, 1);
+	TextDrawUseBox(prospect_iconbg, 1);
+	TextDrawBoxColor(prospect_iconbg, 1684300950);
+	TextDrawTextSize(prospect_iconbg, 227.000000 + xoffset, 0.000000);
+	TextDrawSetSelectable(prospect_iconbg, 0);
+	
+	prospect_icon = TextDrawCreate(220.000000 + xoffset, 324.000000 + yoffset, "LD_BEAT:upl");
+	TextDrawAlignment(prospect_icon, 2);
+	TextDrawBackgroundColor(prospect_icon, 255);
+	TextDrawFont(prospect_icon, 4);
+	TextDrawLetterSize(prospect_icon, 0.000000, 0.000000);
+	TextDrawColor(prospect_icon, -1);
+	TextDrawSetOutline(prospect_icon, 0);
+	TextDrawSetProportional(prospect_icon, 1);
+	TextDrawSetShadow(prospect_icon, 1);
+	TextDrawUseBox(prospect_icon, 1);
+	TextDrawBoxColor(prospect_icon, 995727615);
+	TextDrawTextSize(prospect_icon, 8.000000, 11.000000);
+	TextDrawSetSelectable(prospect_icon, 0);
+	
+	prospect_txt = TextDrawCreate(231.000000 + xoffset, 325.000000 + yoffset, "prospectrp.com");
+	TextDrawBackgroundColor(prospect_txt, 255);
+	TextDrawFont(prospect_txt, 1);
+	TextDrawLetterSize(prospect_txt, 0.209998, 1.000000);
+	TextDrawColor(prospect_txt, -1);
+	TextDrawSetOutline(prospect_txt, 0);
+	TextDrawSetProportional(prospect_txt, 1);
+	TextDrawSetShadow(prospect_txt, 0);
+	TextDrawUseBox(prospect_txt, 1);
+	TextDrawBoxColor(prospect_txt, 1684300950);
+	TextDrawTextSize(prospect_txt, 320.000000 + xoffset, 4.000000);
+	TextDrawSetSelectable(prospect_txt, 0);
+}
+
+hideLogRegTextdraw(playerid)
+{
+	TextDrawHideForPlayer(playerid, background_topslide);
+	TextDrawHideForPlayer(playerid, background_topslide_shadow);
+	TextDrawHideForPlayer(playerid, background_bottomslide);
+	TextDrawHideForPlayer(playerid, background_bottomslide_shadow);
+	
+	TextDrawHideForPlayer(playerid, prospect_iconbg_shadow);
+	TextDrawHideForPlayer(playerid, prospect_txtbg_shadow);
+	TextDrawHideForPlayer(playerid, prospect_iconbg);
+	TextDrawHideForPlayer(playerid, prospect_icon);
+	TextDrawHideForPlayer(playerid, prospect_txt);
+}
+
+showLogRegTextdraw(playerid)
+{
+	TextDrawShowForPlayer(playerid, background_topslide);
+	TextDrawShowForPlayer(playerid, background_topslide_shadow);
+	TextDrawShowForPlayer(playerid, background_bottomslide);
+	TextDrawShowForPlayer(playerid, background_bottomslide_shadow);
+	
+	TextDrawShowForPlayer(playerid, prospect_iconbg_shadow);
+	TextDrawShowForPlayer(playerid, prospect_txtbg_shadow);
+	TextDrawShowForPlayer(playerid, prospect_iconbg);
+	TextDrawShowForPlayer(playerid, prospect_icon);
+	TextDrawShowForPlayer(playerid, prospect_txt);
+}
+
+destroyLogRegTextdraw()
+{
+	TextDrawHideForAll(background_topslide);
+	TextDrawHideForAll(background_topslide_shadow);
+	TextDrawHideForAll(background_bottomslide);
+	TextDrawHideForAll(background_bottomslide_shadow);
+	TextDrawDestroy(background_topslide);
+	TextDrawDestroy(background_topslide_shadow);
+	TextDrawDestroy(background_bottomslide);
+	TextDrawDestroy(background_bottomslide_shadow);
+	
+	TextDrawHideForAll(prospect_iconbg_shadow);
+	TextDrawHideForAll(prospect_txtbg_shadow);
+	TextDrawHideForAll(prospect_iconbg);
+	TextDrawHideForAll(prospect_icon);
+	TextDrawHideForAll(prospect_txt);
+	
+	TextDrawDestroy(prospect_iconbg_shadow);
+	TextDrawDestroy(prospect_txtbg_shadow);
+	TextDrawDestroy(prospect_iconbg);
+	TextDrawDestroy(prospect_icon);
+	TextDrawDestroy(prospect_txt);
+}

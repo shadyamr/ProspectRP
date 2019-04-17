@@ -133,12 +133,6 @@ hideLogRegTextdraw(playerid)
 	TextDrawHideForPlayer(playerid, background_topslide_shadow);
 	TextDrawHideForPlayer(playerid, background_bottomslide);
 	TextDrawHideForPlayer(playerid, background_bottomslide_shadow);
-
-	TextDrawHideForPlayer(playerid, facebook_iconbg_shadow);
-	TextDrawHideForPlayer(playerid, facebook_txtbg_shadow);
-	TextDrawHideForPlayer(playerid, facebook_iconbg);
-	TextDrawHideForPlayer(playerid, facebook_icon);
-	TextDrawHideForPlayer(playerid, facebook_txt);
 	
 	TextDrawHideForPlayer(playerid, nyrp_iconbg_shadow);
 	TextDrawHideForPlayer(playerid, nyrp_txtbg_shadow);
@@ -153,12 +147,6 @@ showLogRegTextdraw(playerid)
 	TextDrawShowForPlayer(playerid, background_topslide_shadow);
 	TextDrawShowForPlayer(playerid, background_bottomslide);
 	TextDrawShowForPlayer(playerid, background_bottomslide_shadow);
-
-	TextDrawShowForPlayer(playerid, facebook_iconbg_shadow);
-	TextDrawShowForPlayer(playerid, facebook_txtbg_shadow);
-	TextDrawShowForPlayer(playerid, facebook_iconbg);
-	TextDrawShowForPlayer(playerid, facebook_icon);
-	TextDrawShowForPlayer(playerid, facebook_txt);
 	
 	TextDrawShowForPlayer(playerid, nyrp_iconbg_shadow);
 	TextDrawShowForPlayer(playerid, nyrp_txtbg_shadow);
@@ -177,18 +165,6 @@ destroyLogRegTextdraw()
 	TextDrawDestroy(background_topslide_shadow);
 	TextDrawDestroy(background_bottomslide);
 	TextDrawDestroy(background_bottomslide_shadow);
-
-	TextDrawHideForAll(facebook_iconbg_shadow);
-	TextDrawHideForAll(facebook_txtbg_shadow);
-	TextDrawHideForAll(facebook_iconbg);
-	TextDrawHideForAll(facebook_icon);
-	TextDrawHideForAll(facebook_txt);
-	
-	TextDrawDestroy(facebook_iconbg_shadow);
-	TextDrawDestroy(facebook_txtbg_shadow);
-	TextDrawDestroy(facebook_iconbg);
-	TextDrawDestroy(facebook_icon);
-	TextDrawDestroy(facebook_txt);
 	
 	TextDrawHideForAll(nyrp_iconbg_shadow);
 	TextDrawHideForAll(nyrp_txtbg_shadow);

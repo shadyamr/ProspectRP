@@ -1,0 +1,88 @@
+CMD:stats(playerid, params[])
+{
+	new playerb;
+	if(PlayerData[playerid][pAdminLevel])
+	{
+		if (sscanf(params, "I(-1)", playerb)) return true;
+		if(playerb == -1)
+		{
+			return ShowStats(playerid, playerid);
+		}
+		else
+		{
+			if(!IsPlayerConnected(playerb)) return SendErrorMessage(playerid, "The player you specified isn't connected.");
+			if(!LoggedIn[playerid]) return SendErrorMessage(playerid, "The player you specified isn't logged in.");
+			ShowStats(playerb, playerid);
+		}
+	}
+	else return ShowStats(playerid, playerid);
+	return true;
+}
+
+CMD:buylevel(playerid, params[])
+{
+	if(!LoggedIn[playerid]) return true;
+	new curLevel = PlayerData[playerid][pLevel], curRespect = PlayerData[playerid][pRespect], needed = 0, string[128];
+
+	needed = (curLevel * 5);
+	if(curRespect < needed) return SendErrorMessage(playerid, "You do not have enough respect points in order to level up.");
+	
+	PlayerData[playerid][pLevel] ++;
+	PlayerData[playerid][pRespect] -= needed;
+
+	PlayerPlaySound(playerid, 1052, 0.0, 0.0, 0.0);
+	SaveSQLInt(PlayerData[playerid][pSQLID], "players", "Level", PlayerData[playerid][pLevel]);
+	SaveSQLInt(PlayerData[playerid][pSQLID], "players", "Respect", PlayerData[playerid][pRespect]);
+	SetPlayerScore(playerid, PlayerData[playerid][pLevel]);
+
+	format(string, sizeof(string), "[SUCCESS]:{FFFFFF} You have levelled up to level %d [Respect Points Left: %d]", PlayerData[playerid][pLevel], PlayerData[playerid][pRespect]);
+	SendClientMessage(playerid, COLOR_GREEN, string);
+	return true;
+}
+
+CMD:changepass(playerid, params[]) return cmd_changepassword(playerid, params);
+CMD:changepassword(playerid, params[])
+{
+	if(!LoggedIn[playerid]) return true;
+	ShowChangePassDialog(playerid);
+    return true;
+}
+
+CMD:changeage(playerid, params[])
+{
+   	new str[128], value;
+   	if(!LoggedIn[playerid]) return true;
+    if(sscanf(params, "i", value)) return SendUsageMessage(playerid, "/changeage [age]");
+	if(value < 18 || value > 61) return SendErrorMessage(playerid, "Age must be above 18 OR below 61.");
+	PlayerData[playerid][pAge] = value;
+	SaveSQLInt(PlayerData[playerid][pSQLID], "players", "Age", PlayerData[playerid][pAge]);
+	format(str, sizeof(str), "[SUCCESS]:{FFFFFF} You've successfully changed your age to %d.", value);
+	SendClientMessage(playerid, COLOR_GREEN, str);
+	return true;
+}
+
+CMD:changesex(playerid, params[])
+{
+	new str[128], option[10];
+    if(!LoggedIn[playerid]) return true;
+	if(sscanf(params, "s[10]", option)) return SendUsageMessage(playerid, "/changesex [male or female]");
+    if(isnull(params)) return SendErrorMessage(playerid, "Gender must be either Male OR Female.");
+	if(!strcmp(option, "male", true))
+	{
+		if(PlayerData[playerid][pSex] == 1) return SendErrorMessage(playerid, "Your gender is already set to Male.");
+        PlayerData[playerid][pSex] = 1;
+		SaveSQLInt(PlayerData[playerid][pSQLID], "players", "Gender", PlayerData[playerid][pSex]);
+		format(str, sizeof(str), "[SUCCESS]:{FFFFFF} You've successfully changed your gender to Male.");
+		SendClientMessage(playerid, COLOR_GREEN, str);
+	}
+	if(!strcmp(option, "female", true))
+	{
+		if(PlayerData[playerid][pSex] == 2) return SendErrorMessage(playerid, "Your gender is already set to Female.");
+        PlayerData[playerid][pSex] = 2;
+		SaveSQLInt(PlayerData[playerid][pSQLID], "players", "Gender", PlayerData[playerid][pSex]);
+		format(str, sizeof(str), "[SUCCESS]:{FFFFFF} You've successfully changed your gender to Female.");
+		SendClientMessage(playerid, COLOR_GREEN, str);
+	}
+	else return SendUsageMessage(playerid, "/changesex [male or female]");
+	return true;
+}

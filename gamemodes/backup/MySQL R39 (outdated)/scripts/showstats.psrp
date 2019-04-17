@@ -1,0 +1,40 @@
+/*
+	Project Serranilla Roleplay
+	This file contains show statistics dialog, created by Shady.
+*/
+
+Server:ShowStats(playerid, playerb)
+{
+	new string[1000], sex[20],admin[5], tester[5], helper[5], donator[5], interior = GetPlayerInterior(playerid), vworld = GetPlayerVirtualWorld(playerid), Float:x, Float:y, Float:z, Float:hp, Float:armor;
+	GetPlayerPos(playerid, x, y, z);
+
+	if(PlayerData[playerid][pSex] == 1) sex = "Male";
+	else if(PlayerData[playerid][pSex] == 2) sex = "Female";
+	else sex = "Unknown";
+
+	if(PlayerData[playerid][pAdminLevel] >= 1) admin = "Yes";
+	else if(PlayerData[playerid][pAdminLevel] == 0) admin = "No";
+
+	if(PlayerData[playerid][pTester] >= 1) tester = "Yes";
+	else if(PlayerData[playerid][pTester] == 0) tester = "No";
+
+	if(PlayerData[playerid][pHelper] >= 1) helper = "Yes";
+	else if(PlayerData[playerid][pHelper] == 0) helper = "No";
+
+	if(PlayerData[playerid][pDonator] >= 1) donator = "Yes";
+	else if(PlayerData[playerid][pDonator] == 0) donator = "No";
+
+	format(string, sizeof(string), "Account Statistics: %s [As of %s]", NameRP(playerid), GetDate());
+	SendClientMessageEx(playerb, COLOR_STATS, string);
+	format(string, sizeof(string), "[Account]:{FFFFFF} SQL ID: %d | Level: %d | Respect Points: %d/%d | Registration Date: %s", PlayerData[playerid][pSQLID], PlayerData[playerid][pLevel], PlayerData[playerid][pRespect], ((PlayerData[playerid][pLevel] * 5)), PlayerData[playerid][pRegisterDate]);
+	SendClientMessageEx(playerb, COLOR_STATS2, string);
+	format(string, sizeof(string), "[Character]:{FFFFFF} Gender: %s | Age: %d | Cash: $%d | Bank: $0 | Job: Unemployed", sex, PlayerData[playerid][pAge], PlayerData[playerid][pMoney]);
+	SendClientMessageEx(playerb, COLOR_STATS2, string);
+	format(string, sizeof(string), "[Position]{FFFFFF}: Coordinates: %f, %f, %f | Interior: %d | World: %d", x, y, z, interior, vworld);
+	SendClientMessageEx(playerb, COLOR_STATS2, string);
+	format(string, sizeof(string), "[Status]:{FFFFFF} Administrator: %s | Helper: %s | Tester: %s | Donator: %s", admin, helper, tester, donator);
+	SendClientMessageEx(playerb, COLOR_STATS2, string);
+	format(string, sizeof(string), "[Other]:{FFFFFF} Skin: %d | Health: %0.2f | Armour: %0.2f", GetPlayerSkin(playerid), GetPlayerHealth(playerid, hp), GetPlayerArmour(playerid, armor));
+	SendClientMessageEx(playerb, COLOR_STATS2, string);
+	return true;
+}

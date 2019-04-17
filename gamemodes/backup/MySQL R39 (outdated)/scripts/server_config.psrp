@@ -1,0 +1,14 @@
+/*
+	Project Serranilla Roleplay
+	This file contains server configuration, created by Shady.
+*/
+
+#define 	SVR_NAME		"Project Serranilla Roleplay - Beta Server (0.3.DL)"
+#define 	SVR_RCON		"ShadyBigBoss"
+#define 	SVR_GMTEXT		"PS:RP "SVR_VERSION""
+#define 	SVR_VERSION		"0.2x" 		/*	z - minor bug fixes || y - small updates/new features || x - big new features */
+#define 	SVR_WEBSITE		"shadyamr.github.io"
+#define 	SVR_LOCATION	"-"
+#define 	SVR_LANGUAGE	"English"
+#define 	SVR_PASSWORD	"a7a" 		// USED DURING BETA PHASE OR MAINTENANCE.
+#define 	BCRYPT_COST 	12
