@@ -37,7 +37,6 @@
 
 /* SERVER CONFIGURATION */
 #include "assets/config/server_config.prospect"
-#include "assets/config/mysql.prospect"
 
 /* SERVER MAIN FILES */
 #include "assets/defvarenu.prospect"
@@ -60,8 +59,16 @@ main(){}
 
 public OnGameModeInit()
 {
-	mysql_log(LOG_ERROR | LOG_WARNING, LOG_TYPE_HTML);
-	sqlConnection = mysql_connect(SQL_HOSTNAME, SQL_USERNAME, SQL_DATABASE, SQL_PASSWORD);
+	new MySQLOpt:reconnect = mysql_init_options();
+	mysql_set_option(reconnect, AUTO_RECONNECT, true);
+
+	sqlConnection = mysql_connect_file("mysql.ini");
+	mysql_log(ALL);
+
+	print("[MySQL] Connecting to database server...");
+
+	if((!mysql_errno(sqlConnection)) || (sqlConnection != MYSQL_INVALID_HANDLE)) print("[MySQL] Connection successful.");
+	else printf("[MySQL] Could not connect to database server! Error number: %d", mysql_errno(sqlConnection));
 
     LoadServerHouses();
     LoadMOTD();
@@ -284,7 +291,7 @@ public OnDialogResponse(playerid, dialogid, response, listitem, inputtext[])
 				new query[300], Password[BCRYPT_HASH_LENGTH];
 				mysql_format(sqlConnection, query, sizeof(query), "SELECT `Password` FROM `players` WHERE `Name` = '%e'", GetName(playerid));
 				mysql_query(sqlConnection, query);
-				cache_get_field_content(0, "Password", Password, sqlConnection, BCRYPT_HASH_LENGTH);
+				cache_get_value_name(0, "Password", Password, BCRYPT_HASH_LENGTH);
 				bcrypt_check(inputtext, Password, "OnPasswordChecked", "d", playerid);
 			}
 			if(strlen(inputtext) < 3 || strlen(inputtext) > 30)

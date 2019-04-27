@@ -234,6 +234,7 @@ enum HOUSE_DATA
 }
 
 new bool:LoggedIn[MAX_PLAYERS], PlayerData[MAX_PLAYERS][PLAYER_DATA], DamageData[MAX_DAMAGES][DAMAGE_DATA], LoginChance[MAX_PLAYERS], totalDamages = 0;
+new MySQL:sqlConnection, OneSecondTimer, lastSaveTime = 0;
 new HouseData[MAX_HOUSES][HOUSE_DATA], TotalHousesCreated = 0;
 new Text3D:cNametag[MAX_PLAYERS], MOTDText[500];
 new Injured[MAX_PLAYERS], AcceptDeath[MAX_PLAYERS], AcceptDeathTimer[MAX_PLAYERS], LoseHealthTimer[MAX_PLAYERS], Hospitalized[MAX_PLAYERS];
