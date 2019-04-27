@@ -11,7 +11,7 @@ Server:SaveSQLInt(sqlid, table[], row[], value)
 {
 	new query[512];
 	mysql_format(sqlConnection, query, sizeof(query), "UPDATE %e SET %e = %i WHERE id = %i", table, row, value, sqlid);
-	mysql_pquery(sqlConnection, query);
+	mysql_tquery(sqlConnection, query);
 	return true;
 }
 
@@ -19,7 +19,7 @@ Server:SaveSQLFloat(sqlid, table[], row[], Float:value)
 {
 	new query[512];
 	mysql_format(sqlConnection, query, sizeof(query), "UPDATE %e SET %e = %f WHERE id = %i", table, row, value, sqlid);
-	mysql_pquery(sqlConnection, query);
+	mysql_tquery(sqlConnection, query);
 	return true;
 }
 
@@ -27,7 +27,7 @@ Server:SaveSQLString(sqlid, table[], row[], value[])
 {
 	new query[512];
 	mysql_format(sqlConnection, query, sizeof(query), "UPDATE %e SET %e = %s WHERE id = %i", table, row, value, sqlid);
-	mysql_pquery(sqlConnection, query);
+	mysql_tquery(sqlConnection, query);
 	return true;
 }
 
@@ -71,7 +71,7 @@ Server:DoesPlayerExist(playerid)
 
 Server:SQL_DoesPlayerExist(playerid)
 {
-	if(cache_num_rows(sqlConnection) != 0)
+	if(cache_num_rows() != 0)
 	{
 		ShowLoginDialog(playerid, "");
 	}
@@ -166,7 +166,7 @@ Server:OnOfflineChangePass(playerid, playername[], newpassword[])
 {
 	if(cache_num_rows() != 1) return SendErrorMessage(playerid, "That account does not exist in the database.");
 
-	new adminlevel = cache_get_field_content_int(0, "AdminLevel");
+	new adminlevel = cache_get_value_name_int(0, "AdminLevel", adminlevel);
 
 	if(adminlevel > PlayerData[playerid][pAdminLevel]) return SendErrorMessage(playerid, "That player's account is a higher level admin than you.");
 
@@ -183,7 +183,7 @@ Server:OnPasswordOfflineChanged(admin, target[])
     printf("%s (%d) has changed %s's password.", NameRP(admin), admin, target);
 
     mysql_format(sqlConnection, query, sizeof(query), "UPDATE `players` SET `Password` = '%e' WHERE `Name` = '%e' LIMIT 1", hash, target);
-    mysql_pquery(sqlConnection, query);
+    mysql_tquery(sqlConnection, query);
 
     format(str, sizeof(str), "%s %s (ID: %i) has changed %s's password.", AdminRank(admin), NameRP(admin), admin, target);
 	SendAdminMessage(1, str);
@@ -249,7 +249,7 @@ Server:ShowChangePassDialog(playerid)
 
 Server:SQL_OnAccountLogin(playerid)
 {
-	PlayerData[playerid][pSQLID] = cache_get_field_content_int(0, "id", sqlConnection);
+	cache_get_value_name_int(0, "id", PlayerData[playerid][pSQLID]);
 	LoadPlayerData(playerid);
 
 	new string[256];
@@ -266,7 +266,7 @@ Server:LoadPlayerData(playerid)
 {
 	new query[512];
 	mysql_format(sqlConnection, query, sizeof(query), "SELECT * FROM players WHERE id = %i LIMIT 1", PlayerData[playerid][pSQLID]);
-	mysql_pquery(sqlConnection, query, "SQL_OnLoadAccount", "i", playerid);
+	mysql_tquery(sqlConnection, query, "SQL_OnLoadAccount", "i", playerid);
 	return true;
 }
 
@@ -274,30 +274,31 @@ Server:SQL_OnLoadAccount(playerid)
 {
 	LoggedIn[playerid] = true;
 
-	new query[256];
-	cache_get_field_content(0, "RegDate", query);
-	format(PlayerData[playerid][pRegisterDate], 16, query);
-	PlayerData[playerid][pAdminLevel] = cache_get_field_content_int(0, "AdminLevel", sqlConnection);
-	PlayerData[playerid][pHelper] = cache_get_field_content_int(0, "Helper", sqlConnection);
-	PlayerData[playerid][pTester] = cache_get_field_content_int(0, "Tester", sqlConnection);
-	PlayerData[playerid][pDonator] = cache_get_field_content_int(0, "Donator", sqlConnection);
-	PlayerData[playerid][pAge] = cache_get_field_content_int(0, "Age", sqlConnection);
-	PlayerData[playerid][pSex] = cache_get_field_content_int(0, "Gender", sqlConnection);
-	PlayerData[playerid][pEthnicity] = cache_get_field_content_int(0, "Ethnicity", sqlConnection);
-	PlayerData[playerid][pMoney] = cache_get_field_content_int(0, "Money", sqlConnection);
-	PlayerData[playerid][pLevel] = cache_get_field_content_int(0, "Level", sqlConnection);
-	PlayerData[playerid][pRespect] = cache_get_field_content_int(0, "Respect", sqlConnection);
-	PlayerData[playerid][pTimePlayed] = cache_get_field_content_int(0, "PlayedTime", sqlConnection);
-	PlayerData[playerid][pLastPos][0] = cache_get_field_content_float(0, "LastX", sqlConnection);
-	PlayerData[playerid][pLastPos][1] = cache_get_field_content_float(0, "LastY", sqlConnection);
-	PlayerData[playerid][pLastPos][2] = cache_get_field_content_float(0, "LastZ", sqlConnection);
-	PlayerData[playerid][pLastPos][3] = cache_get_field_content_float(0, "LastRot", sqlConnection);
-	PlayerData[playerid][pLastInt] = cache_get_field_content_int(0, "Interior", sqlConnection);
-	PlayerData[playerid][pLastWorld] = cache_get_field_content_int(0, "World", sqlConnection);
-	PlayerData[playerid][pSkin] = cache_get_field_content_int(0, "Skin", sqlConnection);
-	PlayerData[playerid][pHealth] = cache_get_field_content_float(0, "Health", sqlConnection);
-	PlayerData[playerid][pArmour] = cache_get_field_content_float(0, "Armour", sqlConnection);
-	PlayerData[playerid][pHitman] = cache_get_field_content_int(0, "Hitman", sqlConnection);
+	cache_get_value_name(0, "RegDate", PlayerData[playerid][pRegisterDate], 16);
+	cache_get_value_name_int(0, "AdminLevel", PlayerData[playerid][pAdminLevel]);
+	cache_get_value_name_int(0, "Helper", PlayerData[playerid][pHelper]);
+ 	cache_get_value_name_int(0, "Tester", PlayerData[playerid][pTester]);
+	cache_get_value_name_int(0, "Donator", PlayerData[playerid][pDonator]);
+
+	cache_get_value_name_int(0, "Age", PlayerData[playerid][pAge]);
+	cache_get_value_name_int(0, "Gender", PlayerData[playerid][pSex]);
+	cache_get_value_name_int(0, "Ethnicity", PlayerData[playerid][pEthnicity]);
+	cache_get_value_name_int(0, "Money", PlayerData[playerid][pMoney]);
+	cache_get_value_name_int(0, "Level", PlayerData[playerid][pLevel]);
+	cache_get_value_name_int(0, "Respect", PlayerData[playerid][pRespect]);
+	cache_get_value_name_int(0, "PlayedTime", PlayerData[playerid][pTimePlayed]);
+	
+	cache_get_value_name_float(0, "LastX", PlayerData[playerid][pLastPos][0]);
+	cache_get_value_name_float(0, "LastY", PlayerData[playerid][pLastPos][1]);
+	cache_get_value_name_float(0, "LastZ", PlayerData[playerid][pLastPos][2]);
+	cache_get_value_name_float(0, "LastRot", PlayerData[playerid][pLastPos][3]);
+	cache_get_value_name_int(0, "Interior", PlayerData[playerid][pLastInt]);
+	cache_get_value_name_int(0, "World", PlayerData[playerid][pLastWorld]);
+	cache_get_value_name_int(0, "Skin", PlayerData[playerid][pSkin]);
+	cache_get_value_name_float(0, "Health", PlayerData[playerid][pHealth]);
+	cache_get_value_name_float(0, "Armour", PlayerData[playerid][pArmour]);
+
+	cache_get_value_name_int(0, "Hitman", PlayerData[playerid][pHitman]);
 
 	SetPlayerSkin(playerid, PlayerData[playerid][pSkin]);
 	SetPlayerScore(playerid, PlayerData[playerid][pLevel]);
@@ -357,7 +358,7 @@ Server:SavePlayer(playerid, bool:save)
 		mysql_format(sqlConnection, query, sizeof(query), "UPDATE players SET LastX = %f, LastY = %f, LastZ = %f, LastRot = %f, Interior = %i, World = %i, Skin = %i, Health = %f, Armour = %f WHERE id = %i LIMIT 1",
 		PlayerData[playerid][pLastPos][0], PlayerData[playerid][pLastPos][1], PlayerData[playerid][pLastPos][2], PlayerData[playerid][pLastPos][3],
 		PlayerData[playerid][pLastInt], PlayerData[playerid][pLastWorld], PlayerData[playerid][pSkin], PlayerData[playerid][pHealth], PlayerData[playerid][pArmour], PlayerData[playerid][pSQLID]);
-		mysql_pquery(sqlConnection, query);
+		mysql_tquery(sqlConnection, query);
 	}
 	return true;
 }
