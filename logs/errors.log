@@ -1,8 +1,2 @@
-[20:44:55] [plugins/discord-connector] invalid UTF-8 string: [json.exception.type_error.316] invalid UTF-8 byte at index 53: 0xFF
-[20:45:39] [plugins/discord-connector] Error while retrieving HTTP POST response from '/api/v6/channels/545641478064701440/messages': stream truncated
-[20:45:40] [plugins/discord-connector] Error while retrieving HTTP POST response from '/api/v6/channels/545641478064701440/messages': bad version
-[20:45:40] [plugins/discord-connector] Error while retrieving HTTP POST response from '/api/v6/channels/545641478064701440/messages': bad version
-[20:45:41] [plugins/discord-connector] Error while retrieving HTTP POST response from '/api/v6/channels/545641478064701440/messages': bad version
-[20:49:55] [plugins/discord-connector] invalid UTF-8 string: [json.exception.type_error.316] invalid UTF-8 byte at index 62: 0xFF
-[20:50:14] [plugins/discord-connector] invalid UTF-8 string: [json.exception.type_error.316] invalid UTF-8 byte at index 57: 0xFF
-[20:50:49] [plugins/discord-connector] invalid UTF-8 string: [json.exception.type_error.316] invalid UTF-8 byte at index 66: 0xFF
+[04:53:26] [plugins/discord-connector] invalid UTF-8 string: [json.exception.type_error.316] invalid UTF-8 byte at index 54: 0xFF
+[04:56:49] [log-core] exception 0XC0000005 (ACCESS_VIOLATION) from Vectored Exception Handler catched; shutting log-core down

@@ -1,0 +1,1001 @@
+[04:37:22] [INFO] changed log level from 'warning, error' to 'debug, info, warning, error'
+[04:37:22] [DEBUG] mysql_connect("localhost", "root", "*****", "nyrp", 0) (e:\Shady\Scripting\ProspectRP\gamemodes\prospect_rp.pwn:64 -> E:\Shady\Scripting\ProspectRP\pawno\include\YSI\..\YSI_Coding\..\YSI_Core\..\YSI_Internal\..\YSI_Server\y_scriptinit.inc:202 -> E:\Shady\Scripting\ProspectRP\pawno\include\sscanf2.inc:210)
+[04:37:22] [DEBUG] CHandleManager::Create(this=0x212960, host='localhost', user='root', pass='****', db='nyrp', options=0x26f708)
+[04:37:22] [INFO] Creating new connection handle...
+[04:37:22] [WARNING] mysql_connect: no password specified (e:\Shady\Scripting\ProspectRP\gamemodes\prospect_rp.pwn:64 -> E:\Shady\Scripting\ProspectRP\pawno\include\YSI\..\YSI_Coding\..\YSI_Core\..\YSI_Internal\..\YSI_Server\y_scriptinit.inc:202 -> E:\Shady\Scripting\ProspectRP\pawno\include\sscanf2.inc:210)
+[04:37:22] [DEBUG] CConnection::CConnection(this=0x1a9e28, host='localhost', user='root', passw='****', db='nyrp', options=0x26f708)
+[04:37:22] [DEBUG] CConnection::CConnection - new connection = 0x171108
+[04:37:22] [DEBUG] CConnection::CConnection(this=0x1fe0020, host='localhost', user='root', passw='****', db='nyrp', options=0x26f708)
+[04:37:22] [DEBUG] CConnection::CConnection - new connection = 0x25a150
+[04:37:22] [DEBUG] CThreadedConnection::WorkerFunc(this=0x1fe0020, connection=0x1fe0020)
+[04:37:22] [DEBUG] CThreadedConnection::CThreadedConnection(this=0x1fe0020, connection=0x1fe0020)
+[04:37:22] [DEBUG] CConnectionPool::CConnectionPool(size=2, this=0x1a9c68)
+[04:37:22] [DEBUG] CConnection::CConnection(this=0x20b0020, host='localhost', user='root', passw='****', db='nyrp', options=0x26f708)
+[04:37:22] [DEBUG] CConnection::CConnection - new connection = 0x2639e0
+[04:37:22] [DEBUG] CThreadedConnection::CThreadedConnection(this=0x20b0020, connection=0x20b0020)
+[04:37:22] [DEBUG] CConnection::CConnection(this=0x2580020, host='localhost', user='root', passw='****', db='nyrp', options=0x26f708)
+[04:37:22] [DEBUG] CConnection::CConnection - new connection = 0x264bb8
+[04:37:22] [DEBUG] CThreadedConnection::WorkerFunc(this=0x2580020, connection=0x2580020)
+[04:37:22] [DEBUG] CThreadedConnection::CThreadedConnection(this=0x2580020, connection=0x2580020)
+[04:37:22] [INFO] Connection handle with id '1' successfully created.
+[04:37:22] [DEBUG] CHandleManager::Create - new handle = 0x26b588
+[04:37:22] [DEBUG] mysql_connect: return value: '1' (e:\Shady\Scripting\ProspectRP\gamemodes\prospect_rp.pwn:64 -> E:\Shady\Scripting\ProspectRP\pawno\include\YSI\..\YSI_Coding\..\YSI_Core\..\YSI_Internal\..\YSI_Server\y_scriptinit.inc:202 -> E:\Shady\Scripting\ProspectRP\pawno\include\sscanf2.inc:210)
+[04:37:22] [DEBUG] mysql_pquery(1, "SELECT * FROM houses ORDER BY id ASC", "SQL_LoadServerHouses", "") (assets/properties/houses.prospect:11 -> e:\Shady\Scripting\ProspectRP\gamemodes\prospect_rp.pwn:67 -> E:\Shady\Scripting\ProspectRP\pawno\include\YSI\..\YSI_Coding\..\YSI_Core\..\YSI_Internal\..\YSI_Server\y_scriptinit.inc:202 -> E:\Shady\Scripting\ProspectRP\pawno\include\sscanf2.inc:210)
+[04:37:22] [DEBUG] CCallback::Create(amx=0x1702e90, name='SQL_LoadServerHouses', format='', params=0x3ba59fc, param_offset=5)
+[04:37:22] [DEBUG] CCallback::Create - callback index for 'SQL_LoadServerHouses': 48
+[04:37:22] [INFO] Callback 'SQL_LoadServerHouses' set up for delayed execution.
+[04:37:22] [DEBUG] created delayed callback with 0 parameter
+[04:37:22] [DEBUG] CHandle::Execute(this=0x26b588, type=2, query=0x20b410)
+[04:37:22] [DEBUG] CConnectionPool::Queue(query=0x20b410, this=0x1a9c68)
+[04:37:22] [DEBUG] CHandle::Execute - return value: true
+[04:37:22] [DEBUG] mysql_pquery: return value: '1' (assets/properties/houses.prospect:11 -> e:\Shady\Scripting\ProspectRP\gamemodes\prospect_rp.pwn:67 -> E:\Shady\Scripting\ProspectRP\pawno\include\YSI\..\YSI_Coding\..\YSI_Core\..\YSI_Internal\..\YSI_Server\y_scriptinit.inc:202 -> E:\Shady\Scripting\ProspectRP\pawno\include\sscanf2.inc:210)
+[04:37:22] [DEBUG] CThreadedConnection::WorkerFunc(this=0x20b0020, connection=0x20b0020)
+[04:39:02] [DEBUG] mysql_format(1, 0x03BA4960, 512, "SELECT id FROM players WHERE Name = '%e' LIMIT 1") (assets/functions.prospect:67 -> e:\Shady\Scripting\ProspectRP\gamemodes\prospect_rp.pwn:103 -> E:\Shady\Scripting\ProspectRP\pawno\include\YSI\..\YSI_Coding\..\YSI_Core\y_utils.inc:222 -> E:\Shady\Scripting\ProspectRP\pawno\include\sscanf2.inc:242 -> E:\Shady\Scripting\ProspectRP\pawno\include\YSI\..\YSI_Coding\..\YSI_Internal\y_cgen.inc:29)
+[04:39:02] [DEBUG] CHandle::EscapeString(this=0x26b588, src='Shady_Dev')
+[04:39:02] [DEBUG] CConnection::EscapeString(src='Shady_Dev', this=0x1a9e28, connection=0x171108)
+[04:39:02] [DEBUG] CHandle::EscapeString - return value: true, escaped string: 'Shady_Dev'
+[04:39:02] [DEBUG] mysql_format: return value: '55' (assets/functions.prospect:67 -> e:\Shady\Scripting\ProspectRP\gamemodes\prospect_rp.pwn:103 -> E:\Shady\Scripting\ProspectRP\pawno\include\YSI\..\YSI_Coding\..\YSI_Core\y_utils.inc:222 -> E:\Shady\Scripting\ProspectRP\pawno\include\sscanf2.inc:242 -> E:\Shady\Scripting\ProspectRP\pawno\include\YSI\..\YSI_Coding\..\YSI_Internal\y_cgen.inc:29)
+[04:39:02] [DEBUG] mysql_tquery(1, "SELECT id FROM players WHERE Name = 'Shady_Dev' LIMIT 1", "SQL_DoesPlayerExist", "i") (assets/functions.prospect:68 -> e:\Shady\Scripting\ProspectRP\gamemodes\prospect_rp.pwn:103 -> E:\Shady\Scripting\ProspectRP\pawno\include\YSI\..\YSI_Coding\..\YSI_Core\y_utils.inc:222 -> E:\Shady\Scripting\ProspectRP\pawno\include\sscanf2.inc:242 -> E:\Shady\Scripting\ProspectRP\pawno\include\YSI\..\YSI_Coding\..\YSI_Internal\y_cgen.inc:29)
+[04:39:02] [DEBUG] CCallback::Create(amx=0x1702e90, name='SQL_DoesPlayerExist', format='i', params=0x3ba4948, param_offset=5)
+[04:39:02] [DEBUG] CCallback::Create - callback index for 'SQL_DoesPlayerExist': 47
+[04:39:02] [DEBUG] processing specifier 'i' with parameter index 0
+[04:39:02] [DEBUG] retrieved and pushed value '0'
+[04:39:02] [INFO] Callback 'SQL_DoesPlayerExist' set up for delayed execution.
+[04:39:02] [DEBUG] created delayed callback with 1 parameter
+[04:39:02] [DEBUG] CHandle::Execute(this=0x26b588, type=1, query=0x20b838)
+[04:39:02] [DEBUG] CConnection::Execute(query=0x20b838, this=0x1fe0020, connection=0x25a150)
+[04:39:02] [DEBUG] CQuery::Execute(this=0x20b838, connection=0x25a150)
+[04:39:02] [INFO] query "SELECT id FROM players WHERE Name = 'Shady_Dev' LIMIT 1" successfully executed within 25.614 milliseconds
+[04:39:02] [DEBUG] CResultSet::Create(connection=0x25a150, query_str='SELECT id FROM players WHERE Name = 'Shady_Dev' LIMIT 1')
+[04:39:02] [DEBUG] created new resultset '0x1a6138'
+[04:39:02] [DEBUG] fetched MySQL result '0x268be8'
+[04:39:02] [DEBUG] allocated 20 bytes for PAWN result
+[04:39:02] [DEBUG] CHandle::Execute - return value: true
+[04:39:03] [DEBUG] mysql_tquery: return value: '1' (assets/functions.prospect:68 -> e:\Shady\Scripting\ProspectRP\gamemodes\prospect_rp.pwn:103 -> E:\Shady\Scripting\ProspectRP\pawno\include\YSI\..\YSI_Coding\..\YSI_Core\y_utils.inc:222 -> E:\Shady\Scripting\ProspectRP\pawno\include\sscanf2.inc:242 -> E:\Shady\Scripting\ProspectRP\pawno\include\YSI\..\YSI_Coding\..\YSI_Internal\y_cgen.inc:29)
+[04:39:03] [DEBUG] CCallback::Execute(amx=0x1702e90, index=47, num_params=1)
+[04:39:03] [INFO] Executing callback 'SQL_DoesPlayerExist' with 1 parameter...
+[04:39:03] [DEBUG] processing internal specifier 'c'
+[04:39:03] [DEBUG] pushed value '0' onto AMX stack
+[04:39:03] [DEBUG] executing AMX callback with index '47'
+[04:39:03] [DEBUG] cache_get_row_count(0x03BA5A38) (E:\Shady\Scripting\ProspectRP\pawno\include\a_mysql.inc:182 -> assets/functions.prospect:73)
+[04:39:03] [DEBUG] cache_get_row_count: return value: '1' (E:\Shady\Scripting\ProspectRP\pawno\include\a_mysql.inc:182 -> assets/functions.prospect:73)
+[04:39:03] [DEBUG] AMX callback executed with error '0'
+[04:39:03] [INFO] Callback successfully executed.
+[04:39:08] [DEBUG] mysql_format(1, 0x03BA5588, 300, "SELECT `Password` FROM `players` WHERE `Name` = '%e'") (e:\Shady\Scripting\ProspectRP\gamemodes\prospect_rp.pwn:285)
+[04:39:08] [DEBUG] CHandle::EscapeString(this=0x26b588, src='Shady_Dev')
+[04:39:08] [DEBUG] CConnection::EscapeString(src='Shady_Dev', this=0x1a9e28, connection=0x171108)
+[04:39:08] [DEBUG] CHandle::EscapeString - return value: true, escaped string: 'Shady_Dev'
+[04:39:08] [DEBUG] mysql_format: return value: '59' (e:\Shady\Scripting\ProspectRP\gamemodes\prospect_rp.pwn:285)
+[04:39:08] [DEBUG] mysql_query(1, "SELECT `Password` FROM `players` WHERE `Name` = 'Shady_Dev'", 1) (e:\Shady\Scripting\ProspectRP\gamemodes\prospect_rp.pwn:286)
+[04:39:08] [DEBUG] CHandle::Execute(this=0x26b588, type=3, query=0x20b838)
+[04:39:08] [DEBUG] CConnection::Execute(query=0x20b838, this=0x1a9e28, connection=0x171108)
+[04:39:08] [DEBUG] CQuery::Execute(this=0x20b838, connection=0x171108)
+[04:39:08] [INFO] query "SELECT `Password` FROM `players` WHERE `Name` = 'Shady_Dev'" successfully executed within 0.495 milliseconds
+[04:39:08] [DEBUG] CResultSet::Create(connection=0x171108, query_str='SELECT `Password` FROM `players` WHERE `Name` = 'Shady_Dev'')
+[04:39:08] [DEBUG] created new resultset '0x1a60c8'
+[04:39:08] [DEBUG] fetched MySQL result '0x26fd28'
+[04:39:08] [DEBUG] allocated 76 bytes for PAWN result
+[04:39:08] [DEBUG] CHandle::Execute - return value: true
+[04:39:08] [DEBUG] mysql_query: return value: '1' (e:\Shady\Scripting\ProspectRP\gamemodes\prospect_rp.pwn:286)
+[04:39:08] [DEBUG] cache_get_value_name(0, "Password", 0x03BA5494, 61) (e:\Shady\Scripting\ProspectRP\gamemodes\prospect_rp.pwn:287)
+[04:39:08] [DEBUG] cache_get_value_name: assigned value: '$2y$12$S0bOYEzqTUzuPiuvPyLOXurJPyCOw37ZOsXCGLD1jTKlDPSKk3gJ2' (e:\Shady\Scripting\ProspectRP\gamemodes\prospect_rp.pwn:287)
+[04:39:08] [DEBUG] cache_get_value_name: return value: '1' (e:\Shady\Scripting\ProspectRP\gamemodes\prospect_rp.pwn:287)
+[04:39:11] [DEBUG] mysql_format(1, 0x03BA5588, 300, "SELECT `Password` FROM `players` WHERE `Name` = '%e'") (e:\Shady\Scripting\ProspectRP\gamemodes\prospect_rp.pwn:285)
+[04:39:11] [DEBUG] CHandle::EscapeString(this=0x26b588, src='Shady_Dev')
+[04:39:11] [DEBUG] CConnection::EscapeString(src='Shady_Dev', this=0x1a9e28, connection=0x171108)
+[04:39:11] [DEBUG] CHandle::EscapeString - return value: true, escaped string: 'Shady_Dev'
+[04:39:11] [DEBUG] mysql_format: return value: '59' (e:\Shady\Scripting\ProspectRP\gamemodes\prospect_rp.pwn:285)
+[04:39:11] [DEBUG] mysql_query(1, "SELECT `Password` FROM `players` WHERE `Name` = 'Shady_Dev'", 1) (e:\Shady\Scripting\ProspectRP\gamemodes\prospect_rp.pwn:286)
+[04:39:11] [DEBUG] CHandle::Execute(this=0x26b588, type=3, query=0x20b838)
+[04:39:11] [DEBUG] CConnection::Execute(query=0x20b838, this=0x1a9e28, connection=0x171108)
+[04:39:11] [DEBUG] CQuery::Execute(this=0x20b838, connection=0x171108)
+[04:39:11] [INFO] query "SELECT `Password` FROM `players` WHERE `Name` = 'Shady_Dev'" successfully executed within 0.355 milliseconds
+[04:39:11] [DEBUG] CResultSet::Create(connection=0x171108, query_str='SELECT `Password` FROM `players` WHERE `Name` = 'Shady_Dev'')
+[04:39:11] [DEBUG] created new resultset '0x1a62f8'
+[04:39:11] [DEBUG] fetched MySQL result '0x26fd28'
+[04:39:11] [DEBUG] allocated 76 bytes for PAWN result
+[04:39:11] [DEBUG] CHandle::Execute - return value: true
+[04:39:11] [DEBUG] mysql_query: return value: '2' (e:\Shady\Scripting\ProspectRP\gamemodes\prospect_rp.pwn:286)
+[04:39:11] [DEBUG] cache_get_value_name(0, "Password", 0x03BA5494, 61) (e:\Shady\Scripting\ProspectRP\gamemodes\prospect_rp.pwn:287)
+[04:39:11] [DEBUG] cache_get_value_name: assigned value: '$2y$12$S0bOYEzqTUzuPiuvPyLOXurJPyCOw37ZOsXCGLD1jTKlDPSKk3gJ2' (e:\Shady\Scripting\ProspectRP\gamemodes\prospect_rp.pwn:287)
+[04:39:11] [DEBUG] cache_get_value_name: return value: '1' (e:\Shady\Scripting\ProspectRP\gamemodes\prospect_rp.pwn:287)
+[04:39:11] [DEBUG] mysql_format(1, 0x03BA5244, 512, "SELECT id FROM players WHERE Name = '%e' LIMIT 1") (assets/functions.prospect:130)
+[04:39:11] [DEBUG] CHandle::EscapeString(this=0x26b588, src='Shady_Dev')
+[04:39:11] [DEBUG] CConnection::EscapeString(src='Shady_Dev', this=0x1a9e28, connection=0x171108)
+[04:39:11] [DEBUG] CHandle::EscapeString - return value: true, escaped string: 'Shady_Dev'
+[04:39:11] [DEBUG] mysql_format: return value: '55' (assets/functions.prospect:130)
+[04:39:11] [DEBUG] mysql_tquery(1, "SELECT id FROM players WHERE Name = 'Shady_Dev' LIMIT 1", "SQL_OnAccountLogin", "i") (assets/functions.prospect:131)
+[04:39:11] [DEBUG] CCallback::Create(amx=0x1702e90, name='SQL_OnAccountLogin', format='i', params=0x3ba522c, param_offset=5)
+[04:39:11] [DEBUG] CCallback::Create - callback index for 'SQL_OnAccountLogin': 49
+[04:39:11] [DEBUG] processing specifier 'i' with parameter index 0
+[04:39:11] [DEBUG] retrieved and pushed value '0'
+[04:39:11] [INFO] Callback 'SQL_OnAccountLogin' set up for delayed execution.
+[04:39:11] [DEBUG] created delayed callback with 1 parameter
+[04:39:11] [DEBUG] CHandle::Execute(this=0x26b588, type=1, query=0x20b838)
+[04:39:11] [DEBUG] CConnection::Execute(query=0x20b838, this=0x1fe0020, connection=0x25a150)
+[04:39:11] [DEBUG] CQuery::Execute(this=0x20b838, connection=0x25a150)
+[04:39:11] [DEBUG] CHandle::Execute - return value: true
+[04:39:11] [DEBUG] mysql_tquery: return value: '1' (assets/functions.prospect:131)
+[04:39:11] [INFO] query "SELECT id FROM players WHERE Name = 'Shady_Dev' LIMIT 1" successfully executed within 0.418 milliseconds
+[04:39:12] [DEBUG] CResultSet::Create(connection=0x25a150, query_str='SELECT id FROM players WHERE Name = 'Shady_Dev' LIMIT 1')
+[04:39:12] [DEBUG] created new resultset '0x1a6170'
+[04:39:12] [DEBUG] fetched MySQL result '0x26fd28'
+[04:39:12] [DEBUG] allocated 20 bytes for PAWN result
+[04:39:12] [DEBUG] CCallback::Execute(amx=0x1702e90, index=49, num_params=1)
+[04:39:12] [INFO] Executing callback 'SQL_OnAccountLogin' with 1 parameter...
+[04:39:12] [DEBUG] processing internal specifier 'c'
+[04:39:12] [DEBUG] pushed value '0' onto AMX stack
+[04:39:12] [DEBUG] executing AMX callback with index '49'
+[04:39:12] [DEBUG] cache_get_value_name_int(0, "id", 0x03B25CAC) (assets/functions.prospect:252)
+[04:39:12] [DEBUG] cache_get_value_name_int: assigned value: '1' (assets/functions.prospect:252)
+[04:39:12] [DEBUG] cache_get_value_name_int: return value: '1' (assets/functions.prospect:252)
+[04:39:12] [DEBUG] mysql_format(1, 0x03BA5238, 512, "SELECT * FROM players WHERE id = %i LIMIT 1") (assets/functions.prospect:268 -> assets/functions.prospect:254)
+[04:39:12] [DEBUG] mysql_format: return value: '42' (assets/functions.prospect:268 -> assets/functions.prospect:254)
+[04:39:12] [DEBUG] mysql_pquery(1, "SELECT * FROM players WHERE id = 1 LIMIT 1", "SQL_OnLoadAccount", "i") (assets/functions.prospect:269 -> assets/functions.prospect:254)
+[04:39:12] [DEBUG] CCallback::Create(amx=0x1702e90, name='SQL_OnLoadAccount', format='i', params=0x3ba5220, param_offset=5)
+[04:39:12] [DEBUG] CCallback::Create - callback index for 'SQL_OnLoadAccount': 51
+[04:39:12] [DEBUG] processing specifier 'i' with parameter index 0
+[04:39:12] [DEBUG] retrieved and pushed value '0'
+[04:39:12] [INFO] Callback 'SQL_OnLoadAccount' set up for delayed execution.
+[04:39:12] [DEBUG] created delayed callback with 1 parameter
+[04:39:12] [DEBUG] CHandle::Execute(this=0x26b588, type=2, query=0x20b8d0)
+[04:39:12] [DEBUG] CConnectionPool::Queue(query=0x20b8d0, this=0x1a9c68)
+[04:39:12] [DEBUG] CConnection::Execute(query=0x20b8d0, this=0x2580020, connection=0x264bb8)
+[04:39:12] [DEBUG] CQuery::Execute(this=0x20b8d0, connection=0x264bb8)
+[04:39:12] [DEBUG] CHandle::Execute - return value: true
+[04:39:12] [INFO] query "SELECT * FROM players WHERE id = 1 LIMIT 1" successfully executed within 0.746 milliseconds
+[04:39:12] [DEBUG] CResultSet::Create(connection=0x264bb8, query_str='SELECT * FROM players WHERE id = 1 LIMIT 1')
+[04:39:12] [DEBUG] created new resultset '0x25afc0'
+[04:39:12] [DEBUG] fetched MySQL result '0x2482d08'
+[04:39:12] [DEBUG] allocated 300 bytes for PAWN result
+[04:39:12] [DEBUG] mysql_pquery: return value: '1' (assets/functions.prospect:269 -> assets/functions.prospect:254)
+[04:39:12] [DEBUG] AMX callback executed with error '0'
+[04:39:12] [INFO] Callback successfully executed.
+[04:39:12] [DEBUG] CCallback::Execute(amx=0x1702e90, index=51, num_params=1)
+[04:39:12] [INFO] Executing callback 'SQL_OnLoadAccount' with 1 parameter...
+[04:39:12] [DEBUG] processing internal specifier 'c'
+[04:39:12] [DEBUG] pushed value '0' onto AMX stack
+[04:39:12] [DEBUG] executing AMX callback with index '51'
+[04:39:12] [DEBUG] cache_get_value_name(0, "RegDate", 0x03B25CB0, 16) (assets/functions.prospect:277)
+[04:39:12] [DEBUG] cache_get_value_name: assigned value: '01/03/2019' (assets/functions.prospect:277)
+[04:39:12] [DEBUG] cache_get_value_name: return value: '1' (assets/functions.prospect:277)
+[04:39:12] [DEBUG] cache_get_value_name_int(0, "AdminLevel", 0x03B25CF0) (assets/functions.prospect:278)
+[04:39:12] [DEBUG] cache_get_value_name_int: assigned value: '4' (assets/functions.prospect:278)
+[04:39:12] [DEBUG] cache_get_value_name_int: return value: '1' (assets/functions.prospect:278)
+[04:39:12] [DEBUG] cache_get_value_name_int(0, "Helper", 0x03B25CF4) (assets/functions.prospect:279)
+[04:39:12] [DEBUG] cache_get_value_name_int: assigned value: '0' (assets/functions.prospect:279)
+[04:39:12] [DEBUG] cache_get_value_name_int: return value: '1' (assets/functions.prospect:279)
+[04:39:12] [DEBUG] cache_get_value_name_int(0, "Tester", 0x03B25CF8) (assets/functions.prospect:280)
+[04:39:12] [DEBUG] cache_get_value_name_int: assigned value: '0' (assets/functions.prospect:280)
+[04:39:12] [DEBUG] cache_get_value_name_int: return value: '1' (assets/functions.prospect:280)
+[04:39:12] [DEBUG] cache_get_value_name_int(0, "Donator", 0x03B25CFC) (assets/functions.prospect:281)
+[04:39:12] [DEBUG] cache_get_value_name_int: assigned value: '0' (assets/functions.prospect:281)
+[04:39:12] [DEBUG] cache_get_value_name_int: return value: '1' (assets/functions.prospect:281)
+[04:39:12] [DEBUG] cache_get_value_name_int(0, "Age", 0x03B25D00) (assets/functions.prospect:283)
+[04:39:12] [DEBUG] cache_get_value_name_int: assigned value: '20' (assets/functions.prospect:283)
+[04:39:12] [DEBUG] cache_get_value_name_int: return value: '1' (assets/functions.prospect:283)
+[04:39:12] [DEBUG] cache_get_value_name_int(0, "Gender", 0x03B25D04) (assets/functions.prospect:284)
+[04:39:12] [DEBUG] cache_get_value_name_int: assigned value: '1' (assets/functions.prospect:284)
+[04:39:12] [DEBUG] cache_get_value_name_int: return value: '1' (assets/functions.prospect:284)
+[04:39:12] [DEBUG] cache_get_value_name_int(0, "Ethnicity", 0x03B25D08) (assets/functions.prospect:285)
+[04:39:12] [DEBUG] cache_get_value_name_int: assigned value: '0' (assets/functions.prospect:285)
+[04:39:12] [DEBUG] cache_get_value_name_int: return value: '1' (assets/functions.prospect:285)
+[04:39:12] [DEBUG] cache_get_value_name_int(0, "Money", 0x03B25D0C) (assets/functions.prospect:286)
+[04:39:12] [DEBUG] cache_get_value_name_int: assigned value: '0' (assets/functions.prospect:286)
+[04:39:12] [DEBUG] cache_get_value_name_int: return value: '1' (assets/functions.prospect:286)
+[04:39:12] [DEBUG] cache_get_value_name_int(0, "Level", 0x03B25D10) (assets/functions.prospect:287)
+[04:39:12] [DEBUG] cache_get_value_name_int: assigned value: '1' (assets/functions.prospect:287)
+[04:39:12] [DEBUG] cache_get_value_name_int: return value: '1' (assets/functions.prospect:287)
+[04:39:12] [DEBUG] cache_get_value_name_int(0, "Respect", 0x03B25D14) (assets/functions.prospect:288)
+[04:39:12] [DEBUG] cache_get_value_name_int: assigned value: '0' (assets/functions.prospect:288)
+[04:39:12] [DEBUG] cache_get_value_name_int: return value: '1' (assets/functions.prospect:288)
+[04:39:12] [DEBUG] cache_get_value_name_int(0, "PlayedTime", 0x03B25D18) (assets/functions.prospect:289)
+[04:39:12] [DEBUG] cache_get_value_name_int: assigned value: '0' (assets/functions.prospect:289)
+[04:39:12] [DEBUG] cache_get_value_name_int: return value: '1' (assets/functions.prospect:289)
+[04:39:12] [DEBUG] cache_get_value_name_float(0, "LastX", 0x03B25D1C) (assets/functions.prospect:291)
+[04:39:12] [DEBUG] cache_get_value_name_float: assigned value: '1964.43' (assets/functions.prospect:291)
+[04:39:12] [DEBUG] cache_get_value_name_float: return value: '1' (assets/functions.prospect:291)
+[04:39:12] [DEBUG] cache_get_value_name_float(0, "LastY", 0x03B25D20) (assets/functions.prospect:292)
+[04:39:12] [DEBUG] cache_get_value_name_float: assigned value: '-1955.51' (assets/functions.prospect:292)
+[04:39:12] [DEBUG] cache_get_value_name_float: return value: '1' (assets/functions.prospect:292)
+[04:39:12] [DEBUG] cache_get_value_name_float(0, "LastZ", 0x03B25D24) (assets/functions.prospect:293)
+[04:39:12] [DEBUG] cache_get_value_name_float: assigned value: '13.736' (assets/functions.prospect:293)
+[04:39:12] [DEBUG] cache_get_value_name_float: return value: '1' (assets/functions.prospect:293)
+[04:39:12] [DEBUG] cache_get_value_name_float(0, "LastRot", 0x03B25D28) (assets/functions.prospect:294)
+[04:39:12] [DEBUG] cache_get_value_name_float: assigned value: '145.315' (assets/functions.prospect:294)
+[04:39:12] [DEBUG] cache_get_value_name_float: return value: '1' (assets/functions.prospect:294)
+[04:39:12] [DEBUG] cache_get_value_name_int(0, "Interior", 0x03B25D30) (assets/functions.prospect:295)
+[04:39:12] [DEBUG] cache_get_value_name_int: assigned value: '0' (assets/functions.prospect:295)
+[04:39:12] [DEBUG] cache_get_value_name_int: return value: '1' (assets/functions.prospect:295)
+[04:39:12] [DEBUG] cache_get_value_name_int(0, "World", 0x03B25D34) (assets/functions.prospect:296)
+[04:39:12] [DEBUG] cache_get_value_name_int: assigned value: '0' (assets/functions.prospect:296)
+[04:39:12] [DEBUG] cache_get_value_name_int: return value: '1' (assets/functions.prospect:296)
+[04:39:12] [DEBUG] cache_get_value_name_int(0, "Skin", 0x03B25D38) (assets/functions.prospect:297)
+[04:39:12] [DEBUG] cache_get_value_name_int: assigned value: '299' (assets/functions.prospect:297)
+[04:39:12] [DEBUG] cache_get_value_name_int: return value: '1' (assets/functions.prospect:297)
+[04:39:12] [DEBUG] cache_get_value_name_float(0, "Health", 0x03B25D3C) (assets/functions.prospect:298)
+[04:39:12] [DEBUG] cache_get_value_name_float: assigned value: '69' (assets/functions.prospect:298)
+[04:39:12] [DEBUG] cache_get_value_name_float: return value: '1' (assets/functions.prospect:298)
+[04:39:12] [DEBUG] cache_get_value_name_float(0, "Armour", 0x03B25D40) (assets/functions.prospect:299)
+[04:39:12] [DEBUG] cache_get_value_name_float: assigned value: '0' (assets/functions.prospect:299)
+[04:39:12] [DEBUG] cache_get_value_name_float: return value: '1' (assets/functions.prospect:299)
+[04:39:12] [DEBUG] cache_get_value_name_int(0, "Hitman", 0x03B25D44) (assets/functions.prospect:301)
+[04:39:12] [DEBUG] cache_get_value_name_int: assigned value: '1' (assets/functions.prospect:301)
+[04:39:12] [DEBUG] cache_get_value_name_int: return value: '1' (assets/functions.prospect:301)
+[04:39:12] [DEBUG] AMX callback executed with error '0'
+[04:39:12] [INFO] Callback successfully executed.
+[04:39:21] [DEBUG] mysql_format(1, 0x03BA5234, 512, "UPDATE players SET LastX = %f, LastY = %f, LastZ = %f, LastRot = %f, Interior = %i, World = %i, Skin = %i, Health = %f, Armour = %f WHERE id = %i LIMIT 1") (assets/functions.prospect:358 -> assets/functions.prospect:336)
+[04:39:21] [DEBUG] mysql_format: return value: '198' (assets/functions.prospect:358 -> assets/functions.prospect:336)
+[04:39:21] [DEBUG] mysql_pquery(1, "UPDATE players SET LastX = 1944.940063, LastY = -1967.156616, LastZ = 16.125000, LastRot = 103.690002, Interior = 0, World = 0, Skin = 299, Health = 69.000000, Armour = 0.000000 WHERE id = 1 LIMIT 1", "", "") (assets/functions.prospect:361 -> assets/functions.prospect:336)
+[04:39:21] [DEBUG] CCallback::Create(amx=0x1702e90, name='', format='', params=0x3ba5220, param_offset=5)
+[04:39:21] [DEBUG] CHandle::Execute(this=0x26b588, type=2, query=0x20b8d0)
+[04:39:21] [DEBUG] CConnectionPool::Queue(query=0x20b8d0, this=0x1a9c68)
+[04:39:21] [DEBUG] CHandle::Execute - return value: true
+[04:39:21] [DEBUG] mysql_pquery: return value: '1' (assets/functions.prospect:361 -> assets/functions.prospect:336)
+[04:39:21] [DEBUG] CConnection::Execute(query=0x20b410, this=0x20b0020, connection=0x2639e0)
+[04:39:21] [DEBUG] CQuery::Execute(this=0x20b410, connection=0x2639e0)
+[04:39:21] [INFO] query "SELECT * FROM houses ORDER BY id ASC" successfully executed within 0.783 milliseconds
+[04:39:21] [DEBUG] CResultSet::Create(connection=0x2639e0, query_str='SELECT * FROM houses ORDER BY id ASC')
+[04:39:21] [DEBUG] created new resultset '0x25ec10'
+[04:39:21] [DEBUG] fetched MySQL result '0x24ed7c8'
+[04:39:21] [DEBUG] allocated 148 bytes for PAWN result
+[04:39:21] [DEBUG] CConnection::Execute(query=0x20b8d0, this=0x20b0020, connection=0x2639e0)
+[04:39:21] [DEBUG] CQuery::Execute(this=0x20b8d0, connection=0x2639e0)
+[04:39:21] [DEBUG] CCallback::Execute(amx=0x1702e90, index=48, num_params=0)
+[04:39:21] [INFO] Executing callback 'SQL_LoadServerHouses' with 0 parameter...
+[04:39:21] [DEBUG] executing AMX callback with index '48'
+[04:39:21] [DEBUG] cache_get_row_count(0x03BA5A3C) (E:\Shady\Scripting\ProspectRP\pawno\include\a_mysql.inc:182 -> assets/properties/houses.prospect:15)
+[04:39:21] [DEBUG] cache_get_row_count: return value: '1' (E:\Shady\Scripting\ProspectRP\pawno\include\a_mysql.inc:182 -> assets/properties/houses.prospect:15)
+[04:39:21] [DEBUG] cache_get_row_count(0x03BA5A48) (assets/properties/houses.prospect:19)
+[04:39:21] [DEBUG] cache_get_row_count: return value: '1' (assets/properties/houses.prospect:19)
+[04:39:21] [DEBUG] cache_get_field_count(0x03BA5A44) (assets/properties/houses.prospect:20)
+[04:39:21] [DEBUG] cache_get_field_count: return value: '1' (assets/properties/houses.prospect:20)
+[04:39:21] [DEBUG] cache_get_value_name_int(0, "id", 0x03B7DD5C) (assets/properties/houses.prospect:23)
+[04:39:21] [DEBUG] cache_get_value_name_int: assigned value: '1' (assets/properties/houses.prospect:23)
+[04:39:21] [DEBUG] cache_get_value_name_int: return value: '1' (assets/properties/houses.prospect:23)
+[04:39:21] [DEBUG] cache_get_value_name_int(0, "OwnerSQL", 0x03B7DD60) (assets/properties/houses.prospect:24)
+[04:39:21] [DEBUG] cache_get_value_name_int: assigned value: '0' (assets/properties/houses.prospect:24)
+[04:39:21] [DEBUG] cache_get_value_name_int: return value: '1' (assets/properties/houses.prospect:24)
+[04:39:21] [DEBUG] cache_get_value_name(0, "Name", 0x03B7DD64, 1) (assets/properties/houses.prospect:25)
+[04:39:21] [DEBUG] cache_get_value_name: assigned value: 'test' (assets/properties/houses.prospect:25)
+[04:39:21] [DEBUG] cache_get_value_name: return value: '1' (assets/properties/houses.prospect:25)
+[04:39:21] [DEBUG] cache_get_value_name_float(0, "ExtX", 0x03B7DE04) (assets/properties/houses.prospect:26)
+[04:39:21] [DEBUG] cache_get_value_name_float: assigned value: '1156.78' (assets/properties/houses.prospect:26)
+[04:39:21] [DEBUG] cache_get_value_name_float: return value: '1' (assets/properties/houses.prospect:26)
+[04:39:21] [DEBUG] cache_get_value_name_float(0, "ExtY", 0x03B7DE08) (assets/properties/houses.prospect:27)
+[04:39:21] [DEBUG] cache_get_value_name_float: assigned value: '-5112.55' (assets/properties/houses.prospect:27)
+[04:39:21] [DEBUG] cache_get_value_name_float: return value: '1' (assets/properties/houses.prospect:27)
+[04:39:21] [DEBUG] cache_get_value_name_float(0, "ExtZ", 0x03B7DE0C) (assets/properties/houses.prospect:28)
+[04:39:21] [DEBUG] cache_get_value_name_float: assigned value: '3.527' (assets/properties/houses.prospect:28)
+[04:39:21] [DEBUG] cache_get_value_name_float: return value: '1' (assets/properties/houses.prospect:28)
+[04:39:21] [DEBUG] cache_get_value_name_float(0, "ExtA", 0x03B7DE10) (assets/properties/houses.prospect:29)
+[04:39:21] [DEBUG] cache_get_value_name_float: assigned value: '104.264' (assets/properties/houses.prospect:29)
+[04:39:21] [DEBUG] cache_get_value_name_float: return value: '1' (assets/properties/houses.prospect:29)
+[04:39:21] [DEBUG] cache_get_value_name_float(0, "IntX", 0x03B7DE14) (assets/properties/houses.prospect:30)
+[04:39:21] [DEBUG] cache_get_value_name_float: assigned value: '1170.99' (assets/properties/houses.prospect:30)
+[04:39:21] [DEBUG] cache_get_value_name_float: return value: '1' (assets/properties/houses.prospect:30)
+[04:39:21] [DEBUG] cache_get_value_name_float(0, "IntY", 0x03B7DE18) (assets/properties/houses.prospect:31)
+[04:39:21] [DEBUG] cache_get_value_name_float: assigned value: '-5045.79' (assets/properties/houses.prospect:31)
+[04:39:21] [DEBUG] cache_get_value_name_float: return value: '1' (assets/properties/houses.prospect:31)
+[04:39:21] [DEBUG] cache_get_value_name_float(0, "IntZ", 0x03B7DE1C) (assets/properties/houses.prospect:32)
+[04:39:21] [DEBUG] cache_get_value_name_float: assigned value: '3.526' (assets/properties/houses.prospect:32)
+[04:39:21] [DEBUG] cache_get_value_name_float: return value: '1' (assets/properties/houses.prospect:32)
+[04:39:21] [DEBUG] cache_get_value_name_float(0, "IntA", 0x03B7DE20) (assets/properties/houses.prospect:33)
+[04:39:21] [DEBUG] cache_get_value_name_float: assigned value: '232.395' (assets/properties/houses.prospect:33)
+[04:39:21] [DEBUG] cache_get_value_name_float: return value: '1' (assets/properties/houses.prospect:33)
+[04:39:21] [DEBUG] cache_get_value_name_int(0, "IntID", 0x03B7DE24) (assets/properties/houses.prospect:34)
+[04:39:21] [DEBUG] cache_get_value_name_int: assigned value: '0' (assets/properties/houses.prospect:34)
+[04:39:21] [DEBUG] cache_get_value_name_int: return value: '1' (assets/properties/houses.prospect:34)
+[04:39:21] [DEBUG] cache_get_value_name_int(0, "Price", 0x03B7DE28) (assets/properties/houses.prospect:35)
+[04:39:21] [DEBUG] cache_get_value_name_int: assigned value: '1000' (assets/properties/houses.prospect:35)
+[04:39:21] [DEBUG] cache_get_value_name_int: return value: '1' (assets/properties/houses.prospect:35)
+[04:39:21] [DEBUG] cache_get_value_name_int(0, "Locked", 0x03B7DE2C) (assets/properties/houses.prospect:36)
+[04:39:21] [DEBUG] cache_get_value_name_int: assigned value: '0' (assets/properties/houses.prospect:36)
+[04:39:21] [DEBUG] cache_get_value_name_int: return value: '1' (assets/properties/houses.prospect:36)
+[04:39:21] [INFO] query "UPDATE players SET LastX = 1944.940063, LastY = -1967.156616, LastZ = 16.125000, LastRot = 103.690002, Interior = 0, World = 0, Skin = 299, Health = 69.000000, Armour = 0.000000 WHERE id = 1 LIMIT 1" successfully executed within 39.785 milliseconds
+[04:39:21] [DEBUG] CResultSet::Create(connection=0x2639e0, query_str='UPDATE players SET LastX = 1944.940063, LastY = -1967.156616, LastZ = 16.125000, LastRot = 103.690002, Interior = 0, World = 0, Skin = 299, Health = 69.000000, Armour = 0.000000 WHERE id = 1 LIMIT 1')
+[04:39:21] [DEBUG] created new resultset '0x25eb30'
+[04:39:21] [DEBUG] fetched MySQL result '0x0'
+[04:39:21] [DEBUG] AMX callback executed with error '0'
+[04:39:21] [INFO] Callback successfully executed.
+[04:39:30] [DEBUG] mysql_format(1, 0x03BA5234, 512, "UPDATE players SET LastX = %f, LastY = %f, LastZ = %f, LastRot = %f, Interior = %i, World = %i, Skin = %i, Health = %f, Armour = %f WHERE id = %i LIMIT 1") (assets/functions.prospect:358 -> assets/functions.prospect:336)
+[04:39:30] [DEBUG] mysql_format: return value: '198' (assets/functions.prospect:358 -> assets/functions.prospect:336)
+[04:39:30] [DEBUG] mysql_pquery(1, "UPDATE players SET LastX = 1935.025146, LastY = -2041.268311, LastZ = 14.415738, LastRot = 180.722000, Interior = 0, World = 0, Skin = 299, Health = 69.000000, Armour = 0.000000 WHERE id = 1 LIMIT 1", "", "") (assets/functions.prospect:361 -> assets/functions.prospect:336)
+[04:39:30] [DEBUG] CCallback::Create(amx=0x1702e90, name='', format='', params=0x3ba5220, param_offset=5)
+[04:39:30] [DEBUG] CHandle::Execute(this=0x26b588, type=2, query=0x20b8d0)
+[04:39:30] [DEBUG] CConnectionPool::Queue(query=0x20b8d0, this=0x1a9c68)
+[04:39:30] [DEBUG] CConnection::Execute(query=0x20b8d0, this=0x2580020, connection=0x264bb8)
+[04:39:30] [DEBUG] CQuery::Execute(this=0x20b8d0, connection=0x264bb8)
+[04:39:30] [DEBUG] CHandle::Execute - return value: true
+[04:39:30] [DEBUG] mysql_pquery: return value: '1' (assets/functions.prospect:361 -> assets/functions.prospect:336)
+[04:39:30] [INFO] query "UPDATE players SET LastX = 1935.025146, LastY = -2041.268311, LastZ = 14.415738, LastRot = 180.722000, Interior = 0, World = 0, Skin = 299, Health = 69.000000, Armour = 0.000000 WHERE id = 1 LIMIT 1" successfully executed within 78.663 milliseconds
+[04:39:30] [DEBUG] CResultSet::Create(connection=0x264bb8, query_str='UPDATE players SET LastX = 1935.025146, LastY = -2041.268311, LastZ = 14.415738, LastRot = 180.722000, Interior = 0, World = 0, Skin = 299, Health = 69.000000, Armour = 0.000000 WHERE id = 1 LIMIT 1')
+[04:39:30] [DEBUG] created new resultset '0x24ed5c0'
+[04:39:30] [DEBUG] fetched MySQL result '0x0'
+[04:39:39] [DEBUG] mysql_format(1, 0x03BA5234, 512, "UPDATE players SET LastX = %f, LastY = %f, LastZ = %f, LastRot = %f, Interior = %i, World = %i, Skin = %i, Health = %f, Armour = %f WHERE id = %i LIMIT 1") (assets/functions.prospect:358 -> assets/functions.prospect:336)
+[04:39:39] [DEBUG] mysql_format: return value: '198' (assets/functions.prospect:358 -> assets/functions.prospect:336)
+[04:39:39] [DEBUG] mysql_pquery(1, "UPDATE players SET LastX = 1946.485474, LastY = -2090.161377, LastZ = 13.548084, LastRot = 180.722000, Interior = 0, World = 0, Skin = 299, Health = 69.000000, Armour = 0.000000 WHERE id = 1 LIMIT 1", "", "") (assets/functions.prospect:361 -> assets/functions.prospect:336)
+[04:39:39] [DEBUG] CCallback::Create(amx=0x1702e90, name='', format='', params=0x3ba5220, param_offset=5)
+[04:39:39] [DEBUG] CHandle::Execute(this=0x26b588, type=2, query=0x20b8d0)
+[04:39:39] [DEBUG] CConnectionPool::Queue(query=0x20b8d0, this=0x1a9c68)
+[04:39:39] [DEBUG] CConnection::Execute(query=0x20b8d0, this=0x20b0020, connection=0x2639e0)
+[04:39:39] [DEBUG] CQuery::Execute(this=0x20b8d0, connection=0x2639e0)
+[04:39:39] [DEBUG] CHandle::Execute - return value: true
+[04:39:39] [DEBUG] mysql_pquery: return value: '1' (assets/functions.prospect:361 -> assets/functions.prospect:336)
+[04:39:39] [INFO] query "UPDATE players SET LastX = 1946.485474, LastY = -2090.161377, LastZ = 13.548084, LastRot = 180.722000, Interior = 0, World = 0, Skin = 299, Health = 69.000000, Armour = 0.000000 WHERE id = 1 LIMIT 1" successfully executed within 37.792 milliseconds
+[04:39:39] [DEBUG] CResultSet::Create(connection=0x2639e0, query_str='UPDATE players SET LastX = 1946.485474, LastY = -2090.161377, LastZ = 13.548084, LastRot = 180.722000, Interior = 0, World = 0, Skin = 299, Health = 69.000000, Armour = 0.000000 WHERE id = 1 LIMIT 1')
+[04:39:39] [DEBUG] created new resultset '0x1a6170'
+[04:39:39] [DEBUG] fetched MySQL result '0x0'
+[04:39:49] [DEBUG] mysql_format(1, 0x03BA5234, 512, "UPDATE players SET LastX = %f, LastY = %f, LastZ = %f, LastRot = %f, Interior = %i, World = %i, Skin = %i, Health = %f, Armour = %f WHERE id = %i LIMIT 1") (assets/functions.prospect:358 -> assets/functions.prospect:336)
+[04:39:49] [DEBUG] mysql_format: return value: '198' (assets/functions.prospect:358 -> assets/functions.prospect:336)
+[04:39:49] [DEBUG] mysql_pquery(1, "UPDATE players SET LastX = 1938.442017, LastY = -2104.618164, LastZ = 13.561834, LastRot = 356.335358, Interior = 0, World = 0, Skin = 299, Health = 69.000000, Armour = 0.000000 WHERE id = 1 LIMIT 1", "", "") (assets/functions.prospect:361 -> assets/functions.prospect:336)
+[04:39:49] [DEBUG] CCallback::Create(amx=0x1702e90, name='', format='', params=0x3ba5220, param_offset=5)
+[04:39:49] [DEBUG] CHandle::Execute(this=0x26b588, type=2, query=0x20b8d0)
+[04:39:49] [DEBUG] CConnectionPool::Queue(query=0x20b8d0, this=0x1a9c68)
+[04:39:49] [DEBUG] CConnection::Execute(query=0x20b8d0, this=0x2580020, connection=0x264bb8)
+[04:39:49] [DEBUG] CQuery::Execute(this=0x20b8d0, connection=0x264bb8)
+[04:39:49] [DEBUG] CHandle::Execute - return value: true
+[04:39:49] [DEBUG] mysql_pquery: return value: '1' (assets/functions.prospect:361 -> assets/functions.prospect:336)
+[04:39:49] [INFO] query "UPDATE players SET LastX = 1938.442017, LastY = -2104.618164, LastZ = 13.561834, LastRot = 356.335358, Interior = 0, World = 0, Skin = 299, Health = 69.000000, Armour = 0.000000 WHERE id = 1 LIMIT 1" successfully executed within 152.188 milliseconds
+[04:39:49] [DEBUG] CResultSet::Create(connection=0x264bb8, query_str='UPDATE players SET LastX = 1938.442017, LastY = -2104.618164, LastZ = 13.561834, LastRot = 356.335358, Interior = 0, World = 0, Skin = 299, Health = 69.000000, Armour = 0.000000 WHERE id = 1 LIMIT 1')
+[04:39:49] [DEBUG] created new resultset '0x24ed3c8'
+[04:39:49] [DEBUG] fetched MySQL result '0x0'
+[04:39:58] [DEBUG] mysql_format(1, 0x03BA5234, 512, "UPDATE players SET LastX = %f, LastY = %f, LastZ = %f, LastRot = %f, Interior = %i, World = %i, Skin = %i, Health = %f, Armour = %f WHERE id = %i LIMIT 1") (assets/functions.prospect:358 -> assets/functions.prospect:336)
+[04:39:58] [DEBUG] mysql_format: return value: '197' (assets/functions.prospect:358 -> assets/functions.prospect:336)
+[04:39:58] [DEBUG] mysql_pquery(1, "UPDATE players SET LastX = 1916.511841, LastY = -2103.173096, LastZ = 13.604829, LastRot = 62.594193, Interior = 0, World = 0, Skin = 299, Health = 69.000000, Armour = 0.000000 WHERE id = 1 LIMIT 1", "", "") (assets/functions.prospect:361 -> assets/functions.prospect:336)
+[04:39:58] [DEBUG] CCallback::Create(amx=0x1702e90, name='', format='', params=0x3ba5220, param_offset=5)
+[04:39:58] [DEBUG] CHandle::Execute(this=0x26b588, type=2, query=0x20b8d0)
+[04:39:58] [DEBUG] CConnectionPool::Queue(query=0x20b8d0, this=0x1a9c68)
+[04:39:58] [DEBUG] CHandle::Execute - return value: true
+[04:39:58] [DEBUG] mysql_pquery: return value: '1' (assets/functions.prospect:361 -> assets/functions.prospect:336)
+[04:39:58] [DEBUG] CConnection::Execute(query=0x20b8d0, this=0x20b0020, connection=0x2639e0)
+[04:39:58] [DEBUG] CQuery::Execute(this=0x20b8d0, connection=0x2639e0)
+[04:39:58] [INFO] query "UPDATE players SET LastX = 1916.511841, LastY = -2103.173096, LastZ = 13.604829, LastRot = 62.594193, Interior = 0, World = 0, Skin = 299, Health = 69.000000, Armour = 0.000000 WHERE id = 1 LIMIT 1" successfully executed within 98.703 milliseconds
+[04:39:58] [DEBUG] CResultSet::Create(connection=0x2639e0, query_str='UPDATE players SET LastX = 1916.511841, LastY = -2103.173096, LastZ = 13.604829, LastRot = 62.594193, Interior = 0, World = 0, Skin = 299, Health = 69.000000, Armour = 0.000000 WHERE id = 1 LIMIT 1')
+[04:39:58] [DEBUG] created new resultset '0x1a5fb0'
+[04:39:58] [DEBUG] fetched MySQL result '0x0'
+[04:40:07] [DEBUG] mysql_format(1, 0x03BA5234, 512, "UPDATE players SET LastX = %f, LastY = %f, LastZ = %f, LastRot = %f, Interior = %i, World = %i, Skin = %i, Health = %f, Armour = %f WHERE id = %i LIMIT 1") (assets/functions.prospect:358 -> assets/functions.prospect:336)
+[04:40:07] [DEBUG] mysql_format: return value: '197' (assets/functions.prospect:358 -> assets/functions.prospect:336)
+[04:40:07] [DEBUG] mysql_pquery(1, "UPDATE players SET LastX = 1914.925415, LastY = -2102.349609, LastZ = 13.603498, LastRot = 62.594193, Interior = 0, World = 0, Skin = 299, Health = 69.000000, Armour = 0.000000 WHERE id = 1 LIMIT 1", "", "") (assets/functions.prospect:361 -> assets/functions.prospect:336)
+[04:40:07] [DEBUG] CCallback::Create(amx=0x1702e90, name='', format='', params=0x3ba5220, param_offset=5)
+[04:40:07] [DEBUG] CHandle::Execute(this=0x26b588, type=2, query=0x20b8d0)
+[04:40:07] [DEBUG] CConnectionPool::Queue(query=0x20b8d0, this=0x1a9c68)
+[04:40:07] [DEBUG] CConnection::Execute(query=0x20b8d0, this=0x2580020, connection=0x264bb8)
+[04:40:07] [DEBUG] CQuery::Execute(this=0x20b8d0, connection=0x264bb8)
+[04:40:07] [DEBUG] CHandle::Execute - return value: true
+[04:40:07] [DEBUG] mysql_pquery: return value: '1' (assets/functions.prospect:361 -> assets/functions.prospect:336)
+[04:40:07] [INFO] query "UPDATE players SET LastX = 1914.925415, LastY = -2102.349609, LastZ = 13.603498, LastRot = 62.594193, Interior = 0, World = 0, Skin = 299, Health = 69.000000, Armour = 0.000000 WHERE id = 1 LIMIT 1" successfully executed within 73.193 milliseconds
+[04:40:07] [DEBUG] CResultSet::Create(connection=0x264bb8, query_str='UPDATE players SET LastX = 1914.925415, LastY = -2102.349609, LastZ = 13.603498, LastRot = 62.594193, Interior = 0, World = 0, Skin = 299, Health = 69.000000, Armour = 0.000000 WHERE id = 1 LIMIT 1')
+[04:40:07] [DEBUG] created new resultset '0x24ed588'
+[04:40:07] [DEBUG] fetched MySQL result '0x0'
+[04:40:15] [DEBUG] mysql_format(1, 0x03BA5234, 512, "UPDATE players SET LastX = %f, LastY = %f, LastZ = %f, LastRot = %f, Interior = %i, World = %i, Skin = %i, Health = %f, Armour = %f WHERE id = %i LIMIT 1") (assets/functions.prospect:358 -> assets/functions.prospect:336)
+[04:40:15] [DEBUG] mysql_format: return value: '198' (assets/functions.prospect:358 -> assets/functions.prospect:336)
+[04:40:15] [DEBUG] mysql_pquery(1, "UPDATE players SET LastX = 1921.372681, LastY = -2067.122070, LastZ = 14.128704, LastRot = 336.426758, Interior = 0, World = 0, Skin = 299, Health = 69.000000, Armour = 0.000000 WHERE id = 1 LIMIT 1", "", "") (assets/functions.prospect:361 -> assets/functions.prospect:336)
+[04:40:15] [DEBUG] CCallback::Create(amx=0x1702e90, name='', format='', params=0x3ba5220, param_offset=5)
+[04:40:15] [DEBUG] CHandle::Execute(this=0x26b588, type=2, query=0x20b8d0)
+[04:40:15] [DEBUG] CConnectionPool::Queue(query=0x20b8d0, this=0x1a9c68)
+[04:40:15] [DEBUG] CConnection::Execute(query=0x20b8d0, this=0x20b0020, connection=0x2639e0)
+[04:40:15] [DEBUG] CQuery::Execute(this=0x20b8d0, connection=0x2639e0)
+[04:40:15] [DEBUG] CHandle::Execute - return value: true
+[04:40:15] [DEBUG] mysql_pquery: return value: '1' (assets/functions.prospect:361 -> assets/functions.prospect:336)
+[04:40:15] [INFO] query "UPDATE players SET LastX = 1921.372681, LastY = -2067.122070, LastZ = 14.128704, LastRot = 336.426758, Interior = 0, World = 0, Skin = 299, Health = 69.000000, Armour = 0.000000 WHERE id = 1 LIMIT 1" successfully executed within 78.68 milliseconds
+[04:40:16] [DEBUG] CResultSet::Create(connection=0x2639e0, query_str='UPDATE players SET LastX = 1921.372681, LastY = -2067.122070, LastZ = 14.128704, LastRot = 336.426758, Interior = 0, World = 0, Skin = 299, Health = 69.000000, Armour = 0.000000 WHERE id = 1 LIMIT 1')
+[04:40:16] [DEBUG] created new resultset '0x1a5e28'
+[04:40:16] [DEBUG] fetched MySQL result '0x0'
+[04:40:24] [DEBUG] mysql_format(1, 0x03BA5234, 512, "UPDATE players SET LastX = %f, LastY = %f, LastZ = %f, LastRot = %f, Interior = %i, World = %i, Skin = %i, Health = %f, Armour = %f WHERE id = %i LIMIT 1") (assets/functions.prospect:358 -> assets/functions.prospect:336)
+[04:40:24] [DEBUG] mysql_format: return value: '196' (assets/functions.prospect:358 -> assets/functions.prospect:336)
+[04:40:24] [DEBUG] mysql_pquery(1, "UPDATE players SET LastX = 1955.140015, LastY = -2046.941162, LastZ = 13.382813, LastRot = 2.143749, Interior = 0, World = 0, Skin = 299, Health = 69.000000, Armour = 0.000000 WHERE id = 1 LIMIT 1", "", "") (assets/functions.prospect:361 -> assets/functions.prospect:336)
+[04:40:24] [DEBUG] CCallback::Create(amx=0x1702e90, name='', format='', params=0x3ba5220, param_offset=5)
+[04:40:24] [DEBUG] CHandle::Execute(this=0x26b588, type=2, query=0x20b8d0)
+[04:40:24] [DEBUG] CConnectionPool::Queue(query=0x20b8d0, this=0x1a9c68)
+[04:40:24] [DEBUG] CConnection::Execute(query=0x20b8d0, this=0x2580020, connection=0x264bb8)
+[04:40:24] [DEBUG] CQuery::Execute(this=0x20b8d0, connection=0x264bb8)
+[04:40:24] [DEBUG] CHandle::Execute - return value: true
+[04:40:24] [INFO] query "UPDATE players SET LastX = 1955.140015, LastY = -2046.941162, LastZ = 13.382813, LastRot = 2.143749, Interior = 0, World = 0, Skin = 299, Health = 69.000000, Armour = 0.000000 WHERE id = 1 LIMIT 1" successfully executed within 301.651 milliseconds
+[04:40:24] [DEBUG] CResultSet::Create(connection=0x264bb8, query_str='UPDATE players SET LastX = 1955.140015, LastY = -2046.941162, LastZ = 13.382813, LastRot = 2.143749, Interior = 0, World = 0, Skin = 299, Health = 69.000000, Armour = 0.000000 WHERE id = 1 LIMIT 1')
+[04:40:24] [DEBUG] created new resultset '0x24ed5c0'
+[04:40:24] [DEBUG] fetched MySQL result '0x0'
+[04:40:24] [DEBUG] mysql_pquery: return value: '1' (assets/functions.prospect:361 -> assets/functions.prospect:336)
+[04:40:32] [DEBUG] mysql_format(1, 0x03BA5234, 512, "UPDATE players SET LastX = %f, LastY = %f, LastZ = %f, LastRot = %f, Interior = %i, World = %i, Skin = %i, Health = %f, Armour = %f WHERE id = %i LIMIT 1") (assets/functions.prospect:358 -> assets/functions.prospect:336)
+[04:40:32] [DEBUG] mysql_format: return value: '198' (assets/functions.prospect:358 -> assets/functions.prospect:336)
+[04:40:32] [DEBUG] mysql_pquery(1, "UPDATE players SET LastX = 1953.915161, LastY = -1975.616333, LastZ = 14.317407, LastRot = 359.324219, Interior = 0, World = 0, Skin = 299, Health = 69.000000, Armour = 0.000000 WHERE id = 1 LIMIT 1", "", "") (assets/functions.prospect:361 -> assets/functions.prospect:336)
+[04:40:32] [DEBUG] CCallback::Create(amx=0x1702e90, name='', format='', params=0x3ba5220, param_offset=5)
+[04:40:32] [DEBUG] CHandle::Execute(this=0x26b588, type=2, query=0x20b8d0)
+[04:40:32] [DEBUG] CConnectionPool::Queue(query=0x20b8d0, this=0x1a9c68)
+[04:40:32] [DEBUG] CHandle::Execute - return value: true
+[04:40:32] [DEBUG] mysql_pquery: return value: '1' (assets/functions.prospect:361 -> assets/functions.prospect:336)
+[04:40:32] [DEBUG] CConnection::Execute(query=0x20b8d0, this=0x20b0020, connection=0x2639e0)
+[04:40:32] [DEBUG] CQuery::Execute(this=0x20b8d0, connection=0x2639e0)
+[04:40:32] [INFO] query "UPDATE players SET LastX = 1953.915161, LastY = -1975.616333, LastZ = 14.317407, LastRot = 359.324219, Interior = 0, World = 0, Skin = 299, Health = 69.000000, Armour = 0.000000 WHERE id = 1 LIMIT 1" successfully executed within 196.771 milliseconds
+[04:40:32] [DEBUG] CResultSet::Create(connection=0x2639e0, query_str='UPDATE players SET LastX = 1953.915161, LastY = -1975.616333, LastZ = 14.317407, LastRot = 359.324219, Interior = 0, World = 0, Skin = 299, Health = 69.000000, Armour = 0.000000 WHERE id = 1 LIMIT 1')
+[04:40:32] [DEBUG] created new resultset '0x1a6170'
+[04:40:32] [DEBUG] fetched MySQL result '0x0'
+[04:40:41] [DEBUG] mysql_format(1, 0x03BA5234, 512, "UPDATE players SET LastX = %f, LastY = %f, LastZ = %f, LastRot = %f, Interior = %i, World = %i, Skin = %i, Health = %f, Armour = %f WHERE id = %i LIMIT 1") (assets/functions.prospect:358 -> assets/functions.prospect:336)
+[04:40:41] [DEBUG] mysql_format: return value: '198' (assets/functions.prospect:358 -> assets/functions.prospect:336)
+[04:40:41] [DEBUG] mysql_pquery(1, "UPDATE players SET LastX = 1967.784546, LastY = -2009.421875, LastZ = 13.546875, LastRot = 210.802292, Interior = 0, World = 0, Skin = 299, Health = 69.000000, Armour = 0.000000 WHERE id = 1 LIMIT 1", "", "") (assets/functions.prospect:361 -> assets/functions.prospect:336)
+[04:40:41] [DEBUG] CCallback::Create(amx=0x1702e90, name='', format='', params=0x3ba5220, param_offset=5)
+[04:40:41] [DEBUG] CHandle::Execute(this=0x26b588, type=2, query=0x20b8d0)
+[04:40:41] [DEBUG] CConnectionPool::Queue(query=0x20b8d0, this=0x1a9c68)
+[04:40:41] [DEBUG] CConnection::Execute(query=0x20b8d0, this=0x2580020, connection=0x264bb8)
+[04:40:41] [DEBUG] CQuery::Execute(this=0x20b8d0, connection=0x264bb8)
+[04:40:41] [INFO] query "UPDATE players SET LastX = 1967.784546, LastY = -2009.421875, LastZ = 13.546875, LastRot = 210.802292, Interior = 0, World = 0, Skin = 299, Health = 69.000000, Armour = 0.000000 WHERE id = 1 LIMIT 1" successfully executed within 61.443 milliseconds
+[04:40:41] [DEBUG] CResultSet::Create(connection=0x264bb8, query_str='UPDATE players SET LastX = 1967.784546, LastY = -2009.421875, LastZ = 13.546875, LastRot = 210.802292, Interior = 0, World = 0, Skin = 299, Health = 69.000000, Armour = 0.000000 WHERE id = 1 LIMIT 1')
+[04:40:41] [DEBUG] created new resultset '0x24ed3c8'
+[04:40:41] [DEBUG] fetched MySQL result '0x0'
+[04:40:41] [DEBUG] CHandle::Execute - return value: true
+[04:40:41] [DEBUG] mysql_pquery: return value: '1' (assets/functions.prospect:361 -> assets/functions.prospect:336)
+[04:40:44] [DEBUG] mysql_format(1, 0x03BA51F4, 512, "UPDATE players SET AdminLevel = %i, Helper = %i, Tester = %i, Donator = %i WHERE id = %i LIMIT 1") (assets/functions.prospect:369 -> e:\Shady\Scripting\ProspectRP\gamemodes\prospect_rp.pwn:314 -> E:\Shady\Scripting\ProspectRP\pawno\include\YSI\..\YSI_Coding\..\YSI_Core\y_utils.inc:242 -> E:\Shady\Scripting\ProspectRP\pawno\include\sscanf2.inc:266 -> E:\Shady\Scripting\ProspectRP\pawno\include\YSI\..\YSI_Coding\..\YSI_Internal\y_cgen.inc:29)
+[04:40:44] [DEBUG] mysql_format: return value: '91' (assets/functions.prospect:369 -> e:\Shady\Scripting\ProspectRP\gamemodes\prospect_rp.pwn:314 -> E:\Shady\Scripting\ProspectRP\pawno\include\YSI\..\YSI_Coding\..\YSI_Core\y_utils.inc:242 -> E:\Shady\Scripting\ProspectRP\pawno\include\sscanf2.inc:266 -> E:\Shady\Scripting\ProspectRP\pawno\include\YSI\..\YSI_Coding\..\YSI_Internal\y_cgen.inc:29)
+[04:40:44] [DEBUG] mysql_tquery(1, "UPDATE players SET AdminLevel = 4, Helper = 0, Tester = 0, Donator = 0 WHERE id = 1 LIMIT 1", "", "") (assets/functions.prospect:375 -> e:\Shady\Scripting\ProspectRP\gamemodes\prospect_rp.pwn:314 -> E:\Shady\Scripting\ProspectRP\pawno\include\YSI\..\YSI_Coding\..\YSI_Core\y_utils.inc:242 -> E:\Shady\Scripting\ProspectRP\pawno\include\sscanf2.inc:266 -> E:\Shady\Scripting\ProspectRP\pawno\include\YSI\..\YSI_Coding\..\YSI_Internal\y_cgen.inc:29)
+[04:40:44] [DEBUG] CCallback::Create(amx=0x1702e90, name='', format='', params=0x3ba51e0, param_offset=5)
+[04:40:44] [DEBUG] CHandle::Execute(this=0x26b588, type=1, query=0x20b410)
+[04:40:44] [DEBUG] CConnection::Execute(query=0x20b410, this=0x1fe0020, connection=0x25a150)
+[04:40:44] [DEBUG] CQuery::Execute(this=0x20b410, connection=0x25a150)
+[04:40:44] [INFO] query "UPDATE players SET AdminLevel = 4, Helper = 0, Tester = 0, Donator = 0 WHERE id = 1 LIMIT 1" successfully executed within 86.236 milliseconds
+[04:40:44] [DEBUG] CResultSet::Create(connection=0x25a150, query_str='UPDATE players SET AdminLevel = 4, Helper = 0, Tester = 0, Donator = 0 WHERE id = 1 LIMIT 1')
+[04:40:44] [DEBUG] created new resultset '0x24ed3c8'
+[04:40:44] [DEBUG] fetched MySQL result '0x0'
+[04:40:44] [DEBUG] CHandle::Execute - return value: true
+[04:40:44] [DEBUG] mysql_tquery: return value: '1' (assets/functions.prospect:375 -> e:\Shady\Scripting\ProspectRP\gamemodes\prospect_rp.pwn:314 -> E:\Shady\Scripting\ProspectRP\pawno\include\YSI\..\YSI_Coding\..\YSI_Core\y_utils.inc:242 -> E:\Shady\Scripting\ProspectRP\pawno\include\sscanf2.inc:266 -> E:\Shady\Scripting\ProspectRP\pawno\include\YSI\..\YSI_Coding\..\YSI_Internal\y_cgen.inc:29)
+[04:40:44] [DEBUG] mysql_format(1, 0x03BA51F4, 512, "UPDATE players SET Age = %i, Gender = %i, Ethnicity = %i, Money = %i, Level = %i, Respect = %i, Hitman = %i WHERE id = %i LIMIT 1") (assets/functions.prospect:377 -> e:\Shady\Scripting\ProspectRP\gamemodes\prospect_rp.pwn:314 -> E:\Shady\Scripting\ProspectRP\pawno\include\YSI\..\YSI_Coding\..\YSI_Core\y_utils.inc:242 -> E:\Shady\Scripting\ProspectRP\pawno\include\sscanf2.inc:266 -> E:\Shady\Scripting\ProspectRP\pawno\include\YSI\..\YSI_Coding\..\YSI_Internal\y_cgen.inc:29)
+[04:40:44] [ERROR] mysql_format: no value for specifier '%i' passed (assets/functions.prospect:377 -> e:\Shady\Scripting\ProspectRP\gamemodes\prospect_rp.pwn:314 -> E:\Shady\Scripting\ProspectRP\pawno\include\YSI\..\YSI_Coding\..\YSI_Core\y_utils.inc:242 -> E:\Shady\Scripting\ProspectRP\pawno\include\sscanf2.inc:266 -> E:\Shady\Scripting\ProspectRP\pawno\include\YSI\..\YSI_Coding\..\YSI_Internal\y_cgen.inc:29)
+[04:40:44] [DEBUG] mysql_format: return value: '0' (assets/functions.prospect:377 -> e:\Shady\Scripting\ProspectRP\gamemodes\prospect_rp.pwn:314 -> E:\Shady\Scripting\ProspectRP\pawno\include\YSI\..\YSI_Coding\..\YSI_Core\y_utils.inc:242 -> E:\Shady\Scripting\ProspectRP\pawno\include\sscanf2.inc:266 -> E:\Shady\Scripting\ProspectRP\pawno\include\YSI\..\YSI_Coding\..\YSI_Internal\y_cgen.inc:29)
+[04:40:44] [DEBUG] mysql_tquery(1, "UPDATE players SET AdminLevel = 4, Helper = 0, Tester = 0, Donator = 0 WHERE id = 1 LIMIT 1", "", "") (assets/functions.prospect:382 -> e:\Shady\Scripting\ProspectRP\gamemodes\prospect_rp.pwn:314 -> E:\Shady\Scripting\ProspectRP\pawno\include\YSI\..\YSI_Coding\..\YSI_Core\y_utils.inc:242 -> E:\Shady\Scripting\ProspectRP\pawno\include\sscanf2.inc:266 -> E:\Shady\Scripting\ProspectRP\pawno\include\YSI\..\YSI_Coding\..\YSI_Internal\y_cgen.inc:29)
+[04:40:44] [DEBUG] CCallback::Create(amx=0x1702e90, name='', format='', params=0x3ba51e0, param_offset=5)
+[04:40:44] [DEBUG] CHandle::Execute(this=0x26b588, type=1, query=0x20b8d0)
+[04:40:44] [DEBUG] CConnection::Execute(query=0x20b8d0, this=0x1fe0020, connection=0x25a150)
+[04:40:44] [DEBUG] CQuery::Execute(this=0x20b8d0, connection=0x25a150)
+[04:40:44] [DEBUG] CHandle::Execute - return value: true
+[04:40:44] [DEBUG] mysql_tquery: return value: '1' (assets/functions.prospect:382 -> e:\Shady\Scripting\ProspectRP\gamemodes\prospect_rp.pwn:314 -> E:\Shady\Scripting\ProspectRP\pawno\include\YSI\..\YSI_Coding\..\YSI_Core\y_utils.inc:242 -> E:\Shady\Scripting\ProspectRP\pawno\include\sscanf2.inc:266 -> E:\Shady\Scripting\ProspectRP\pawno\include\YSI\..\YSI_Coding\..\YSI_Internal\y_cgen.inc:29)
+[04:40:44] [DEBUG] mysql_format(1, 0x03BA51F4, 512, "UPDATE players SET Money = %i, Level = %i, Respect = %i, PlayedTime = %i, Hitman = %i WHERE id = %i LIMIT 1") (assets/functions.prospect:384 -> e:\Shady\Scripting\ProspectRP\gamemodes\prospect_rp.pwn:314 -> E:\Shady\Scripting\ProspectRP\pawno\include\YSI\..\YSI_Coding\..\YSI_Core\y_utils.inc:242 -> E:\Shady\Scripting\ProspectRP\pawno\include\sscanf2.inc:266 -> E:\Shady\Scripting\ProspectRP\pawno\include\YSI\..\YSI_Coding\..\YSI_Internal\y_cgen.inc:29)
+[04:40:44] [DEBUG] mysql_format: return value: '101' (assets/functions.prospect:384 -> e:\Shady\Scripting\ProspectRP\gamemodes\prospect_rp.pwn:314 -> E:\Shady\Scripting\ProspectRP\pawno\include\YSI\..\YSI_Coding\..\YSI_Core\y_utils.inc:242 -> E:\Shady\Scripting\ProspectRP\pawno\include\sscanf2.inc:266 -> E:\Shady\Scripting\ProspectRP\pawno\include\YSI\..\YSI_Coding\..\YSI_Internal\y_cgen.inc:29)
+[04:40:44] [DEBUG] mysql_tquery(1, "UPDATE players SET Money = 0, Level = 1, Respect = 0, PlayedTime = 0, Hitman = 1 WHERE id = 1 LIMIT 1", "", "") (assets/functions.prospect:391 -> e:\Shady\Scripting\ProspectRP\gamemodes\prospect_rp.pwn:314 -> E:\Shady\Scripting\ProspectRP\pawno\include\YSI\..\YSI_Coding\..\YSI_Core\y_utils.inc:242 -> E:\Shady\Scripting\ProspectRP\pawno\include\sscanf2.inc:266 -> E:\Shady\Scripting\ProspectRP\pawno\include\YSI\..\YSI_Coding\..\YSI_Internal\y_cgen.inc:29)
+[04:40:44] [DEBUG] CCallback::Create(amx=0x1702e90, name='', format='', params=0x3ba51e0, param_offset=5)
+[04:40:44] [DEBUG] CHandle::Execute(this=0x26b588, type=1, query=0x20ba00)
+[04:40:44] [DEBUG] CHandle::Execute - return value: true
+[04:40:44] [DEBUG] mysql_tquery: return value: '1' (assets/functions.prospect:391 -> e:\Shady\Scripting\ProspectRP\gamemodes\prospect_rp.pwn:314 -> E:\Shady\Scripting\ProspectRP\pawno\include\YSI\..\YSI_Coding\..\YSI_Core\y_utils.inc:242 -> E:\Shady\Scripting\ProspectRP\pawno\include\sscanf2.inc:266 -> E:\Shady\Scripting\ProspectRP\pawno\include\YSI\..\YSI_Coding\..\YSI_Internal\y_cgen.inc:29)
+[04:40:44] [INFO] query "UPDATE players SET AdminLevel = 4, Helper = 0, Tester = 0, Donator = 0 WHERE id = 1 LIMIT 1" successfully executed within 38.388 milliseconds
+[04:40:44] [DEBUG] CResultSet::Create(connection=0x25a150, query_str='UPDATE players SET AdminLevel = 4, Helper = 0, Tester = 0, Donator = 0 WHERE id = 1 LIMIT 1')
+[04:40:44] [DEBUG] created new resultset '0x24ed588'
+[04:40:44] [DEBUG] fetched MySQL result '0x0'
+[04:40:44] [DEBUG] CConnection::Execute(query=0x20ba00, this=0x1fe0020, connection=0x25a150)
+[04:40:44] [DEBUG] CQuery::Execute(this=0x20ba00, connection=0x25a150)
+[04:40:44] [INFO] query "UPDATE players SET Money = 0, Level = 1, Respect = 0, PlayedTime = 0, Hitman = 1 WHERE id = 1 LIMIT 1" successfully executed within 46.408 milliseconds
+[04:40:45] [DEBUG] CResultSet::Create(connection=0x25a150, query_str='UPDATE players SET Money = 0, Level = 1, Respect = 0, PlayedTime = 0, Hitman = 1 WHERE id = 1 LIMIT 1')
+[04:40:45] [DEBUG] created new resultset '0x24ed1f8'
+[04:40:45] [DEBUG] fetched MySQL result '0x0'
+[04:52:49] [WARNING] mysql_connect_file: no password specified (e:\Shady\Scripting\ProspectRP\gamemodes\prospect_rp.pwn:66 -> E:\Shady\Scripting\ProspectRP\pawno\include\YSI\..\YSI_Coding\..\YSI_Core\..\YSI_Internal\..\YSI_Server\y_scriptinit.inc:202 -> E:\Shady\Scripting\ProspectRP\pawno\include\sscanf2.inc:210)
+[04:52:49] [INFO] changed log level from 'warning, error' to 'debug, info, warning, error'
+[04:52:49] [DEBUG] mysql_errno(1) (e:\Shady\Scripting\ProspectRP\gamemodes\prospect_rp.pwn:71 -> E:\Shady\Scripting\ProspectRP\pawno\include\YSI\..\YSI_Coding\..\YSI_Core\..\YSI_Internal\..\YSI_Server\y_scriptinit.inc:202 -> E:\Shady\Scripting\ProspectRP\pawno\include\sscanf2.inc:210)
+[04:52:49] [DEBUG] CHandle::GetErrorId(this=0x38bb08)
+[04:52:49] [DEBUG] CConnection::GetError(this=0x2cdd88, connection=0x3879d0)
+[04:52:49] [DEBUG] CHandle::GetErrorId - return value: true, error id: '0', error msg: ''
+[04:52:49] [DEBUG] mysql_errno: return value: '0' (e:\Shady\Scripting\ProspectRP\gamemodes\prospect_rp.pwn:71 -> E:\Shady\Scripting\ProspectRP\pawno\include\YSI\..\YSI_Coding\..\YSI_Core\..\YSI_Internal\..\YSI_Server\y_scriptinit.inc:202 -> E:\Shady\Scripting\ProspectRP\pawno\include\sscanf2.inc:210)
+[04:52:49] [DEBUG] mysql_tquery(1, "SELECT * FROM houses ORDER BY id ASC", "SQL_LoadServerHouses", "") (assets/properties/houses.prospect:11 -> e:\Shady\Scripting\ProspectRP\gamemodes\prospect_rp.pwn:75 -> E:\Shady\Scripting\ProspectRP\pawno\include\YSI\..\YSI_Coding\..\YSI_Core\..\YSI_Internal\..\YSI_Server\y_scriptinit.inc:202 -> E:\Shady\Scripting\ProspectRP\pawno\include\sscanf2.inc:210)
+[04:52:49] [DEBUG] CCallback::Create(amx=0x1712e90, name='SQL_LoadServerHouses', format='', params=0x39e5da8, param_offset=5)
+[04:52:49] [DEBUG] CCallback::Create - callback index for 'SQL_LoadServerHouses': 48
+[04:52:49] [INFO] Callback 'SQL_LoadServerHouses' set up for delayed execution.
+[04:52:49] [DEBUG] created delayed callback with 0 parameter
+[04:52:49] [DEBUG] CHandle::Execute(this=0x38bb08, type=1, query=0x32e148)
+[04:52:49] [DEBUG] CHandle::Execute - return value: true
+[04:52:49] [DEBUG] mysql_tquery: return value: '1' (assets/properties/houses.prospect:11 -> e:\Shady\Scripting\ProspectRP\gamemodes\prospect_rp.pwn:75 -> E:\Shady\Scripting\ProspectRP\pawno\include\YSI\..\YSI_Coding\..\YSI_Core\..\YSI_Internal\..\YSI_Server\y_scriptinit.inc:202 -> E:\Shady\Scripting\ProspectRP\pawno\include\sscanf2.inc:210)
+[04:52:49] [DEBUG] CConnection::Execute(query=0x32e148, this=0x1fc0020, connection=0x384dd0)
+[04:52:49] [DEBUG] CQuery::Execute(this=0x32e148, connection=0x384dd0)
+[04:52:49] [INFO] query "SELECT * FROM houses ORDER BY id ASC" successfully executed within 0.489 milliseconds
+[04:52:49] [DEBUG] CResultSet::Create(connection=0x384dd0, query_str='SELECT * FROM houses ORDER BY id ASC')
+[04:52:49] [DEBUG] created new resultset '0x2c6230'
+[04:52:49] [DEBUG] fetched MySQL result '0x2330f58'
+[04:52:49] [DEBUG] allocated 148 bytes for PAWN result
+[04:52:49] [DEBUG] CCallback::Execute(amx=0x1712e90, index=48, num_params=0)
+[04:52:49] [INFO] Executing callback 'SQL_LoadServerHouses' with 0 parameter...
+[04:52:49] [DEBUG] executing AMX callback with index '48'
+[04:52:49] [DEBUG] cache_get_row_count(0x039E5DEC) (E:\Shady\Scripting\ProspectRP\pawno\include\a_mysql.inc:182 -> assets/properties/houses.prospect:15)
+[04:52:50] [DEBUG] cache_get_row_count: return value: '1' (E:\Shady\Scripting\ProspectRP\pawno\include\a_mysql.inc:182 -> assets/properties/houses.prospect:15)
+[04:52:50] [DEBUG] cache_get_row_count(0x039E5DF8) (assets/properties/houses.prospect:19)
+[04:52:50] [DEBUG] cache_get_row_count: return value: '1' (assets/properties/houses.prospect:19)
+[04:52:50] [DEBUG] cache_get_field_count(0x039E5DF4) (assets/properties/houses.prospect:20)
+[04:52:50] [DEBUG] cache_get_field_count: return value: '1' (assets/properties/houses.prospect:20)
+[04:52:50] [DEBUG] cache_get_value_name_int(0, "id", 0x039BDF24) (assets/properties/houses.prospect:23)
+[04:52:50] [DEBUG] cache_get_value_name_int: assigned value: '1' (assets/properties/houses.prospect:23)
+[04:52:50] [DEBUG] cache_get_value_name_int: return value: '1' (assets/properties/houses.prospect:23)
+[04:52:50] [DEBUG] cache_get_value_name_int(0, "OwnerSQL", 0x039BDF28) (assets/properties/houses.prospect:24)
+[04:52:50] [DEBUG] cache_get_value_name_int: assigned value: '0' (assets/properties/houses.prospect:24)
+[04:52:50] [DEBUG] cache_get_value_name_int: return value: '1' (assets/properties/houses.prospect:24)
+[04:52:50] [DEBUG] cache_get_value_name(0, "Name", 0x039BDF2C, 1) (assets/properties/houses.prospect:25)
+[04:52:50] [DEBUG] cache_get_value_name: assigned value: 'test' (assets/properties/houses.prospect:25)
+[04:52:50] [DEBUG] cache_get_value_name: return value: '1' (assets/properties/houses.prospect:25)
+[04:52:50] [DEBUG] cache_get_value_name_float(0, "ExtX", 0x039BDFCC) (assets/properties/houses.prospect:26)
+[04:52:50] [DEBUG] cache_get_value_name_float: assigned value: '1156.78' (assets/properties/houses.prospect:26)
+[04:52:50] [DEBUG] cache_get_value_name_float: return value: '1' (assets/properties/houses.prospect:26)
+[04:52:50] [DEBUG] cache_get_value_name_float(0, "ExtY", 0x039BDFD0) (assets/properties/houses.prospect:27)
+[04:52:50] [DEBUG] cache_get_value_name_float: assigned value: '-5112.55' (assets/properties/houses.prospect:27)
+[04:52:50] [DEBUG] cache_get_value_name_float: return value: '1' (assets/properties/houses.prospect:27)
+[04:52:50] [DEBUG] cache_get_value_name_float(0, "ExtZ", 0x039BDFD4) (assets/properties/houses.prospect:28)
+[04:52:50] [DEBUG] cache_get_value_name_float: assigned value: '3.527' (assets/properties/houses.prospect:28)
+[04:52:50] [DEBUG] cache_get_value_name_float: return value: '1' (assets/properties/houses.prospect:28)
+[04:52:50] [DEBUG] cache_get_value_name_float(0, "ExtA", 0x039BDFD8) (assets/properties/houses.prospect:29)
+[04:52:50] [DEBUG] cache_get_value_name_float: assigned value: '104.264' (assets/properties/houses.prospect:29)
+[04:52:50] [DEBUG] cache_get_value_name_float: return value: '1' (assets/properties/houses.prospect:29)
+[04:52:50] [DEBUG] cache_get_value_name_float(0, "IntX", 0x039BDFDC) (assets/properties/houses.prospect:30)
+[04:52:50] [DEBUG] cache_get_value_name_float: assigned value: '1170.99' (assets/properties/houses.prospect:30)
+[04:52:50] [DEBUG] cache_get_value_name_float: return value: '1' (assets/properties/houses.prospect:30)
+[04:52:50] [DEBUG] cache_get_value_name_float(0, "IntY", 0x039BDFE0) (assets/properties/houses.prospect:31)
+[04:52:50] [DEBUG] cache_get_value_name_float: assigned value: '-5045.79' (assets/properties/houses.prospect:31)
+[04:52:50] [DEBUG] cache_get_value_name_float: return value: '1' (assets/properties/houses.prospect:31)
+[04:52:50] [DEBUG] cache_get_value_name_float(0, "IntZ", 0x039BDFE4) (assets/properties/houses.prospect:32)
+[04:52:50] [DEBUG] cache_get_value_name_float: assigned value: '3.526' (assets/properties/houses.prospect:32)
+[04:52:50] [DEBUG] cache_get_value_name_float: return value: '1' (assets/properties/houses.prospect:32)
+[04:52:50] [DEBUG] cache_get_value_name_float(0, "IntA", 0x039BDFE8) (assets/properties/houses.prospect:33)
+[04:52:50] [DEBUG] cache_get_value_name_float: assigned value: '232.395' (assets/properties/houses.prospect:33)
+[04:52:50] [DEBUG] cache_get_value_name_float: return value: '1' (assets/properties/houses.prospect:33)
+[04:52:50] [DEBUG] cache_get_value_name_int(0, "IntID", 0x039BDFEC) (assets/properties/houses.prospect:34)
+[04:52:50] [DEBUG] cache_get_value_name_int: assigned value: '0' (assets/properties/houses.prospect:34)
+[04:52:50] [DEBUG] cache_get_value_name_int: return value: '1' (assets/properties/houses.prospect:34)
+[04:52:50] [DEBUG] cache_get_value_name_int(0, "Price", 0x039BDFF0) (assets/properties/houses.prospect:35)
+[04:52:50] [DEBUG] cache_get_value_name_int: assigned value: '1000' (assets/properties/houses.prospect:35)
+[04:52:50] [DEBUG] cache_get_value_name_int: return value: '1' (assets/properties/houses.prospect:35)
+[04:52:50] [DEBUG] cache_get_value_name_int(0, "Locked", 0x039BDFF4) (assets/properties/houses.prospect:36)
+[04:52:50] [DEBUG] cache_get_value_name_int: assigned value: '0' (assets/properties/houses.prospect:36)
+[04:52:50] [DEBUG] cache_get_value_name_int: return value: '1' (assets/properties/houses.prospect:36)
+[04:52:50] [DEBUG] AMX callback executed with error '0'
+[04:52:50] [INFO] Callback successfully executed.
+[04:53:26] [DEBUG] mysql_format(1, 0x039E4D10, 512, "SELECT id FROM players WHERE Name = '%e' LIMIT 1") (assets/functions.prospect:67 -> e:\Shady\Scripting\ProspectRP\gamemodes\prospect_rp.pwn:111 -> E:\Shady\Scripting\ProspectRP\pawno\include\YSI\..\YSI_Coding\..\YSI_Core\y_utils.inc:222 -> E:\Shady\Scripting\ProspectRP\pawno\include\sscanf2.inc:242 -> E:\Shady\Scripting\ProspectRP\pawno\include\YSI\..\YSI_Coding\..\YSI_Internal\y_cgen.inc:29)
+[04:53:26] [DEBUG] CHandle::EscapeString(this=0x38bb08, src='Shady_Dev')
+[04:53:26] [DEBUG] CConnection::EscapeString(src='Shady_Dev', this=0x2cdd88, connection=0x3879d0)
+[04:53:26] [DEBUG] CHandle::EscapeString - return value: true, escaped string: 'Shady_Dev'
+[04:53:26] [DEBUG] mysql_format: return value: '55' (assets/functions.prospect:67 -> e:\Shady\Scripting\ProspectRP\gamemodes\prospect_rp.pwn:111 -> E:\Shady\Scripting\ProspectRP\pawno\include\YSI\..\YSI_Coding\..\YSI_Core\y_utils.inc:222 -> E:\Shady\Scripting\ProspectRP\pawno\include\sscanf2.inc:242 -> E:\Shady\Scripting\ProspectRP\pawno\include\YSI\..\YSI_Coding\..\YSI_Internal\y_cgen.inc:29)
+[04:53:26] [DEBUG] mysql_tquery(1, "SELECT id FROM players WHERE Name = 'Shady_Dev' LIMIT 1", "SQL_DoesPlayerExist", "i") (assets/functions.prospect:68 -> e:\Shady\Scripting\ProspectRP\gamemodes\prospect_rp.pwn:111 -> E:\Shady\Scripting\ProspectRP\pawno\include\YSI\..\YSI_Coding\..\YSI_Core\y_utils.inc:222 -> E:\Shady\Scripting\ProspectRP\pawno\include\sscanf2.inc:242 -> E:\Shady\Scripting\ProspectRP\pawno\include\YSI\..\YSI_Coding\..\YSI_Internal\y_cgen.inc:29)
+[04:53:26] [DEBUG] CCallback::Create(amx=0x1712e90, name='SQL_DoesPlayerExist', format='i', params=0x39e4cf8, param_offset=5)
+[04:53:26] [DEBUG] CCallback::Create - callback index for 'SQL_DoesPlayerExist': 47
+[04:53:26] [DEBUG] processing specifier 'i' with parameter index 0
+[04:53:26] [DEBUG] retrieved and pushed value '0'
+[04:53:26] [INFO] Callback 'SQL_DoesPlayerExist' set up for delayed execution.
+[04:53:26] [DEBUG] created delayed callback with 1 parameter
+[04:53:26] [DEBUG] CHandle::Execute(this=0x38bb08, type=1, query=0x32e148)
+[04:53:26] [DEBUG] CConnection::Execute(query=0x32e148, this=0x1fc0020, connection=0x384dd0)
+[04:53:26] [DEBUG] CQuery::Execute(this=0x32e148, connection=0x384dd0)
+[04:53:26] [INFO] query "SELECT id FROM players WHERE Name = 'Shady_Dev' LIMIT 1" successfully executed within 0.450 milliseconds
+[04:53:26] [DEBUG] CResultSet::Create(connection=0x384dd0, query_str='SELECT id FROM players WHERE Name = 'Shady_Dev' LIMIT 1')
+[04:53:26] [DEBUG] created new resultset '0x3815a8'
+[04:53:26] [DEBUG] fetched MySQL result '0x389728'
+[04:53:26] [DEBUG] allocated 20 bytes for PAWN result
+[04:53:26] [DEBUG] CHandle::Execute - return value: true
+[04:53:26] [DEBUG] mysql_tquery: return value: '1' (assets/functions.prospect:68 -> e:\Shady\Scripting\ProspectRP\gamemodes\prospect_rp.pwn:111 -> E:\Shady\Scripting\ProspectRP\pawno\include\YSI\..\YSI_Coding\..\YSI_Core\y_utils.inc:222 -> E:\Shady\Scripting\ProspectRP\pawno\include\sscanf2.inc:242 -> E:\Shady\Scripting\ProspectRP\pawno\include\YSI\..\YSI_Coding\..\YSI_Internal\y_cgen.inc:29)
+[04:53:26] [DEBUG] CCallback::Execute(amx=0x1712e90, index=47, num_params=1)
+[04:53:26] [INFO] Executing callback 'SQL_DoesPlayerExist' with 1 parameter...
+[04:53:26] [DEBUG] processing internal specifier 'c'
+[04:53:26] [DEBUG] pushed value '0' onto AMX stack
+[04:53:26] [DEBUG] executing AMX callback with index '47'
+[04:53:26] [DEBUG] cache_get_row_count(0x039E5DE8) (E:\Shady\Scripting\ProspectRP\pawno\include\a_mysql.inc:182 -> assets/functions.prospect:73)
+[04:53:26] [DEBUG] cache_get_row_count: return value: '1' (E:\Shady\Scripting\ProspectRP\pawno\include\a_mysql.inc:182 -> assets/functions.prospect:73)
+[04:53:26] [DEBUG] AMX callback executed with error '0'
+[04:53:26] [INFO] Callback successfully executed.
+[04:53:30] [DEBUG] mysql_format(1, 0x039E5938, 300, "SELECT `Password` FROM `players` WHERE `Name` = '%e'") (e:\Shady\Scripting\ProspectRP\gamemodes\prospect_rp.pwn:293)
+[04:53:30] [DEBUG] CHandle::EscapeString(this=0x38bb08, src='Shady_Dev')
+[04:53:30] [DEBUG] CConnection::EscapeString(src='Shady_Dev', this=0x2cdd88, connection=0x3879d0)
+[04:53:30] [DEBUG] CHandle::EscapeString - return value: true, escaped string: 'Shady_Dev'
+[04:53:30] [DEBUG] mysql_format: return value: '59' (e:\Shady\Scripting\ProspectRP\gamemodes\prospect_rp.pwn:293)
+[04:53:30] [DEBUG] mysql_query(1, "SELECT `Password` FROM `players` WHERE `Name` = 'Shady_Dev'", 1) (e:\Shady\Scripting\ProspectRP\gamemodes\prospect_rp.pwn:294)
+[04:53:30] [DEBUG] CHandle::Execute(this=0x38bb08, type=3, query=0x32e148)
+[04:53:30] [DEBUG] CConnection::Execute(query=0x32e148, this=0x2cdd88, connection=0x3879d0)
+[04:53:30] [DEBUG] CQuery::Execute(this=0x32e148, connection=0x3879d0)
+[04:53:30] [INFO] query "SELECT `Password` FROM `players` WHERE `Name` = 'Shady_Dev'" successfully executed within 0.482 milliseconds
+[04:53:30] [DEBUG] CResultSet::Create(connection=0x3879d0, query_str='SELECT `Password` FROM `players` WHERE `Name` = 'Shady_Dev'')
+[04:53:30] [DEBUG] created new resultset '0x381180'
+[04:53:30] [DEBUG] fetched MySQL result '0x3892a8'
+[04:53:30] [DEBUG] allocated 76 bytes for PAWN result
+[04:53:30] [DEBUG] CHandle::Execute - return value: true
+[04:53:30] [DEBUG] mysql_query: return value: '1' (e:\Shady\Scripting\ProspectRP\gamemodes\prospect_rp.pwn:294)
+[04:53:30] [DEBUG] cache_get_value_name(0, "Password", 0x039E5844, 61) (e:\Shady\Scripting\ProspectRP\gamemodes\prospect_rp.pwn:295)
+[04:53:30] [DEBUG] cache_get_value_name: assigned value: '$2y$12$S0bOYEzqTUzuPiuvPyLOXurJPyCOw37ZOsXCGLD1jTKlDPSKk3gJ2' (e:\Shady\Scripting\ProspectRP\gamemodes\prospect_rp.pwn:295)
+[04:53:30] [DEBUG] cache_get_value_name: return value: '1' (e:\Shady\Scripting\ProspectRP\gamemodes\prospect_rp.pwn:295)
+[04:53:30] [DEBUG] mysql_format(1, 0x039E55F4, 512, "SELECT id FROM players WHERE Name = '%e' LIMIT 1") (assets/functions.prospect:130)
+[04:53:31] [DEBUG] CHandle::EscapeString(this=0x38bb08, src='Shady_Dev')
+[04:53:31] [DEBUG] CConnection::EscapeString(src='Shady_Dev', this=0x2cdd88, connection=0x3879d0)
+[04:53:31] [DEBUG] CHandle::EscapeString - return value: true, escaped string: 'Shady_Dev'
+[04:53:31] [DEBUG] mysql_format: return value: '55' (assets/functions.prospect:130)
+[04:53:31] [DEBUG] mysql_tquery(1, "SELECT id FROM players WHERE Name = 'Shady_Dev' LIMIT 1", "SQL_OnAccountLogin", "i") (assets/functions.prospect:131)
+[04:53:31] [DEBUG] CCallback::Create(amx=0x1712e90, name='SQL_OnAccountLogin', format='i', params=0x39e55dc, param_offset=5)
+[04:53:31] [DEBUG] CCallback::Create - callback index for 'SQL_OnAccountLogin': 49
+[04:53:31] [DEBUG] processing specifier 'i' with parameter index 0
+[04:53:31] [DEBUG] retrieved and pushed value '0'
+[04:53:31] [INFO] Callback 'SQL_OnAccountLogin' set up for delayed execution.
+[04:53:31] [DEBUG] created delayed callback with 1 parameter
+[04:53:31] [DEBUG] CHandle::Execute(this=0x38bb08, type=1, query=0x32e148)
+[04:53:31] [DEBUG] CConnection::Execute(query=0x32e148, this=0x1fc0020, connection=0x384dd0)
+[04:53:31] [DEBUG] CQuery::Execute(this=0x32e148, connection=0x384dd0)
+[04:53:31] [INFO] query "SELECT id FROM players WHERE Name = 'Shady_Dev' LIMIT 1" successfully executed within 0.438 milliseconds
+[04:53:31] [DEBUG] CResultSet::Create(connection=0x384dd0, query_str='SELECT id FROM players WHERE Name = 'Shady_Dev' LIMIT 1')
+[04:53:31] [DEBUG] created new resultset '0x3810a0'
+[04:53:31] [DEBUG] fetched MySQL result '0x3892a8'
+[04:53:31] [DEBUG] allocated 20 bytes for PAWN result
+[04:53:31] [DEBUG] CHandle::Execute - return value: true
+[04:53:31] [DEBUG] mysql_tquery: return value: '1' (assets/functions.prospect:131)
+[04:53:31] [DEBUG] CCallback::Execute(amx=0x1712e90, index=49, num_params=1)
+[04:53:31] [INFO] Executing callback 'SQL_OnAccountLogin' with 1 parameter...
+[04:53:31] [DEBUG] processing internal specifier 'c'
+[04:53:31] [DEBUG] pushed value '0' onto AMX stack
+[04:53:31] [DEBUG] executing AMX callback with index '49'
+[04:53:31] [DEBUG] cache_get_value_name_int(0, "id", 0x03965E74) (assets/functions.prospect:252)
+[04:53:31] [DEBUG] cache_get_value_name_int: assigned value: '1' (assets/functions.prospect:252)
+[04:53:31] [DEBUG] cache_get_value_name_int: return value: '1' (assets/functions.prospect:252)
+[04:53:31] [DEBUG] mysql_format(1, 0x039E55E8, 512, "SELECT * FROM players WHERE id = %i LIMIT 1") (assets/functions.prospect:268 -> assets/functions.prospect:254)
+[04:53:31] [DEBUG] mysql_format: return value: '42' (assets/functions.prospect:268 -> assets/functions.prospect:254)
+[04:53:31] [DEBUG] mysql_tquery(1, "SELECT * FROM players WHERE id = 1 LIMIT 1", "SQL_OnLoadAccount", "i") (assets/functions.prospect:269 -> assets/functions.prospect:254)
+[04:53:31] [DEBUG] CCallback::Create(amx=0x1712e90, name='SQL_OnLoadAccount', format='i', params=0x39e55d0, param_offset=5)
+[04:53:31] [DEBUG] CCallback::Create - callback index for 'SQL_OnLoadAccount': 51
+[04:53:31] [DEBUG] processing specifier 'i' with parameter index 0
+[04:53:31] [DEBUG] retrieved and pushed value '0'
+[04:53:31] [INFO] Callback 'SQL_OnLoadAccount' set up for delayed execution.
+[04:53:31] [DEBUG] created delayed callback with 1 parameter
+[04:53:31] [DEBUG] CHandle::Execute(this=0x38bb08, type=1, query=0x32e570)
+[04:53:31] [DEBUG] CConnection::Execute(query=0x32e570, this=0x1fc0020, connection=0x384dd0)
+[04:53:31] [DEBUG] CQuery::Execute(this=0x32e570, connection=0x384dd0)
+[04:53:31] [INFO] query "SELECT * FROM players WHERE id = 1 LIMIT 1" successfully executed within 0.491 milliseconds
+[04:53:31] [DEBUG] CResultSet::Create(connection=0x384dd0, query_str='SELECT * FROM players WHERE id = 1 LIMIT 1')
+[04:53:31] [DEBUG] created new resultset '0x381378'
+[04:53:31] [DEBUG] fetched MySQL result '0x22ff8e0'
+[04:53:31] [DEBUG] allocated 300 bytes for PAWN result
+[04:53:31] [DEBUG] CHandle::Execute - return value: true
+[04:53:31] [DEBUG] mysql_tquery: return value: '1' (assets/functions.prospect:269 -> assets/functions.prospect:254)
+[04:53:31] [DEBUG] AMX callback executed with error '0'
+[04:53:31] [INFO] Callback successfully executed.
+[04:53:31] [DEBUG] CCallback::Execute(amx=0x1712e90, index=51, num_params=1)
+[04:53:32] [INFO] Executing callback 'SQL_OnLoadAccount' with 1 parameter...
+[04:53:33] [DEBUG] processing internal specifier 'c'
+[04:53:33] [DEBUG] pushed value '0' onto AMX stack
+[04:53:33] [DEBUG] executing AMX callback with index '51'
+[04:53:33] [DEBUG] cache_get_value_name(0, "RegDate", 0x03965E78, 16) (assets/functions.prospect:277)
+[04:53:33] [DEBUG] cache_get_value_name: assigned value: '01/03/2019' (assets/functions.prospect:277)
+[04:53:33] [DEBUG] cache_get_value_name: return value: '1' (assets/functions.prospect:277)
+[04:53:33] [DEBUG] cache_get_value_name_int(0, "AdminLevel", 0x03965EB8) (assets/functions.prospect:278)
+[04:53:33] [DEBUG] cache_get_value_name_int: assigned value: '4' (assets/functions.prospect:278)
+[04:53:33] [DEBUG] cache_get_value_name_int: return value: '1' (assets/functions.prospect:278)
+[04:53:33] [DEBUG] cache_get_value_name_int(0, "Helper", 0x03965EBC) (assets/functions.prospect:279)
+[04:53:33] [DEBUG] cache_get_value_name_int: assigned value: '0' (assets/functions.prospect:279)
+[04:53:33] [DEBUG] cache_get_value_name_int: return value: '1' (assets/functions.prospect:279)
+[04:53:33] [DEBUG] cache_get_value_name_int(0, "Tester", 0x03965EC0) (assets/functions.prospect:280)
+[04:53:33] [DEBUG] cache_get_value_name_int: assigned value: '0' (assets/functions.prospect:280)
+[04:53:33] [DEBUG] cache_get_value_name_int: return value: '1' (assets/functions.prospect:280)
+[04:53:33] [DEBUG] cache_get_value_name_int(0, "Donator", 0x03965EC4) (assets/functions.prospect:281)
+[04:53:33] [DEBUG] cache_get_value_name_int: assigned value: '0' (assets/functions.prospect:281)
+[04:53:33] [DEBUG] cache_get_value_name_int: return value: '1' (assets/functions.prospect:281)
+[04:53:33] [DEBUG] cache_get_value_name_int(0, "Age", 0x03965EC8) (assets/functions.prospect:283)
+[04:53:33] [DEBUG] cache_get_value_name_int: assigned value: '20' (assets/functions.prospect:283)
+[04:53:33] [DEBUG] cache_get_value_name_int: return value: '1' (assets/functions.prospect:283)
+[04:53:33] [DEBUG] cache_get_value_name_int(0, "Gender", 0x03965ECC) (assets/functions.prospect:284)
+[04:53:33] [DEBUG] cache_get_value_name_int: assigned value: '1' (assets/functions.prospect:284)
+[04:53:33] [DEBUG] cache_get_value_name_int: return value: '1' (assets/functions.prospect:284)
+[04:53:33] [DEBUG] cache_get_value_name_int(0, "Ethnicity", 0x03965ED0) (assets/functions.prospect:285)
+[04:53:33] [DEBUG] cache_get_value_name_int: assigned value: '0' (assets/functions.prospect:285)
+[04:53:33] [DEBUG] cache_get_value_name_int: return value: '1' (assets/functions.prospect:285)
+[04:53:33] [DEBUG] cache_get_value_name_int(0, "Money", 0x03965ED4) (assets/functions.prospect:286)
+[04:53:33] [DEBUG] cache_get_value_name_int: assigned value: '0' (assets/functions.prospect:286)
+[04:53:33] [DEBUG] cache_get_value_name_int: return value: '1' (assets/functions.prospect:286)
+[04:53:33] [DEBUG] cache_get_value_name_int(0, "Level", 0x03965ED8) (assets/functions.prospect:287)
+[04:53:33] [DEBUG] cache_get_value_name_int: assigned value: '1' (assets/functions.prospect:287)
+[04:53:33] [DEBUG] cache_get_value_name_int: return value: '1' (assets/functions.prospect:287)
+[04:53:33] [DEBUG] cache_get_value_name_int(0, "Respect", 0x03965EDC) (assets/functions.prospect:288)
+[04:53:33] [DEBUG] cache_get_value_name_int: assigned value: '0' (assets/functions.prospect:288)
+[04:53:33] [DEBUG] cache_get_value_name_int: return value: '1' (assets/functions.prospect:288)
+[04:53:33] [DEBUG] cache_get_value_name_int(0, "PlayedTime", 0x03965EE0) (assets/functions.prospect:289)
+[04:53:33] [DEBUG] cache_get_value_name_int: assigned value: '0' (assets/functions.prospect:289)
+[04:53:33] [DEBUG] cache_get_value_name_int: return value: '1' (assets/functions.prospect:289)
+[04:53:33] [DEBUG] cache_get_value_name_float(0, "LastX", 0x03965EE4) (assets/functions.prospect:291)
+[04:53:33] [DEBUG] cache_get_value_name_float: assigned value: '1967.78' (assets/functions.prospect:291)
+[04:53:33] [DEBUG] cache_get_value_name_float: return value: '1' (assets/functions.prospect:291)
+[04:53:33] [DEBUG] cache_get_value_name_float(0, "LastY", 0x03965EE8) (assets/functions.prospect:292)
+[04:53:33] [DEBUG] cache_get_value_name_float: assigned value: '-2009.42' (assets/functions.prospect:292)
+[04:53:33] [DEBUG] cache_get_value_name_float: return value: '1' (assets/functions.prospect:292)
+[04:53:33] [DEBUG] cache_get_value_name_float(0, "LastZ", 0x03965EEC) (assets/functions.prospect:293)
+[04:53:33] [DEBUG] cache_get_value_name_float: assigned value: '13.5469' (assets/functions.prospect:293)
+[04:53:33] [DEBUG] cache_get_value_name_float: return value: '1' (assets/functions.prospect:293)
+[04:53:33] [DEBUG] cache_get_value_name_float(0, "LastRot", 0x03965EF0) (assets/functions.prospect:294)
+[04:53:33] [DEBUG] cache_get_value_name_float: assigned value: '210.802' (assets/functions.prospect:294)
+[04:53:33] [DEBUG] cache_get_value_name_float: return value: '1' (assets/functions.prospect:294)
+[04:53:33] [DEBUG] cache_get_value_name_int(0, "Interior", 0x03965EF8) (assets/functions.prospect:295)
+[04:53:33] [DEBUG] cache_get_value_name_int: assigned value: '0' (assets/functions.prospect:295)
+[04:53:33] [DEBUG] cache_get_value_name_int: return value: '1' (assets/functions.prospect:295)
+[04:53:33] [DEBUG] cache_get_value_name_int(0, "World", 0x03965EFC) (assets/functions.prospect:296)
+[04:53:33] [DEBUG] cache_get_value_name_int: assigned value: '0' (assets/functions.prospect:296)
+[04:53:33] [DEBUG] cache_get_value_name_int: return value: '1' (assets/functions.prospect:296)
+[04:53:33] [DEBUG] cache_get_value_name_int(0, "Skin", 0x03965F00) (assets/functions.prospect:297)
+[04:53:33] [DEBUG] cache_get_value_name_int: assigned value: '299' (assets/functions.prospect:297)
+[04:53:33] [DEBUG] cache_get_value_name_int: return value: '1' (assets/functions.prospect:297)
+[04:53:33] [DEBUG] cache_get_value_name_float(0, "Health", 0x03965F04) (assets/functions.prospect:298)
+[04:53:33] [DEBUG] cache_get_value_name_float: assigned value: '69' (assets/functions.prospect:298)
+[04:53:33] [DEBUG] cache_get_value_name_float: return value: '1' (assets/functions.prospect:298)
+[04:53:33] [DEBUG] cache_get_value_name_float(0, "Armour", 0x03965F08) (assets/functions.prospect:299)
+[04:53:33] [DEBUG] cache_get_value_name_float: assigned value: '0' (assets/functions.prospect:299)
+[04:53:33] [DEBUG] cache_get_value_name_float: return value: '1' (assets/functions.prospect:299)
+[04:53:33] [DEBUG] cache_get_value_name_int(0, "Hitman", 0x03965F0C) (assets/functions.prospect:301)
+[04:53:33] [DEBUG] cache_get_value_name_int: assigned value: '1' (assets/functions.prospect:301)
+[04:53:33] [DEBUG] cache_get_value_name_int: return value: '1' (assets/functions.prospect:301)
+[04:53:33] [DEBUG] AMX callback executed with error '0'
+[04:53:33] [INFO] Callback successfully executed.
+[04:53:40] [DEBUG] mysql_format(1, 0x039E55E4, 512, "UPDATE players SET LastX = %f, LastY = %f, LastZ = %f, LastRot = %f, Interior = %i, World = %i, Skin = %i, Health = %f, Armour = %f WHERE id = %i LIMIT 1") (assets/functions.prospect:358 -> assets/functions.prospect:336)
+[04:53:40] [DEBUG] mysql_format: return value: '198' (assets/functions.prospect:358 -> assets/functions.prospect:336)
+[04:53:40] [DEBUG] mysql_tquery(1, "UPDATE players SET LastX = 1967.856079, LastY = -2021.110596, LastZ = 13.546875, LastRot = 168.427032, Interior = 0, World = 0, Skin = 299, Health = 69.000000, Armour = 0.000000 WHERE id = 1 LIMIT 1", "", "") (assets/functions.prospect:361 -> assets/functions.prospect:336)
+[04:53:40] [DEBUG] CCallback::Create(amx=0x1712e90, name='', format='', params=0x39e55d0, param_offset=5)
+[04:53:40] [DEBUG] CHandle::Execute(this=0x38bb08, type=1, query=0x32e570)
+[04:53:40] [DEBUG] CConnection::Execute(query=0x32e570, this=0x1fc0020, connection=0x384dd0)
+[04:53:40] [DEBUG] CQuery::Execute(this=0x32e570, connection=0x384dd0)
+[04:53:40] [DEBUG] CHandle::Execute - return value: true
+[04:53:40] [DEBUG] mysql_tquery: return value: '1' (assets/functions.prospect:361 -> assets/functions.prospect:336)
+[04:53:40] [INFO] query "UPDATE players SET LastX = 1967.856079, LastY = -2021.110596, LastZ = 13.546875, LastRot = 168.427032, Interior = 0, World = 0, Skin = 299, Health = 69.000000, Armour = 0.000000 WHERE id = 1 LIMIT 1" successfully executed within 75.445 milliseconds
+[04:53:40] [DEBUG] CResultSet::Create(connection=0x384dd0, query_str='UPDATE players SET LastX = 1967.856079, LastY = -2021.110596, LastZ = 13.546875, LastRot = 168.427032, Interior = 0, World = 0, Skin = 299, Health = 69.000000, Armour = 0.000000 WHERE id = 1 LIMIT 1')
+[04:53:40] [DEBUG] created new resultset '0x2c66c8'
+[04:53:40] [DEBUG] fetched MySQL result '0x0'
+[04:53:50] [DEBUG] mysql_format(1, 0x039E55E4, 512, "UPDATE players SET LastX = %f, LastY = %f, LastZ = %f, LastRot = %f, Interior = %i, World = %i, Skin = %i, Health = %f, Armour = %f WHERE id = %i LIMIT 1") (assets/functions.prospect:358 -> assets/functions.prospect:336)
+[04:53:50] [DEBUG] mysql_format: return value: '198' (assets/functions.prospect:358 -> assets/functions.prospect:336)
+[04:53:50] [DEBUG] mysql_tquery(1, "UPDATE players SET LastX = 1982.402832, LastY = -2062.238281, LastZ = 13.381299, LastRot = 343.029938, Interior = 0, World = 0, Skin = 299, Health = 69.000000, Armour = 0.000000 WHERE id = 1 LIMIT 1", "", "") (assets/functions.prospect:361 -> assets/functions.prospect:336)
+[04:53:50] [DEBUG] CCallback::Create(amx=0x1712e90, name='', format='', params=0x39e55d0, param_offset=5)
+[04:53:50] [DEBUG] CHandle::Execute(this=0x38bb08, type=1, query=0x32e570)
+[04:53:50] [DEBUG] CConnection::Execute(query=0x32e570, this=0x1fc0020, connection=0x384dd0)
+[04:53:50] [DEBUG] CQuery::Execute(this=0x32e570, connection=0x384dd0)
+[04:53:50] [DEBUG] CHandle::Execute - return value: true
+[04:53:50] [DEBUG] mysql_tquery: return value: '1' (assets/functions.prospect:361 -> assets/functions.prospect:336)
+[04:53:50] [INFO] query "UPDATE players SET LastX = 1982.402832, LastY = -2062.238281, LastZ = 13.381299, LastRot = 343.029938, Interior = 0, World = 0, Skin = 299, Health = 69.000000, Armour = 0.000000 WHERE id = 1 LIMIT 1" successfully executed within 71.337 milliseconds
+[04:53:50] [DEBUG] CResultSet::Create(connection=0x384dd0, query_str='UPDATE players SET LastX = 1982.402832, LastY = -2062.238281, LastZ = 13.381299, LastRot = 343.029938, Interior = 0, World = 0, Skin = 299, Health = 69.000000, Armour = 0.000000 WHERE id = 1 LIMIT 1')
+[04:53:50] [DEBUG] created new resultset '0x2c6230'
+[04:53:50] [DEBUG] fetched MySQL result '0x0'
+[04:53:57] [DEBUG] mysql_format(1, 0x039E55E4, 512, "UPDATE players SET LastX = %f, LastY = %f, LastZ = %f, LastRot = %f, Interior = %i, World = %i, Skin = %i, Health = %f, Armour = %f WHERE id = %i LIMIT 1") (assets/functions.prospect:358 -> assets/functions.prospect:336)
+[04:53:57] [DEBUG] mysql_format: return value: '196' (assets/functions.prospect:358 -> assets/functions.prospect:336)
+[04:53:57] [DEBUG] mysql_tquery(1, "UPDATE players SET LastX = 1958.643555, LastY = -2002.538574, LastZ = 14.271191, LastRot = 6.530207, Interior = 0, World = 0, Skin = 299, Health = 69.000000, Armour = 0.000000 WHERE id = 1 LIMIT 1", "", "") (assets/functions.prospect:361 -> assets/functions.prospect:336)
+[04:53:57] [DEBUG] CCallback::Create(amx=0x1712e90, name='', format='', params=0x39e55d0, param_offset=5)
+[04:53:57] [DEBUG] CHandle::Execute(this=0x38bb08, type=1, query=0x32e570)
+[04:53:57] [DEBUG] CConnection::Execute(query=0x32e570, this=0x1fc0020, connection=0x384dd0)
+[04:53:57] [DEBUG] CQuery::Execute(this=0x32e570, connection=0x384dd0)
+[04:53:57] [DEBUG] CHandle::Execute - return value: true
+[04:53:57] [DEBUG] mysql_tquery: return value: '1' (assets/functions.prospect:361 -> assets/functions.prospect:336)
+[04:53:57] [INFO] query "UPDATE players SET LastX = 1958.643555, LastY = -2002.538574, LastZ = 14.271191, LastRot = 6.530207, Interior = 0, World = 0, Skin = 299, Health = 69.000000, Armour = 0.000000 WHERE id = 1 LIMIT 1" successfully executed within 53.269 milliseconds
+[04:53:57] [DEBUG] CResultSet::Create(connection=0x384dd0, query_str='UPDATE players SET LastX = 1958.643555, LastY = -2002.538574, LastZ = 14.271191, LastRot = 6.530207, Interior = 0, World = 0, Skin = 299, Health = 69.000000, Armour = 0.000000 WHERE id = 1 LIMIT 1')
+[04:53:57] [DEBUG] created new resultset '0x2c6700'
+[04:53:57] [DEBUG] fetched MySQL result '0x0'
+[04:54:05] [DEBUG] mysql_format(1, 0x039E55E4, 512, "UPDATE players SET LastX = %f, LastY = %f, LastZ = %f, LastRot = %f, Interior = %i, World = %i, Skin = %i, Health = %f, Armour = %f WHERE id = %i LIMIT 1") (assets/functions.prospect:358 -> assets/functions.prospect:336)
+[04:54:05] [DEBUG] mysql_format: return value: '197' (assets/functions.prospect:358 -> assets/functions.prospect:336)
+[04:54:05] [DEBUG] mysql_tquery(1, "UPDATE players SET LastX = 1943.081177, LastY = -1930.454224, LastZ = 14.026555, LastRot = 22.510281, Interior = 0, World = 0, Skin = 299, Health = 69.000000, Armour = 0.000000 WHERE id = 1 LIMIT 1", "", "") (assets/functions.prospect:361 -> assets/functions.prospect:336)
+[04:54:05] [DEBUG] CCallback::Create(amx=0x1712e90, name='', format='', params=0x39e55d0, param_offset=5)
+[04:54:05] [DEBUG] CHandle::Execute(this=0x38bb08, type=1, query=0x32e570)
+[04:54:05] [DEBUG] CConnection::Execute(query=0x32e570, this=0x1fc0020, connection=0x384dd0)
+[04:54:05] [DEBUG] CQuery::Execute(this=0x32e570, connection=0x384dd0)
+[04:54:05] [DEBUG] CHandle::Execute - return value: true
+[04:54:05] [INFO] query "UPDATE players SET LastX = 1943.081177, LastY = -1930.454224, LastZ = 14.026555, LastRot = 22.510281, Interior = 0, World = 0, Skin = 299, Health = 69.000000, Armour = 0.000000 WHERE id = 1 LIMIT 1" successfully executed within 50.219 milliseconds
+[04:54:05] [DEBUG] CResultSet::Create(connection=0x384dd0, query_str='UPDATE players SET LastX = 1943.081177, LastY = -1930.454224, LastZ = 14.026555, LastRot = 22.510281, Interior = 0, World = 0, Skin = 299, Health = 69.000000, Armour = 0.000000 WHERE id = 1 LIMIT 1')
+[04:54:05] [DEBUG] created new resultset '0x2c6578'
+[04:54:05] [DEBUG] fetched MySQL result '0x0'
+[04:54:05] [DEBUG] mysql_tquery: return value: '1' (assets/functions.prospect:361 -> assets/functions.prospect:336)
+[04:54:14] [DEBUG] mysql_format(1, 0x039E55E4, 512, "UPDATE players SET LastX = %f, LastY = %f, LastZ = %f, LastRot = %f, Interior = %i, World = %i, Skin = %i, Health = %f, Armour = %f WHERE id = %i LIMIT 1") (assets/functions.prospect:358 -> assets/functions.prospect:336)
+[04:54:14] [DEBUG] mysql_format: return value: '198' (assets/functions.prospect:358 -> assets/functions.prospect:336)
+[04:54:14] [DEBUG] mysql_tquery(1, "UPDATE players SET LastX = 1934.298340, LastY = -1911.380981, LastZ = 15.027580, LastRot = 186.988541, Interior = 0, World = 0, Skin = 299, Health = 69.000000, Armour = 0.000000 WHERE id = 1 LIMIT 1", "", "") (assets/functions.prospect:361 -> assets/functions.prospect:336)
+[04:54:14] [DEBUG] CCallback::Create(amx=0x1712e90, name='', format='', params=0x39e55d0, param_offset=5)
+[04:54:14] [DEBUG] CHandle::Execute(this=0x38bb08, type=1, query=0x32e570)
+[04:54:14] [DEBUG] CConnection::Execute(query=0x32e570, this=0x1fc0020, connection=0x384dd0)
+[04:54:14] [DEBUG] CQuery::Execute(this=0x32e570, connection=0x384dd0)
+[04:54:14] [DEBUG] CHandle::Execute - return value: true
+[04:54:14] [DEBUG] mysql_tquery: return value: '1' (assets/functions.prospect:361 -> assets/functions.prospect:336)
+[04:54:14] [INFO] query "UPDATE players SET LastX = 1934.298340, LastY = -1911.380981, LastZ = 15.027580, LastRot = 186.988541, Interior = 0, World = 0, Skin = 299, Health = 69.000000, Armour = 0.000000 WHERE id = 1 LIMIT 1" successfully executed within 61.950 milliseconds
+[04:54:14] [DEBUG] CResultSet::Create(connection=0x384dd0, query_str='UPDATE players SET LastX = 1934.298340, LastY = -1911.380981, LastZ = 15.027580, LastRot = 186.988541, Interior = 0, World = 0, Skin = 299, Health = 69.000000, Armour = 0.000000 WHERE id = 1 LIMIT 1')
+[04:54:14] [DEBUG] created new resultset '0x2c6700'
+[04:54:14] [DEBUG] fetched MySQL result '0x0'
+[04:54:23] [DEBUG] mysql_format(1, 0x039E55E4, 512, "UPDATE players SET LastX = %f, LastY = %f, LastZ = %f, LastRot = %f, Interior = %i, World = %i, Skin = %i, Health = %f, Armour = %f WHERE id = %i LIMIT 1") (assets/functions.prospect:358 -> assets/functions.prospect:336)
+[04:54:23] [DEBUG] mysql_format: return value: '198' (assets/functions.prospect:358 -> assets/functions.prospect:336)
+[04:54:23] [DEBUG] mysql_tquery(1, "UPDATE players SET LastX = 1941.778198, LastY = -1981.286621, LastZ = 16.459278, LastRot = 186.988541, Interior = 0, World = 0, Skin = 299, Health = 69.000000, Armour = 0.000000 WHERE id = 1 LIMIT 1", "", "") (assets/functions.prospect:361 -> assets/functions.prospect:336)
+[04:54:23] [DEBUG] CCallback::Create(amx=0x1712e90, name='', format='', params=0x39e55d0, param_offset=5)
+[04:54:23] [DEBUG] CHandle::Execute(this=0x38bb08, type=1, query=0x32e570)
+[04:54:23] [DEBUG] CHandle::Execute - return value: true
+[04:54:23] [DEBUG] mysql_tquery: return value: '1' (assets/functions.prospect:361 -> assets/functions.prospect:336)
+[04:54:23] [DEBUG] CConnection::Execute(query=0x32e570, this=0x1fc0020, connection=0x384dd0)
+[04:54:23] [DEBUG] CQuery::Execute(this=0x32e570, connection=0x384dd0)
+[04:54:23] [INFO] query "UPDATE players SET LastX = 1941.778198, LastY = -1981.286621, LastZ = 16.459278, LastRot = 186.988541, Interior = 0, World = 0, Skin = 299, Health = 69.000000, Armour = 0.000000 WHERE id = 1 LIMIT 1" successfully executed within 60.96 milliseconds
+[04:54:23] [DEBUG] CResultSet::Create(connection=0x384dd0, query_str='UPDATE players SET LastX = 1941.778198, LastY = -1981.286621, LastZ = 16.459278, LastRot = 186.988541, Interior = 0, World = 0, Skin = 299, Health = 69.000000, Armour = 0.000000 WHERE id = 1 LIMIT 1')
+[04:54:23] [DEBUG] created new resultset '0x2c6498'
+[04:54:23] [DEBUG] fetched MySQL result '0x0'
+[04:54:33] [DEBUG] mysql_format(1, 0x039E55E4, 512, "UPDATE players SET LastX = %f, LastY = %f, LastZ = %f, LastRot = %f, Interior = %i, World = %i, Skin = %i, Health = %f, Armour = %f WHERE id = %i LIMIT 1") (assets/functions.prospect:358 -> assets/functions.prospect:336)
+[04:54:33] [DEBUG] mysql_format: return value: '198' (assets/functions.prospect:358 -> assets/functions.prospect:336)
+[04:54:33] [DEBUG] mysql_tquery(1, "UPDATE players SET LastX = 1968.359253, LastY = -2018.396851, LastZ = 13.546875, LastRot = 186.988541, Interior = 0, World = 0, Skin = 299, Health = 69.000000, Armour = 0.000000 WHERE id = 1 LIMIT 1", "", "") (assets/functions.prospect:361 -> assets/functions.prospect:336)
+[04:54:33] [DEBUG] CCallback::Create(amx=0x1712e90, name='', format='', params=0x39e55d0, param_offset=5)
+[04:54:33] [DEBUG] CHandle::Execute(this=0x38bb08, type=1, query=0x32e570)
+[04:54:33] [DEBUG] CConnection::Execute(query=0x32e570, this=0x1fc0020, connection=0x384dd0)
+[04:54:33] [DEBUG] CQuery::Execute(this=0x32e570, connection=0x384dd0)
+[04:54:33] [DEBUG] CHandle::Execute - return value: true
+[04:54:33] [DEBUG] mysql_tquery: return value: '1' (assets/functions.prospect:361 -> assets/functions.prospect:336)
+[04:54:33] [INFO] query "UPDATE players SET LastX = 1968.359253, LastY = -2018.396851, LastZ = 13.546875, LastRot = 186.988541, Interior = 0, World = 0, Skin = 299, Health = 69.000000, Armour = 0.000000 WHERE id = 1 LIMIT 1" successfully executed within 45.159 milliseconds
+[04:54:33] [DEBUG] CResultSet::Create(connection=0x384dd0, query_str='UPDATE players SET LastX = 1968.359253, LastY = -2018.396851, LastZ = 13.546875, LastRot = 186.988541, Interior = 0, World = 0, Skin = 299, Health = 69.000000, Armour = 0.000000 WHERE id = 1 LIMIT 1')
+[04:54:33] [DEBUG] created new resultset '0x2c6700'
+[04:54:33] [DEBUG] fetched MySQL result '0x0'
+[04:54:42] [DEBUG] mysql_format(1, 0x039E55E4, 512, "UPDATE players SET LastX = %f, LastY = %f, LastZ = %f, LastRot = %f, Interior = %i, World = %i, Skin = %i, Health = %f, Armour = %f WHERE id = %i LIMIT 1") (assets/functions.prospect:358 -> assets/functions.prospect:336)
+[04:54:42] [DEBUG] mysql_format: return value: '198' (assets/functions.prospect:358 -> assets/functions.prospect:336)
+[04:54:42] [DEBUG] mysql_tquery(1, "UPDATE players SET LastX = 1945.200806, LastY = -2092.081787, LastZ = 13.550281, LastRot = 168.815002, Interior = 0, World = 0, Skin = 299, Health = 69.000000, Armour = 0.000000 WHERE id = 1 LIMIT 1", "", "") (assets/functions.prospect:361 -> assets/functions.prospect:336)
+[04:54:42] [DEBUG] CCallback::Create(amx=0x1712e90, name='', format='', params=0x39e55d0, param_offset=5)
+[04:54:42] [DEBUG] CHandle::Execute(this=0x38bb08, type=1, query=0x32e570)
+[04:54:42] [DEBUG] CConnection::Execute(query=0x32e570, this=0x1fc0020, connection=0x384dd0)
+[04:54:42] [DEBUG] CQuery::Execute(this=0x32e570, connection=0x384dd0)
+[04:54:42] [DEBUG] CHandle::Execute - return value: true
+[04:54:42] [DEBUG] mysql_tquery: return value: '1' (assets/functions.prospect:361 -> assets/functions.prospect:336)
+[04:54:42] [INFO] query "UPDATE players SET LastX = 1945.200806, LastY = -2092.081787, LastZ = 13.550281, LastRot = 168.815002, Interior = 0, World = 0, Skin = 299, Health = 69.000000, Armour = 0.000000 WHERE id = 1 LIMIT 1" successfully executed within 62.953 milliseconds
+[04:54:42] [DEBUG] CResultSet::Create(connection=0x384dd0, query_str='UPDATE players SET LastX = 1945.200806, LastY = -2092.081787, LastZ = 13.550281, LastRot = 168.815002, Interior = 0, World = 0, Skin = 299, Health = 69.000000, Armour = 0.000000 WHERE id = 1 LIMIT 1')
+[04:54:42] [DEBUG] created new resultset '0x2c6700'
+[04:54:42] [DEBUG] fetched MySQL result '0x0'
+[04:54:52] [DEBUG] mysql_format(1, 0x039E55E4, 512, "UPDATE players SET LastX = %f, LastY = %f, LastZ = %f, LastRot = %f, Interior = %i, World = %i, Skin = %i, Health = %f, Armour = %f WHERE id = %i LIMIT 1") (assets/functions.prospect:358 -> assets/functions.prospect:336)
+[04:54:52] [DEBUG] mysql_format: return value: '198' (assets/functions.prospect:358 -> assets/functions.prospect:336)
+[04:54:52] [DEBUG] mysql_tquery(1, "UPDATE players SET LastX = 1938.757935, LastY = -2147.820557, LastZ = 14.348094, LastRot = 167.248322, Interior = 0, World = 0, Skin = 299, Health = 69.000000, Armour = 0.000000 WHERE id = 1 LIMIT 1", "", "") (assets/functions.prospect:361 -> assets/functions.prospect:336)
+[04:54:52] [DEBUG] CCallback::Create(amx=0x1712e90, name='', format='', params=0x39e55d0, param_offset=5)
+[04:54:52] [DEBUG] CHandle::Execute(this=0x38bb08, type=1, query=0x32e570)
+[04:54:52] [DEBUG] CHandle::Execute - return value: true
+[04:54:52] [DEBUG] mysql_tquery: return value: '1' (assets/functions.prospect:361 -> assets/functions.prospect:336)
+[04:54:52] [DEBUG] CConnection::Execute(query=0x32e570, this=0x1fc0020, connection=0x384dd0)
+[04:54:52] [DEBUG] CQuery::Execute(this=0x32e570, connection=0x384dd0)
+[04:54:52] [INFO] query "UPDATE players SET LastX = 1938.757935, LastY = -2147.820557, LastZ = 14.348094, LastRot = 167.248322, Interior = 0, World = 0, Skin = 299, Health = 69.000000, Armour = 0.000000 WHERE id = 1 LIMIT 1" successfully executed within 55.103 milliseconds
+[04:54:52] [DEBUG] CResultSet::Create(connection=0x384dd0, query_str='UPDATE players SET LastX = 1938.757935, LastY = -2147.820557, LastZ = 14.348094, LastRot = 167.248322, Interior = 0, World = 0, Skin = 299, Health = 69.000000, Armour = 0.000000 WHERE id = 1 LIMIT 1')
+[04:54:52] [DEBUG] created new resultset '0x2c6578'
+[04:54:52] [DEBUG] fetched MySQL result '0x0'
+[04:55:02] [DEBUG] mysql_format(1, 0x039E55E4, 512, "UPDATE players SET LastX = %f, LastY = %f, LastZ = %f, LastRot = %f, Interior = %i, World = %i, Skin = %i, Health = %f, Armour = %f WHERE id = %i LIMIT 1") (assets/functions.prospect:358 -> assets/functions.prospect:336)
+[04:55:02] [DEBUG] mysql_format: return value: '197' (assets/functions.prospect:358 -> assets/functions.prospect:336)
+[04:55:02] [DEBUG] mysql_tquery(1, "UPDATE players SET LastX = 1941.980225, LastY = -2157.200684, LastZ = 13.554209, LastRot = 49.216499, Interior = 0, World = 0, Skin = 299, Health = 69.000000, Armour = 0.000000 WHERE id = 1 LIMIT 1", "", "") (assets/functions.prospect:361 -> assets/functions.prospect:336)
+[04:55:02] [DEBUG] CCallback::Create(amx=0x1712e90, name='', format='', params=0x39e55d0, param_offset=5)
+[04:55:02] [DEBUG] CHandle::Execute(this=0x38bb08, type=1, query=0x32e570)
+[04:55:02] [DEBUG] CConnection::Execute(query=0x32e570, this=0x1fc0020, connection=0x384dd0)
+[04:55:02] [DEBUG] CQuery::Execute(this=0x32e570, connection=0x384dd0)
+[04:55:02] [DEBUG] CHandle::Execute - return value: true
+[04:55:02] [DEBUG] mysql_tquery: return value: '1' (assets/functions.prospect:361 -> assets/functions.prospect:336)
+[04:55:02] [INFO] query "UPDATE players SET LastX = 1941.980225, LastY = -2157.200684, LastZ = 13.554209, LastRot = 49.216499, Interior = 0, World = 0, Skin = 299, Health = 69.000000, Armour = 0.000000 WHERE id = 1 LIMIT 1" successfully executed within 39.945 milliseconds
+[04:55:02] [DEBUG] CResultSet::Create(connection=0x384dd0, query_str='UPDATE players SET LastX = 1941.980225, LastY = -2157.200684, LastZ = 13.554209, LastRot = 49.216499, Interior = 0, World = 0, Skin = 299, Health = 69.000000, Armour = 0.000000 WHERE id = 1 LIMIT 1')
+[04:55:02] [DEBUG] created new resultset '0x2c66c8'
+[04:55:02] [DEBUG] fetched MySQL result '0x0'
+[04:55:09] [DEBUG] mysql_format(1, 0x039E55E4, 512, "UPDATE players SET LastX = %f, LastY = %f, LastZ = %f, LastRot = %f, Interior = %i, World = %i, Skin = %i, Health = %f, Armour = %f WHERE id = %i LIMIT 1") (assets/functions.prospect:358 -> assets/functions.prospect:336)
+[04:55:09] [DEBUG] mysql_format: return value: '198' (assets/functions.prospect:358 -> assets/functions.prospect:336)
+[04:55:09] [DEBUG] mysql_tquery(1, "UPDATE players SET LastX = 1944.345093, LastY = -2102.884521, LastZ = 13.551744, LastRot = 359.951538, Interior = 0, World = 0, Skin = 299, Health = 69.000000, Armour = 0.000000 WHERE id = 1 LIMIT 1", "", "") (assets/functions.prospect:361 -> assets/functions.prospect:336)
+[04:55:09] [DEBUG] CCallback::Create(amx=0x1712e90, name='', format='', params=0x39e55d0, param_offset=5)
+[04:55:09] [DEBUG] CHandle::Execute(this=0x38bb08, type=1, query=0x32e570)
+[04:55:09] [DEBUG] CConnection::Execute(query=0x32e570, this=0x1fc0020, connection=0x384dd0)
+[04:55:09] [DEBUG] CQuery::Execute(this=0x32e570, connection=0x384dd0)
+[04:55:09] [DEBUG] CHandle::Execute - return value: true
+[04:55:09] [DEBUG] mysql_tquery: return value: '1' (assets/functions.prospect:361 -> assets/functions.prospect:336)
+[04:55:10] [INFO] query "UPDATE players SET LastX = 1944.345093, LastY = -2102.884521, LastZ = 13.551744, LastRot = 359.951538, Interior = 0, World = 0, Skin = 299, Health = 69.000000, Armour = 0.000000 WHERE id = 1 LIMIT 1" successfully executed within 136.519 milliseconds
+[04:55:10] [DEBUG] CResultSet::Create(connection=0x384dd0, query_str='UPDATE players SET LastX = 1944.345093, LastY = -2102.884521, LastZ = 13.551744, LastRot = 359.951538, Interior = 0, World = 0, Skin = 299, Health = 69.000000, Armour = 0.000000 WHERE id = 1 LIMIT 1')
+[04:55:10] [DEBUG] created new resultset '0x2c65b0'
+[04:55:10] [DEBUG] fetched MySQL result '0x0'
+[04:55:17] [DEBUG] mysql_format(1, 0x039E55E4, 512, "UPDATE players SET LastX = %f, LastY = %f, LastZ = %f, LastRot = %f, Interior = %i, World = %i, Skin = %i, Health = %f, Armour = %f WHERE id = %i LIMIT 1") (assets/functions.prospect:358 -> assets/functions.prospect:336)
+[04:55:17] [DEBUG] mysql_format: return value: '198' (assets/functions.prospect:358 -> assets/functions.prospect:336)
+[04:55:17] [DEBUG] mysql_tquery(1, "UPDATE players SET LastX = 1955.505249, LastY = -2073.245605, LastZ = 13.546875, LastRot = 359.951538, Interior = 0, World = 0, Skin = 299, Health = 69.000000, Armour = 0.000000 WHERE id = 1 LIMIT 1", "", "") (assets/functions.prospect:361 -> assets/functions.prospect:336)
+[04:55:17] [DEBUG] CCallback::Create(amx=0x1712e90, name='', format='', params=0x39e55d0, param_offset=5)
+[04:55:17] [DEBUG] CHandle::Execute(this=0x38bb08, type=1, query=0x32e570)
+[04:55:17] [DEBUG] CConnection::Execute(query=0x32e570, this=0x1fc0020, connection=0x384dd0)
+[04:55:17] [DEBUG] CQuery::Execute(this=0x32e570, connection=0x384dd0)
+[04:55:17] [DEBUG] CHandle::Execute - return value: true
+[04:55:17] [DEBUG] mysql_tquery: return value: '1' (assets/functions.prospect:361 -> assets/functions.prospect:336)
+[04:55:17] [INFO] query "UPDATE players SET LastX = 1955.505249, LastY = -2073.245605, LastZ = 13.546875, LastRot = 359.951538, Interior = 0, World = 0, Skin = 299, Health = 69.000000, Armour = 0.000000 WHERE id = 1 LIMIT 1" successfully executed within 67.956 milliseconds
+[04:55:17] [DEBUG] CResultSet::Create(connection=0x384dd0, query_str='UPDATE players SET LastX = 1955.505249, LastY = -2073.245605, LastZ = 13.546875, LastRot = 359.951538, Interior = 0, World = 0, Skin = 299, Health = 69.000000, Armour = 0.000000 WHERE id = 1 LIMIT 1')
+[04:55:17] [DEBUG] created new resultset '0x2c65b0'
+[04:55:17] [DEBUG] fetched MySQL result '0x0'
+[04:55:24] [DEBUG] mysql_format(1, 0x039E55E4, 512, "UPDATE players SET LastX = %f, LastY = %f, LastZ = %f, LastRot = %f, Interior = %i, World = %i, Skin = %i, Health = %f, Armour = %f WHERE id = %i LIMIT 1") (assets/functions.prospect:358 -> assets/functions.prospect:336)
+[04:55:24] [DEBUG] mysql_format: return value: '198' (assets/functions.prospect:358 -> assets/functions.prospect:336)
+[04:55:24] [DEBUG] mysql_tquery(1, "UPDATE players SET LastX = 1956.493286, LastY = -2041.550293, LastZ = 13.546875, LastRot = 359.951538, Interior = 0, World = 0, Skin = 299, Health = 69.000000, Armour = 0.000000 WHERE id = 1 LIMIT 1", "", "") (assets/functions.prospect:361 -> assets/functions.prospect:336)
+[04:55:24] [DEBUG] CCallback::Create(amx=0x1712e90, name='', format='', params=0x39e55d0, param_offset=5)
+[04:55:24] [DEBUG] CHandle::Execute(this=0x38bb08, type=1, query=0x32e570)
+[04:55:24] [DEBUG] CConnection::Execute(query=0x32e570, this=0x1fc0020, connection=0x384dd0)
+[04:55:24] [DEBUG] CQuery::Execute(this=0x32e570, connection=0x384dd0)
+[04:55:24] [DEBUG] CHandle::Execute - return value: true
+[04:55:24] [DEBUG] mysql_tquery: return value: '1' (assets/functions.prospect:361 -> assets/functions.prospect:336)
+[04:55:24] [INFO] query "UPDATE players SET LastX = 1956.493286, LastY = -2041.550293, LastZ = 13.546875, LastRot = 359.951538, Interior = 0, World = 0, Skin = 299, Health = 69.000000, Armour = 0.000000 WHERE id = 1 LIMIT 1" successfully executed within 43.538 milliseconds
+[04:55:25] [DEBUG] CResultSet::Create(connection=0x384dd0, query_str='UPDATE players SET LastX = 1956.493286, LastY = -2041.550293, LastZ = 13.546875, LastRot = 359.951538, Interior = 0, World = 0, Skin = 299, Health = 69.000000, Armour = 0.000000 WHERE id = 1 LIMIT 1')
+[04:55:25] [DEBUG] created new resultset '0x2c65b0'
+[04:55:25] [DEBUG] fetched MySQL result '0x0'
+[04:55:32] [DEBUG] mysql_format(1, 0x039E55E4, 512, "UPDATE players SET LastX = %f, LastY = %f, LastZ = %f, LastRot = %f, Interior = %i, World = %i, Skin = %i, Health = %f, Armour = %f WHERE id = %i LIMIT 1") (assets/functions.prospect:358 -> assets/functions.prospect:336)
+[04:55:32] [DEBUG] mysql_format: return value: '196' (assets/functions.prospect:358 -> assets/functions.prospect:336)
+[04:55:32] [DEBUG] mysql_tquery(1, "UPDATE players SET LastX = 1955.557129, LastY = -2001.789307, LastZ = 13.546875, LastRot = 4.450122, Interior = 0, World = 0, Skin = 299, Health = 69.000000, Armour = 0.000000 WHERE id = 1 LIMIT 1", "", "") (assets/functions.prospect:361 -> assets/functions.prospect:336)
+[04:55:32] [DEBUG] CCallback::Create(amx=0x1712e90, name='', format='', params=0x39e55d0, param_offset=5)
+[04:55:32] [DEBUG] CHandle::Execute(this=0x38bb08, type=1, query=0x32e570)
+[04:55:32] [DEBUG] CConnection::Execute(query=0x32e570, this=0x1fc0020, connection=0x384dd0)
+[04:55:32] [DEBUG] CQuery::Execute(this=0x32e570, connection=0x384dd0)
+[04:55:32] [DEBUG] CHandle::Execute - return value: true
+[04:55:32] [DEBUG] mysql_tquery: return value: '1' (assets/functions.prospect:361 -> assets/functions.prospect:336)
+[04:55:32] [INFO] query "UPDATE players SET LastX = 1955.557129, LastY = -2001.789307, LastZ = 13.546875, LastRot = 4.450122, Interior = 0, World = 0, Skin = 299, Health = 69.000000, Armour = 0.000000 WHERE id = 1 LIMIT 1" successfully executed within 34.648 milliseconds
+[04:55:32] [DEBUG] CResultSet::Create(connection=0x384dd0, query_str='UPDATE players SET LastX = 1955.557129, LastY = -2001.789307, LastZ = 13.546875, LastRot = 4.450122, Interior = 0, World = 0, Skin = 299, Health = 69.000000, Armour = 0.000000 WHERE id = 1 LIMIT 1')
+[04:55:32] [DEBUG] created new resultset '0x2c66c8'
+[04:55:32] [DEBUG] fetched MySQL result '0x0'
+[04:55:40] [DEBUG] mysql_format(1, 0x039E55E4, 512, "UPDATE players SET LastX = %f, LastY = %f, LastZ = %f, LastRot = %f, Interior = %i, World = %i, Skin = %i, Health = %f, Armour = %f WHERE id = %i LIMIT 1") (assets/functions.prospect:358 -> assets/functions.prospect:336)
+[04:55:40] [DEBUG] mysql_format: return value: '198' (assets/functions.prospect:358 -> assets/functions.prospect:336)
+[04:55:40] [DEBUG] mysql_tquery(1, "UPDATE players SET LastX = 1955.574829, LastY = -1967.289185, LastZ = 13.597213, LastRot = 359.951538, Interior = 0, World = 0, Skin = 299, Health = 69.000000, Armour = 0.000000 WHERE id = 1 LIMIT 1", "", "") (assets/functions.prospect:361 -> assets/functions.prospect:336)
+[04:55:40] [DEBUG] CCallback::Create(amx=0x1712e90, name='', format='', params=0x39e55d0, param_offset=5)
+[04:55:40] [DEBUG] CHandle::Execute(this=0x38bb08, type=1, query=0x32e570)
+[04:55:40] [DEBUG] CConnection::Execute(query=0x32e570, this=0x1fc0020, connection=0x384dd0)
+[04:55:40] [DEBUG] CQuery::Execute(this=0x32e570, connection=0x384dd0)
+[04:55:40] [DEBUG] CHandle::Execute - return value: true
+[04:55:40] [DEBUG] mysql_tquery: return value: '1' (assets/functions.prospect:361 -> assets/functions.prospect:336)
+[04:55:40] [INFO] query "UPDATE players SET LastX = 1955.574829, LastY = -1967.289185, LastZ = 13.597213, LastRot = 359.951538, Interior = 0, World = 0, Skin = 299, Health = 69.000000, Armour = 0.000000 WHERE id = 1 LIMIT 1" successfully executed within 40.437 milliseconds
+[04:55:40] [DEBUG] CResultSet::Create(connection=0x384dd0, query_str='UPDATE players SET LastX = 1955.574829, LastY = -1967.289185, LastZ = 13.597213, LastRot = 359.951538, Interior = 0, World = 0, Skin = 299, Health = 69.000000, Armour = 0.000000 WHERE id = 1 LIMIT 1')
+[04:55:40] [DEBUG] created new resultset '0x2c6578'
+[04:55:40] [DEBUG] fetched MySQL result '0x0'
+[04:55:48] [DEBUG] mysql_format(1, 0x039E55E4, 512, "UPDATE players SET LastX = %f, LastY = %f, LastZ = %f, LastRot = %f, Interior = %i, World = %i, Skin = %i, Health = %f, Armour = %f WHERE id = %i LIMIT 1") (assets/functions.prospect:358 -> assets/functions.prospect:336)
+[04:55:48] [DEBUG] mysql_format: return value: '198' (assets/functions.prospect:358 -> assets/functions.prospect:336)
+[04:55:48] [DEBUG] mysql_tquery(1, "UPDATE players SET LastX = 1955.632080, LastY = -1908.617554, LastZ = 13.546875, LastRot = 359.951538, Interior = 0, World = 0, Skin = 299, Health = 69.000000, Armour = 0.000000 WHERE id = 1 LIMIT 1", "", "") (assets/functions.prospect:361 -> assets/functions.prospect:336)
+[04:55:48] [DEBUG] CCallback::Create(amx=0x1712e90, name='', format='', params=0x39e55d0, param_offset=5)
+[04:55:48] [DEBUG] CHandle::Execute(this=0x38bb08, type=1, query=0x32e570)
+[04:55:48] [DEBUG] CConnection::Execute(query=0x32e570, this=0x1fc0020, connection=0x384dd0)
+[04:55:48] [DEBUG] CQuery::Execute(this=0x32e570, connection=0x384dd0)
+[04:55:48] [DEBUG] CHandle::Execute - return value: true
+[04:55:48] [INFO] query "UPDATE players SET LastX = 1955.632080, LastY = -1908.617554, LastZ = 13.546875, LastRot = 359.951538, Interior = 0, World = 0, Skin = 299, Health = 69.000000, Armour = 0.000000 WHERE id = 1 LIMIT 1" successfully executed within 86.567 milliseconds
+[04:55:48] [DEBUG] CResultSet::Create(connection=0x384dd0, query_str='UPDATE players SET LastX = 1955.632080, LastY = -1908.617554, LastZ = 13.546875, LastRot = 359.951538, Interior = 0, World = 0, Skin = 299, Health = 69.000000, Armour = 0.000000 WHERE id = 1 LIMIT 1')
+[04:55:48] [DEBUG] created new resultset '0x2c65b0'
+[04:55:48] [DEBUG] fetched MySQL result '0x0'
+[04:55:48] [DEBUG] mysql_tquery: return value: '1' (assets/functions.prospect:361 -> assets/functions.prospect:336)
+[04:55:58] [DEBUG] mysql_format(1, 0x039E55E4, 512, "UPDATE players SET LastX = %f, LastY = %f, LastZ = %f, LastRot = %f, Interior = %i, World = %i, Skin = %i, Health = %f, Armour = %f WHERE id = %i LIMIT 1") (assets/functions.prospect:358 -> assets/functions.prospect:336)
+[04:55:58] [DEBUG] mysql_format: return value: '198' (assets/functions.prospect:358 -> assets/functions.prospect:336)
+[04:55:58] [DEBUG] mysql_tquery(1, "UPDATE players SET LastX = 1955.644409, LastY = -1860.953857, LastZ = 13.546875, LastRot = 359.951538, Interior = 0, World = 0, Skin = 299, Health = 69.000000, Armour = 0.000000 WHERE id = 1 LIMIT 1", "", "") (assets/functions.prospect:361 -> assets/functions.prospect:336)
+[04:55:58] [DEBUG] CCallback::Create(amx=0x1712e90, name='', format='', params=0x39e55d0, param_offset=5)
+[04:55:58] [DEBUG] CHandle::Execute(this=0x38bb08, type=1, query=0x32e570)
+[04:55:58] [DEBUG] CConnection::Execute(query=0x32e570, this=0x1fc0020, connection=0x384dd0)
+[04:55:58] [DEBUG] CQuery::Execute(this=0x32e570, connection=0x384dd0)
+[04:55:58] [DEBUG] CHandle::Execute - return value: true
+[04:55:58] [DEBUG] mysql_tquery: return value: '1' (assets/functions.prospect:361 -> assets/functions.prospect:336)
+[04:55:58] [INFO] query "UPDATE players SET LastX = 1955.644409, LastY = -1860.953857, LastZ = 13.546875, LastRot = 359.951538, Interior = 0, World = 0, Skin = 299, Health = 69.000000, Armour = 0.000000 WHERE id = 1 LIMIT 1" successfully executed within 56.903 milliseconds
+[04:55:58] [DEBUG] CResultSet::Create(connection=0x384dd0, query_str='UPDATE players SET LastX = 1955.644409, LastY = -1860.953857, LastZ = 13.546875, LastRot = 359.951538, Interior = 0, World = 0, Skin = 299, Health = 69.000000, Armour = 0.000000 WHERE id = 1 LIMIT 1')
+[04:55:58] [DEBUG] created new resultset '0x2c65b0'
+[04:55:58] [DEBUG] fetched MySQL result '0x0'
+[04:56:07] [DEBUG] mysql_format(1, 0x039E55E4, 512, "UPDATE players SET LastX = %f, LastY = %f, LastZ = %f, LastRot = %f, Interior = %i, World = %i, Skin = %i, Health = %f, Armour = %f WHERE id = %i LIMIT 1") (assets/functions.prospect:358 -> assets/functions.prospect:336)
+[04:56:07] [DEBUG] mysql_format: return value: '198' (assets/functions.prospect:358 -> assets/functions.prospect:336)
+[04:56:07] [DEBUG] mysql_tquery(1, "UPDATE players SET LastX = 1955.690796, LastY = -1815.103516, LastZ = 13.546875, LastRot = 359.951538, Interior = 0, World = 0, Skin = 299, Health = 69.000000, Armour = 0.000000 WHERE id = 1 LIMIT 1", "", "") (assets/functions.prospect:361 -> assets/functions.prospect:336)
+[04:56:07] [DEBUG] CCallback::Create(amx=0x1712e90, name='', format='', params=0x39e55d0, param_offset=5)
+[04:56:07] [DEBUG] CHandle::Execute(this=0x38bb08, type=1, query=0x32e570)
+[04:56:07] [DEBUG] CHandle::Execute - return value: true
+[04:56:07] [DEBUG] mysql_tquery: return value: '1' (assets/functions.prospect:361 -> assets/functions.prospect:336)
+[04:56:07] [DEBUG] CConnection::Execute(query=0x32e570, this=0x1fc0020, connection=0x384dd0)
+[04:56:07] [DEBUG] CQuery::Execute(this=0x32e570, connection=0x384dd0)
+[04:56:07] [INFO] query "UPDATE players SET LastX = 1955.690796, LastY = -1815.103516, LastZ = 13.546875, LastRot = 359.951538, Interior = 0, World = 0, Skin = 299, Health = 69.000000, Armour = 0.000000 WHERE id = 1 LIMIT 1" successfully executed within 120.114 milliseconds
+[04:56:07] [DEBUG] CResultSet::Create(connection=0x384dd0, query_str='UPDATE players SET LastX = 1955.690796, LastY = -1815.103516, LastZ = 13.546875, LastRot = 359.951538, Interior = 0, World = 0, Skin = 299, Health = 69.000000, Armour = 0.000000 WHERE id = 1 LIMIT 1')
+[04:56:07] [DEBUG] created new resultset '0x2c65b0'
+[04:56:07] [DEBUG] fetched MySQL result '0x0'
+[04:56:15] [DEBUG] mysql_format(1, 0x039E55E4, 512, "UPDATE players SET LastX = %f, LastY = %f, LastZ = %f, LastRot = %f, Interior = %i, World = %i, Skin = %i, Health = %f, Armour = %f WHERE id = %i LIMIT 1") (assets/functions.prospect:358 -> assets/functions.prospect:336)
+[04:56:15] [DEBUG] mysql_format: return value: '197' (assets/functions.prospect:358 -> assets/functions.prospect:336)
+[04:56:15] [DEBUG] mysql_tquery(1, "UPDATE players SET LastX = 1936.601685, LastY = -1746.675537, LastZ = 13.382813, LastRot = 62.950119, Interior = 0, World = 0, Skin = 299, Health = 69.000000, Armour = 0.000000 WHERE id = 1 LIMIT 1", "", "") (assets/functions.prospect:361 -> assets/functions.prospect:336)
+[04:56:15] [DEBUG] CCallback::Create(amx=0x1712e90, name='', format='', params=0x39e55d0, param_offset=5)
+[04:56:15] [DEBUG] CHandle::Execute(this=0x38bb08, type=1, query=0x32e570)
+[04:56:15] [DEBUG] CConnection::Execute(query=0x32e570, this=0x1fc0020, connection=0x384dd0)
+[04:56:15] [DEBUG] CQuery::Execute(this=0x32e570, connection=0x384dd0)
+[04:56:15] [DEBUG] CHandle::Execute - return value: true
+[04:56:15] [DEBUG] mysql_tquery: return value: '1' (assets/functions.prospect:361 -> assets/functions.prospect:336)
+[04:56:15] [INFO] query "UPDATE players SET LastX = 1936.601685, LastY = -1746.675537, LastZ = 13.382813, LastRot = 62.950119, Interior = 0, World = 0, Skin = 299, Health = 69.000000, Armour = 0.000000 WHERE id = 1 LIMIT 1" successfully executed within 56.369 milliseconds
+[04:56:15] [DEBUG] CResultSet::Create(connection=0x384dd0, query_str='UPDATE players SET LastX = 1936.601685, LastY = -1746.675537, LastZ = 13.382813, LastRot = 62.950119, Interior = 0, World = 0, Skin = 299, Health = 69.000000, Armour = 0.000000 WHERE id = 1 LIMIT 1')
+[04:56:15] [DEBUG] created new resultset '0x2c6498'
+[04:56:15] [DEBUG] fetched MySQL result '0x0'
+[04:56:25] [DEBUG] mysql_format(1, 0x039E55E4, 512, "UPDATE players SET LastX = %f, LastY = %f, LastZ = %f, LastRot = %f, Interior = %i, World = %i, Skin = %i, Health = %f, Armour = %f WHERE id = %i LIMIT 1") (assets/functions.prospect:358 -> assets/functions.prospect:336)
+[04:56:25] [DEBUG] mysql_format: return value: '198' (assets/functions.prospect:358 -> assets/functions.prospect:336)
+[04:56:25] [DEBUG] mysql_tquery(1, "UPDATE players SET LastX = 1885.775879, LastY = -1743.713257, LastZ = 13.938316, LastRot = 134.950119, Interior = 0, World = 0, Skin = 299, Health = 69.000000, Armour = 0.000000 WHERE id = 1 LIMIT 1", "", "") (assets/functions.prospect:361 -> assets/functions.prospect:336)
+[04:56:25] [DEBUG] CCallback::Create(amx=0x1712e90, name='', format='', params=0x39e55d0, param_offset=5)
+[04:56:25] [DEBUG] CHandle::Execute(this=0x38bb08, type=1, query=0x32e570)
+[04:56:25] [DEBUG] CConnection::Execute(query=0x32e570, this=0x1fc0020, connection=0x384dd0)
+[04:56:25] [DEBUG] CQuery::Execute(this=0x32e570, connection=0x384dd0)
+[04:56:25] [DEBUG] CHandle::Execute - return value: true
+[04:56:25] [DEBUG] mysql_tquery: return value: '1' (assets/functions.prospect:361 -> assets/functions.prospect:336)
+[04:56:25] [INFO] query "UPDATE players SET LastX = 1885.775879, LastY = -1743.713257, LastZ = 13.938316, LastRot = 134.950119, Interior = 0, World = 0, Skin = 299, Health = 69.000000, Armour = 0.000000 WHERE id = 1 LIMIT 1" successfully executed within 70.543 milliseconds
+[04:56:25] [DEBUG] CResultSet::Create(connection=0x384dd0, query_str='UPDATE players SET LastX = 1885.775879, LastY = -1743.713257, LastZ = 13.938316, LastRot = 134.950119, Interior = 0, World = 0, Skin = 299, Health = 69.000000, Armour = 0.000000 WHERE id = 1 LIMIT 1')
+[04:56:25] [DEBUG] created new resultset '0x2c6498'
+[04:56:25] [DEBUG] fetched MySQL result '0x0'
+[04:56:35] [DEBUG] mysql_format(1, 0x039E55E4, 512, "UPDATE players SET LastX = %f, LastY = %f, LastZ = %f, LastRot = %f, Interior = %i, World = %i, Skin = %i, Health = %f, Armour = %f WHERE id = %i LIMIT 1") (assets/functions.prospect:358 -> assets/functions.prospect:336)
+[04:56:35] [DEBUG] mysql_format: return value: '198' (assets/functions.prospect:358 -> assets/functions.prospect:336)
+[04:56:35] [DEBUG] mysql_tquery(1, "UPDATE players SET LastX = 1862.289551, LastY = -1742.837036, LastZ = 13.546875, LastRot = 249.969116, Interior = 0, World = 0, Skin = 299, Health = 69.000000, Armour = 0.000000 WHERE id = 1 LIMIT 1", "", "") (assets/functions.prospect:361 -> assets/functions.prospect:336)
+[04:56:35] [DEBUG] CCallback::Create(amx=0x1712e90, name='', format='', params=0x39e55d0, param_offset=5)
+[04:56:35] [DEBUG] CHandle::Execute(this=0x38bb08, type=1, query=0x32e570)
+[04:56:35] [DEBUG] CConnection::Execute(query=0x32e570, this=0x1fc0020, connection=0x384dd0)
+[04:56:35] [DEBUG] CQuery::Execute(this=0x32e570, connection=0x384dd0)
+[04:56:35] [DEBUG] CHandle::Execute - return value: true
+[04:56:35] [DEBUG] mysql_tquery: return value: '1' (assets/functions.prospect:361 -> assets/functions.prospect:336)
+[04:56:35] [INFO] query "UPDATE players SET LastX = 1862.289551, LastY = -1742.837036, LastZ = 13.546875, LastRot = 249.969116, Interior = 0, World = 0, Skin = 299, Health = 69.000000, Armour = 0.000000 WHERE id = 1 LIMIT 1" successfully executed within 57.997 milliseconds
+[04:56:35] [DEBUG] CResultSet::Create(connection=0x384dd0, query_str='UPDATE players SET LastX = 1862.289551, LastY = -1742.837036, LastZ = 13.546875, LastRot = 249.969116, Interior = 0, World = 0, Skin = 299, Health = 69.000000, Armour = 0.000000 WHERE id = 1 LIMIT 1')
+[04:56:35] [DEBUG] created new resultset '0x2c65b0'
+[04:56:35] [DEBUG] fetched MySQL result '0x0'
+[04:56:42] [DEBUG] mysql_format(1, 0x039E55E4, 512, "UPDATE players SET LastX = %f, LastY = %f, LastZ = %f, LastRot = %f, Interior = %i, World = %i, Skin = %i, Health = %f, Armour = %f WHERE id = %i LIMIT 1") (assets/functions.prospect:358 -> assets/functions.prospect:336)
+[04:56:42] [DEBUG] mysql_format: return value: '198' (assets/functions.prospect:358 -> assets/functions.prospect:336)
+[04:56:42] [DEBUG] mysql_tquery(1, "UPDATE players SET LastX = 1866.236084, LastY = -1744.276123, LastZ = 13.546875, LastRot = 249.969116, Interior = 0, World = 0, Skin = 299, Health = 69.000000, Armour = 0.000000 WHERE id = 1 LIMIT 1", "", "") (assets/functions.prospect:361 -> assets/functions.prospect:336)
+[04:56:42] [DEBUG] CCallback::Create(amx=0x1712e90, name='', format='', params=0x39e55d0, param_offset=5)
+[04:56:42] [DEBUG] CHandle::Execute(this=0x38bb08, type=1, query=0x32e570)
+[04:56:42] [DEBUG] CConnection::Execute(query=0x32e570, this=0x1fc0020, connection=0x384dd0)
+[04:56:42] [DEBUG] CQuery::Execute(this=0x32e570, connection=0x384dd0)
+[04:56:42] [DEBUG] CHandle::Execute - return value: true
+[04:56:42] [DEBUG] mysql_tquery: return value: '1' (assets/functions.prospect:361 -> assets/functions.prospect:336)
+[04:56:43] [INFO] query "UPDATE players SET LastX = 1866.236084, LastY = -1744.276123, LastZ = 13.546875, LastRot = 249.969116, Interior = 0, World = 0, Skin = 299, Health = 69.000000, Armour = 0.000000 WHERE id = 1 LIMIT 1" successfully executed within 49.244 milliseconds
+[04:56:43] [DEBUG] CResultSet::Create(connection=0x384dd0, query_str='UPDATE players SET LastX = 1866.236084, LastY = -1744.276123, LastZ = 13.546875, LastRot = 249.969116, Interior = 0, World = 0, Skin = 299, Health = 69.000000, Armour = 0.000000 WHERE id = 1 LIMIT 1')
+[04:56:43] [DEBUG] created new resultset '0x2c6578'
+[04:56:43] [DEBUG] fetched MySQL result '0x0'
