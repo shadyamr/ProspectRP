@@ -1,2 +1,0 @@
-[04:53:26] [plugins/discord-connector] invalid UTF-8 string: [json.exception.type_error.316] invalid UTF-8 byte at index 54: 0xFF
-[04:56:49] [log-core] exception 0XC0000005 (ACCESS_VIOLATION) from Vectored Exception Handler catched; shutting log-core down
